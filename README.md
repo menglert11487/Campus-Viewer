@@ -9,4 +9,8 @@ sich einen Überblick über den Campus der Hochschule zu verschaffen.
 Ab hier trägt jeder seinen Namen ein:
 
 01.) Michael Englert
-02.) Andreas Fitz
+
+02.) Katharina Kahlert
+
+03.) Meltem Özkul
+04.) Andreas Fitz
