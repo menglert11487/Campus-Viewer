@@ -14,7 +14,7 @@
 
    </head>
 
-   <body>
+   <body onLoad="changeSpeed()">
        
        <div id="startseite"><a href="index.html">Startseite</a></div>
        <div id="impressum"><a href="impressum.html">Impressum</a></div>
@@ -38,13 +38,15 @@
 
 
 
-       <div id="ansicht"><x3d width="800" height="400" >
+       <div id="ansicht"><x3d style="width:100%;height:100%;" id="x3d_element">
+	   
                <scene frustumCulling="true"><transform scale="1 1 1" translation="200 0 -100" rotation="1 0 0 -1.57">
+			   <navigationInfo type='"walk", "any"'></navigationInfo>
 			   
+			   <Background backUrl="texturen/skybox/mid.jpg" bottomUrl="texturen/skybox/bot.jpg" frontUrl="texturen/skybox/mid.jpg" leftUrl="texturen/skybox/mid.jpg" rightUrl="texturen/skybox/mid.jpg" topUrl="texturen/skybox/top.jpg" ></Background>
 					<shape>
 						<appearance>
-							<material diffuseColor="gray">
-							</material>
+							<ImageTexture repeatS="true" repeatT="true" url="texturen/ground.jpg">
 						</appearance>
 						<plane size="400 400"></plane>
 					</shape>
@@ -56,6 +58,13 @@
 					<inline url="baum/baum.x3d"></inline>
 					<inline url="E009/E009.x3d"></inline>
                    <background skyColor="0 0 0"></background>
+				   
+				<Viewpoint
+				position="130.72775 1.58897 -141.48216" 
+				orientation="0.02918 0.99920 -0.02732 1.50564" 
+				zNear="0.10000" zFar="10000.00000"
+				description="defaultX3DViewpointNode">
+				</Viewpoint>
 				
                <Viewpoint id="vp_1"
 					position="200.00000 12.99405 589.67119" 
