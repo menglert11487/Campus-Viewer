@@ -10,20 +10,30 @@
        <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
        <script type="text/javascript" src="javaScript.js"></script>
+       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 
 
    </head>
 
-   <body onLoad="changeSpeed()">
-       
-       <div id="startseite"><a href="index.html">Startseite</a></div>
-       <div id="impressum"><a href="impressum.html">Impressum</a></div>
-       <div id="kontakt"><a href="kontakt.html">Kontakt</a></div>
-       <div id="box4">Funktion</div>
-       <div id="box5">Funktion</div>
-       <div id="box6">Funktion</div>
-	   
-	   <button onclick="switchCamera('vp_1');">ferne</button>
+   <body onLoad="changeSpeed()"> 
+   
+  
+
+       <div data-role="page" id="pageone">
+  <div data-role="panel" id="myPanel"> 
+    <h2>Menu Bar</h2>
+    <a href="index.html"><button>Startseite</button></a>
+   <!-- <a href="impressum.html"><button>Impressum</button></a>
+    <a href="kontakt.html"><button>Kontakt</button></a>
+    <a href=".html"><button>Login</button></a> -->
+    <a href="new.html"><button>Infobereich</button></a>
+  </div> 
+  
+  <div data-role="panel" id="myPanel2"> 
+    <h2>Navi</h2>
+    <button onclick="switchCamera('vp_1');">ferne</button>
 	   <button onclick="switchCamera('vp_2');">vogel</button>
 	   <button onclick="switchCamera('vp_3');">geneigt</button>
 	   <button onclick="switchCamera('vp_4');">G</button>
@@ -34,6 +44,25 @@
            <input name="searchField" type="text"/>
            <input name="submit" type="submit" value="Suche"/>
        </form>
+  </div> 
+
+  <div data-role="main" class="ui-content">
+    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menu</a> <br>
+    <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
+
+
+	   
+	   <!--<button onclick="switchCamera('vp_1');">ferne</button>
+	   <button onclick="switchCamera('vp_2');">vogel</button>
+	   <button onclick="switchCamera('vp_3');">geneigt</button>
+	   <button onclick="switchCamera('vp_4');">G</button>
+	   <button onclick="switchCamera('vp_5');">C</button>
+	   <button onclick="switchCamera('vp_6');">mensa</button>
+
+       <form name="googleSearch" id="googleSearch" action="javascript:googleSearch()">
+           <input name="searchField" type="text"/>
+           <input name="submit" type="submit" value="Suche"/>
+       </form> -->
 
 
 
@@ -109,7 +138,9 @@
 				</Viewpoint>
 				
 			   </scene>
-           </x3d></div>
+           </x3d></div> 
+           </div>
+</div> 
 
    </body>
 </html>
