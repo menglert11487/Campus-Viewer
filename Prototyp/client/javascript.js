@@ -45,6 +45,11 @@ function switchCamera(id){
 
 function changeSpeed(){
 	var x = document.getElementById("x3d_element");
-	x.runtime.speed(8);
+	var y = document.changeSpeed.speed.value;
+		if(y==null)
+		{
+			y=20;
+		}
+	x.runtime.speed(y);
 }
 

@@ -44,26 +44,8 @@ Ks 0.330000 0.330000 0.330000
 
 newmtl FrontColor
 Ka 0.000000 0.000000 0.000000
-Kd 0.890196 0.882353 0.870588
+Kd 1.000000 1.000000 1.000000
 Ks 0.330000 0.330000 0.330000
-
-newmtl Roofing_Tile_Spanish
-Ka 0.000000 0.000000 0.000000
-Kd 0.619608 0.368627 0.227451
-Ks 0.330000 0.330000 0.330000
-map_Kd e/Roofing_Tile_Spanish.jpg
-
-newmtl Translucent_Glass_Blue
-Ka 0.000000 0.000000 0.000000
-Kd 0.392157 0.584314 0.929412
-Ks 0.330000 0.330000 0.330000
-d 0.500000
-
-newmtl _1
-Ka 0.000000 0.000000 0.000000
-Kd 0.572549 0.396078 0.337255
-Ks 0.330000 0.330000 0.330000
-map_Kd e/_1.jpg
 
 newmtl Brick_Antique
 Ka 0.000000 0.000000 0.000000
@@ -71,21 +53,15 @@ Kd 0.576471 0.411765 0.278431
 Ks 0.330000 0.330000 0.330000
 map_Kd e/Brick_Antique.jpg
 
-newmtl Brick_Rough_Dark
+newmtl Brick_Tumbled
 Ka 0.000000 0.000000 0.000000
-Kd 0.368627 0.301961 0.207843
+Kd 0.529412 0.517647 0.517647
 Ks 0.330000 0.330000 0.330000
-map_Kd e/Brick_Rough_Dark.jpg
+map_Kd e/Brick_Tumbled.jpg
 
-newmtl Metal_Corrogated_Shiny
+newmtl Translucent_Glass_Blue
 Ka 0.000000 0.000000 0.000000
-Kd 0.756863 0.756863 0.756863
+Kd 0.392157 0.584314 0.929412
 Ks 0.330000 0.330000 0.330000
-map_Kd e/Metal_Corrogated_Shiny.jpg
-
-newmtl Metal_Aluminum_Anodized
-Ka 0.000000 0.000000 0.000000
-Kd 0.792157 0.819608 0.858824
-Ks 0.330000 0.330000 0.330000
-map_Kd e/Metal_Aluminum_Anodized.jpg
+d 0.500000
 

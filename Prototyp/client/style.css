@@ -165,6 +165,7 @@ body{
 
 DIV#x3dom_logdiv.x3dom-logContainer{
 	position:absolute;
+	z-index: 10000;
 	bottom: 0px;
 }
 
