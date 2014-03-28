@@ -20,30 +20,30 @@
   <div data-role="panel" id="myPanel"> 
     <h2>Menu Bar</h2>
     <a href="index.html"><button>Startseite</button></a>
-    <a href=".html"><button>Login</button></a> <!--Inaktiv?-->
-    <a href="projektinformation.html"><button>Über das Projekt</button></a>
-    <a href= "hochschulinformation.html"><button>Über die Hochschule</button></a>
-    <a href= "bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-     <a href="impressum.html"><button>Impressum</button></a>
-     <a href="kontakt.html"><button>Kontakt</button></a>
+   <!-- <a href="impressum.html"><button>Impressum</button></a>
+    <a href="kontakt.html"><button>Kontakt</button></a>
+    <a href=".html"><button>Login</button></a> -->
+    <a href="new.html"><button>Infobereich</button></a>
   </div> 
   
   <div data-role="panel" id="myPanel2"> 
     <h2>Navi</h2>
-    <button onclick="switchCamera('vp_1');">ferne</button>
-	   <button onclick="switchCamera('vp_2');">vogel</button>
-	   <button onclick="switchCamera('vp_3');">geneigt</button>
+    <button onclick="switchCamera('vp_1');">Ferne</button>
+	   <button onclick="switchCamera('vp_2');">Geneigt</button>
+	   <button onclick="switchCamera('vp_3');">E</button>
 	   <button onclick="switchCamera('vp_4');">G</button>
 	   <button onclick="switchCamera('vp_5');">C</button>
-	   <button onclick="switchCamera('vp_6');">mensa</button>
+	   <button onclick="switchCamera('vp_6');">Mensa</button>
+	   <button onclick="switchCamera('vp_7');">SSC</button>
+	   <button onclick="switchCamera('vp_8');">Bibliothek</button>
 
-       <form name="googleSearch" id="googleSearch" action="javascript:googleSearch()">
+       <!--<form name="googleSearch" id="googleSearch" action="javascript:googleSearch()">
            <input name="searchField" type="text"/>
            <input name="submit" type="submit" value="Suche"/>
-       </form>
+       </form> -->
 	   <form name="changeSpeed" action="javascript:changeSpeed()">
 	   <input name="speed" type="text"></input>
-	    <input name="submit" type="submit" value="speed"/>
+	    <input name="submit" type="submit" value="Speed"/>
 	   </form>
   </div> 
 
@@ -104,11 +104,11 @@
 				<!--	<inline url="E009/E009.x3d"></inline> -->
                    <background skyColor="0 0 0"></background>
 				   
-				<Viewpoint
-				position="130.72775 1.58897 -141.48216" 
-				orientation="0.02918 0.99920 -0.02732 1.50564" 
-				zNear="0.10000" zFar="10000.00000"
-				description="defaultX3DViewpointNode">
+				<Viewpoint 
+					position="203.17495 124.79400 151.24406" 
+					orientation="-0.99963 0.02700 -0.00325 0.62053" 
+					zNear="0.1" zFar="10000" 
+					description="defaultX3DViewpointNode">
 				</Viewpoint>
 				
                <Viewpoint id="vp_1"
@@ -119,37 +119,51 @@
 				</Viewpoint>
 				
 				<Viewpoint id="vp_2"
-					position="215.16221 395.98122 -10.79635" 
-					orientation="-0.99594 0.07265 0.05311 1.30782" 
-					zNear="0.1" zFar="10000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_3"
 					position="203.17495 124.79400 151.24406" 
 					orientation="-0.99963 0.02700 -0.00325 0.62053" 
 					zNear="0.1" zFar="10000" 
 					description="defaultX3DViewpointNode">
 				</Viewpoint>
 				
+				<Viewpoint id="vp_3"
+					position="159.37605 1.46610 -60.58455" 
+					orientation="0.92791 -0.37124 0.03413 0.19754" 
+					zNear="0.10000" zFar="10000.00000" 
+					description="defaultX3DViewpointNode">
+				</Viewpoint>
+				
 				<Viewpoint id="vp_4"
-					position="148.24575 44.59078 -65.05391" 
-					orientation="-0.26352 0.91218 0.31383 1.16199" 
-					zNear="0.1" zFar="10000" 
+					position="94.89374 2.26121 -13.38187" 
+					orientation="0.30353 0.94681 -0.10680 0.71159" 
+					zNear="0.10000" zFar="10000.00000" 
 					description="defaultX3DViewpointNode">
 				</Viewpoint>
 				
 				<Viewpoint id="vp_5" 
-					position="178.67073 25.83882 -130.94779" 
-					orientation="-0.02590 0.99150 0.12754 2.66570" 
-					zNear="0.1" zFar="10000" 
+					position="235.52547 1.90549 -36.81432" 
+					orientation="0.02063 0.99837 -0.05327 2.40363" 
+					zNear="0.10000" zFar="10000.00000" 
 					description="defaultX3DViewpointNode">
 				</Viewpoint>
 				
 				<Viewpoint id="vp_6"
-					position="253.10728 39.99857 -83.94699"
-					orientation="-0.95806 -0.25314 0.13432 0.36432" 
-					zNear="0.1" zFar="10000" 
+					position="256.16891 1.91406 -132.14357"
+					orientation="0.97473 0.22264 -0.01839 0.16912"
+					zNear="0.10000" zFar="10000.00000"
+					description="defaultX3DViewpointNode">
+				</Viewpoint>
+				
+				<Viewpoint id="vp_7"
+					position="254.23558 1.05986 -193.82718" 
+					orientation="0.10511 0.99038 -0.09005 1.42631" 
+					zNear="0.10000" zFar="10000.00000" 
+					description="defaultX3DViewpointNode">
+				</Viewpoint>
+				
+				<Viewpoint id="vp_8"
+					position="264.75830 2.38113 -168.60994" 
+					orientation="0.18587 -0.97973 0.07459 0.77753"
+					zNear="0.10000"zFar="10000.00000" 
 					description="defaultX3DViewpointNode">
 				</Viewpoint>
 				
