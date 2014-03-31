@@ -53,3 +53,7 @@ function changeSpeed(){
 	x.runtime.speed(y);
 }
 
+function lookArround(){
+	var x = document.getElementById("x3d_element");
+	x.runtime.speed(0.00001);
+}

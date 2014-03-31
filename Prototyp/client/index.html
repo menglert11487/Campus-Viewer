@@ -7,7 +7,7 @@
        <meta name="viewport" content="width=device-width">
        <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css" />
        <link rel="stylesheet" type="text/css" href="style.css" />
-       <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
+       <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom-full.js"></script>
        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
        <script type="text/javascript" src="javaScript.js"></script>
        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
@@ -30,7 +30,7 @@
   
   <div data-role="panel" id="myPanel2"> 
     <h2>Navi</h2>
-    <button onclick="switchCamera('vp_1');">Ferne</button>
+    <!--<button onclick="switchCamera('vp_1');">Ferne</button> -->
 	   <button onclick="switchCamera('vp_2');">Geneigt</button>
 	   <button onclick="switchCamera('vp_3');">E</button>
 	   <button onclick="switchCamera('vp_4');">G</button>
@@ -43,6 +43,8 @@
            <input name="searchField" type="text"/>
            <input name="submit" type="submit" value="Suche"/>
        </form> -->
+	   <button onClick="lookArround()">360 view</button>
+	   
 	   <form name="changeSpeed" action="javascript:changeSpeed()">
 	   <input name="speed" type="text"></input>
 	    <input name="submit" type="submit" value="Speed"/>
@@ -67,7 +69,8 @@
 	   
        <div id="ansicht"><x3d style="width:100%;height:100%;" id="x3d_element">
 	   
-               <scene frustumCulling="true"><transform scale="1 1 1" translation="200 0 -100" rotation="1 0 0 -1.57">
+               <scene frustumCulling="true">
+			   <transform scale="1 1 1" translation="200 0 -100" rotation="1 0 0 -1.57">
 			   <navigationInfo type='"walk", "any"'></navigationInfo>
 			   
 			   <Background backUrl="texturen/skybox/mid.jpg" bottomUrl="texturen/skybox/bot.jpg" frontUrl="texturen/skybox/mid.jpg" leftUrl="texturen/skybox/mid.jpg" rightUrl="texturen/skybox/mid.jpg" topUrl="texturen/skybox/top.jpg" ></Background>
@@ -84,8 +87,20 @@
 					<transform scale="1 1 1" translation="120 0 -175">
 					<inline url="tree/tree.x3d"></inline>
 					</transform>
-					<transform scale="1 1 1" translation="10 0 20">
-					<inline url="g/g.x3d"></inline>
+					<Collision enabled="true" render="true" bboxCenter="10 0 20" bboxSize="-1 -1 -1" containerField="children">
+					<transform scale="1 1 1" render="true" translation="10 0 20" bboxCenter="10 0 20" bboxSize="-1 -1 -1" containerField="children">
+					<inline url="g/g.x3d" load="true" bboxCenter="10 0 20" bboxSize="-1 -1 -1" containerField="children"></inline>
+					</transform>
+					</Collision>
+					<!--<inline url="g/tur/gtur.x3d" onmousedown="alert('test');" ></inline> -->
+					<transform scale="0.6 0.6 0.6" translation="59 2 -48" rotation="0 1 0 1.57">
+						<shape>
+							<appearance>
+								<Material transparency='0.1' emissiveColor='0 1 1'>
+								</Material>
+							</appearance>
+							<box size="10 10 10" onmousedown="window.location ='g/1flur/1flur.html';"></box>
+						</shape>
 					</transform>
 					<transform scale="1.4 1.4 1.4" translation="-15 0 60">
 					<inline url="c/c.x3d"></inline>
@@ -102,9 +117,20 @@
 					<transform scale="1 1 1" translation="120 0 -175">
 					<inline url="bib/bib.x3d"></inline>
 					</transform>
-					
 				<!--	<inline url="E009/E009.x3d"></inline> -->
                    <background skyColor="0 0 0"></background>
+				   
+				<!--  <Collision bboxSize="-1 -1 -1" enabled="true" bboxCenter="0 0 0" containerField="children" render="true">
+<Transform center="50 50 50" rotation="0 0 1 0" scale="50 50 50" scaleOrientation="0 0 1 0" translation="0 0 0" bboxCenter="50 50 50" bboxSize="-1 -1 -1" containerField="children" render="true">
+<Shape containerField="children" bboxCenter="50 50 50" bboxSize="-1 -1 -1" render="true" isPickable="true">
+<Appearance containerField="appearance" sortType="auto">
+<Material  ambientIntensity="0.2" diffuseColor="0.8 0.8 0.8" emissiveColor="0 0 0" shininess="0.2" specularColor="0 0 0" transparency="0" containerField="material"></Material>
+</Appearance>
+<Box size="100 100 100" solid="true" containerField="geometry" ccw="true" useGeoCache="true" lit="true"></Box>
+<Box DEF="box"/>
+</Shape>
+</Transform>
+</Collision> -->
 				   
 				<Viewpoint 
 					position="203.17495 124.79400 151.24406" 
@@ -169,8 +195,8 @@
 					description="defaultX3DViewpointNode">
 				</Viewpoint>
 				
-				<Collision enabled='true' bboxCenter='0 0 0' bboxSize='-1 -1 -1' containerField='children'>
-				</Collision>
+				
+				
 			   </scene>
            </x3d></div> 
            </div>
