@@ -20,3 +20,5 @@ Ab hier trägt jeder seinen Namen ein:
 
 06.) Meik Bolender
 
+07.) CHEFKOCH ist der Chef
+
