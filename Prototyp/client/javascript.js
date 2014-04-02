@@ -43,5 +43,17 @@ function switchCamera(id){
 	
 }
 
+function changeSpeed(){
+	var x = document.getElementById("x3d_element");
+	var y = document.changeSpeed.speed.value;
+		if(y==null)
+		{
+			y=20;
+		}
+	x.runtime.speed(y);
+}
 
-
+function lookArround(){
+	var x = document.getElementById("x3d_element");
+	x.runtime.speed(0.00001);
+}

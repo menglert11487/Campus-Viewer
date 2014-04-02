@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='SP_0'>
+      <Appearance DEF='FrontColor'>
+        <Material diffuseColor='0.890196 0.882353 0.870588' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='16' primType='"TRIANGLESTRIP"' position='144.174499512 0 -105.61530304' size='82.6790084839 0 52.1974029541' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_1'>
+      <Appearance DEF='tree'>
+        <Material diffuseColor='0.501961 0.501961 0.501961' shininess='0'/>
+        <ImageTexture url='"baum/tree.png"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='106' primType='"TRIANGLESTRIP"' position='146.153991699 5.37409973145 -105.496902466' size='85.3860015869 12.0081996918 48.9061965942' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin' texCoord='bingeo/BG_1_texCoordBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>

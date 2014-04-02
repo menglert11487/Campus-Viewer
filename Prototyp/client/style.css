@@ -12,9 +12,12 @@ body{
    cursor:pointer;
 
    position:absolute;
-   left:15%;
-   top:20%;
-   padding: 10px 10px;
+   left:0%;
+   top:0%;
+   padding: 0 0;
+   width:99%;
+   height:99%;
+   z-index: -1;
 
    text-align: center;
    font-weight: bold;
@@ -162,6 +165,7 @@ body{
 
 DIV#x3dom_logdiv.x3dom-logContainer{
 	position:absolute;
+	z-index: 10000;
 	bottom: 0px;
 }
 
