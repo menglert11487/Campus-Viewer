@@ -1,0 +1,20 @@
+article {	font-family : Arial; 
+		position: absolute;
+		left: 200px;
+		float: left;}
+
+label {
+		width: 10em;
+		display: block;
+		float: left;
+		font-family : Arial;
+}
+
+fieldset {
+		position: absolute;
+		left: 200px;
+		top: 220px;
+		border-color: #000000;
+		background-color: #ececec;
+		width: 400px;
+}
