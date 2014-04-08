@@ -1,52 +1,37 @@
 <!DOCTYPE HTML>
 
 <html>
-
-	<head>
-	
-	</head>
-	
-	<body>
-	
-		<style = "text/css">
-			#username { color: purple; 
-						background-color: yellow;
-					  }
-
+		<link rel="stylesheet" type="text/css" href="styleRegistration.css" />
+		<script type="text/javascript" src="javascriptRegistration.js"></script>
 		
-		</style>
+		<head>
+			<title>Registrierung vom Campus Viewer Fulda</title>
+		</head>
 		
+	<body>		
+			<article>
+				<h1>Registrierung vom Campus Viewer Fulda</h1>
+				<b>Bitte f&uuml;llen Sie alle Felder aus, damit Sie sich sp&auml;ter Anmelden k&ouml;nnen.</b>
+			</article>
+			
 		<form action="/user/new" method="post">
+<fieldset>
+			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="20" name="e"></p>
 
-			<p id = "username">
-
-				Benutzername: 	  <input type="text" size="40" name="username">
-			</p>
+			<p><label for = "givenname"> Vorname:			  </label><input class="givenname" type="text" size="20" maxlength="20" name="givenname"></p>
 			
-			<p>
-				Vorname:  <input type="text" size="40" name="givenname">
-			</p>
+			<p><label for = "name">Nachname:				  </label><input class="name" type="text" size="20" maxlength="20" name="name"></p>
+	
+			<p><label for = "email">Email-Adresse:			  </label><input class="email" type="text" size="20" maxlength="20" name="email"></p>
 			
-			<p>
-				Nachname: <input type="text" size="40" name="name">
-			</p>
+			<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="20" name="password"></p>
 			
-			<p>
-				Email-Adresse:    <input type="text" size="40" name="email">
-			</p>
+			<p><label for="samePassword">Passwort wiederholen:</label><input class="samePassword" type="password" size="20" maxlength="20" name="samePassword"></p>
 			
-			<p>
-				Passwort:    <input type="text" size="40" name="password">
-			</p>
-			
-			<p>
-				Passwort wiederholen:    <input type="text" size="40" name="samePassword">
-			</p>
-			
-			<p>
-				<input type="submit" value="Absenden">
-			</p>
-			
+			<label for="send"></label><input type="submit" value="Absenden" style=cursor:pointer;>
+	
+			<label for="delete"></label><input type="submit" value="Zur&uuml;ckversetzen" style=cursor:pointer;>		
+</fieldset>
 		</form>
 		
 	</body>
