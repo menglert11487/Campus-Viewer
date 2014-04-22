@@ -9,14 +9,34 @@
         <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="javaScript.js"></script>
-            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script type = "text/javascript">
+		
+			function checkFormulars()
+			{
+				if (document.Formulars.username.value == "")
+				{
+					alert("Bitte Benutzernamen eingeben.");
+					document.Formulars.username.focus();
+					return false;
+				}
+				
+				if (document.Formulars.password.value == "")
+				{
+					alert("Bitte das Passwort eingeben.");
+					document.Formulars.password.focus();
+					return false;
+				}
+			}
+		</script>
     </head>
     <body>
     
     
-       <div data-role="page" id="pageone">
+  <div data-role="page" id="pageone">
   <div data-role="panel" id="myPanel"> 
     <h2>Menü</h2>
     <a href="index.html"><button>Startseite</button></a>
@@ -26,14 +46,12 @@
     <a href="kontakt.html"><button>Kontakt</button></a>
     <a href="impressum.html"><button>Impressum</button></a>
     <a href="login.html"><button>Login</button></a>
+	<a href="registration.html"><button>Registrieren</button></a>	
   </div> 
-  
- 
 
   <div data-role="main" class="ui-content">
-    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menu</a> <br>
+    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
   
-
 
        <!-- <div id="startseite"><a href="index.html">Startseite</a></div>
 		<!--
@@ -50,15 +68,15 @@
 				<b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
 			</article>
 			
-		<form action="/user/new" method="post">
-<fieldset>
-			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="20" name="e"></p>
+		<form action="/user/new" name ="Formulars" action="http://de.selfhtml.org/cgi-bin/formview.pl" method="post" onsubmit = "return checkFormulars()">
+			<fieldset>
+				<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="50" name="username"></p>
 			
-			<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="20" name="password"></p>
+				<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="50" name="password"></p>
 						
-			<label for = "login"></label><input type="submit" value="Login" style=cursor:pointer;>
+				<label for = "login"></label><input type="submit" value="Login" style=cursor:pointer;>
 			
-</fieldset>
+			</fieldset>
 		</form>
 
         

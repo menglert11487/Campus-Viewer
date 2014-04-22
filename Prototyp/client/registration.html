@@ -1,36 +1,108 @@
 <!DOCTYPE HTML>
 
 <html>
-		<link rel="stylesheet" type="text/css" href="styleRegistration.css" />
-		<script type="text/javascript" src="javascriptRegistration.js"></script>
+		
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <script type="text/javascript" src="javaScript.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script type="text/javascript">
+			function checkFormular()
+			{
+				if (document.Formular.username.value == "")
+				{
+					alert("Bitte Benutzernamen eingeben.");
+					document.Formular.username.focus();
+					return false;
+				}
+				
+				if (document.Formular.givenname.value == "")
+				{
+					alert("Bitte Vornamen eingeben.");
+					document.Formular.givenname.focus();
+					return false;
+				}
+				
+				if (document.Formular.name.value == "")
+				{
+					alert("Bitte Nachnamen eingeben.");
+					document.Formular.name.focus();
+					return false;
+				}
+				if (document.Formular.email.value.indexOf("@") == -1)
+				{
+					alert("Bitte Email-Adresse eingeben.");
+					document.Formular.email.focus();
+					return false;
+				}
+				if (document.Formular.password.value == "")
+				{
+					alert("Bitte Passwort eingeben.");
+					document.Formular.password.focus();
+					return false;
+				}
+				if (document.Formular.samePassword.value == "")
+				{
+					alert("Bitte nochmal das Passwort eingeben.");
+					document.Formular.samePassword.focus();
+					return false;
+				}				
+			}
+		</script>
 		
 		<head>
 			<title>Registrierung vom Campus Viewer Fulda</title>
 		</head>
 		
-	<body>		
+	<body>	
+	
+       <div data-role="page" id="pageone">
+  <div data-role="panel" id="myPanel"> 
+    <h2>Menü</h2>
+    <a href="index.html"><button>Startseite</button></a>
+    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
+    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+    <a href="kontakt.html"><button>Kontakt</button></a>
+    <a href="impressum.html"><button>Impressum</button></a>
+    <a href="login.html"><button>Login</button></a>
+	<a href="registration.html"><button>Registrieren</button></a>
+  </div> 
+  
+ 
+
+  <div data-role="main" class="ui-content">
+    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+  
 			<article>
 				<h1>Registrierung vom Campus Viewer Fulda</h1>
 				<b>Bitte f&uuml;llen Sie alle Felder aus, damit Sie sich sp&auml;ter Anmelden k&ouml;nnen.</b>
 			</article>
 			
-		<form action="/user/new" method="post">
+		<form action="/user/new" name = "Formular" action="http://de.selfhtml.org/cgi-bin/formview.pl" method="post" onsubmit= "return checkFormular()">
 <fieldset>
-			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="20" name="e"></p>
+			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="50" name="username"></p>
 
-			<p><label for = "givenname"> Vorname:			  </label><input class="givenname" type="text" size="20" maxlength="20" name="givenname"></p>
+			<p><label for = "givenname"> Vorname:			  </label><input class="givenname" type="text" size="20" maxlength="50" name="givenname"></p>
 			
-			<p><label for = "name">Nachname:				  </label><input class="name" type="text" size="20" maxlength="20" name="name"></p>
+			<p><label for = "name">Nachname:				  </label><input class="name" type="text" size="20" maxlength="50" name="name"></p>
 	
-			<p><label for = "email">Email-Adresse:			  </label><input class="email" type="text" size="20" maxlength="20" name="email"></p>
+			<p><label for = "email">Email-Adresse:			  </label><input class="email" type="text" size="20" maxlength="50" name="email"></p>
 			
-			<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="20" name="password"></p>
+			<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="50" name="password"></p>
 			
-			<p><label for="samePassword">Passwort wiederholen:</label><input class="samePassword" type="password" size="20" maxlength="20" name="samePassword"></p>
+			<p><label for="samePassword">Passwort wiederholen:</label><input class="samePassword" type="password" size="20" maxlength="50" name="samePassword"></p>
 			
 			<label for="send"></label><input type="submit" value="Absenden" style=cursor:pointer;>
 	
-			<label for="delete"></label><input type="submit" value="Zur&uuml;ckversetzen" style=cursor:pointer;>		
+			<label for="delete"></label><input type="reset" value="Zur&uuml;ckversetzen" style=cursor:pointer;>		
 </fieldset>
 		</form>
 		
