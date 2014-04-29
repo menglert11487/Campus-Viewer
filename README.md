@@ -9,11 +9,8 @@ sich einen Überblick über den Campus der Hochschule zu verschaffen.
 Ab hier trägt jeder seinen Namen ein:
 
 01.) Michael Englert
-<<<<<<< HEAD
-
-03.) Ramón Wilhelm
-=======
 02.) Katharina Kahlert 
->>>>>>> c0627f21c338428d9207e098a2faff17d2ed221b
-
-
+03.) Kapnang Kameni , Simon Pierre
+04.) Meik Bolender
+05.) Ramón Wilhelm
+06.) Katharina Kahlert 
