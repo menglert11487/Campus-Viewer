@@ -1,4 +1,4 @@
-﻿Campus-Viewer
+Campus-Viewer
 =============
 
 Mit der Campus Viewer App sollen Menschen, 
@@ -9,5 +9,4 @@ sich einen Überblick über den Campus der Hochschule zu verschaffen.
 Ab hier trägt jeder seinen Namen ein:
 
 01.) Michael Englert
-02.) Andreas Fitz
-03.) Désirée Mauß
+02.) Katharina Kahlert 08.) Désirée Mauß09.) Andreas Fitz
