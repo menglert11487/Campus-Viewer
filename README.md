@@ -9,4 +9,6 @@ sich einen Überblick über den Campus der Hochschule zu verschaffen.
 Ab hier trägt jeder seinen Namen ein:
 
 01.) Michael Englert
-02.) Katharina Kahlert 08.) Désirée Mauß09.) Andreas Fitz
+03.) Meik Bolender
+08.) Désirée Mauß
+09.) Andreas Fitz
