@@ -19,6 +19,8 @@ var app = module.exports = express();
 
 // Webserver Configuration
 app.configure(function(){
+  app.use(express.json());       // to support JSON-encoded bodies
+  app.use(express.urlencoded());
   app.use(express.methodOverride());
   app.use(express.cookieParser()); //Initialize parser for session cookies
   app.use(express.session({
@@ -41,21 +43,36 @@ app.configure('production', function(){
 console.log("CampusViewer Server gestartet...");
 
 // Routen anlegen, auf die der Server reagieren soll
-app.get('/test', function(req, res){
+app.get('/Test!', function(req, res){
   res.send('Ich bin ein Test!');
 });
 
 app.post('/user/new', function(req, res){
   //Nutzerdaten auslesen
   var data = req.body;
+  console.log(data);
+  
+  if(data.password === data.samePassword) {
+   
+   delete data['samePassword'];
+   // For arrays
+   /*var index = data.indexOf('samePassword');
+   if (index > -1) {
+	array.splice(index, 1);
+   }*/
+  
   //Nutzerdaten in die Tabelle user schreiben
   var query = connection.query('INSERT INTO user SET ?', data, function(err, result) {
     if(!err) {
       // Erfolgsmeldung ausgeben
       console.log('Nutzer gespeichert.');
-    }
+	  res.send('Nutzer gespeichert.');
+    } else {
+		res.send('Fehler beim speichern!');
+	}	
   });
+  } else {
+	res.send('Ungleiche Passwörter verwendet!');
+  }
 
 });
-
-app.listen(port); //Port on which the server should listen

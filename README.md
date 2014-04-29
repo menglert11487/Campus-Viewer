@@ -10,13 +10,6 @@ Ab hier trägt jeder seinen Namen ein:
 
 01.) Michael Englert
 
-02.) Katharina Kahlert
+02.) Stefanie Zahn
 
-03.) Meltem Özkul
-
-04.) Ramón Wilhelm (Alan)
-
-05.) Andreas Fitz
-
-06.) Meik Bolender
-
+03.) Meltem Özkul.
