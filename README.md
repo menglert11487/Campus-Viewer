@@ -9,7 +9,3 @@ sich einen Überblick über den Campus der Hochschule zu verschaffen.
 Ab hier trägt jeder seinen Namen ein:
 
 01.) Michael Englert
-
-02.) Stefanie Zahn
-
-03.) Meltem Özkul.
