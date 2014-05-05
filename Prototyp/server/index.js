@@ -29,6 +29,9 @@ app.configure(function(){
   })); //Session handler
   app.use(app.router); //Router for routing server requests to the defined server functions
   app.use(express.static('../client')); //Static file server which serves static files from the given path
+  app.use(express.logger({
+	format: ":method :url"
+  }));
 });
 
 app.configure('development', function(){
@@ -38,9 +41,6 @@ app.configure('development', function(){
 app.configure('production', function(){
   app.use(express.errorHandler());
 });
-
-// Kleine Ausgabe, das Server konfiguriert ist und gestartet
-console.log("CampusViewer Server gestartet...");
 
 // Routen anlegen, auf die der Server reagieren soll
 app.get('/Test!', function(req, res){
@@ -76,3 +76,7 @@ app.post('/user/new', function(req, res){
   }
 
 });
+
+app.listen(port);
+// Kleine Ausgabe, das Server konfiguriert ist und gestartet
+console.log("CampusViewer Server gestartet...");

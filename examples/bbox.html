@@ -12,6 +12,26 @@
         <style>.x3dom-logContainer { bottom: 0px; position: absolute; } </style>
         
         <script type="text/javascript">
+            var sphere;
+            
+            window.onload = function(){
+                sphere = document.getElementById("sphere");
+                HighlightBBox(sphere, true);
+                
+                window.requestAnimationFrame(tick);
+            };
+
+            CalculateCameraPosition = function(){
+                var highlightNode = document.getElementById("camera");
+                var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view;
+
+                return cameraMatrix.e3();
+            };
+            
+            CalculateObjectBBox = function(highlightNode) {
+                return sphere._x3domNode.getVolume();
+            };
+            
             HighlightBBox = function(highlightNode, bool) {
                 var highlightBox = document.getElementById('bbox_transform');
                 var transformNode = highlightNode.parentNode;
@@ -46,6 +66,24 @@
 
                 highlightBox.setAttribute("render", "" + bool);
             };
+            
+            
+            
+            function tick() {
+                var cameraPos = CalculateCameraPosition();
+                var objectBBox = CalculateObjectBBox();
+                
+                if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
+                    (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
+                    (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z)) {
+                    console.log("HIT AN OBJECT");
+                    alert("HIT AN OBJECT");
+                }
+
+                window.requestAnimationFrame(tick);
+            };
+
+            
         </script>
         
     </head>
@@ -54,48 +92,13 @@
         <Scene DEF='scene'>
             <Environment frustumCulling='false'></Environment>
             
-            <Shape onmousedown="HighlightBBox(this, true);">
+            <Shape id="sphere">
                 <Appearance>
-                    <Material diffuseColor="red"></Material>
+                    <Material diffuseColor="green"></Material>
                 </Appearance>
-                <Box></Box>
+                <Sphere></Sphere>
             </Shape>
             
-            <transform translation="5 0 0">
-                <Shape onmousedown="HighlightBBox(this, true);">
-                    <Appearance>
-                        <Material diffuseColor="blue"></Material>
-                    </Appearance>
-                    <Cone></Cone>
-                </Shape>
-            </transform>
-            
-            <transform translation="-5 0 0" scale="1 2 0.5">
-                <Shape onmousedown="HighlightBBox(this, true);">
-                    <Appearance>
-                        <Material diffuseColor="yellow"></Material>
-                    </Appearance>
-                    <Cylinder></Cylinder>
-                </Shape>
-            </transform>
-            
-            <transform translation="0 5 0">
-                <Shape onmousedown="HighlightBBox(this, true);">
-                    <Appearance>
-                        <Material diffuseColor="green"></Material>
-                    </Appearance>
-                    <Torus></Torus>
-                </Shape>
-            </transform>
-            
-            <transform translation="0 -5 0">
-                <Shape onmousedown="HighlightBBox(this, true);">
-                    <Appearance>
-                        <Material diffuseColor="pink"></Material>
-                    </Appearance>
-                    <Sphere></Sphere>
-                </Shape>
-            </transform>
             
             <matrixTransform id="bbox_transform">
                 <Shape isPickable="false" DEF="line">
@@ -107,8 +110,9 @@
                 </Shape>
             </matrixTransform>
             
-            <Viewpoint position="0.00000 0.00000 22.59003" orientation="0.00000 0.00000 0.00000 0.00000" 
+            <Viewpoint id="camera" position="0.00000 0.00000 4.92026" orientation="0.00000 0.00000 0.00000 0.00000" 
                        zNear="0.01000" zFar="10000.00000" description="defaultX3DViewpointNode"></Viewpoint>
+
             <Background skyColor="0.4 0.6 0.8"></Background>
         </Scene>
     </x3d>
