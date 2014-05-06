@@ -23,9 +23,9 @@
 
             CalculateCameraPosition = function(){
                 var highlightNode = document.getElementById("camera");
-                var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view;
+                var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
 
-                return cameraMatrix.e3();
+                return cameraMatrix.multMatrixPnt(new x3dom.fields.SFVec3f(0.0, 0.0, 0.0));
             };
             
             CalculateObjectBBox = function(highlightNode) {
@@ -77,7 +77,7 @@
                     (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
                     (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z)) {
                     console.log("HIT AN OBJECT");
-                    alert("HIT AN OBJECT");
+                    //alert("HIT AN OBJECT");
                 }
 
                 window.requestAnimationFrame(tick);
@@ -92,12 +92,9 @@
         <Scene DEF='scene'>
             <Environment frustumCulling='false'></Environment>
             
-            <Shape id="sphere">
-                <Appearance>
-                    <Material diffuseColor="green"></Material>
-                </Appearance>
-                <Sphere></Sphere>
-            </Shape>
+            <transform>
+                <inline onload="HighlightBBox(this, true);" id="sphere" url="../Prototyp/client/g/g.x3d"></inline>
+            </transform>
             
             
             <matrixTransform id="bbox_transform">
