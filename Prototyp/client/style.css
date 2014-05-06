@@ -1,6 +1,6 @@
 body{
    background-color: #e3e3e3;
-   background-image: url(10tastics.png);
+   //background-image: url(10tastics.png);
    background-size:  30% ;
    background-repeat: no-repeat;
    background-position: 450px -50px;
@@ -169,17 +169,41 @@ DIV#x3dom_logdiv.x3dom-logContainer{
 	bottom: 0px;
 }
 
-#steuerung{
-    
-    position: absolute;
-    top:65%;
-    left: 1%;
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    background-color: white;
-    
+
+
+#control{
+    width: 200px; 
+    height: 200px; 
+    position:absolute; 
+    z-index: 9500; 
+    background-color: rgba(120, 120, 120, 0.5); 
+    bottom: 0px; 
+    border-radius: 50%; 
+    border: solid 2px #ffffff;
 }
+
+#pointer{
+    width: 50px; 
+    height: 50px; 
+    position: absolute; 
+    z-index: 9000; 
+    background-color: #414141; 
+    border: solid 2px #ffffff; 
+    border-radius: 50%; 
+    top: 100px; 
+    left: 100px;
+}
+
+#style{
+    position:absolute; 
+    width: 250px; 
+    height: 250px; 
+    z-index: 10000; 
+    bottom: 25px; 
+    left: 25px;
+}
+
+
 
 
 

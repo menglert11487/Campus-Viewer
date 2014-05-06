@@ -14,7 +14,7 @@
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
    </head>
-	<body onLoad="changeSpeed(); draginit()"> 
+	<body onLoad="changeSpeed()"> 
    
        <div data-role="page" id="pageone">
   <div data-role="panel" id="myPanel"> 
@@ -47,7 +47,7 @@
 	   <button onClick="lookArround()">360 view</button>
 	   
 	   <form name="changeSpeed" action="javascript:changeSpeed()">
-	   <input name="speed" type="text"></input>
+               <input name="speed" type="text" />
 	    <input name="submit" type="submit" value="Speed"/>
 	   </form>
   </div> 
@@ -56,9 +56,11 @@
     <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
     <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
 
-    <div id="steuerung"></div>
-    <div onmousedown="dragstart(this)" style="cursor: pointer; position: absolute;top:72%;left: 4.7%;width: 100px;height: 100px;border-radius: 100px;background-color: grey;" onclick="coords()">
-            
+    
+    <div id="style">
+    <div id="control"></div>
+    <div id="pointer"></div>
+    </div>
         
          
          
