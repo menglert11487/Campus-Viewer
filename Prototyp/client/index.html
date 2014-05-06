@@ -14,8 +14,13 @@
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
    </head>
-	<body onLoad="changeSpeed(); draginit()"> 
-   
+	<body onLoad="changeSpeed(); draginit()">
+            <div style="position:absolute; width: 250px; height: 250px; z-index: 10000; bottom: 25px; left: 25px;">
+                <div style="position: absolute; height: 99%; left: 50%; top: -2px; border: solid 2px #ffffff;"></div>
+                <div style="position: absolute; width: 99%; top: 50%; left: 0px; border: solid 2px #ffffff;"></div>
+                <div id="control" style="width: 250px; height: 250px; position:absolute; z-index: 9500; background-color: rgba(120, 120, 120, 0.5); bottom: 0px; border-radius: 50%; border: solid 2px #ffffff;"></div>
+                <div id="pointer" style="width: 50px; height: 50px; position: absolute; z-index: 9000; background-color: #414141; border: solid 2px #ffffff; border-radius: 50%; top: 100px; left: 100px;"></div>
+            </div>
        <div data-role="page" id="pageone">
   <div data-role="panel" id="myPanel"> 
     <h2>Menü</h2>
@@ -55,15 +60,7 @@
   <div data-role="main" class="ui-content">
     <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
     <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
-
-    <div id="steuerung"></div>
-    <div onmousedown="dragstart(this)" style="cursor: pointer; position: absolute;top:72%;left: 4.7%;width: 100px;height: 100px;border-radius: 100px;background-color: grey;" onclick="coords()">
-            
-        
-         
-         
-    </div>
-	   
+   
        <div id="ansicht"><x3d style="width:100%;height:100%;" id="x3d_element">
 	   
                <scene frustumCulling="true">
