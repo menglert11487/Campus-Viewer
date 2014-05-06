@@ -169,5 +169,17 @@ DIV#x3dom_logdiv.x3dom-logContainer{
 	bottom: 0px;
 }
 
+#steuerung{
+    
+    position: absolute;
+    top:65%;
+    left: 1%;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    background-color: white;
+    
+}
+
 
 
