@@ -68,12 +68,40 @@
 				<b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
 			</article>
 			
-		<form action="/user/new" name ="Formulars" action="http://de.selfhtml.org/cgi-bin/formview.pl" method="post" onsubmit = "return checkFormulars()">
-			<fieldset>
-				<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="50" name="username"></p>
+			<script style="text/javascript">
+			String.prototype.trim = function() {
+
+			// skip leading and trailing whitespace
+			// and return everything in between
+				var x=this;
+				x=x.replace(/^\s*(.*)/, "$1");
+				x=x.replace(/(.*?)\s*$/, "$1");
+				return x;
+			}
 			
-				<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="50" name="password"></p>
-						
+			// copy 'txtIn' to 'txtOut', trimming off unused whitespace
+			function btnClick() {
+			// get the string value from the 'txtIn' element
+			var s = document.frm1.txtIn.value;
+
+			// trim the string value and put it into the 'txtOut' element
+			document.frm1.txtOut.value = s.trim();
+			}
+			
+				var newUsername = document.Formular.username.value.trim();
+				document.Formular.username.value = newUsername;
+
+				var newPassword = document.Formular.password.value.trim();
+				document.Formular.password.value = newPassword;
+				
+			</script>
+			
+		<form name ="Formulars" method="post" onsubmit = "return checkFormulars()">
+			<fieldset>
+			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" maxlength="50" name="username"></p>
+			
+			<p><label for="password">Passwort:				  </label><input class="password" type="password" maxlength="50" name="password"></p>	
+			
 				<label for = "login"></label><input type="submit" value="Login" style=cursor:pointer;>
 			
 			</fieldset>

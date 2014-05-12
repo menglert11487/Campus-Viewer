@@ -14,48 +14,101 @@
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 		
 		<script type="text/javascript">
-			function checkFormular()
-			{
-				if (document.Formular.username.value == "")
-				{
-					alert("Bitte Benutzernamen eingeben.");
-					document.Formular.username.focus();
-					return false;
+			$(document).ready(function() {
+				String.prototype.trim = function() {
+					// skip leading and trailing whitespace
+					// and return everything in between
+					var x=this;
+					x=x.replace(/^\s*(.*)/, "$1");
+					x=x.replace(/(.*?)\s*$/, "$1");
+					return x;
 				}
 				
-				if (document.Formular.givenname.value == "")
+				function deleteFormular()
 				{
-					alert("Bitte Vornamen eingeben.");
-					document.Formular.givenname.focus();
-					return false;
+					document.Formular.username.value = "";
+
+					document.Formular.givenname.value = "";
+
+					document.Formular.name.value = "";		
+
+					document.Formular.email.value = "";	
+
+					document.Formular.password.value = "";	
+
+					document.Formular.samePassword.value = "";
 				}
 				
-				if (document.Formular.name.value == "")
+				function checkFormular(e)
 				{
-					alert("Bitte Nachnamen eingeben.");
-					document.Formular.name.focus();
-					return false;
-				}
-				if (document.Formular.email.value.indexOf("@") == -1)
-				{
-					alert("Bitte Email-Adresse eingeben.");
-					document.Formular.email.focus();
-					return false;
-				}
-				if (document.Formular.password.value == "")
-				{
-					alert("Bitte Passwort eingeben.");
-					document.Formular.password.focus();
-					return false;
-				}
-				if (document.Formular.samePassword.value == "")
-				{
-					alert("Bitte nochmal das Passwort eingeben.");
-					document.Formular.samePassword.focus();
-					return false;
-				}				
-			}
-		</script>
+					var newUsername = document.Formular.username.value.trim();
+					document.Formular.username.value = newUsername;
+					
+					var newGivenname = document.Formular.givenname.value.trim();
+					document.Formular.givenname.value = newGivenname;
+
+					var newName = document.Formular.name.value.trim();
+					document.Formular.name.value = newName;		
+
+					var newEmail = document.Formular.email.value.trim();
+					document.Formular.email.value = newEmail;	
+
+					var newPassword = document.Formular.password.value.trim();
+					document.Formular.password.value = newPassword;	
+
+					var newSamePassword = document.Formular.samePassword.value.trim();
+					document.Formular.samePassword.value = newSamePassword;						
+					
+					if (newUsername == "")
+					{
+						alert("Bitte Benutzernamen eingeben.");
+						document.Formular.username.focus();
+						return false;
+					}
+					
+					if (newGivenname == "")
+					{
+						alert("Bitte Vornamen eingeben.");
+						document.Formular.givenname.focus();
+						return false;
+					}
+					
+					if (newName == "")
+					{
+						alert("Bitte Nachnamen eingeben.");
+						document.Formular.name.focus();
+						return false;
+					}
+					if (newEmail.indexOf("@") == -1 || newEmail == "")
+					{
+						alert("Bitte Email-Adresse eingeben.");
+						document.Formular.email.focus();
+						return false;
+					}
+					if (newPassword == "")
+					{
+						alert("Bitte Passwort eingeben.");
+						document.Formular.password.focus();
+						return false;
+					}
+					if (newSamePassword == "")
+					{
+						alert("Bitte nochmal das Passwort eingeben.");
+						document.Formular.samePassword.focus();
+						return false;
+					}
+					
+					if (document.Formular.samePassword.value != document.Formular.password.value)
+					{
+						alert("Die Passwörter stimmen nicht überein.");
+						return false;
+					}
+				}	
+
+				$('#btnSubmitForm').on('click', checkFormular);
+				$('#btnResetForm').on('click', deleteFormular);
+			});
+			</script> 
 		
 		<head>
 			<title>Registrierung vom Campus Viewer Fulda</title>
@@ -83,26 +136,32 @@
   
 			<article>
 				<h1>Registrierung vom Campus Viewer Fulda</h1>
-				<b>Bitte f&uuml;llen Sie alle Felder aus, damit Sie sich sp&auml;ter Anmelden k&ouml;nnen.</b>
+				<b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
 			</article>
 			
-		<form action="/user/new" name = "Formular" action="http://de.selfhtml.org/cgi-bin/formview.pl" method="post" onsubmit= "return checkFormular()">
+		<form action="/user/new" name="Formular" id="regForm" method="POST">
 <fieldset>
-			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="50" name="username"></p>
+			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" maxlength="50" name="username"></p>
 
-			<p><label for = "givenname"> Vorname:			  </label><input class="givenname" type="text" size="20" maxlength="50" name="givenname"></p>
 			
-			<p><label for = "name">Nachname:				  </label><input class="name" type="text" size="20" maxlength="50" name="name"></p>
+			<p><label for = "givenname"> Vorname:			  </label><input class="givenname" type="text" maxlength="50" name="givenname"></p>
+			
+			
+			<p><label for = "name">Nachname:				  </label><input class="name" type="text" maxlength="50" name="name"></p>
 	
-			<p><label for = "email">Email-Adresse:			  </label><input class="email" type="text" size="20" maxlength="50" name="email"></p>
-			
-			<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="50" name="password"></p>
-			
-			<p><label for="samePassword">Passwort wiederholen:</label><input class="samePassword" type="password" size="20" maxlength="50" name="samePassword"></p>
-			
-			<label for="send"></label><input type="submit" value="Absenden" style=cursor:pointer;>
 	
-			<label for="delete"></label><input type="reset" value="Zur&uuml;ckversetzen" style=cursor:pointer;>		
+			<p><label for = "email">Email-Adresse:			  </label><input class="email" type="text" maxlength="50" name="email"></p>
+			
+			
+			<p><label for="password">Passwort:				  </label><input class="password" type="password" maxlength="50" name="password"></p>
+			
+			
+			<p><label for="samePassword">Passwort wiederholen:</label><input class="samePassword" type="password" maxlength="50" name="samePassword"></p>
+			
+			
+			<label for="send"></label><input type="submit" value="Absenden" id="btnSubmitForm" style=cursor:pointer;>
+	
+			<label for="delete"></label><input type="reset" value="Zurückversetzen" id="btnResetForm" style=cursor:pointer;>		
 </fieldset>
 		</form>
 		
