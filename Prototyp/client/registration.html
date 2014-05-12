@@ -26,82 +26,152 @@
 				
 				function deleteFormular()
 				{
-					document.Formular.username.value = "";
+					document.formular.username.value = "";
 
-					document.Formular.givenname.value = "";
+					document.formular.givenname.value = "";
 
-					document.Formular.name.value = "";		
+					document.formular.name.value = "";		
 
-					document.Formular.email.value = "";	
+					document.formular.email.value = "";	
 
-					document.Formular.password.value = "";	
+					document.formular.password.value = "";	
 
-					document.Formular.samePassword.value = "";
+					document.formular.samePassword.value = "";
 				}
 				
 				function checkFormular(e)
 				{
-					var newUsername = document.Formular.username.value.trim();
-					document.Formular.username.value = newUsername;
+					var newUsername = document.formular.username.value.trim();
+					document.formular.username.value = newUsername;
 					
-					var newGivenname = document.Formular.givenname.value.trim();
-					document.Formular.givenname.value = newGivenname;
+					var newGivenname = document.formular.givenname.value.trim();
+					document.formular.givenname.value = newGivenname;
 
-					var newName = document.Formular.name.value.trim();
-					document.Formular.name.value = newName;		
+					var newName = document.formular.name.value.trim();
+					document.formular.name.value = newName;		
 
-					var newEmail = document.Formular.email.value.trim();
-					document.Formular.email.value = newEmail;	
+					var newEmail = document.formular.email.value.trim();
+					document.formular.email.value = newEmail;	
 
-					var newPassword = document.Formular.password.value.trim();
-					document.Formular.password.value = newPassword;	
+					var newPassword = document.formular.password.value.trim();
+					document.formular.password.value = newPassword;	
 
-					var newSamePassword = document.Formular.samePassword.value.trim();
-					document.Formular.samePassword.value = newSamePassword;						
+					var newSamePassword = document.formular.samePassword.value.trim();
+					document.formular.samePassword.value = newSamePassword;						
 					
 					if (newUsername == "")
 					{
-						alert("Bitte Benutzernamen eingeben.");
-						document.Formular.username.focus();
-						return false;
+						document.formular.username.focus();
+						document.getElementById('f1').style.color='#FF0000';
+						document.getElementById('d1').innerHTML ="*Bitte den Benutzernamen eingeben ";
+						document.getElementById('d1').style.fontSize ="90%";
+					    document.getElementById('d1').style.color ='#FF0000';
+						document.getElementById('d1').style.fontStyle = 'italic';					
 					}
 					
-					if (newGivenname == "")
+					if (newUsername != "")
 					{
-						alert("Bitte Vornamen eingeben.");
-						document.Formular.givenname.focus();
-						return false;
+						document.formular.username.focus();
+						document.getElementById('f1').style.color='#000000';
+						document.getElementById('d1').innerHTML ="";
+				    }
+						
+					
+					 if (newGivenname == "")
+					
+					{
+						
+						document.formular.givenname.focus();
+						document.getElementById('f2').style.color='#FF0000';
+						document.getElementById('d2').innerHTML ="*Bitte den Vornamen eingeben ";
+						document.getElementById('d2').style.fontSize ="90%";
+					    document.getElementById('d2').style.color ='#FF0000';
+						document.getElementById('d2').style.fontStyle = 'italic';
 					}
 					
-					if (newName == "")
+					if (newGivenname != "")
 					{
-						alert("Bitte Nachnamen eingeben.");
-						document.Formular.name.focus();
-						return false;
+						document.formular.username.focus();
+						document.getElementById('f2').style.color='#000000';
+						document.getElementById('d2').innerHTML ="";
+				    }
+					
+					 if (newName == "")
+					{
+						
+						document.formular.name.focus();
+						document.getElementById('f3').style.color='#FF0000';
+						document.getElementById('d3').innerHTML ="*Bitte den Nachnamen eingeben ";
+						document.getElementById('d3').style.fontSize ="90%";
+					    document.getElementById('d3').style.color ='#FF0000';
+						document.getElementById('d3').style.fontStyle = 'italic';
 					}
-					if (newEmail.indexOf("@") == -1 || newEmail == "")
+					if (newName != "")
 					{
-						alert("Bitte Email-Adresse eingeben.");
-						document.Formular.email.focus();
-						return false;
-					}
-					if (newPassword == "")
+						document.formular.username.focus();
+						document.getElementById('f3').style.color='#000000';
+						document.getElementById('d3').innerHTML ="";
+				    }
+					
+					 if (newEmail.indexOf("@") == -1 || newEmail == "")
 					{
-						alert("Bitte Passwort eingeben.");
-						document.Formular.password.focus();
-						return false;
-					}
-					if (newSamePassword == "")
-					{
-						alert("Bitte nochmal das Passwort eingeben.");
-						document.Formular.samePassword.focus();
-						return false;
+					
+						document.formular.email.focus();
+						document.getElementById('f4').style.color='#FF0000';
+						document.getElementById('d4').innerHTML ="*Bitte die Email-Adresse eingeben ";
+						document.getElementById('d4').style.fontSize ="90%";
+					    document.getElementById('d4').style.color ='#FF0000';
+						document.getElementById('d4').style.fontStyle = 'italic';
 					}
 					
-					if (document.Formular.samePassword.value != document.Formular.password.value)
+					if (newEmail.indexOf("@") != -1 || newEmail != "")
+					{
+						document.formular.username.focus();
+						document.getElementById('f4').style.color='#000000';
+						document.getElementById('d4').innerHTML ="";
+				    }
+					
+					
+					
+					 if (newPassword == "")
+					{
+						
+						document.formular.password.focus();
+						document.getElementById('f5').style.color='#FF0000';
+						document.getElementById('d5').innerHTML ="*Bitte Passwort eingeben ";
+						document.getElementById('d5').style.fontSize ="90%";
+					    document.getElementById('d5').style.color ='#FF0000';
+						document.getElementById('d5').style.fontStyle = 'italic';
+					}
+					
+					if (newPassword != "")
+					{
+						document.formular.username.focus();
+						document.getElementById('f5').style.color='#000000';
+						document.getElementById('d5').innerHTML ="";
+				    }
+					
+					
+				    if (newSamePassword == "")
+					{
+						
+						document.formular.samePassword.focus();
+						document.getElementById('f6').style.color='#FF0000';
+						document.getElementById('d6').innerHTML ="*Bitte Passwort eingeben ";
+						document.getElementById('d6').style.fontSize ="90%";
+					    document.getElementById('d6').style.color ='#FF0000';
+						document.getElementById('d6').style.fontStyle = 'italic';
+					}
+					if (newSamePassword != "")
+					{
+						document.formular.username.focus();
+						document.getElementById('f6').style.color='#000000';
+						document.getElementById('d6').innerHTML ="";
+				    }
+					
+					if (document.formular.samePassword.value != document.Formular.password.value)
 					{
 						alert("Die Passwörter stimmen nicht überein.");
-						return false;
 					}
 				}	
 
@@ -139,24 +209,24 @@
 				<b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
 			</article>
 			
-		<form action="/user/new" name="Formular" id="regForm" method="POST">
-<fieldset>
-			<p><label for = "username">Benutzername:		  </label><input class="username" type="text" maxlength="50" name="username"></p>
+		<form action="/user/new" name="formular" method="POST">
+<fieldset> 
+			<p> <label id = "f1" for = "username">Benutzername: <div id = "d1"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
 
 			
-			<p><label for = "givenname"> Vorname:			  </label><input class="givenname" type="text" maxlength="50" name="givenname"></p>
+			<p><label id = "f2" for = "givenname"> Vorname: <div id = "d2"> </div >			  </label><input type="text" maxlength="50" name="givenname"></p>
 			
 			
-			<p><label for = "name">Nachname:				  </label><input class="name" type="text" maxlength="50" name="name"></p>
+			<p><label id = "f3" for = "name">Nachname: <div id = "d3"> </div >				  </label><input type="text" maxlength="50" name="name"></p>
 	
 	
-			<p><label for = "email">Email-Adresse:			  </label><input class="email" type="text" maxlength="50" name="email"></p>
+			<p><label id = "f4" for = "email">Email-Adresse: <div id = "d4"> </div >			  </label><input type="text" maxlength="50" name="email"></p>
 			
 			
-			<p><label for="password">Passwort:				  </label><input class="password" type="password" maxlength="50" name="password"></p>
+			<p><label id = "f5" for="password">Passwort: <div id = "d5"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
 			
 			
-			<p><label for="samePassword">Passwort wiederholen:</label><input class="samePassword" type="password" maxlength="50" name="samePassword"></p>
+			<p><label id = "f6" for="samePassword">Passwort wiederholen:  <div id = "d6"> </div >  </label><input type="password" maxlength="50" name="samePassword"></p>
 			
 			
 			<label for="send"></label><input type="submit" value="Absenden" id="btnSubmitForm" style=cursor:pointer;>
