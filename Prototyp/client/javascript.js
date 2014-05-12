@@ -1,42 +1,67 @@
-window.onload = function() {
 
-   function login() {
 
-       var nutzer = "10tastics";
-       var pass = "projekt";
+var dragobjekt = null;
+var dragx = 0;
+var dragy = 0;
+var posx = 0;
+var posy = 0;
+var start = null;
 
-       var text = "Sie sind eingeloggt";
-       var username = prompt("Nutzername");
-       var passwort = prompt("Passwort");
 
-       if (username === nutzer)
-           if (passwort === pass) {
-               alert("Korrekt! Sie sind eingeloggt");
-           }
-       if (username !== nutzer)
-           if (passwort !== pass) {
+function draginit(){
+    
 
-               alert("Bitte versuchen Sie es nochmal");
-               login();
-           }
-
-   }
-
-   function clickHandler(e) {
-       window.alert("Hier entsteht eine Funktion");
-       e.stopPropagation();      //Propagation = verteilung o.?
-   }
-
-   document.onload = login;
-
-};
-
-function search(){
-   
-   var url = "https://www.google.com/#newwindow=1&g=";
-   var str = document.googleSearch.searchField.value.replace(/ /g, "+");
-   window.open(url+str, "_blank");
+    document.onmousemove = drag;
+    document.onmouseup = dragstop;
+    
+    
 }
+
+function coords(){
+    
+    start = window.event.x && window.event.y;
+    dragobjekt = start;
+    
+}
+
+
+function dragstart(element){
+    
+    dragobjekt = element;
+    dragx = posx - dragobjekt.offsetLeft;
+    dragy = posy - dragobjekt.offsetTop;
+    
+}
+
+
+
+function drag(ereignis){
+    
+     posx = document.onclick ? window.event.clientX : ereignis.pageX;
+     posy = document.onclick ? window.event.clientY : ereignis.pageY;
+        
+    if(dragobjekt !== null) {
+        dragobjekt.style.left = (posx - dragx) + "px";
+        dragobjekt.style.top = (posy - dragy) + "px";
+    }
+    
+}
+
+function dragstop(e){
+    
+    
+    posx = document.onclick ? window.event.clientX : e.pageX;
+    posy = document.onclick ? window.event.clientY : e.pageY;
+    
+    if(dragobjekt !== null){
+        
+        dragobjekt = posx;
+        dragobjekt = posy;
+    }
+    
+    
+}
+
 function switchCamera(id){
 	var vp = document.getElementById(id);
 	vp.setAttribute("set_bind","true");
@@ -46,7 +71,7 @@ function switchCamera(id){
 function changeSpeed(){
 	var x = document.getElementById("x3d_element");
 	var y = document.changeSpeed.speed.value;
-		if(y==null)
+		if(y===null)
 		{
 			y=20;
 		}
@@ -57,3 +82,5 @@ function lookArround(){
 	var x = document.getElementById("x3d_element");
 	x.runtime.speed(0.00001);
 }
+
+
