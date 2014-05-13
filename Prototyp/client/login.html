@@ -14,23 +14,63 @@
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 		
 		<script type = "text/javascript">
+		$(document).ready(function() {
+			String.prototype.trim = function() {
+
+			// skip leading and trailing whitespace
+			// and return everything in between
+				var x=this;
+				x=x.replace(/^\s*(.*)/, "$1");
+				x=x.replace(/(.*?)\s*$/, "$1");
+				return x;
+			}
+	
 		
-			function checkFormulars()
+			function checkFormular(e)
 			{
-				if (document.Formulars.username.value == "")
+			
+					var newUsername = document.formular.username.value.trim();
+					document.formular.username.value = newUsername;
+
+					var newPassword = document.formular.password.value.trim();
+					document.formular.password.value = newPassword;	
+					
+					
+				if (newUsername == "")
 				{
-					alert("Bitte Benutzernamen eingeben.");
-					document.Formulars.username.focus();
-					return false;
+					document.formular.username.focus();
+				    document.getElementById('fa').style.color='#FF0000';
+				    document.getElementById('da').innerHTML ="*Bitte den Benutzernamen eingeben ";
+					document.getElementById('da').style.fontSize ="90%";
+					document.getElementById('da').style.color ='#FF0000';
+				    document.getElementById('da').style.fontStyle = 'italic';
+				}
+				if (newUsername != "")
+					{
+						document.formular.username.focus();
+						document.getElementById('fa').style.color='#000000';
+						document.getElementById('da').innerHTML ="";
+				    }
+				
+				if (newPassword == "")
+				{
+					document.formular.password.focus();
+				    document.getElementById('fb').style.color='#FF0000';
+				    document.getElementById('db').innerHTML ="*Bitte das Passwort eingeben ";
+					document.getElementById('db').style.fontSize ="90%";
+					document.getElementById('db').style.color ='#FF0000';
+				    document.getElementById('db').style.fontStyle = 'italic';
 				}
 				
-				if (document.Formulars.password.value == "")
-				{
-					alert("Bitte das Passwort eingeben.");
-					document.Formulars.password.focus();
-					return false;
-				}
+				if (newPassword != "")
+					{
+						document.formular.username.focus();
+						document.getElementById('fb').style.color='#000000';
+						document.getElementById('db').innerHTML ="";
+				    }
 			}
+				$('#btnSubmitForm').on('click', checkFormular);
+			});
 		</script>
     </head>
     <body>
@@ -68,18 +108,19 @@
 				<b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
 			</article>
 			
-		<form action="/user/new" name ="Formulars" action="http://de.selfhtml.org/cgi-bin/formview.pl" method="post" onsubmit = "return checkFormulars()">
-			<fieldset>
-				<p><label for = "username">Benutzername:		  </label><input class="username" type="text" size="20" maxlength="50" name="username"></p>
+		<form action="/user/new" name="formular" method="POST">
+<fieldset> 
+			<p> <label id = "fa" for = "username">Benutzername: <div id = "da"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
 			
-				<p><label for="password">Passwort:				  </label><input class="password" type="password" size="20" maxlength="50" name="password"></p>
-						
-				<label for = "login"></label><input type="submit" value="Login" style=cursor:pointer;>
 			
-			</fieldset>
+			<p><label id = "fb" for="password">Passwort: <div id = "db"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
+			
+			
+			<label for="send"></label><input type="submit" value="Login" id="btnSubmitForm" style=cursor:pointer;>
+			
+</fieldset>
 		</form>
-
-        
- 
-    </body>
+		
+	</body>
+	
 </html>
