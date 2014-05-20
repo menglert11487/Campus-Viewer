@@ -15,6 +15,16 @@
         <script type="text/javascript">
             var sphere;
             var plane;
+			
+			function changeSpeed(){
+				var x = document.getElementById("x3d_element");
+				var y = document.changeSpeed.speed.value;
+				if(y===null)
+				{
+					y=20;
+				}
+				x.runtime.speed(y);
+			}
 
             window.onload = function() {
                 var camera = document.getElementById("camera");
