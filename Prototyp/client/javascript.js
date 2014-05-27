@@ -64,8 +64,12 @@ function dragstop(e){
 
 function switchCamera(id){
 	var vp = document.getElementById(id);
-	vp.setAttribute("set_bind","true");
-	
+	var position = vp.position;
+	var orientation = vp.orientation;
+	//vp.setAttribute("set_bind","true");
+	var camera = document.getElementById("camera");
+	camera.setAttribute("position", position);
+	camera.setAttribute("orientation", orientation);
 }
 
 function changeSpeed(){

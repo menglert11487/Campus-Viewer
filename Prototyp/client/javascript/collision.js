@@ -29,7 +29,6 @@ Collision.HighlightBBox = function(highlightNode, bool) {
     var box;
 
     if (highlightNode) {
-        //@todo: still open whether we should move "domNode" to the base class
         volume = highlightNode._x3domNode.getVolume();
 
         if (volume) {
@@ -59,13 +58,27 @@ Collision.Render = function(){
     var cameraPos = Collision.CalculateCameraPosition();
     var objectBBox = Collision.CalculateObjectBBox();
 
-    if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-        (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
-        (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
-    {
-        console.log("HIT AN OBJECT");
-        //var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
-        document.getElementById("counter").innerHTML = parseInt(document.getElementById("counter").innerHTML) + 1;
+//    if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
+//        (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
+//        (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
+//    {
+		console.log("HIT AN OBJECT");
 
-    }
+// 	Äquator -> y-Achse, alles drüber ist ok, drunter nein
+	if(cameraPos.y < objectBBox.max.y)
+		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + (objectBBox.max.y + 1) + " " + cameraPos.z);
+// 	x-Rand -> max
+	else if(cameraPos.x > objectBBox.max.x)
+		document.getElementById("camera").setAttribute('position', (objectBBox.max.x - 5) + " " + cameraPos.y + " " + cameraPos.z);
+//	 x-Rand -> min
+	else if(cameraPos.x < objectBBox.min.x)
+		document.getElementById("camera").setAttribute('position', (objectBBox.min.x + 5) + " " + cameraPos.y + " " + cameraPos.z);
+// z-oben -> max
+	else if(cameraPos.z > objectBBox.max.z)
+		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.max.z - 5));
+// z-unten -> min
+	else if(cameraPos.z < objectBBox.min.z)
+		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.min.z + 5));
+//Koordinaten Anzeige (zur Überprüfung)
+		document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
 };
