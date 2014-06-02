@@ -1,348 +1,239 @@
 <!DOCTYPE html>
 
 <html>
-   <head>
-       <title>Prototype</title>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width">
-       <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css" />
-       <link rel="stylesheet" type="text/css" href="style.css" />
-       <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom-full.js"></script>
-       <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-       <script type="text/javascript" src="javaScript.js"></script>
-       <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
-		       		<script type="text/javascript">
-            var sphere;
-			var plane;
+    <head>
+        <title>Prototype</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom-full.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+        <script src="javascript/collision.js"></script>
+        <script src="javascript/navigation.js"></script>
+		<script src="javascript.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript">
 
-            window.onload = function(){
+            window.onload = function() {
+                Collision.onLoad();
+                Navigation.onLoad();
 
-				plane = document.getElementById("plane");
-				//HighlightBBox(sphere, true);
-				HighlightBBox(plane, true);
-                changeSpeed();
-				draginit();
-                window.requestAnimationFrame(tick);
-
-            };
-
-            CalculateCameraPosition = function(){
-                var highlightNode = document.getElementById("camera");
-                var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
-
-                return cameraMatrix.e3();
-            };
-            
-            CalculateObjectBBox = function(highlightNode) {
-                return plane._x3domNode.getVolume();
-            };
-            
-            HighlightBBox = function(highlightNode, bool) {
-                var highlightBox = document.getElementById('bbox_transform');
-                var transformNode = highlightNode.parentNode;
-                var currentHighlightParent = highlightBox.parentNode;
-                var volume;
-                var min;
-                var max;
-                var box;
-
-                if (highlightNode) {
-                    //@todo: still open whether we should move "domNode" to the base class
-                    volume = highlightNode._x3domNode.getVolume();
-
-                    if (volume) {
-                        min = x3dom.fields.SFVec3f.copy(volume.min);
-                        max = x3dom.fields.SFVec3f.copy(volume.max);
-
-                        box = document.getElementById('bbox_points');
-                        box.setAttribute('point', min.x + ' ' + min.y + ' ' + min.z + ', ' +
-                            min.x + ' ' + min.y + ' ' + max.z + ', ' +
-                            max.x + ' ' + min.y + ' ' + max.z + ', ' +
-                            max.x + ' ' + min.y + ' ' + min.z + ', ' +
-                            min.x + ' ' + max.y + ' ' + min.z + ', ' +
-                            min.x + ' ' + max.y + ' ' + max.z + ', ' +
-                            max.x + ' ' + max.y + ' ' + max.z + ', ' +
-                            max.x + ' ' + max.y + ' ' + min.z);
-                    }
+                function Render() {
+                    Collision.Render();
+                    Navigation.Render();
+                    window.requestAnimationFrame(Render);
                 }
+                ;
+                window.requestAnimationFrame(Render);
 
-                currentHighlightParent.removeChild(highlightBox);
-                transformNode.appendChild(highlightBox);
-
-                highlightBox.setAttribute("render", "" + bool);
-            };
-            
-            
-            
-            function tick() {
-                var cameraPos = CalculateCameraPosition();
-                var objectBBox = CalculateObjectBBox();
-				
-                
-                if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-                    (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
-                    (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z)) 
-					{
-						console.log("HIT AN OBJECT");
-						//var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
-						document.getElementById("counter").innerHTML=parseInt(document.getElementById("counter").innerHTML)+1;
-						
-					}
-                window.requestAnimationFrame(tick);
             };
 
-            
         </script>
-   </head>
-	<body> 
-   
-       <div data-role="page" id="pageone">
-  <div data-role="panel" id="myPanel"> 
-    <h2>Menü</h2>
-    <a href="index.html"><button>Startseite</button></a>
-    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
-    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
-    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-    <a href="kontakt.html"><button>Kontakt</button></a>
-    <a href="impressum.html"><button>Impressum</button></a>
-    <a href="login.html"><button>Login</button></a>
-	<a href="registration.html"><button>Registrieren</button></a>	
-  </div> 
-  
-  <div data-role="panel" id="myPanel2"> 
-    <h2>Navi</h2>
-    <!--<button onclick="switchCamera('vp_1');">Ferne</button> -->
-	   <button onclick="switchCamera('vp_2');">Geneigt</button>
-	   <button onclick="switchCamera('vp_3');">E</button>
-	   <button onclick="switchCamera('vp_4');">G</button>
-	   <button onclick="switchCamera('vp_5');">C</button>
-	   <button onclick="switchCamera('vp_6');">Mensa</button>
-	   <button onclick="switchCamera('vp_7');">SSC</button>
-	   <button onclick="switchCamera('vp_8');">Bibliothek</button>
+    </head>
+    <body> 
+        <div style="position:absolute; width: 250px; height: 250px; z-index: 10000; bottom: 25px; left: 25px;">
+            <div style="position: absolute; height: 99%; left: 50%; top: -2px; border: solid 2px #ffffff;"></div>
+            <div style="position: absolute; width: 99%; top: 50%; left: 0px; border: solid 2px #ffffff;"></div>
+            <div id="control" style="width: 250px; height: 250px; position:absolute; z-index: 9500; background-color: rgba(120, 120, 120, 0.5); bottom: 0px; border-radius: 50%; border: solid 2px #ffffff;"></div>
+            <div id="pointer" style="width: 50px; height: 50px; position: absolute; z-index: 9000; background-color: #414141; border: solid 2px #ffffff; border-radius: 50%; top: 100px; left: 100px;"></div>
+        </div>
+        <div data-role="page" id="pageone">
+            <div data-role="panel" id="myPanel"> 
+                <h2>Menü</h2>
+                <a href="index.html"><button>Startseite</button></a>
+                <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+                <a href="UeberDieHS.html"><button>die Hochschule</button></a>
+                <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+                <a href="kontakt.html"><button>Kontakt</button></a>
+                <a href="impressum.html"><button>Impressum</button></a>
+                <a href="login.html"><button>Login</button></a>
+                <a href="registration.html"><button>Registrieren</button></a>	
+            </div> 
 
-       <!--<form name="googleSearch" id="googleSearch" action="javascript:googleSearch()">
-           <input name="searchField" type="text"/>
-           <input name="submit" type="submit" value="Suche"/>
-       </form> -->
-	   <button onClick="lookArround()">360 view</button>
-	   
-	   <form name="changeSpeed" action="javascript:changeSpeed()">
-	   <input name="speed" type="text"></input>
-	    <input name="submit" type="submit" value="Speed"/>
-	   </form>
-  </div> 
+            <div data-role="panel" id="myPanel2"> 
+				<h2>Navi</h2>
+                <button onclick="switchCamera('vp_2');">Geneigt</button>
+                <button onclick="switchCamera('vp_3');">E</button>
+                <button onclick="switchCamera('vp_4');">G</button>
+                <button onclick="switchCamera('vp_5');">C</button>
+                <button onclick="switchCamera('vp_6');">Mensa</button>
+                <button onclick="switchCamera('vp_7');">SSC</button>
+                <button onclick="switchCamera('vp_8');">Bibliothek</button>
+                <button onClick="lookArround()">360 view</button>
+				<form name="changeSpeed" action="javascript:changeSpeed()">
+					<input name="speed" type="text"></input>
+					<input name="submit" type="submit" value="Speed"/>
+				</form>
+            </div> 
+            <div data-role="main" class="ui-content">
+                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
+                <div id="ansicht">
+                    <x3d id='x3d_element' showStat='false' showLog='false' style='position: relative; width:100%; height:100%; border:0; margin:0; padding:0;'>
+                        <Scene DEF='scene'>
+                            <Environment frustumCulling='false'></Environment>
+							<navigationInfo type='"walk", "any"'></navigationInfo>
+							<Background backUrl="texturen/skybox/mid.jpg" bottomUrl="texturen/skybox/bot.jpg" frontUrl="texturen/skybox/mid.jpg" leftUrl="texturen/skybox/mid.jpg" rightUrl="texturen/skybox/mid.jpg" topUrl="texturen/skybox/top.jpg" ></Background>
 
-  <div data-role="main" class="ui-content">
-    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
-    <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
+							<!-- Kameraperspektiven -->
+							<Viewpoint id="camera" 
+								position="70.64647 2.38730 -0.76586"
+								orientation="-0.06399 0.99598 0.06265 1.55356"
+								zNear="0.01000" zFar="10000.00000"
+								description="defaultX3DViewpointNode">
+							</Viewpoint>
 
-    <div id="steuerung"></div>
-    <div onmousedown="dragstart(this)" style="cursor: pointer; position: absolute;top:72%;left: 4.7%;width: 100px;height: 100px;border-radius: 100px;background-color: grey;" onclick="coords()">
-            
-       
-    </div>
-       <div id="ansicht">
-	   
-	   <!--x3d style="width:100%;height:100%;" id="x3d_element"-->
-	   
-	       <x3d id='x3d_element' showStat='false' showLog='false' style='position: relative; width:100%; height:100%; border:0; margin:0; padding:0;'>
-        <Scene DEF='scene'>
-            <Environment frustumCulling='false'></Environment>
-			<navigationInfo type='"walk", "any"'></navigationInfo>
-			<Background backUrl="texturen/skybox/mid.jpg" bottomUrl="texturen/skybox/bot.jpg" frontUrl="texturen/skybox/mid.jpg" leftUrl="texturen/skybox/mid.jpg" rightUrl="texturen/skybox/mid.jpg" topUrl="texturen/skybox/top.jpg" ></Background>
-					
-	   
-               <!--scene frustumCulling="true"-->
-			   
-			<!--<Shape id="test">
-                <Appearance>
-                    <Material diffuseColor="green"></Material>
-                </Appearance>
-                <Sphere></Sphere>
-            </Shape>-->
-            
-            
-            <matrixTransform id="bbox_transform">
-                <Shape isPickable="false" DEF="line">
-                    <IndexedLineSet coordIndex="0 1 2 3 0 -1, 4 5 6 7 4 -1, 0 4 -1, 1 5 -1, 2 6 -1, 3 7 -1">
-                        <Coordinate id="bbox_points" point="0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0">
-                        </Coordinate>
-                        <Color color="0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0"></Color>
-                    </IndexedLineSet>
-                </Shape>
-            </matrixTransform>
-            
-			<Viewpoint id="camera" position="70.64647 2.38730 -0.76586" orientation="-0.06399 0.99598 0.06265 1.55356" zNear="0.01000" zFar="10000.00000" description="defaultX3DViewpointNode"></Viewpoint>
+							<Viewpoint id="vp_1"
+									   position="200.00000 12.99405 589.67119" 
+									   orientation="0.00000 0.00000 0.00000 0.00000" 
+									   zNear="0.1" zFar="10000" 
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
 
-			   
-			   <transform scale="1 1 1" translation="200 0 -100" rotation="1 0 0 -1.57">
-					<shape id="plane">
-						<appearance>
-							<ImageTexture repeatS="true" repeatT="true" url="texturen/ground.jpg">
-						</appearance>
-						<box size="400 400 1"></box>
-					</shape>
-				</transform>
-				<!--transform scale="20 20 20" render="true">
-					<shape>
-						<appearance>
-							<material diffuseColor="blue"></material>
-						</appearance>
-							<IndexedLineSet coordIndex='0 1 -1 1 2 -1 2 3 -1 3 0 -1 4 5 -1 5 6 -1 6 7 -1 7 4 -1 1 5 -1 2 6 -1 0 4 -1 7 3 -1'>
-								<Coordinate point='-2 -2 -2 2 -2 -2 2 2 -2 -2 2 -2 -2 -2 2 2 -2 2 2 2 2 -2 2 2'/>
-							</IndexedLineSet>
-					</shape>
-				</transform-->
-						<!-- Gebäude -->
-						
-					<transform scale="1 1 1" translation="-15 0 50">
-					<inline url="baum/baum.x3d"></inline>
-					</transform>
-					<transform scale="1 1 1" translation="120 0 -175">
-					<inline url="tree/tree.x3d"></inline>
-					</transform>
-					<transform scale="1 1 1" render="true" translation="10 0 20">
-					<!--onLoad="HighlightBBox(this, true)" id="plane" in die inline-->
-					<inline url="g/g.x3d"></inline>
-					</transform>
-					<transform scale="1.4 1.4 1.4" translation="-15 0 60">
-					<inline url="c/c.x3d"></inline>
-					</transform>
-					<transform scale="0.8 0.8 0.8" translation="85 0 -110" rotation="1 0 0 0">
-					<inline url="e/e.x3d"></inline>
-					</transform>
-					<transform scale="1 1 1" translation="120 0 -170">
-					<inline url="ssc/ssc.x3d"></inline>
-					</transform>
-					<transform scale="1 1 1" translation="120 0 -175">
-					<inline url="mensa/mensa.x3d"></inline>
-					</transform>
-					<transform scale="1 1 1" translation="120 0 -175">
-					<inline url="bib/bib.x3d"></inline>
-					</transform>
-					<!--inline url="E009/E009.x3d"></inline>
-                   <background skyColor="0 0 0"></background-->
-				
-						<!-- Click-Events -->
-					
-						<transform scale="0.6 0.6 0.6" translation="59 2 -48" rotation="0 1 0 1.57"> <!-- Eingang G Gebäude!! -->
-							<shape>
-								<appearance>
-									<Material transparency='0.1' emissiveColor='0 1 1'>
-									</Material>
-								</appearance>
-								<box size="10 10 10" onmousedown="window.location ='g/1flur/1flur.html';"></box>
-							</shape>
-						</transform>
-						<transform scale="0.4 0.6 0.4" translation="210.6 2 44.5" rotation="0 1 0 1.57"> <!-- Eingang C Gebäude!! -->
-							<shape>
-								<appearance>
-									<Material transparency='0.1' emissiveColor='0 1 1'>
-									</Material>
-								</appearance>
-								<box size="9 9 9" onmousedown="window.location ='C Gebäude';"></box>
-							</shape>
-						</transform>
-						<transform scale="0.9 0.6 0.6" translation="163.9 2.4 -117" rotation="0 1 0 1.57"> <!-- Eingang E Gebäude!! -->
-							<shape>
-								<appearance>
-									<Material transparency='0.1' emissiveColor='0 1 1'>
-									</Material>
-								</appearance>
-								<box size="9.6 9.5 9.8" onmousedown="window.location ='e/flur1/fe1.html';"></box>
-							</shape>
-						</transform-->
-					
-                                                <matrixTransform id="bbox_transform">
-                                                    <Shape isPickable="false" DEF="line">
-                                                        <IndexedLineSet coordIndex="0 1 2 3 0 -1, 4 5 6 7 4 -1, 0 4 -1, 1 5 -1, 2 6 -1, 3 7 -1">
-                                                            <Coordinate id="bbox_points" point="0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0"></Coordinate>
-                                                            <Color color="0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0"></Color>
-                                                        </IndexedLineSet>
-                                                    </Shape>
-                                                </matrixTransform>
-                                                
-                                                <Viewpoint id="camera" position="-2.06146 3.06806 133.89495" orientation="0.00000 0.00000 0.00000 0.00000" 
-                                                           zNear="0.01000" zFar="10000.00000" description="defaultX3DViewpointNode"></Viewpoint> 
-                                                
-						<!-- Kameraperspektiven -->
-				
-				<Viewpoint position="82.83023 2.92458 54.55186" orientation="0.02271 0.99962 -0.01493 1.16342" zNear="0.10000" zFar="10000.00000" description="defaultX3DViewpointNode"></Viewpoint>
-				   
-				<Viewpoint 
-					position="203.17495 124.79400 151.24406" 
-					orientation="-0.99963 0.02700 -0.00325 0.62053" 
-					zNear="0.1" zFar="10000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-               <Viewpoint id="vp_1"
-					position="200.00000 12.99405 589.67119" 
-					orientation="0.00000 0.00000 0.00000 0.00000" 
-					zNear="0.1" zFar="10000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_2"
-					position="203.17495 124.79400 151.24406" 
-					orientation="-0.99963 0.02700 -0.00325 0.62053" 
-					zNear="0.1" zFar="10000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint  id="vp_3"
-					position="160.84188 1.47884 -70.22055" 
-					orientation="0.85575 -0.51669 0.02679 0.12105"
-					zNear="0.01000" zFar="10000.00000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_4" 
-					position="98.06126 2.58007 -17.79897" 
-					orientation="0.05622 0.99803 -0.02772 0.91783" 
-					zNear="0.01000" zFar="10000.00000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_5"
-					position="235.34825 2.91903 -36.65452" 
-					orientation="0.01468 0.99942 -0.03068 2.24933"
-					zNear="0.01000" zFar="10000.00000"
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_6"
-					position="258.43312 2.74453 -192.14460" 
-					orientation="0.63506 0.77223 -0.01880 0.07665"
-					zNear="0.01000" zFar="10000.00000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_7"
-					position="245.80363 2.84313 -204.45153" 
-					orientation="0.01756 0.99973 -0.01542 1.44183"
-					zNear="0.01000" zFar="10000.00000" 
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				<Viewpoint id="vp_8"
-					position="275.90217 2.79131 -171.53470" 
-					orientation="0.07691 -0.99655 0.03109 0.77080"
-					zNear="0.01000" zFar="10000.00000"
-					description="defaultX3DViewpointNode">
-				</Viewpoint>
-				
-				
-				
-			   </scene>
-           </x3d>
-		   <p>Kollisionen mit der Plane</p>
-		   <div id="counter">0</div>
-       </div> 
-    </div>
-</div> 
+							<Viewpoint id="vp_2"
+									   position="203.17495 124.79400 151.24406" 
+									   orientation="-0.99963 0.02700 -0.00325 0.62053" 
+									   zNear="0.1" zFar="10000" 
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
 
-   </body>
+							<Viewpoint  id="vp_3"
+										position="160.84188 1.47884 -70.22055" 
+										orientation="0.85575 -0.51669 0.02679 0.12105"
+										zNear="0.01000" zFar="10000.00000" 
+										description="defaultX3DViewpointNode">
+							</Viewpoint>
+
+							<Viewpoint id="vp_4" 
+									   position="98.06126 2.58007 -17.79897" 
+									   orientation="0.05622 0.99803 -0.02772 0.91783" 
+									   zNear="0.01000" zFar="10000.00000" 
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
+
+							<Viewpoint id="vp_5"
+									   position="235.34825 2.91903 -36.65452" 
+									   orientation="0.01468 0.99942 -0.03068 2.24933"
+									   zNear="0.01000" zFar="10000.00000"
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
+
+							<Viewpoint id="vp_6"
+									   position="258.43312 2.74453 -192.14460" 
+									   orientation="0.63506 0.77223 -0.01880 0.07665"
+									   zNear="0.01000" zFar="10000.00000" 
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
+
+							<Viewpoint id="vp_7"
+									   position="245.80363 2.84313 -204.45153" 
+									   orientation="0.01756 0.99973 -0.01542 1.44183"
+									   zNear="0.01000" zFar="10000.00000" 
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
+
+							<Viewpoint id="vp_8"
+									   position="275.90217 2.79131 -171.53470" 
+									   orientation="0.07691 -0.99655 0.03109 0.77080"
+									   zNear="0.01000" zFar="10000.00000"
+									   description="defaultX3DViewpointNode">
+							</Viewpoint>
+								
+							<!-- BBox Transform -->
+                            <matrixTransform id="bbox_transform">
+                                <Shape isPickable="false" DEF="line">
+                                    <IndexedLineSet coordIndex="0 1 2 3 0 -1, 4 5 6 7 4 -1, 0 4 -1, 1 5 -1, 2 6 -1, 3 7 -1">
+                                        <Coordinate id="bbox_points" point="0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0">
+                                        </Coordinate>
+                                        <Color color="0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0"></Color>
+                                    </IndexedLineSet>
+                                </Shape>
+                            </matrixTransform>
+							<transform translation="0 0 0">
+								<transform scale="1 1 1">
+									<shape id="plane">
+										<appearance>
+											<ImageTexture repeatS="true" repeatT="true" url="texturen/ground.jpg">
+										</appearance>
+										<box size="400 1 400"></box>
+									</shape>
+								</transform>
+							</transform>
+							
+                            <!-- Gebäude -->
+							<transform scale="1 1 1" translation="-15 0 50">
+								<inline url="baum/baum.x3d"></inline>
+							</transform>
+							<transform scale="1 1 1" translation="120 0 -175">
+								<inline url="tree/tree.x3d"></inline>
+							</transform>
+							<transform scale="1 1 1" render="true" translation="10 0 20">
+								<!--onLoad="HighlightBBox(this, true)" id="plane" in die inline-->
+							<inline url="g/g.x3d"></inline>
+							</transform>
+							<transform scale="1.4 1.4 1.4" translation="-15 0 60">
+								<inline url="c/c.x3d"></inline>
+							</transform>
+							<transform scale="0.8 0.8 0.8" translation="85 0 -110" rotation="1 0 0 0">
+								<inline url="e/e.x3d"></inline>
+							</transform>
+							<transform scale="1 1 1" translation="120 0 -170">
+								<inline url="ssc/ssc.x3d"></inline>
+							</transform>
+							<transform scale="1 1 1" translation="120 0 -175">
+								<inline url="mensa/mensa.x3d"></inline>
+							</transform>
+							<transform scale="1 1 1" translation="120 0 -175">
+								<inline url="bib/bib.x3d"></inline>
+							</transform>
+
+                            <!-- Click-Events -->
+
+                            <transform scale="0.6 0.6 0.6" translation="59 2 -48" rotation="0 1 0 1.57"> <!-- Eingang G Gebäude!! -->
+                                <shape>
+                                    <appearance>
+                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        </Material>
+                                    </appearance>
+                                    <box size="10 10 10" onmousedown="window.location = 'g/1flur/1flur.html';"></box>
+                                </shape>
+                            </transform>
+                            <transform scale="0.4 0.6 0.4" translation="210.6 2 44.5" rotation="0 1 0 1.57"> <!-- Eingang C Gebäude!! -->
+                                <shape>
+                                    <appearance>
+                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        </Material>
+                                    </appearance>
+                                    <box size="9 9 9" onmousedown="window.location = 'C Gebäude';"></box>
+                                </shape>
+                            </transform>
+                            <transform scale="0.9 0.6 0.6" translation="163.9 2.4 -117" rotation="0 1 0 1.57"> <!-- Eingang E Gebäude!! -->
+                                <shape>
+                                    <appearance>
+                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        </Material>
+                                    </appearance>
+                                    <box size="9.6 9.5 9.8" onmousedown="window.location = 'e/flur1/fe1.html';"></box>
+                                </shape>
+							</transform-->
+
+							<matrixTransform id="bbox_transform">
+								<Shape isPickable="false" DEF="line">
+									<IndexedLineSet coordIndex="0 1 2 3 0 -1, 4 5 6 7 4 -1, 0 4 -1, 1 5 -1, 2 6 -1, 3 7 -1">
+										<Coordinate id="bbox_points" point="0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0, 0 0 0"></Coordinate>
+										<Color color="0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0, 0 1 0"></Color>
+									</IndexedLineSet>
+								</Shape>
+							</matrixTransform>
+                        </scene>
+                    </x3d>
+                    <div id="counter">0</div>
+                </div> 
+            </div>
+        </div> 
+
+    </body>
 </html>
