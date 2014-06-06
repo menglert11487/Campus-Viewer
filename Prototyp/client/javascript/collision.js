@@ -16,7 +16,12 @@ Collision.CalculateCameraPosition = function() {
 };
 
 Collision.CalculateObjectBBox = function(highlightNode) {
-    return Collision.Plane._x3domNode.getVolume();
+	var volume = Collision.Plane._x3domNode.getVolume();
+	var transform = Collision.Plane._x3domNode._graph.globalMatrix;
+	var bbox = {};
+	bbox.min = transform.multMatrixPnt(volume.min);
+	bbox.max = transform.multMatrixPnt(volume.max);
+    return bbox;
 };
 
 Collision.HighlightBBox = function(highlightNode, bool) {
