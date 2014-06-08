@@ -1,17 +1,20 @@
 <!DOCTYPE HTML>
-
 <html>
+	<head>
+		<title>Registrierung vom Campus Viewer Fulda</title>
 		
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css">
         <link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
         <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="javaScript.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script type="text/javascript" href="loginout.js"></script>
 		
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -77,10 +80,8 @@
 				    }
 						
 					
-					 if (newGivenname == "")
-					
+					if (newGivenname == "")
 					{
-						
 						document.formular.givenname.focus();
 						document.getElementById('f2').style.color='#FF0000';
 						document.getElementById('d2').innerHTML ="*Bitte den Vornamen eingeben ";
@@ -96,9 +97,8 @@
 						document.getElementById('d2').innerHTML ="";
 				    }
 					
-					 if (newName == "")
+					if (newName == "")
 					{
-						
 						document.formular.name.focus();
 						document.getElementById('f3').style.color='#FF0000';
 						document.getElementById('d3').innerHTML ="*Bitte den Nachnamen eingeben ";
@@ -106,6 +106,7 @@
 					    document.getElementById('d3').style.color ='#FF0000';
 						document.getElementById('d3').style.fontStyle = 'italic';
 					}
+					
 					if (newName != "")
 					{
 						document.formular.username.focus();
@@ -113,9 +114,8 @@
 						document.getElementById('d3').innerHTML ="";
 				    }
 					
-					 if (newEmail.indexOf("@") == -1 || newEmail == "")
+					if (newEmail.indexOf("@") == -1 || newEmail == "")
 					{
-					
 						document.formular.email.focus();
 						document.getElementById('f4').style.color='#FF0000';
 						document.getElementById('d4').innerHTML ="*Bitte die Email-Adresse eingeben ";
@@ -131,9 +131,7 @@
 						document.getElementById('d4').innerHTML ="";
 				    }
 					
-					
-					
-					 if (newPassword == "")
+					if (newPassword == "")
 					{
 						
 						document.formular.password.focus();
@@ -151,10 +149,8 @@
 						document.getElementById('d5').innerHTML ="";
 				    }
 					
-					
 				    if (newSamePassword == "")
 					{
-						
 						document.formular.samePassword.focus();
 						document.getElementById('f6').style.color='#FF0000';
 						document.getElementById('d6').innerHTML ="*Bitte Passwort eingeben ";
@@ -162,6 +158,7 @@
 					    document.getElementById('d6').style.color ='#FF0000';
 						document.getElementById('d6').style.fontStyle = 'italic';
 					}
+					
 					if (newSamePassword != "")
 					{
 						document.formular.username.focus();
@@ -174,67 +171,51 @@
 						alert("Die Passwörter stimmen nicht überein.");
 					}
 				}	
-
 				$('#btnSubmitForm').on('click', checkFormular);
 				$('#btnResetForm').on('click', deleteFormular);
 			});
-			</script> 
+		</script> 
+	</head>
 		
-		<head>
-			<title>Registrierung vom Campus Viewer Fulda</title>
-		</head>
-		
-	<body name="body">	
-	
-       <div data-role="page" id="pageone" name="div1">
-  <div data-role="panel" id="myPanel" name="div2"> 
-    <h2>Menü</h2>
-    <a href="index.html"><button>Startseite</button></a>
-    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
-    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
-    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-    <a href="kontakt.html"><button>Kontakt</button></a>
-    <a href="impressum.html"><button>Impressum</button></a>
-                <a name="loginout"><input type = "button" name="button" value="Login"  ></input></a>    <a id="login" href="login.html"><button>Login</button></a>
-	<a href="registration.html"><button>Registrieren</button></a>
-  </div> 
-  
+	<body>
+		<div data-role="page" id="pageone">
+			<div data-role="panel" id="myPanel"> 
+				<h2>Menü</h2>
+					<a href="index.html"><button>Startseite</button></a>
+					<a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+					<a href="UeberDieHS.html"><button>die Hochschule</button></a>
+					<a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+					<a href="kontakt.html"><button>Kontakt</button></a>
+					<a href="impressum.html"><button>Impressum</button></a>
+					<a href=""><button id="loginout" onClick="loginOrOut()"></button></a>
+					<a href="registration.html"><button>Registrieren</button></a>
+			</div> 
  
-
-  <div data-role="main" class="ui-content">
-    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
-  
-			<article>
-				<h1>Registrierung vom Campus Viewer Fulda</h1>
-				<b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
-			</article>
+		<div data-role="main" class="ui-content">
+			<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+				<article>
+					<h1>Registrierung vom Campus Viewer Fulda</h1>
+					<b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
+				</article>
 			
 		<form action="/user/new" name="formular" method="POST">
-<fieldset> 
-			<p> <label id = "f1" for = "username">Benutzername: <div id = "d1"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
-
+			<fieldset> 
+				<p> <label id = "f1" for = "username">Benutzername: <div id = "d1"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
 			
-			<p><label id = "f2" for = "givenname"> Vorname: <div id = "d2"> </div >			  </label><input type="text" maxlength="50" name="givenname"></p>
+				<p><label id = "f2" for = "givenname"> Vorname: <div id = "d2"> </div >			  </label><input type="text" maxlength="50" name="givenname"></p>
 			
-			
-			<p><label id = "f3" for = "name">Nachname: <div id = "d3"> </div >				  </label><input type="text" maxlength="50" name="name"></p>
+				<p><label id = "f3" for = "name">Nachname: <div id = "d3"> </div >				  </label><input type="text" maxlength="50" name="name"></p>
 	
+				<p><label id = "f4" for = "email">Email-Adresse: <div id = "d4"> </div >			  </label><input type="text" maxlength="50" name="email"></p>
+			
+				<p><label id = "f5" for="password">Passwort: <div id = "d5"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
+			
+				<p><label id = "f6" for="samePassword">Passwort wiederholen:  <div id = "d6"> </div >  </label><input type="password" maxlength="50" name="samePassword"></p>
+			
+				<label for="send"></label><input type="submit" value="Absenden" id="btnSubmitForm" style=cursor:pointer;>
 	
-			<p><label id = "f4" for = "email">Email-Adresse: <div id = "d4"> </div >			  </label><input type="text" maxlength="50" name="email"></p>
-			
-			
-			<p><label id = "f5" for="password">Passwort: <div id = "d5"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
-			
-			
-			<p><label id = "f6" for="samePassword">Passwort wiederholen:  <div id = "d6"> </div >  </label><input type="password" maxlength="50" name="samePassword"></p>
-			
-			
-			<label for="send"></label><input type="submit" value="Absenden" id="btnSubmitForm" style=cursor:pointer;>
-	
-			<label for="delete"></label><input type="reset" value="Zurückversetzen" id="btnResetForm" style=cursor:pointer;>		
-</fieldset>
-		</form>
-		
+				<label for="delete"></label><input type="reset" value="Zurückversetzen" id="btnResetForm" style=cursor:pointer;>		
+			</fieldset>
+		</form>	
 	</body>
-	
 </html>

@@ -1,17 +1,19 @@
-
 <html>
     <head>
         <title>Campus Viewer Fulda Login</title>
+		
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css" />
         <link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
         <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="javaScript.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
 		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script type="text/javascript" href="loginout.js"></script>
 		
 		<script type = "text/javascript">
 		$(document).ready(function() {
@@ -25,26 +27,24 @@
 				return x;
 			}
 	
-		
 			function checkFormular(e)
 			{
-			
-					var newUsername = document.formular.username.value.trim();
-					document.formular.username.value = newUsername;
+				var newUsername = document.formular.username.value.trim();
+				document.formular.username.value = newUsername;
 
-					var newPassword = document.formular.password.value.trim();
-					document.formular.password.value = newPassword;	
-					
+				var newPassword = document.formular.password.value.trim();
+				document.formular.password.value = newPassword;	
 					
 				if (newUsername == "")
-				{
-					document.formular.username.focus();
-				    document.getElementById('fa').style.color='#FF0000';
-				    document.getElementById('da').innerHTML ="*Bitte den Benutzernamen eingeben ";
-					document.getElementById('da').style.fontSize ="90%";
-					document.getElementById('da').style.color ='#FF0000';
-				    document.getElementById('da').style.fontStyle = 'italic';
-				}
+					{
+						document.formular.username.focus();
+						document.getElementById('fa').style.color='#FF0000';
+						document.getElementById('da').innerHTML ="*Bitte den Benutzernamen eingeben ";
+						document.getElementById('da').style.fontSize ="90%";
+						document.getElementById('da').style.color ='#FF0000';
+						document.getElementById('da').style.fontStyle = 'italic';
+					}
+				
 				if (newUsername != "")
 					{
 						document.formular.username.focus();
@@ -53,14 +53,14 @@
 				    }
 				
 				if (newPassword == "")
-				{
-					document.formular.password.focus();
-				    document.getElementById('fb').style.color='#FF0000';
-				    document.getElementById('db').innerHTML ="*Bitte das Passwort eingeben ";
-					document.getElementById('db').style.fontSize ="90%";
-					document.getElementById('db').style.color ='#FF0000';
-				    document.getElementById('db').style.fontStyle = 'italic';
-				}
+					{
+						document.formular.password.focus();
+						document.getElementById('fb').style.color='#FF0000';
+						document.getElementById('db').innerHTML ="*Bitte das Passwort eingeben ";
+						document.getElementById('db').style.fontSize ="90%";
+						document.getElementById('db').style.color ='#FF0000';
+						document.getElementById('db').style.fontStyle = 'italic';
+					}
 				
 				if (newPassword != "")
 					{
@@ -69,58 +69,51 @@
 						document.getElementById('db').innerHTML ="";
 				    }
 			}
-				$('#btnSubmitForm').on('click', checkFormular);
+			$('#btnSubmitForm').on('click', checkFormular);
 			});
 		</script>
     </head>
-    <body name="body">
+	
+    <body>
     
-    
-  <div data-role="page" id="pageone" name="div1">
-  <div data-role="panel" id="myPanel" name="div2"> 
-    <h2>Menü</h2>
-    <a href="index.html"><button>Startseite</button></a>
-    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
-    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
-    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-    <a href="kontakt.html"><button>Kontakt</button></a>
-    <a href="impressum.html"><button>Impressum</button></a>
-                <a name="loginout"><input type = "button" name="button" value="Login"  ></input></a>
-	<a href="registration.html"><button>Registrieren</button></a>	
-  </div> 
-
-  <div data-role="main" class="ui-content">
-    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
-  
-
-       <!-- <div id="startseite"><a href="index.html">Startseite</a></div>
-		<!--
-        <div id="box2"> Funktion</div> 
-        <div id="box3"> Funktion</div> 
-        <div id="box4"> Funktion</div>
-        <div id="box5"> Funktion</div>
-        <div id="box6"> Funktion</div> 
-        <div id="impressum"><a href="impressum.html">Impressum</a></div>
-        <div id="kontakt"><a href="kontakt.html">Kontakt</a></div> -->
-        
-        <article>
+		<div data-role="page" id="pageone">
+			<div data-role="panel" id="myPanel"> 
+				<h2>Menü</h2>
+					<a href="index.html"><button>Startseite</button></a>
+					<a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+					<a href="UeberDieHS.html"><button>die Hochschule</button></a>
+					<a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+					<a href="kontakt.html"><button>Kontakt</button></a>
+					<a href="impressum.html"><button>Impressum</button></a>
+					<a href=""><button id="loginout" onClick="loginOrOut()"></button></a>
+					<a href="registration.html"><button>Registrieren</button></a>	
+			</div> 
+		
+		<div data-role="main" class="ui-content">
+			<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+				<!-- <div id="startseite"><a href="index.html">Startseite</a></div>
+				<!-- <div id="box2"> Funktion</div> 
+				<div id="box3"> Funktion</div> 
+				<div id="box4"> Funktion</div>
+				<div id="box5"> Funktion</div>
+				<div id="box6"> Funktion</div> 
+				<div id="impressum"><a href="impressum.html">Impressum</a></div>
+				<div id="kontakt"><a href="kontakt.html">Kontakt</a></div> -->
+		
+			<article>
 				<h1>Anmeldung vom Campus Viewer Fulda</h1>
 				<b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
 			</article>
-			
-		<form action="/user/new" name="formular" method="POST">
-<fieldset> 
-			<p> <label id = "fa" for = "username">Benutzername: <div id = "da"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
-			
-			
-			<p><label id = "fb" for="password">Passwort: <div id = "db"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
-			
-			
-			<label for="send"></label><input type="submit" value="Login" id="btnSubmitForm" style=cursor:pointer;>
-			
-</fieldset>
-		</form>
-		
-	</body>
 	
+		<form action="/user/new" name="formular" method="POST">
+			<fieldset> 
+				<p> <label id = "fa" for = "username">Benutzername: <div id = "da"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
+			
+				<p><label id = "fb" for="password">Passwort: <div id = "db"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
+			
+				<label for="send"></label><input type="submit" value="Login" id="btnSubmitForm" style=cursor:pointer;>
+			
+			</fieldset>
+		</form>
+	</body>
 </html>

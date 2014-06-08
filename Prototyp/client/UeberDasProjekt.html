@@ -1,60 +1,52 @@
-
 <html>
     <head>
         <title>Prototype</title>
+		
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css" />
         <link rel="stylesheet" type="text/css" href="style.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
         <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script type="text/javascript" src="javaScript.js"></script>
-            <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+
+		<script type="text/javascript" src="loginout.js"></script>
     </head>
-    <body name="body">
-    
-    
-       <div data-role="page" id="pageone" name="div1">
-    <div data-role="panel" id="myPanel" name="div2"> 
-    <h2>Menü</h2>
-    <a href="index.html"><button>Startseite</button></a>
-    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
-    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
-    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-    <a href="kontakt.html"><button>Kontakt</button></a>
-    <a href="impressum.html"><button>Impressum</button></a>
-                <a name="loginout"><input type = "button" name="button" value="Login"  ></input></a>
-	<a href="registration.html"><button>Registrieren</button></a>	
-  </div> 
-  
+	
+    <body>
+		<div data-role="page" id="pageone">
+			<div data-role="panel" id="myPanel"> 
+				<h2>Menü</h2>
+					<a href="index.html"><button>Startseite</button></a>
+					<a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+					<a href="UeberDieHS.html"><button>die Hochschule</button></a>
+					<a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+					<a href="kontakt.html"><button>Kontakt</button></a>
+					<a href="impressum.html"><button>Impressum</button></a>
+					<a name="loginout" href=""><button name="button" onClick="loginOrOut()">Login</button></a>
+					<a href="registration.html"><button>Registrieren</button></a>
+			</div> 
  
-
-  <div data-role="main" class="ui-content">
-    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
-  
-
-
-       <!-- <div id="startseite"><a href="index.html">Startseite</a></div>
-		<!--
-        <div id="box2"> Funktion</div> 
-        <div id="box3"> Funktion</div> 
-        <div id="box4"> Funktion</div>
-        <div id="box5"> Funktion</div>
-        <div id="box6"> Funktion</div> 
-        <div id="impressum"><a href="impressum.html">Impressum</a></div>
-        <div id="kontakt"><a href="kontakt.html">Kontakt</a></div> -->
+		<div data-role="main" class="ui-content">
+			<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+				<!-- <div id="startseite"><a href="index.html">Startseite</a></div>
+				<!-- <div id="box2"> Funktion</div> 
+				<div id="box3"> Funktion</div> 
+				<div id="box4"> Funktion</div>
+				<div id="box5"> Funktion</div>
+				<div id="box6"> Funktion</div> 
+				<div id="impressum"><a href="impressum.html">Impressum</a></div>
+				<div id="kontakt"><a href="kontakt.html">Kontakt</a></div> -->
         
-        <div id="textBox2"><h1>Das Projekt</h1>
-                           <a>Mit der Campus Viewer Applikation soll das Ziel erreicht werden, dass Menschen, die noch nie auf dem Campus der Hochschule Fulda waren, die Möglichkeit haben sich einen Überblick über den Campus der Hochschule zu verschaffen. </br>
-Allerdings mit der Einschränkung, dass sich lediglich die studierenden wirklich in die Applikation einloggen können und interne Informationen der Hochschule abrufen können. Und externe Besucher der Applikation nur die Möglichkeit haben sich über den Campus und durch die Gebäude zu navigieren.</br>
-Kommt also ein Besucher auf den Campus um sich in seinen Studiengang zu immatrikulieren, hat er mit dieser Applikation die Möglichkeit das Student Service Center zu suchen, um sich eine Route auszudenken, wie er am besten dort hinkommt.</br>
-Bereits immatrikulierte Studenten haben wiederum die Möglichkeit, Informationen über die Raumbelegungen und Stundenpläne der Professoren aufzurufen.   </br> 
-                           </a>
-        </div>
-
-        
- 
+		<div id="textBox2"><h1>Das Projekt</h1>
+			<a>Mit der Campus Viewer Applikation soll das Ziel erreicht werden, dass Menschen, die noch nie auf dem Campus der Hochschule Fulda waren, die Möglichkeit haben sich einen Überblick über den Campus der Hochschule zu verschaffen. </br>
+				Allerdings mit der Einschränkung, dass sich lediglich die studierenden wirklich in die Applikation einloggen können und interne Informationen der Hochschule abrufen können. Und externe Besucher der Applikation nur die Möglichkeit haben sich über den Campus und durch die Gebäude zu navigieren.</br>
+				Kommt also ein Besucher auf den Campus um sich in seinen Studiengang zu immatrikulieren, hat er mit dieser Applikation die Möglichkeit das Student Service Center zu suchen, um sich eine Route auszudenken, wie er am besten dort hinkommt.</br>
+				Bereits immatrikulierte Studenten haben wiederum die Möglichkeit, Informationen über die Raumbelegungen und Stundenpläne der Professoren aufzurufen.   </br> 
+			</a>
+		</div>
     </body>
 </html>

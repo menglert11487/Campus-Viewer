@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>Prototype</title>
+	<head>
+		<title>Prototype</title>
+		
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/x3dom.css" />
@@ -10,7 +11,6 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
         <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom-full.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
         <script src="javascript/collision.js"></script>
         <script src="javascript/navigation.js"></script>
 		<script src="javascript.js"></script>
@@ -23,61 +23,61 @@
                 Collision.onLoad();
                 Navigation.onLoad();
 
-                function Render() {
-                    Collision.Render();
-                    Navigation.Render();
-                    window.requestAnimationFrame(Render);
-                }
-                ;
+					function Render() {
+						Collision.Render();
+						Navigation.Render();
+						window.requestAnimationFrame(Render);
+					};
                 window.requestAnimationFrame(Render);
-
             };
 		</script>
 		
 		<script type="text/javascript" href="loginout.js"></script>
-    </head>
-	
-    <body name="body"> 
-        <div style="position:absolute; width: 250px; height: 250px; z-index: 10000; bottom: 25px; left: 25px;">
-            <div style="position: absolute; height: 99%; left: 50%; top: -2px; border: solid 2px #ffffff;"></div>
-            <div style="position: absolute; width: 99%; top: 50%; left: 0px; border: solid 2px #ffffff;"></div>
-            <div id="control" style="width: 250px; height: 250px; position:absolute; z-index: 9500; background-color: rgba(120, 120, 120, 0.5); bottom: 0px; border-radius: 50%; border: solid 2px #ffffff;"></div>
-            <div id="pointer" style="width: 50px; height: 50px; position: absolute; z-index: 9000; background-color: #414141; border: solid 2px #ffffff; border-radius: 50%; top: 100px; left: 100px;"></div>
-        </div>
 		
-        <div data-role="page" id="pageone" name="div1">
-            <div data-role="panel" id="myPanel" name="div2"> 
-                <h2>Menü</h2>
-                <a href="index.html"><button>Startseite</button></a>
-                <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
-                <a href="UeberDieHS.html"><button>die Hochschule</button></a>
-                <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-                <a href="kontakt.html"><button>Kontakt</button></a>
-                <a href="impressum.html"><button>Impressum</button></a>
-					<a name="loginout"><input type = "button" name="button" value="Login"  ></input></a>
-                <a href="registration.html"><button>Registrieren</button></a>	
-            </div> 
+	</head>
+	
+	<body> 
+		<div style="position:absolute; width: 250px; height: 250px; z-index: 10000; bottom: 25px; left: 25px;">
+			<div style="position: absolute; height: 99%; left: 50%; top: -2px; border: solid 2px #ffffff;"></div>
+			<div style="position: absolute; width: 99%; top: 50%; left: 0px; border: solid 2px #ffffff;"></div>
+			<div id="control" style="width: 250px; height: 250px; position:absolute; z-index: 9500; background-color: rgba(120, 120, 120, 0.5); bottom: 0px; border-radius: 50%; border: solid 2px #ffffff;"></div>
+			<div id="pointer" style="width: 50px; height: 50px; position: absolute; z-index: 9000; background-color: #414141; border: solid 2px #ffffff; border-radius: 50%; top: 100px; left: 100px;"></div>
+		</div>
 
-            <div data-role="panel" id="myPanel2"> 
-				<h2>Navi</h2>
-                <button onclick="switchCamera('vp_2');">Geneigt</button>
-                <button onclick="switchCamera('vp_3');">E</button>
-                <button onclick="switchCamera('vp_4');">G</button>
-                <button onclick="switchCamera('vp_5');">C</button>
-                <button onclick="switchCamera('vp_6');">Mensa</button>
-                <button onclick="switchCamera('vp_7');">SSC</button>
-                <button onclick="switchCamera('vp_8');">Bibliothek</button>
-                <button onClick="lookArround()">360 view</button>
-				<form name="changeSpeed" action="javascript:changeSpeed()">
-					<input name="speed" type="text"></input>
-					<input name="submit" type="submit" value="Speed"/>
-				</form>
+		<div data-role="page" id="pageone">
+			<div data-role="panel" id="myPanel"> 
+				<h2>Menü</h2>
+					<a href="index.html"><button>Startseite</button></a>
+					<a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+					<a href="UeberDieHS.html"><button>die Hochschule</button></a>
+					<a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+					<a href="kontakt.html"><button>Kontakt</button></a>
+					<a href="impressum.html"><button>Impressum</button></a>
+					<a href=""><button id="loginout" onClick="loginOrOut()"></button></a>
+					<a href="registration.html"><button>Registrieren</button></a>	
             </div> 
-			
-            <div data-role="main" class="ui-content">
-                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
-                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
-                <div id="ansicht">
+		
+		<div data-role="panel" id="myPanel2"> 
+			<h2>Navi</h2>
+				<button onclick="switchCamera('vp_2');">Geneigt</button>
+				<button onclick="switchCamera('vp_3');">E</button>
+				<button onclick="switchCamera('vp_4');">G</button>
+				<button onclick="switchCamera('vp_5');">C</button>
+				<button onclick="switchCamera('vp_6');">Mensa</button>
+				<button onclick="switchCamera('vp_7');">SSC</button>
+                <button onclick="switchCamera('vp_8');">Bibliothek</button>
+				<button onClick="lookArround()">360 view</button>
+				
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"></input>
+						<input name="submit" type="submit" value="Speed"></input>
+					</form> 
+		</div>
+		<div data-role="main" class="ui-content">
+			<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+			<a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
+
+				<div id="ansicht">
                     <x3d id='x3d_element' showStat='false' showLog='false' style='position: relative; width:100%; height:100%; border:0; margin:0; padding:0;'>
                         <Scene DEF='scene'>
                             <Environment frustumCulling='false'></Environment>
@@ -93,59 +93,59 @@
 							</Viewpoint>
 
 							<Viewpoint id="vp_1"
-									   position="200.00000 12.99405 589.67119" 
-									   orientation="0.00000 0.00000 0.00000 0.00000" 
-									   zNear="0.1" zFar="10000" 
-									   description="defaultX3DViewpointNode">
+								position="200.00000 12.99405 589.67119" 
+								orientation="0.00000 0.00000 0.00000 0.00000" 
+								zNear="0.1" zFar="10000" 
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint id="vp_2"
-									   position="203.17495 124.79400 151.24406" 
-									   orientation="-0.99963 0.02700 -0.00325 0.62053" 
-									   zNear="0.1" zFar="10000" 
-									   description="defaultX3DViewpointNode">
+								position="203.17495 124.79400 151.24406" 
+								orientation="-0.99963 0.02700 -0.00325 0.62053" 
+								zNear="0.1" zFar="10000" 
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint  id="vp_3"
-										position="160.84188 1.47884 -70.22055" 
-										orientation="0.85575 -0.51669 0.02679 0.12105"
-										zNear="0.01000" zFar="10000.00000" 
-										description="defaultX3DViewpointNode">
+								position="160.84188 1.47884 -70.22055" 
+								orientation="0.85575 -0.51669 0.02679 0.12105"
+								zNear="0.01000" zFar="10000.00000" 
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint id="vp_4" 
-									   position="98.06126 2.58007 -17.79897" 
-									   orientation="0.05622 0.99803 -0.02772 0.91783" 
-									   zNear="0.01000" zFar="10000.00000" 
-									   description="defaultX3DViewpointNode">
+								position="98.06126 2.58007 -17.79897" 
+								orientation="0.05622 0.99803 -0.02772 0.91783" 
+								zNear="0.01000" zFar="10000.00000" 
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint id="vp_5"
-									   position="235.34825 2.91903 -36.65452" 
-									   orientation="0.01468 0.99942 -0.03068 2.24933"
-									   zNear="0.01000" zFar="10000.00000"
-									   description="defaultX3DViewpointNode">
+								position="235.34825 2.91903 -36.65452" 
+								orientation="0.01468 0.99942 -0.03068 2.24933"
+								zNear="0.01000" zFar="10000.00000"
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint id="vp_6"
-									   position="258.43312 2.74453 -192.14460" 
-									   orientation="0.63506 0.77223 -0.01880 0.07665"
-									   zNear="0.01000" zFar="10000.00000" 
-									   description="defaultX3DViewpointNode">
+								position="258.43312 2.74453 -192.14460" 
+								orientation="0.63506 0.77223 -0.01880 0.07665"
+								zNear="0.01000" zFar="10000.00000" 
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint id="vp_7"
-									   position="245.80363 2.84313 -204.45153" 
-									   orientation="0.01756 0.99973 -0.01542 1.44183"
-									   zNear="0.01000" zFar="10000.00000" 
-									   description="defaultX3DViewpointNode">
+								position="245.80363 2.84313 -204.45153" 
+								orientation="0.01756 0.99973 -0.01542 1.44183"
+								zNear="0.01000" zFar="10000.00000" 
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 
 							<Viewpoint id="vp_8"
-									   position="275.90217 2.79131 -171.53470" 
-									   orientation="0.07691 -0.99655 0.03109 0.77080"
-									   zNear="0.01000" zFar="10000.00000"
-									   description="defaultX3DViewpointNode">
+								position="275.90217 2.79131 -171.53470" 
+								orientation="0.07691 -0.99655 0.03109 0.77080"
+								zNear="0.01000" zFar="10000.00000"
+								description="defaultX3DViewpointNode">
 							</Viewpoint>
 								
 							<!-- BBox Transform -->
@@ -228,10 +228,8 @@
                         </scene>
                     </x3d>
                     <div id="counter">0</div>
-                </div> 
-            </div>
-			
-        </div> 
-
+				</div>
+			</div>
+		</div>
     </body>
 </html>

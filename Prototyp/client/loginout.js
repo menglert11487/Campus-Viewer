@@ -1,16 +1,16 @@
 			var loginoutvar = 0;
 			
-  			loginOrOut = function()
+  			function loginOrOut()
 			{
 				if (loginoutvar == 0)
 				{
-					window.open('login.html');
-					document.body.div1.div2.loginout.button.value = "Logout";
+					document.getElementById('loginout').innerHTML = "Logout";
+					document.getElementById('loginout').href = "login.html";
 					loginoutvar = 1;
 
 				} else if (loginoutvar == 1)
 				{
-					document.body.div1.div2.loginout.button.value = "Login";
+					document.getElementById('loginout').innerHTML = "Login";
 					loginoutvar = 0;
 				}				
 			}
