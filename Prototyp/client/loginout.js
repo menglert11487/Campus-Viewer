@@ -1,11 +1,11 @@
 			var loginoutvar = 0;
+			document.getElementById('loginout').innerHTML = "Login";
 			
   			function loginOrOut()
 			{
 				if (loginoutvar == 0)
 				{
 					document.getElementById('loginout').innerHTML = "Logout";
-					document.getElementById('loginout').href = "login.html";
 					loginoutvar = 1;
 
 				} else if (loginoutvar == 1)
