@@ -153,12 +153,11 @@ var queryrow = function(req, res) {
     //connection.query(sqlquery, function(err, rows) {
     var selection = req.params.selection,
         table = req.params.table,
-		username = req.params.username,
-		password = req.params.password;
+		username = 'Test';
 
     console.log('req params: ' + req.params);
 
-    connection.query('SELECT * FROM USER WHERE USERNAME = "' + username + '" AND PASSWORD = "' + password + '"',
+    connection.query('SELECT * FROM USER WHERE USERNAME = "' + username + '"',
         function(err, rows) {
             if (err) {
                 console.error(err);
@@ -318,7 +317,7 @@ app.get('/dbdelete/:dbname', deleteDB);
 app.get('/dbcon/:host/:db/:user/:pass', dbparams);
 app.get('/dbopen/:host/:db/:user/:pass', dbparams);
 app.get('/query/:selection/:table', query);
-app.get('/queryrow/:username/:password', queryrow);
+app.get('/pups', queryrow);
 app.get('/updateuser/:db/:uname', updateUser);
 app.get('/dbclose/', dbclose);
 app.get('/dbquit/', dbclose);
