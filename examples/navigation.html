@@ -8,16 +8,24 @@
         
         <link rel="stylesheet" type="text/css" href="http://www.x3dom.org/download/dev/x3dom.css" />
         <script type="text/javascript" src="http://www.x3dom.org/download/dev/x3dom.js"></script>
-
+        <script type="text/javascript" src="navigationAPI.js"></script>
+        
         <style>.x3dom-logContainer { bottom: 0px; position: absolute; } </style>
         
         <script type="text/javascript">
+            
             window.onload = function() {
+                var camPosition = new x3dom.fields.SFVec3f(0.0, 1.8, -20.0);
+                var viewState = new Viewstate(camPosition);
+                NavigationAPI.SetCamera("camera");
+                NavigationAPI.SetViewState(viewState);
+                
                 var camera = document.getElementById("camera");
                 var control = document.getElementById("control");
                 var pointer = document.getElementById("pointer");
                 var activated = false;
                 var position = {x: 0, y: 0};
+                
 
                 control.addEventListener(
                     "mousedown", 
@@ -70,14 +78,17 @@
                 
                 function tick() {
                     if (activated) {
-                        var currentPosition = x3dom.fields.SFVec3f.parse(camera.getAttribute("position"));
                         var halfWidth = (control.clientWidth / 2.0);
                         var halfHeight = (control.clientHeight / 2.0);
                         var facX = -(1.0 / halfWidth * (-halfWidth + position.x));
-                        var facY = 1.0 / halfHeight * (-halfHeight + position.y);
-                        currentPosition.x += facX;
-                        currentPosition.y += facY;
-                        camera.setAttribute("position", currentPosition.toString());
+                        var facY = -(1.0 / halfHeight * (-halfHeight + position.y));
+                        camPosition.x += facX;
+                        camPosition.z += facY;
+                        
+                        viewState.ChangeView(camPosition);
+                        NavigationAPI.SetCamera("camera");
+                        NavigationAPI.SetView(viewState.ViewMatrix);
+                        NavigationAPI.Render();
                     }
                     
                     window.requestAnimationFrame(tick);
@@ -99,6 +110,7 @@
         <x3d id='x3dElement' showStat='false' showLog='false' style='position: relative; width:100%; height:100%; border:0; margin:0; padding:0;'>
             <Scene DEF='scene'>
                 <Environment frustumCulling='false'></Environment>
+                <NavigationInfo type="none"></NavigationInfo>
 
                 <Shape>
                     <Appearance>
@@ -153,8 +165,10 @@
                     </Shape>
                 </matrixTransform>
 
-                <Viewpoint id="camera" position="-2.06146 3.06806 133.89495" orientation="0.00000 0.00000 0.00000 0.00000" 
-                           zNear="0.01000" zFar="10000.00000" description="defaultX3DViewpointNode"></Viewpoint>
+                <!--Viewpoint id="camera" position="-2.06146 3.06806 133.89495" orientation="0.00000 0.00000 0.00000 0.00000" 
+                           zNear="0.01000" zFar="10000.00000" description="defaultX3DViewpointNode"></Viewpoint-->
+                <Viewfrustum id="camera"></Viewfrustum>
+                
                 <Background skyColor="0.4 0.6 0.8"></Background>
             </Scene>
         </x3d>
