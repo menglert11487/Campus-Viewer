@@ -1,13 +1,13 @@
 
 Collision = {};
 Collision.Plane;
-Collision.Gbuild;
+//Collision.Gbuild;
 
 Collision.onLoad = function(){
     Collision.Plane = document.getElementById("plane");
-	Collision.Gbuild = document.getElementById("gbuild");
+//	Collision.Gbuild = document.getElementById("gbuild");
     Collision.HighlightBBox(Collision.Plane, true);
-	Collision.HighlightBBox(Collision.Gbuild, true);
+//	Collision.HighlightBBox(Collision.Gbuild, true);
 };
 
 
@@ -20,9 +20,9 @@ Collision.CalculateCameraPosition = function() {
 
 Collision.CalculateObjectBBox = function(highlightNode) {
 	var volume = Collision.Plane._x3domNode.getVolume();
-	var volume = Collision.Gbuild._x3domNode.getVolume();
+//	var volume = Collision.Gbuild._x3domNode.getVolume();
 	var transform = Collision.Plane._x3domNode._graph.globalMatrix;
-	var transform = Collision.Gbuild._x3domNode._graph.globalMatrix;
+//	var transform = Collision.Gbuild._x3domNode._graph.globalMatrix;
 	var bbox = {};
 	bbox.min = transform.multMatrixPnt(volume.min);
 	bbox.max = transform.multMatrixPnt(volume.max);
@@ -68,11 +68,6 @@ Collision.Render = function(){
     var cameraPos = Collision.CalculateCameraPosition();
     var objectBBox = Collision.CalculateObjectBBox();
 
-//    if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-//        (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
-//        (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
-//    {
-//		console.log("HIT AN OBJECT");
 
 // 	Äquator -> y-Achse, alles drüber ist ok, drunter nein
 	if(cameraPos.y < objectBBox.max.y)
@@ -93,3 +88,23 @@ Collision.Render = function(){
 //Koordinaten Anzeige (zur Überprüfung)
 		document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
 };
+
+// //Collision.RenderObj = function(GBuild){
+// //    var cameraPos = Collision.CalculateCameraPosition();
+// //    var objectBBox = Collision.CalculateObjectBBox();
+
+
+// //	if(cameraPos.x > objectBBox.max.x)
+// //		document.getElementById("camera").setAttribute('position', (objectBBox.max.x - 5) + " " + cameraPos.y + " " + cameraPos.z);
+// // //	 x-Rand -> min
+// //		else if(cameraPos.x < objectBBox.min.x)
+// //			document.getElementById("camera").setAttribute('position', (objectBBox.min.x + 5) + " " + cameraPos.y + " " + cameraPos.z);
+// // // z-oben -> max
+// //		else if(cameraPos.z > objectBBox.max.z)
+// //			document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.max.z - 5));
+// // // z-unten -> min
+// //		else if(cameraPos.z < objectBBox.min.z)
+// //			document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.min.z + 5));
+// // //Koordinaten Anzeige (zur Überprüfung)
+// //			document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
+// //};
