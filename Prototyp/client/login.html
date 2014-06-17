@@ -14,6 +14,7 @@
 		<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 		
 		<script type="text/javascript" src="loginout.js"></script>
+		<script type="text/javascript" src="login.js"></script>	
 		
 		<script type = "text/javascript">
 		$(document).ready(function() {
@@ -29,15 +30,15 @@
 	
 			function checkFormular(e)
 			{
-				var newUsername = document.formular.username.value.trim();
+				var newUsername = document.formular.un.value.trim();
 				document.formular.username.value = newUsername;
 
-				var newPassword = document.formular.password.value.trim();
-				document.formular.password.value = newPassword;	
+				var newPassword = document.formular.pw.value.trim();
+				document.formular.pw.value = newPassword;	
 					
 				if (newUsername == "")
 					{
-						document.formular.username.focus();
+						document.formular.un.focus();
 						document.getElementById('fa').style.color='#FF0000';
 						document.getElementById('da').innerHTML ="*Bitte den Benutzernamen eingeben ";
 						document.getElementById('da').style.fontSize ="90%";
@@ -47,14 +48,14 @@
 				
 				if (newUsername != "")
 					{
-						document.formular.username.focus();
+						document.formular.un.focus();
 						document.getElementById('fa').style.color='#000000';
 						document.getElementById('da').innerHTML ="";
 				    }
 				
 				if (newPassword == "")
 					{
-						document.formular.password.focus();
+						document.formular.pw.focus();
 						document.getElementById('fb').style.color='#FF0000';
 						document.getElementById('db').innerHTML ="*Bitte das Passwort eingeben ";
 						document.getElementById('db').style.fontSize ="90%";
@@ -64,12 +65,31 @@
 				
 				if (newPassword != "")
 					{
-						document.formular.username.focus();
+						document.formular.un.focus();
 						document.getElementById('fb').style.color='#000000';
 						document.getElementById('db').innerHTML ="";
 				    }
 			}
-			$('#btnSubmitForm').on('click', checkFormular);
+			//$('#btnSubmitForm').on('click', checkFormular);
+			$('#loginform').on('submit', function(e) {
+				
+				if(ceckFormular()) {
+					var data = {
+						username: document.formular.username.value,
+						password:
+					};
+				
+					$.ajax({
+						type: "POST",
+						url: "/user/new",
+						data: data,
+						success: function(data){
+							alert(data);
+						},
+						dataType: dataType
+					});
+				}
+				return false;
 			});
 		</script>
     </head>
@@ -85,7 +105,7 @@
 					<a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
 					<a href="kontakt.html"><button>Kontakt</button></a>
 					<a href="impressum.html"><button>Impressum</button></a>
-					<a href=""><button id="loginout" onClick="loginOrOut()">Login</button></a>
+					<a href="login.html"><button>Login</button></a>
 					<a href="registration.html"><button>Registrieren</button></a>	
 			</div> 
 		
@@ -105,11 +125,11 @@
 				<b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
 			</article>
 	
-		<form action="/user/new" name="formular" method="POST">
+		<form id="loginform" name="formular" method="POST">
 			<fieldset> 
-				<p> <label id = "fa" for = "username">Benutzername: <div id = "da"> </div >		  </label><input type="text" maxlength="50" name="username"></p>
+				<p> <label id = "fa" for = "un">Benutzername: <div id = "da"> </div >		  </label><input type="text" maxlength="50" name="un"></p>
 			
-				<p><label id = "fb" for="password">Passwort: <div id = "db"> </div >				  </label><input type="password" maxlength="50" name="password"></p>
+				<p><label id = "fb" for="pw">Passwort: <div id = "db"> </div >				  </label><input type="password" maxlength="50" name="pw"></p>
 			
 				<label for="send"></label><input type="submit" value="Login" id="btnSubmitForm" style=cursor:pointer;>
 			

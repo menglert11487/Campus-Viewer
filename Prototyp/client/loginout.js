@@ -1,30 +1,44 @@
-				var loginoutvar = 0;
+			var loginoutvar = 0;
 			
   			function loginOrOut()
 			{
-				if (loginoutvar == 0)
+				if (loginoutvar == true)
 				{
-					document.getElementById('loginout').innerHTML = "Logout";
-					loginoutvar = 1;
-					window.open("login.html");
+					document.getElementById('loglink1').href = "login.html";
+					document.getElementById('loginout1').innerHTML = "Logout";
+					document.getElementById('loglink2').href = "login.html";
+					document.getElementById('loginout2').innerHTML = "Logout";
+					document.getElementById('loglink3').href = "login.html";
+					document.getElementById('loginout3').innerHTML = "Logout";
+					document.getElementById('loglink4').href = "login.html";
+					document.getElementById('loginout4').innerHTML = "Logout";
+					document.getElementById('loglink5').href = "login.html";
+					document.getElementById('loginout5').innerHTML = "Logout";
+					document.getElementById('loglink6').href = "login.html";
+					document.getElementById('loginout6').innerHTML = "Logout";
+					document.getElementById('loglink7').href = "login.html";
+					document.getElementById('loginout7').innerHTML = "Logout";					
+					loginoutvar = false;
+					console.log('Logout');
 
-				} else if (loginoutvar == 1)
+				} else if (loginoutvar == false)
 				{
-					document.getElementById('loginout').innerHTML = "Login";
-					loginoutvar = 0;
+					document.getElementById('loglink1').href = "";
+					document.getElementById('loginout1').innerHTML = "Login";	
+					document.getElementById('loglink2').href = "";
+					document.getElementById('loginout2').innerHTML = "Login";
+					document.getElementById('loglink3').href = "";
+					document.getElementById('loginout3').innerHTML = "Login";
+					document.getElementById('loglink4').href = "";
+					document.getElementById('loginout4').innerHTML = "Login";
+					document.getElementById('loglink5').href = "";
+					document.getElementById('loginout5').innerHTML = "Login";
+					document.getElementById('loglink6').href = "";
+					document.getElementById('loginout6').innerHTML = "Login";	
+					document.getElementById('loglink7').href = "";
+					document.getElementById('loginout7').innerHTML = "Login";					
+					loginoutvar = true;
+					console.log('Login');
 					
 				}				
 			}
-			
-			
-var foo = function(){
-  var button = document.createElement('button');
-  button.innerHTML = 'click me';
-  button.onclick = function(){
-    alert('here be dragons');return false;
-  };
-  // where do we want to have the button to appear?
-  // you can append it to another element just by doing something like
-  // document.getElementById('foobutton').appendChild(button);
-  document.body.appendChild(button);
-};

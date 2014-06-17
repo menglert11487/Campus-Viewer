@@ -151,9 +151,7 @@ var queryrow = function(req, res) {
     // SQL query
     //var sqlquery = req.params.sqlquery;
     //connection.query(sqlquery, function(err, rows) {
-    var selection = req.params.selection,
-        table = req.params.table,
-		username = req.params.username,
+    var username = req.params.username,
 		password = req.params.password;
 
     console.log('req params: ' + req.params);
@@ -328,7 +326,6 @@ var server = app.listen(gport, function() {
     console.log('Listening on port %d ', server.address().port);
 });
 
-
 //----------------------Documentation----------------------------
 
 
@@ -354,3 +351,7 @@ var server = app.listen(gport, function() {
  * ...url/updateuser/database/name
  *
  */
+ 
+ exports = {
+	'queryrow' : queryrow 
+}
