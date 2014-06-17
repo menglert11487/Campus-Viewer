@@ -1,10 +1,13 @@
 
 Collision = {};
 Collision.Plane;
+Collision.Gbuild;
 
 Collision.onLoad = function(){
     Collision.Plane = document.getElementById("plane");
+	Collision.Gbuild = document.getElementById("gbuild");
     Collision.HighlightBBox(Collision.Plane, true);
+	Collision.HighlightBBox(Collision.Gbuild, true);
 };
 
 
@@ -17,7 +20,9 @@ Collision.CalculateCameraPosition = function() {
 
 Collision.CalculateObjectBBox = function(highlightNode) {
 	var volume = Collision.Plane._x3domNode.getVolume();
+	var volume = Collision.Gbuild._x3domNode.getVolume();
 	var transform = Collision.Plane._x3domNode._graph.globalMatrix;
+	var transform = Collision.Gbuild._x3domNode._graph.globalMatrix;
 	var bbox = {};
 	bbox.min = transform.multMatrixPnt(volume.min);
 	bbox.max = transform.multMatrixPnt(volume.max);
@@ -67,11 +72,12 @@ Collision.Render = function(){
 //        (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
 //        (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
 //    {
-		console.log("HIT AN OBJECT");
+//		console.log("HIT AN OBJECT");
 
 // 	Äquator -> y-Achse, alles drüber ist ok, drunter nein
 	if(cameraPos.y < objectBBox.max.y)
 		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + (objectBBox.max.y + 1) + " " + cameraPos.z);
+//		console.log("HIT AN OBJECT");
 // 	x-Rand -> max
 	else if(cameraPos.x > objectBBox.max.x)
 		document.getElementById("camera").setAttribute('position', (objectBBox.max.x - 5) + " " + cameraPos.y + " " + cameraPos.z);

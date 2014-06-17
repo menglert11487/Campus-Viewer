@@ -48,7 +48,8 @@
                <scene frustumCulling="true">
 			   <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
 			   <navigationInfo type='"walk", "any"'></navigationInfo>
-			   
+			   <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
+			   <directionalLight id="directional" direction='1.5 -5 0' on ="true" intensity='200' shadowIntensity= '0.7' color= '0 0 0'></directionalLight>
 					<shape>
 						<plane size="25 25"></plane>
 					</shape>
@@ -56,6 +57,7 @@
 					<transform scale="1 1 1" translation="-20 0 60">
 						<inline url="g103.x3d"></inline>
 					</transform>
+
 				
 				<transform scale="0.23 0.5 0.5" translation="-20.3 1.15 54.3" rotation="0 1 0 1.57">
 						<shape>
