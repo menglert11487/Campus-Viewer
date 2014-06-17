@@ -78,15 +78,14 @@
                 
                 function tick() {
                     if (activated) {
+                        var speed = 0.025;
                         var halfWidth = (control.clientWidth / 2.0);
                         var halfHeight = (control.clientHeight / 2.0);
                         var facX = -(1.0 / halfWidth * (-halfWidth + position.x));
                         var facY = -(1.0 / halfHeight * (-halfHeight + position.y));
-                        camPosition.x += facX;
-                        camPosition.z += facY;
                         
-                        viewState.ChangeView(camPosition);
-                        NavigationAPI.SetCamera("camera");
+                        viewState.TranslateView(new x3dom.fields.SFVec3f(facX, 0.0, facY));
+                        //viewState.RotateView(facY * speed, facX * speed);
                         NavigationAPI.SetView(viewState.ViewMatrix);
                         NavigationAPI.Render();
                     }
@@ -95,7 +94,7 @@
                 };
                 
                 window.requestAnimationFrame(tick);
-            }
+            };
                  
         </script>
         

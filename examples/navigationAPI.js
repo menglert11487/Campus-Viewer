@@ -11,6 +11,18 @@ Viewstate = function(translation) {
     var that = this;
     
     /**
+     * Translation vector that represents the position of the view
+     * @type x3dom.fields.SFVec3f
+     */
+    var translationVector = new x3dom.fields.SFVec3f(0, 0, 0);
+    
+    /**
+     * Rotation of the camera in x and y direction
+     * @type x3dom.fields.SFVec2f
+     */
+    var rotationXY = new x3dom.fields.SFVec2f(0.0, 1.57);
+    
+    /**
      * @param viewMatrix ViewMatrix that represents the camera's 
      * orientation and position
      */
@@ -29,9 +41,10 @@ Viewstate = function(translation) {
      */
     Initialize = function(translationVec) {
         // Calculate initial ViewMatrix        
-        var rotX = x3dom.fields.SFMatrix4f.rotationY(1.57);
-        var rotY = x3dom.fields.SFMatrix4f.rotationX(0.0);
-        var pos = x3dom.fields.SFMatrix4f.translation(translationVec);
+        translationVector = translationVec;
+        var rotX = x3dom.fields.SFMatrix4f.rotationY(rotationXY.y);
+        var rotY = x3dom.fields.SFMatrix4f.rotationX(rotationXY.x);
+        var pos = x3dom.fields.SFMatrix4f.translation(translationVector);
         that.ViewMatrix = pos.mult(rotX.mult(rotY)).inverse();
         
         var aspect = window.innerWidth / window.innerHeight;
@@ -40,16 +53,37 @@ Viewstate = function(translation) {
         );
     };
     
-    this.ChangeView = function(translation) {    
-        var rotX = x3dom.fields.SFMatrix4f.rotationY(1.57);
-        var rotY = x3dom.fields.SFMatrix4f.rotationX(0.0);
-        var pos = x3dom.fields.SFMatrix4f.translation(translation);
+    /**
+     * Adds the given translation to the current ViewMatrix 
+     * @param {x3dom.fields.SFVec3f} translation
+     * @returns {void}
+     */
+    this.TranslateView = function(translation) { 
+        translationVector = translationVector.add(translation);
+        var rotX = x3dom.fields.SFMatrix4f.rotationY(rotationXY.y);
+        var rotY = x3dom.fields.SFMatrix4f.rotationX(rotationXY.x);
+        var pos = x3dom.fields.SFMatrix4f.translation(translationVector);
+        that.ViewMatrix = pos.mult(rotX.mult(rotY)).inverse();
+    };
+    
+    /**
+     * Adds the given angles to the current ViewMatrix
+     * @param {number} xAngle
+     * @param {number} yAngle
+     * @returns {void}
+     */
+    this.RotateView = function(xAngle, yAngle) {
+        rotationXY.x += xAngle;
+        rotationXY.y += yAngle;
+        var rotX = x3dom.fields.SFMatrix4f.rotationY(rotationXY.y);
+        var rotY = x3dom.fields.SFMatrix4f.rotationX(rotationXY.x);
+        var pos = x3dom.fields.SFMatrix4f.translation(translationVector);
         that.ViewMatrix = pos.mult(rotX.mult(rotY)).inverse();
     };
     
     // Initializes the Viewstate
     Initialize(translation);
-}
+};
 
 /**
  * Functions to manipulate the x3dom camera  
