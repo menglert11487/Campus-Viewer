@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Campus Viewer Fulda - Nutzerregistrierung</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">-->
+        <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+        <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
+		<!--<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+		<script type="text/javascript" src="js/user.js"></script>
+
+	</head>
+	<body>
+
+        <div data-role="panel" id="myPanel">
+		    <h2>Menü</h2>
+		    <a href="index.html"><button>Startseite</button></a>
+		    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
+		    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
+		    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+		    <a href="kontakt.html"><button>Kontakt</button></a>
+		    <a href="impressum.html"><button>Impressum</button></a>
+		    <a href="login.html"><button>Login</button></a>
+			<a href="registration.html"><button>Registrieren</button></a>
+	    </div>
+
+		<div data-role="main" class="ui-content">
+    		<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+
+			<article>
+				<h1>Registrierung vom Campus Viewer Fulda</h1>
+				<b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
+			</article>
+
+			<form id="registerform" name="formular" method="POST">
+				<fieldset>
+					<p>
+						<label id="f1" for="username">
+							Benutzername: <div id="d1"> </div>
+						</label>
+						<input type="text" maxlength="50" name="username">
+					</p><p>
+						<label id="f2" for="givenname">
+							Vorname: <div id="d2"></div>
+						</label>
+						<input type="text" maxlength="50" name="givenname">
+					</p><p>
+						<label id="f3" for="name">
+							Nachname: <div id="d3"></div >
+						</label>
+						<input type="text" maxlength="50" name="name">
+					</p><p>
+						<label id="f4" for="email">
+							Email-Adresse: <div id="d4"></div >
+						</label>
+						<input type="text" maxlength="50" name="email">
+					</p><p>
+						<label id="f5" for="password">
+							Passwort: <div id="d5"></div >
+						</label>
+						<input type="password" maxlength="50" name="password">
+					</p><p>
+						<label id="f6" for="samePassword">
+							Passwort wiederholen:  <div id="d6"></div >
+						</label>
+						<input type="password" maxlength="50" name="samePassword">
+					</p>
+
+					<label for="send"></label>
+					<input type="submit" value="Absenden" id="btnSubmitForm" style=cursor:pointer;>
+
+					<label for="delete"></label>
+					<input type="reset" value="Zurückversetzen" id="btnResetForm" style=cursor:pointer;>
+					<div id="msg"></div>
+				</fieldset>
+			</form>
+		</div>
+	</body>
+
+</html>
