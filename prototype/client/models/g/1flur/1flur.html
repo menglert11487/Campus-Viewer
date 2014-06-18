@@ -5,26 +5,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="styles/x3dom.css" />
-        <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.min.css">
-        <link rel="stylesheet" type="text/css" href="styles/style.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/x3dom.css" />
+        <link rel="stylesheet" type="text/css" href="/styles/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" type="text/css" href="/styles/style.css" />
 
-        <script type="text/javascript" src="js/ext/x3dom.js"></script>
-        <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
-        <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" src="/js/ext/x3dom.js"></script>
+        <script type="text/javascript" src="/js/ext/jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="/js/ext/jquery.mobile-1.4.2.min.js"></script>
 
-        <script type="text/javascript" src="js/collision.js"></script>
-        <script type="text/javascript" src="js/navigation.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="/js/collision.js"></script>
+        <script type="text/javascript" src="/js/navigation.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
 
-        <script type="text/javascript">
+		<script type="text/javascript">
 
             window.onload = function() {
-                Collision.onLoad();
                 Navigation.onLoad();
 
                 function Render() {
-                    Collision.Render();
                     Navigation.Render();
                     window.requestAnimationFrame(Render);
                 };
@@ -39,14 +37,14 @@
 
             <div data-role="panel" id="myPanel">
                 <h2>Menü</h2>
-                <a href="index.html"><button>Startseite</button></a>
-                <a href="ueberDasProjekt.html"><button>das Projekt</button></a>
-                <a href="ueberDieHS.html"><button>die Hochschule</button></a>
-                <a href="bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-                <a href="kontakt.html"><button>Kontakt</button></a>
-                <a href="impressum.html"><button>Impressum</button></a>
-                <a href="login.html"><button>Login</button></a>
-                <a href="registration.html"><button>Registrieren</button></a>
+                <a href="/index.html"><button>Startseite</button></a>
+                <a href="/ueberDasProjekt.html"><button>das Projekt</button></a>
+                <a href="/ueberDieHS.html"><button>die Hochschule</button></a>
+                <a href="/bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+                <a href="/kontakt.html"><button>Kontakt</button></a>
+                <a href="/impressum.html"><button>Impressum</button></a>
+                <a href="/login.html"><button>Login</button></a>
+                <a href="/registration.html"><button>Registrieren</button></a>
             </div>
 
             <div data-role="panel" id="myPanel2">
@@ -78,7 +76,7 @@
 							</shape>
 						</transform>
 						<transform scale="0.7 0.7 0.7" translation="-15 0 50">
-							<inline url="gflur.x3d"></inline>
+							<inline url="fg1.x3d"></inline>
 						</transform>
 						<transform scale="1.1 0.9 0.9" translation="-20.6 1.7 46.9" rotation="0 1 0 1.57">
 							<shape>
@@ -108,7 +106,7 @@
 								</shape>
 						</transform>
 						<!---->
-					    <Viewpoint
+					    <Viewpoint id="camera"
 							position="-17.12970 1.48912 49.09065"
 							orientation="-0.01698 -0.99971 -0.01701 1.57269"
 							zNear="0.06611" zFar="661.08396"
