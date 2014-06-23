@@ -10,6 +10,12 @@
 
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
+		
+		<script>
+			$(document).ready(function() {
+				$.getScript("js/user.js");
+			});
+		</script>
     </head>
 	<body>
 
@@ -33,7 +39,7 @@
 				<b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
 			</article>
 
-			<form id="loginform" name="formular" method="POST">
+			<form id="loginform" name="formular">
 				<fieldset>
 					<p>
 						<label id="fa" for="username">
