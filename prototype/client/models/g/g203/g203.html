@@ -5,17 +5,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="/styles/x3dom.css" />
-        <link rel="stylesheet" type="text/css" href="/styles/jquery.mobile-1.4.2.css">
-        <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/x3dom.css" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" type="text/css" href="../../../styles/style.css" />
 
-        <script type="text/javascript" src="/js/ext/x3dom.js"></script>
-        <script type="text/javascript" src="/js/ext/jquery-2.1.0.js"></script>
-        <script type="text/javascript" src="/js/ext/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/ext/x3dom.js"></script>
+        <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
-        <script type="text/javascript" src="/js/collision.js"></script>
-        <script type="text/javascript" src="/js/navigation.js"></script>
-                <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="../../../js/collision.js"></script>
+        <script type="text/javascript" src="../../../js/navigation.js"></script>
+                <script type="text/javascript" src="../../../js/main.js"></script>
 
                 <script type="text/javascript">
 
@@ -36,7 +36,7 @@
         <div data-role="page" id="pageone">
 
             <div data-role="panel" id="myPanel">
-                <h2>Men&Atilde;&frac14;</h2>
+                <h2>Men&uuml;</h2>
                 <a href="/index.html"><button>Startseite</button></a>
                 <a href="/ueberDasProjekt.html"><button>das Projekt</button></a>
                 <a href="/ueberDieHS.html"><button>die Hochschule</button></a>
@@ -70,6 +70,8 @@
                <scene frustumCulling="true">
                            <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
                            <navigationInfo type='"walk", "any"'></navigationInfo>
+						   <directionalLight id="directional" direction='0 0 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.5'> </directionalLight>
+							<PointLight id='point' on='TRUE' intensity='0.5' color='white' location='1 1 1 ' radius='10' >  </PointLight>
 
                                         <shape>
                                                 <plane size="25 25"></plane>

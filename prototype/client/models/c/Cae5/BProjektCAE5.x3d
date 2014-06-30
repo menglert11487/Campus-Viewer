@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='_G_0'>
+      <Appearance DEF='DefaultMaterial'>
+        <Material diffuseColor='0.6 0.6 0.6' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='139676 4140' primType='"TRIANGLESTRIP" "TRIANGLES"' position='0.413909673691 1.55372703075 0' size='7.80222320557 3.11472797394 9.92416763306' index='bingeo/BG_2_indexBinary.bin' coord='bingeo/BG_2_coordBinary.bin' normal='bingeo/BG_2_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_1'>
+      <Appearance USE='DefaultMaterial'/>
+      <BinaryGeometry DEF='BG_1' vertexCount='139412 3774' primType='"TRIANGLESTRIP" "TRIANGLES"' position='0.410505056381 1.56451451778 0.232099056244' size='7.79768800735 3.12747693062 10.3923797607' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_2'>
+      <Appearance USE='DefaultMaterial'/>
+      <BinaryGeometry DEF='BG_0' vertexCount='15410 342' primType='"TRIANGLESTRIP" "TRIANGLES"' position='-2.73908448219 0.651500999928 -0.902500152588' size='1.04525709152 1.30145001411 6.63453197479' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>

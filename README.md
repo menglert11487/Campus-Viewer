@@ -19,4 +19,5 @@ Ab hier trägt jeder seinen Namen ein:
 05.) Ramón Wilhelm
 06.) Jasmin Seiffert
 07.) Stefanie Zahn
+08.) Désirée Mauß
 >>>>>>> FETCH_HEAD

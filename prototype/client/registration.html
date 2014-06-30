@@ -4,12 +4,20 @@
         <title>>Campus Viewer Fulda - Nutzerregistrierung</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-
-        <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.min.css">
+		
+        <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.css">
         <link rel="stylesheet" type="text/css" href="styles/style.css" />
 
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
+	
+		
+		<script>
+			$(document).ready(function() {
+				$.getScript("js/user.js");
+			});
+		</script>
+	
     </head>
 	<body>
 
@@ -33,7 +41,7 @@
 				<b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
 			</article>
 
-			<form id="registerform" name="formular" method="POST">
+			<form id="registerform" name="formular">
 				<fieldset>
 					<p>
 						<label id="f1" for="username">

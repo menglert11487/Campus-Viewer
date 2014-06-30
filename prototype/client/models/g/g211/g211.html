@@ -5,17 +5,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="/styles/x3dom.css" />
-        <link rel="stylesheet" type="text/css" href="/styles/jquery.mobile-1.4.2.css">
-        <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/x3dom.css" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" type="text/css" href="../../../styles/style.css" />
 
-        <script type="text/javascript" src="/js/ext/x3dom.js"></script>
-        <script type="text/javascript" src="/js/ext/jquery-2.1.0.js"></script>
-        <script type="text/javascript" src="/js/ext/jquery.mobile-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../../js/ext/x3dom.js"></script>
+        <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
-        <script type="text/javascript" src="/js/collision.js"></script>
-        <script type="text/javascript" src="/js/navigation.js"></script>
-                <script type="text/javascript" src="/js/main.js"></script>
+        <script type="text/javascript" src="../../../js/collision.js"></script>
+        <script type="text/javascript" src="../../../js/navigation.js"></script>
+                <script type="text/javascript" src="../../../js/main.js"></script>
 
                 <script type="text/javascript">
 
@@ -51,7 +51,7 @@
                                 <h2>Navi</h2>
                 <button onClick="lookArround()">360 view</button>
                                 <form name="changeSpeed" action="javascript:changeSpeed()">
-                                        <input name="speed" type="text"></input>
+                                        <input name="speed" type="text"/>
                                         <input name="submit" type="submit" value="Speed"/>
                                 </form>
             </div>
@@ -70,6 +70,7 @@
                <scene frustumCulling="true">
                            <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
                            <navigationInfo type='"walk", "any"'></navigationInfo>
+						   <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 5 0' radius='20' >  </PointLight>
 
                                         <shape>
                                                 <plane size="25 25"></plane>
