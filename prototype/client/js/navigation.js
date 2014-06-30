@@ -77,8 +77,8 @@ Navigation.Render = function() {
         var currentPosition = x3dom.fields.SFVec3f.parse(Navigation.Camera.getAttribute("position"));
         var facX = -(1.0 / Navigation.Middle.left * (-Navigation.Middle.left + Navigation.Position.x));
         var facY = 1.0 / Navigation.Middle.top * (-Navigation.Middle.top + Navigation.Position.y);
-        currentPosition.x += facX;
-        currentPosition.y += facY;
+        currentPosition.z += facX;
+         currentPosition.x += facY;
         Navigation.Camera.setAttribute("position", currentPosition.toString());
     }
 };
