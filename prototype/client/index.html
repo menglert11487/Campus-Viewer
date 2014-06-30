@@ -15,7 +15,7 @@
 
         <script type="text/javascript" src="js/collision.js"></script>
         <script type="text/javascript" src="js/navigation.js"></script>
-		<script type="text/javascript" src="js/navigationApi.js"></script>
+
 		<script type="text/javascript" src="js/main.js"></script>
 
         <script type="text/javascript">
@@ -25,7 +25,8 @@
                 Navigation.onLoad();
 
                 function Render() {
-                    Collision.Render();
+				
+                    Collision.Render(Collision.Plane);
                     Navigation.Render();
                     window.requestAnimationFrame(Render);
                 };
@@ -155,7 +156,7 @@
                                     </IndexedLineSet>
                                 </Shape>
                             </matrixTransform>
-							<transform translation="0 0 0">
+							<transform translation="200 0 -100">
 								<transform scale="1 1 1">
 									<shape id="plane">
 										<appearance>
@@ -173,15 +174,15 @@
 							<transform scale="1 1 1" translation="120 0 -175">
 								<inline url="models/tree/tree.x3d"></inline>
 							</transform>
-							<transform scale="1 1 1" render="true" translation="10 0 20">
+							<transform scale="1 1 1" render="true" translation="-10 0 40">
 								<!--onLoad="HighlightBBox(this, true)" id="plane" in die inline-->
-							<inline url="models/g/g.x3d"></inline>
+							<inline onLoad="HighlightBBox(this, true)" id="gbuild" url="models/g/g.x3d"></inline>
 							</transform>
 							<transform scale="1.4 1.4 1.4" translation="-15 0 60">
 								<inline url="models/c/c.x3d"></inline>
 							</transform>
 							<transform scale="0.8 0.8 0.8" translation="85 0 -110" rotation="1 0 0 0">
-								<inline url="models/e/e.x3d"></inline>
+								<inline onLoad="HighlightBBox(this, true)" id="ebuild" url="models/e/e.x3d"></inline>
 							</transform>
 							<transform scale="1 1 1" translation="120 0 -170">
 								<inline url="models/ssc/ssc.x3d"></inline>
