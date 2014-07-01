@@ -10,27 +10,22 @@
 
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
-	
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>		
 		
-		<script>
-			$(document).ready(function() {
-				$.getScript("js/user.js");
-			});
-		</script>
-	
     </head>
 	<body>
 
         <div data-role="panel" id="myPanel">
 		    <h2>Menü</h2>
-		    <a href="index.html"><button>Startseite</button></a>
-		    <a href="UeberDasProjekt.html"><button>das Projekt</button></a>
-		    <a href="UeberDieHS.html"><button>die Hochschule</button></a>
-		    <a href="Bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
-		    <a href="kontakt.html"><button>Kontakt</button></a>
-		    <a href="impressum.html"><button>Impressum</button></a>
-		    <a href="login.html"><button>Login</button></a>
-			<a href="registration.html"><button>Registrieren</button></a>
+				<button id="index6" onclick="window.location.href = 'index.html';">Startseite</button>
+				<button id="projekt6" onclick="window.location.href = 'ueberDasProjekt.html';">das Projekt</button>
+				<button id="dieSchule6" onclick="window.location.href = 'ueberDieHS.html';">die Hochschule</button>
+				<button id="bedienung6" onclick="window.location.href = 'bedienungsanleitung.html';">Bedienungsanleitung</button>
+				<button id="kontakt6" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
+				<button id="impressum6" onclick="window.location.href = 'impressum.html';">Impressum</button>
+				<button id="login6" onclick="window.location.href = 'login.html';">Login</button>
+				<button id="logout6" onclick="">Logout</button>
+				<button id="reg6" onclick="window.location.href = 'registration.html';">Registrieren</button>
 	    </div>
 
 		<div data-role="main" class="ui-content">
@@ -84,6 +79,11 @@
 				</fieldset>
 			</form>
 		</div>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$.getScript("js/user.js");
+				$.getScript("js/cookieControl.js");				
+			});
+		</script>
 	</body>
-
 </html>
