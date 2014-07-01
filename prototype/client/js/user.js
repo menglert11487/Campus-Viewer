@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	//$.getScript('js/jquery.cookie');
+	
     String.prototype.trim = function() {
         // skip leading and trailing whitespace
         // and return everything in between
@@ -8,7 +10,11 @@ $(document).ready(function() {
         x = x.replace(/(.*?)\s*$/, "$1");
         return x;
     }
-
+	
+	function test() {
+		alert('Das ist ein Test');
+	}
+	
     function checkLoginFormular(e) {
 
         var valid = true;
@@ -178,7 +184,7 @@ $(document).ready(function() {
         }
 
         return valid;
-    }
+    }	
 
     function submitLoginForm(e) {
         var isFormValid = checkLoginFormular();
@@ -196,6 +202,8 @@ $(document).ready(function() {
                         console.log(data);
                         $('#msg').css('color', '#00aa00');
                         $('#msg').text(data.msg);
+						$.cookie('hans', 'doof');
+						window.location.href = 'index.html';
                     } else {
                         console.error('Something went wrong: ' + data.msg);
                         $('#msg').css('color', '#aa0000');
@@ -256,5 +264,5 @@ $(document).ready(function() {
     } else if ($('#loginform').length) {
         // Init login form
         $('#loginform').on('submit', submitLoginForm);
-    }
+	}
 });
