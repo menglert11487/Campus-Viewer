@@ -11,8 +11,38 @@ $(document).ready(function() {
         return x;
     }
 	
-	function test() {
-		alert('Das ist ein Test');
+	if (jQuery.cookie('hans')) {
+		$('#logout1').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout2').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout3').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout4').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout5').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout6').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout7').click(function () {
+			logoutForm();
+		});
+			
+		$('#logout8').click(function () {
+			logoutForm();
+		});
 	}
 	
     function checkLoginFormular(e) {
@@ -186,6 +216,35 @@ $(document).ready(function() {
         return valid;
     }	
 
+    function logoutForm(e) {
+
+	var bestaetigung = confirm('Wollen Sie sich wirklich abmelden?');
+	
+		if (bestaetigung == true)
+		{
+            $.ajax({
+                type: "POST",
+                crossDomain: true,
+                url: './user/logout',
+                data: $(this).serialize(),
+                success: function(data) {
+                    if (data.success) {
+                        //User logged in
+                        console.log(data);
+						window.location.href = 'index.html';
+						$.removeCookie('hans');
+                    } else {
+                        console.error('Something went wrong: ' + data.msg);
+                    }
+                },
+                error: function(jqXHR, error, object) {
+                    console.error("Error: " + error);
+                }
+            });
+        return false;
+		}	
+	}
+	
     function submitLoginForm(e) {
         var isFormValid = checkLoginFormular();
 

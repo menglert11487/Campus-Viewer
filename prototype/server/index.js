@@ -186,7 +186,6 @@ app.post('/user/login', function(req, res) { //Nutzerdaten auslesen
 
 app.post('/user/logout', function(req, res) { //Nutzerdaten löschen
     console.log("Logout function called...");
-
     //Destroy the session
     req.session.destroy(function(error) {
 
