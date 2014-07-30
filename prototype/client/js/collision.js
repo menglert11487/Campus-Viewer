@@ -88,28 +88,9 @@ Collision.Render = function(object){
 // z-unten -> min
 	else if(cameraPos.z < objectBBox.min.z)
 		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.min.z + 5));
-	// if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-		// (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
-	// {
-		// console.log("drin");
-	// }
-	// else
-	// {
-		// // if(oldCameraPosition == null)
-		// // {
-			// // oldCameraPosition = cameraPos;
-		// // }
-		// // else
-		// // {
-			// cameraPos = oldCameraPosition;
-		// // }
-		// console.log("draußen");
-	// }
-	// document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + cameraPos.z);
-	// oldCameraPosition = cameraPos;
 		
-//Koordinaten Anzeige (zur Überprüfung)
-		document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
+		//Koordinaten Anzeige (zur Überprüfung)
+		//document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
 		
 };
 
@@ -134,25 +115,3 @@ Collision.RenderObj = function(object)
 	document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + cameraPos.z);
 	oldCameraPosition = cameraPos;
 };
-
-// Collision.RenderObjc = function(object)
-// {
-   // var cameraPos = Collision.CalculateCameraPosition();
-   // var objectBBox = Collision.CalculateObjectBBox(object);
-	
-	// if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-		// (cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
-		// (cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
-	// {
-		// if(oldCameraPosition == null)
-		// {
-			// oldCameraPosition = cameraPos;
-		// }
-		// else
-		// {
-			// cameraPos = oldCameraPosition;
-		// }
-	// }
-	// document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + cameraPos.z);
-	// oldCameraPosition = cameraPos;
-// };
