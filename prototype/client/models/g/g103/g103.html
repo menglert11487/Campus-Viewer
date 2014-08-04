@@ -55,7 +55,7 @@
                                         <input name="submit" type="submit" value="Speed"/>
                                 </form>
             </div>
-            
+
             <div data-role="panel" id="myPanel3">
                 <h2>Stockwerk/Raum</h2>
                 <a href="1flur.html"><button>1. Obergeschoss</button></a>
@@ -63,10 +63,10 @@
                 <a href="../g111/g111.html"><button>Raum G111</button></a>
                 <a href="../2flur/2flur.html"><button>2. Obergeschoss</button></a>
                 <a href="../g203/g203.html"><button>Raum G203</button></a>
-                <a href="../g211/g211.html"><button>Raum G211</button></a>  
-                <a href="../../../index.html"><button>Zurück zum Campus</button></a>     
+                <a href="../g211/g211.html"><button>Raum G211</button></a>
+                <a href="../../../index.html"><button>Zur&Atilde;&frac14;ck zum Campus</button></a>
             </div>
-            
+
             <div data-role="main" class="ui-content">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
@@ -81,11 +81,11 @@
                                         <x3d style="width:100%;height:100%;" id="x3d_element">
                                                 <scene frustumCulling="true">
                                                <navigationInfo type='"walk", "any"'></navigationInfo>
-											   <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
-												<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+                                                                                           <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
+                                                                                                <navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
                                                <background skyColor="0 0 0"></background>
                                                         <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-                                                                
+
                                                                 <shape>
                                                                         <plane size="25 25"></plane>
                                                                 </shape>
@@ -96,7 +96,7 @@
                                                         <transform scale="0.23 0.5 0.5" translation="-20.3 1.15 54.3" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
-                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
+                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
                                                                         <box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
