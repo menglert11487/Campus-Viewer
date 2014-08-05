@@ -70,8 +70,8 @@
                <scene frustumCulling="true">
                            <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
                            <navigationInfo type='"walk", "any"'></navigationInfo>
-						   <directionalLight id="directional" direction='0 0 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.5'> </directionalLight>
-							<PointLight id='point' on='TRUE' intensity='0.5' color='white' location='1 1 1 ' radius='10' >  </PointLight>
+						  	<directionalLight id="directional" direction='0 -5 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							
 
                                         <shape>
                                                 <plane size="25 25"></plane>
@@ -89,6 +89,16 @@
                                                                 <box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
                                                         </shape>
                                         </transform>
+										
+										<!-- löschen -->
+										<transform scale="0.2 0.2 0.2" translation="-10 0 55">
+											<shape>
+												<box></box>
+												<appearance>
+													<material diffuseColor="lightblue"></material>
+												</appearance>
+											</shape>
+										</transform>
 
 
                    <background skyColor="0 0 0"></background>
