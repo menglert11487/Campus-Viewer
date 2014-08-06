@@ -186,7 +186,6 @@ app.post('/user/login', function(req, res) { //Nutzerdaten auslesen
 
 app.post('/user/logout', function(req, res) { //Nutzerdaten löschen
     console.log("Logout function called...");
-
     //Destroy the session
     req.session.destroy(function(error) {
 
@@ -200,6 +199,35 @@ app.post('/user/logout', function(req, res) { //Nutzerdaten löschen
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
+app.post('/user/commentary', function(req, res) { //Kommentare auslesen
+
+    var data = req.body;
+
+    if (data.password === data.samePassword) {
+
+        delete data['samePassword'];
+
+        //Nutzerdaten in die Tabelle user schreiben
+        var query = connection.query('INSERT INTO user SET ?', data, function(err, result) {
+
+            if (!err && data.password != "" && data.samePassword != "") {
+                // Erfolgsmeldung ausgeben
+                sendReturn(res, true, "Nutzer gespeichert.");
+                console.log(data);
+                console.log('Nutzer gespeichert.');
+            } else {
+                sendReturn(res, false, "Fehler beim speichern!");
+                console.log('Fehler beim speichern!');
+            }
+        });
+    } else if (data.password != data.samePassword) {
+        sendReturn(res, false, "Ungleiche Passwörter verwendet!");
+        console.log("\n\'" + data.password + "\' stimmt nicht mit \'" + data.samePassword + "\' überein.");
+        console.log('Ungleiche Passwörter verwendet!');
+    }
+});
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
 //Server starten
 app.listen(port, ip_address, function() {
     // Kleine Ausgabe, das Server konfiguriert ist und gestartet
