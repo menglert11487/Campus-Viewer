@@ -35,9 +35,9 @@
     <body>
         <div data-role="page" id="pageone">
 
-            <div data-role="panel" id="myPanel">
-               <h2>Men&uuml;</h2>
-                                        <button id="index3" onclick="window.location.href = 'index.html';">Startseite</button>
+         <div data-role="panel" id="myPanel">
+                    <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+               <button id="index3" onclick="window.location.href = 'index.html';">Startseite</button>
                                         <button id="projekt3" onclick="window.location.href = 'ueberDasProjekt.html';">das Projekt</button>
                                         <button id="dieSchule3" onclick="window.location.href = 'ueberDieHS.html';">die Hochschule</button>
                                         <button id="bedienung3" onclick="window.location.href = 'bedienungsanleitung.html';">Bedienungsanleitung</button>
@@ -47,9 +47,10 @@
                                         <button id="logout3" onclick="">Logout</button>
                                         <button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
                                         <a id="text3"></a>
+            </div>
 
             <div data-role="panel" id="myPanel2">
-                <h2>Navi</h2>
+                                <h2>Navi</h2>
                 <button onClick="lookArround()">360 view</button>
                                 <form name="changeSpeed" action="javascript:changeSpeed()">
                                         <input name="speed" type="text"/>
@@ -59,7 +60,7 @@
 
             <div data-role="panel" id="myPanel3">
                 <h2>Stockwerk/Raum</h2>
-                <a href="1flur.html"><button>1. Obergeschoss</button></a>
+                <a href="../1flur/1flur.html"><button>1. Obergeschoss</button></a>
                 <a href="../g103/g103.html"><button>Raum G103</button></a>
                 <a href="../g111/g111.html"><button>Raum G111</button></a>
                 <a href="../2flur/2flur.html"><button>2. Obergeschoss</button></a>
@@ -82,13 +83,9 @@
                                     <x3d style="width:100%;height:100%;" id="x3d_element">
                                        <scene frustumCulling="true">
                                        <navigationInfo type='"walk", "any"'></navigationInfo>
-
-                                                                            <directionalLight id="directional" direction='2 -4 -4'  on ="TRUE" intensity='0.2' shadowIntensity='0.1'> </directionalLight>
-
                                                                             <directionalLight id="directional" direction='0 0 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.5'> </directionalLight>
                                                                                 <PointLight id='point' on='TRUE' intensity='0.5' color='yellow' location='-9 0 0 ' radius='10' >  </PointLight>
                                                                                 <SpotLight id='spot' on ="TRUE" beamWidth='100' color='red' cutOffAngle='0.100' location='3 2 8' radius='10.000' >  </SpotLight>
-
                                        <background skyColor="0 0 0"></background>
 
                                             <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
@@ -102,42 +99,64 @@
                                                 <transform scale="1.1 0.9 0.9" translation="-20.6 1.7 46.9" rotation="0 1 0 1.57">
                                                         <shape>
                                                                         <appearance>
-                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
+                                                                                <Material transparency='10' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
-                                                                        <box size="5 4 3" onmousedown="window.location ='../../../index.html';"></box>
+                                                                        <box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
+
                                                                 </shape>
                                                 </transform>
-                                                <transform scale="0.7 0.9 0.6" translation="-15 1.2 37" rotation="0 1 0 1.57">
-                                                        <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
-                                                                                </Material>
-                                                                        </appearance>
-                                                                        <box size="5 4 3" onmousedown="window.location ='../g103/g103.html';"></box>
-                                                                </shape>
-                                                </transform>
+
+
                                                 <transform scale="0.7 0.9 0.6" translation="-15.146 1.1 63" rotation="0 1 0 1.57">
                                                         <shape>
                                                                         <appearance>
-                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
+                                                                                <Material transparency='10' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
-                                                                        <box size="5 4 3" onmousedown="window.location ='../g111/g111.html';"></box>
+                                                                        <box size="5 4 3" onmousedown="window.location ='../g211/g211.html';"></box>
                                                                 </shape>
+                                                             </transform>
 
-                                                </transform>
-
-                                         <!--Aktions Box -->
-                                       <transform  translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
+                                                                                                                    <!--  Aktionsbox  -->
+                                                                 <transform  translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
                                                         <shape>
                                                                         <appearance>
                                                                          <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+                                                                        <ImageTexture url="../../../images/treppe4.jpg">
                                                                         </appearance>
                                                                         <box size="0.5 0.5 0.5";"></box>
                                                                 </shape>
                                                 </transform>
+
+                                                   <!--Schild G 103
+
+                                         <transform  translation="-16.5 2.3 38.5" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="../../../images/raume/g203.jpg"><ImageTexture/>
+
+                                           </appearance>
+                                            <box size="0.0 0.5 0.8";"> </box>
+                                         </shape>
+                                         </transform>                -->
+
+
+                                                <!--Schild Erdg. Labor -->
+
+                                         <transform  translation="-13.9 2.1 61" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="../../../images/raume/labor.jpg"><ImageTexture/>
+
+                                           </appearance>
+                                             <box size="0.0 0.5 0.8";"> </box>
+                                         </shape>
+                                         </transform>
+
+
                                                 <!---->
                                             <Viewpoint id="camera"
                                                         position="-17.12970 1.48912 49.09065"
@@ -146,58 +165,19 @@
                                                         description="defaultX3DViewpointNode">
                                                 </Viewpoint>
 
-                                         <!--Schild G 103 -->
+                                                 <!-- Orientierung -->
 
-                                         <transform  translation="-16.5 2.3 38.5" rotation="0 1 0 1.57">
-                                           <shape>
-                                           <appearance>
-                                                    <material diffuseColor='white'></material>
-                                                    <ImageTexture url="../../../images/raume/G103.jpg"><ImageTexture/>
-
-                                           </appearance>
-                                            <box size="0.0 0.5 0.8";"> </box>
-                                         </shape>
-                                         </transform>
-
-
-                                                <!--Schild G 111 -->
-
-                                         <transform  translation="-13.9 2.1 61" rotation="0 1 0 1.57">
-                                           <shape>
-                                           <appearance>
-                                                    <material diffuseColor='white'></material>
-                                                    <ImageTexture url="../../../images/raume/G111.jpg"><ImageTexture/>
-
-                                           </appearance>
-                                             <box size="0.0 0.5 0.8";"> </box>
-                                         </shape>
-                                         </transform>
-
-
-
-											<!-- -->
-                                                       
-
-                                            <Viewpoint id="camera"
-                                                        position="-17.12970 1.48912 49.09065"
-                                                        orientation="-0.01698 -0.99971 -0.01701 1.57269"
-                                                        zNear="0.06611" zFar="661.08396"
-                                                        description="defaultX3DViewpointNode">
-                                                </Viewpoint>
-                                                
-                                          <!-- Orientierung -->
-                                          
                                             <transform  translation="-10.44 1.7 50.5" rotation="1 0 0 0">
                                                         <shape>
                                                                         <appearance>
                                                                          <material diffuseolor='red'></material>
-                                                                       <ImageTexture url="../../../images/raume/1og.jpg"><ImageTexture/>
+                                                                       <ImageTexture url="../../../images/raume/geg.jpg"><ImageTexture/>
                                                                         </appearance>
                                                                         <box size="0 0.7 1.3";"></box>
                                                                 </shape>
                                                 </transform>
-                                          
-                                             </scene>
+
+                                           </scene>
                            </x3d>
                         </div>
            </div>
