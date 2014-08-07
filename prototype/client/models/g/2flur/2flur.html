@@ -57,7 +57,7 @@
                                         <input name="submit" type="submit" value="Speed"/>
                                 </form>
             </div>
-            
+
             <div data-role="panel" id="myPanel3">
                 <h2>Stockwerk/Raum</h2>
                 <a href="../1flur/1flur.html"><button>1. Obergeschoss</button></a>
@@ -65,10 +65,10 @@
                 <a href="../g111/g111.html"><button>Raum G111</button></a>
                 <a href="../2flur/2flur.html"><button>2. Obergeschoss</button></a>
                 <a href="../g203/g203.html"><button>Raum G203</button></a>
-                <a href="../g211/g211.html"><button>Raum G211</button></a>  
-                <a href="../../../index.html"><button>Zurück zum Campus</button></a>     
+                <a href="../g211/g211.html"><button>Raum G211</button></a>
+                <a href="../../../index.html"><button>Zur&Atilde;&frac14;ck zum Campus</button></a>
             </div>
-            
+
             <div data-role="main" class="ui-content">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
@@ -83,9 +83,9 @@
                                     <x3d style="width:100%;height:100%;" id="x3d_element">
                                        <scene frustumCulling="true">
                                        <navigationInfo type='"walk", "any"'></navigationInfo>
-									    <directionalLight id="directional" direction='0 0 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.5'> </directionalLight>
-										<PointLight id='point' on='TRUE' intensity='0.5' color='yellow' location='-9 0 0 ' radius='10' >  </PointLight>
-										<SpotLight id='spot' on ="TRUE" beamWidth='100' color='red' cutOffAngle='0.100' location='3 2 8' radius='10.000' >  </SpotLight>
+                                                                            <directionalLight id="directional" direction='0 0 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.5'> </directionalLight>
+                                                                                <PointLight id='point' on='TRUE' intensity='0.5' color='yellow' location='-9 0 0 ' radius='10' >  </PointLight>
+                                                                                <SpotLight id='spot' on ="TRUE" beamWidth='100' color='red' cutOffAngle='0.100' location='3 2 8' radius='10.000' >  </SpotLight>
                                        <background skyColor="0 0 0"></background>
 
                                             <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
@@ -103,7 +103,7 @@
                                                                                 </Material>
                                                                         </appearance>
                                                                         <box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
-                                                                        
+
                                                                 </shape>
                                                 </transform>
                                                 <transform scale="0.7 0.9 0.6" translation="-15 1.2 37" rotation="0 1 0 1.57">
@@ -124,8 +124,8 @@
                                                                         <box size="5 4 3" onmousedown="window.location ='../g211/g211.html';"></box>
                                                                 </shape>
                                                              </transform>
-	
-   														 <!--  Aktionsbox  -->
+
+                                                                                                                    <!--  Aktionsbox  -->
                                                                  <transform  translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
                                                         <shape>
                                                                         <appearance>
@@ -135,6 +135,35 @@
                                                                         <box size="0.5 0.5 0.5";"></box>
                                                                 </shape>
                                                 </transform>
+
+                                                   <!--Schild G 103 -->
+
+                                         <transform  translation="-16.5 2.3 38.5" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="../../../images/raume/g203.jpg"><ImageTexture/>
+
+                                           </appearance>
+                                            <box size="0.0 0.5 0.8";"> </box>
+                                         </shape>
+                                         </transform>
+
+
+                                                <!--Schild G 111 -->
+
+                                         <transform  translation="-13.9 2.1 61" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="../../../images/raume/g211.jpg"><ImageTexture/>
+
+                                           </appearance>
+                                             <box size="0.0 0.5 0.8";"> </box>
+                                         </shape>
+                                         </transform>
+
+
                                                 <!---->
                                             <Viewpoint id="camera"
                                                         position="-17.12970 1.48912 49.09065"
