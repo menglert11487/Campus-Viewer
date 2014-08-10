@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='SP_2'>
+      <Appearance DEF='Color_001'>
+        <Material diffuseColor='0.53243 0.539078 0.474751' shininess='3.00245' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='39' primType='"TRIANGLESTRIP"' position='78.4070053101 17.83253479 -57.045501709' size='6.82295227051 35.5667419434 24.246837616' index='bingeo/BG_2_indexBinary.bin' coord='bingeo/BG_2_coordBinary.bin' normal='bingeo/BG_2_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_1'>
+      <Appearance DEF='material'>
+        <Material diffuseColor='0.51787 0.529491 0.447894' shininess='3.00245' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='1628 36' primType='"TRIANGLESTRIP" "TRIANGLES"' position='51.4676437378 18.0413608551 -67.8156204224' size='62.7880249023 36.389629364 147.482803345' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_0'>
+      <Appearance DEF='Color_A01'>
+        <Material diffuseColor='0.8 0 0' shininess='3.00245' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='206 9' primType='"TRIANGLESTRIP" "TRIANGLES"' position='65.7013931274 16.119310379 -52.9408912659' size='2.11480712891 32.2386207581 113.628837585' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_3'>
+      <Appearance DEF='_0129_WhiteSmoke'>
+        <Material diffuseColor='0.467263 0.43658 0.397546' shininess='3.00245' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_3' vertexCount='53 9' primType='"TRIANGLESTRIP" "TRIANGLES"' position='73.2968444824 17.83253479 -52.792137146' size='17.0432739258 35.5667419434 15.7401046753' index='bingeo/BG_3_indexBinary.bin' coord='bingeo/BG_3_coordBinary.bin' normal='bingeo/BG_3_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_5'>
+      <Appearance DEF='Blinds_Wood_White'>
+        <Material diffuseColor='0.64 0.64 0.64' shininess='3.00245' specularColor='0.5 0.5 0.5'/>
+        <ImageTexture url='"C:\\\\Users\\\\Simon"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_5' vertexCount='4' primType='"TRIANGLESTRIP"' position='64.7752075195 18.315820694 -124.90272522' size='0 4.73659896851 30.2948303223' index='bingeo/BG_5_indexBinary.bin' coord='bingeo/BG_5_coordBinary.bin' normal='bingeo/BG_5_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_4'>
+      <Appearance DEF='Translucent_Glass_Blue'>
+        <Material diffuseColor='0.313726 0.467451 0.743529' shininess='3.00245' specularColor='0.5 0.5 0.5' transparency='0.594595'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_4' vertexCount='344' primType='"TRIANGLESTRIP"' position='72.2043228149 16.5680942535 -68.0883026123' size='19.228313446 32.7368850708 143.923675537' index='bingeo/BG_4_indexBinary.bin' coord='bingeo/BG_4_coordBinary.bin' normal='bingeo/BG_4_normalBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>
