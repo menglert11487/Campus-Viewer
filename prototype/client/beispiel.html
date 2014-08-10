@@ -1,18 +1,26 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-        <title>>Campus Viewer Fulda - Nutzerregistrierung</title>
+        <title id="room">beispiel</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-		
-        <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.css">
-        <link rel="stylesheet" type="text/css" href="styles/style.css" />
 
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
-        <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
-		<script type="text/javascript" src="js/jquery.cookie.js"></script>		
-		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>							
+					
+		<script type="text/javascript">
+		
+			$(document).ready(function () {
+				$.getScript("js/user.js");	
+				
+								
+									
+									$.post( '/comment/showall', { room: document.getElementById('room').innerHTML}).done(function( data ) {
+										$('.result').val( data );
+									});
+			});
 			
+		</script>
 		<style type="text/css">
 			#preView	{	margin-left	:	100px;
 							resize		:	none;	
@@ -29,49 +37,20 @@
 							font-family	:	arial}
 		</style>
 		
-		<script type="text/javascript">
-			function loescheFormular () {
-				document.getElementById('writeArea').value = '';
-			}
-			
-			function zeigeVorschau () {
-				document.getElementById('preView').value = document.getElementById('writeArea').value;
-				document.getElementById('preView').style.visibility = "visible"
-			}
-		</script>
+
     </head>
 	
 	<body>
 
-        <div data-role="panel" id="myPanel">
-		    <h2>Menü</h2>
-				<button id="index6" onclick="window.location.href = 'index.html';">Startseite</button>
-				<button id="projekt6" onclick="window.location.href = 'ueberDasProjekt.html';">das Projekt</button>
-				<button id="dieSchule6" onclick="window.location.href = 'ueberDieHS.html';">die Hochschule</button>
-				<button id="bedienung6" onclick="window.location.href = 'bedienungsanleitung.html';">Bedienungsanleitung</button>
-				<button id="kontakt6" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
-				<button id="impressum6" onclick="window.location.href = 'impressum.html';">Impressum</button>
-				<button id="login6" onclick="window.location.href = 'login.html';">Login</button>
-				<button id="logout6" onclick="">Logout</button>
-				<button id="reg6" onclick="window.location.href = 'registration.html';">Registrieren</button>
-	    </div>
-
-		<div data-role="main" class="ui-content">
-    		<a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
 					<textarea disabled id="preView" rows=10 cols=216></textarea>
-						<br/><br/>
-						<fieldset>		
-							<br/><br/>
+
 				<h1>User-Kommentare</h1>	
-							<textarea disabled id="commentBox" rows=10 cols=216></textarea>
-								<br/><br/>			
+							<textarea disabled id="commentBox" rows=10 cols=216></textarea>		
 				<h1>Gebe hier deine Kommentare ein.</h1>								
 							<textarea id="writeArea" rows=10 cols=216></textarea>
-								<br/><br/>
-							<input id="posten" type="button" value="Posten">
-							<input id="vorschau" type="button" onclick="return zeigeVorschau();" value="Vorschau"></input>
-							<input id="loeschen" type="button" onclick="return loescheFormular();" value="Löschen"></input>
-						</fieldset>
-		</div>
-	</body>
+
+							<input id="posten" type="button" value="Posten"></input>
+							<input id="vorschau" type="button"   value="Vorschau"></input>
+							<input id="loeschen" type="button"  value="Löschen"></input>
+						</body>
 </html>

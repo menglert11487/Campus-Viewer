@@ -87,11 +87,11 @@ $(document).ready(function () {
 		return false;
 	}
 							
-	if (typeof $.cookie('hans') == "undefined") {
+	if (typeof $.cookie('userCookie') == "undefined") {
 		logout();	
 	} 
 	
-	if (jQuery.cookie('hans')) {
+	if (jQuery.cookie('userCookie')) {
 		login();
 	}
 

@@ -11,7 +11,40 @@ $(document).ready(function() {
         return x;
     }
 	
-	if (jQuery.cookie('hans')) {
+				$('#vorschau').click(function () { 
+					document.getElementById('preView').value = document.getElementById('writeArea').value;
+					document.getElementById('preView').style.visibility = "visible"
+				});			
+
+				$('#loeschen').click(function () { 
+					document.getElementById('writeArea').value = '';
+				});	
+				
+				$('#posten').click(function () { 
+					var room = document.getElementById('room').innerHTML;
+					var commentary = document.getElementById('writeArea').value;
+
+						$.ajax({
+							type: "POST",
+							crossDomain: false,
+							url: '/comment/new',
+							data: 'commentary=' + commentary + '&room=' + room,
+							success: function(data) {
+								if (data.success) {
+
+									console.log(data);
+								} else {
+									console.error('Something went wrong: ' + data.msg);
+								}
+							},
+							error: function(jqXHR, error, object, what) {
+							console.error("Error: " + error + " - " + jqXHR.status);
+							}
+						});
+					return false;
+				});
+	
+	if (jQuery.cookie('userCookie')) {
 		$('#logout1').click(function () {
 			logoutForm();
 		});
@@ -232,7 +265,7 @@ $(document).ready(function() {
                         //User logged in
                         console.log(data);
 						window.location.href = 'index.html';
-						$.removeCookie('hans');
+						$.removeCookie('userCookie');
                     } else {
                         console.error('Something went wrong: ' + data.msg);
                     }
@@ -261,7 +294,7 @@ $(document).ready(function() {
                         console.log(data);
                         $('#msg').css('color', '#00aa00');
                         $('#msg').text(data.msg);
-						$.cookie('hans', 'doof');
+						$.cookie('userCookie', 'doof');
 						window.location.href = 'index.html';
                     } else {
                         console.error('Something went wrong: ' + data.msg);
@@ -323,5 +356,6 @@ $(document).ready(function() {
     } else if ($('#loginform').length) {
         // Init login form
         $('#loginform').on('submit', submitLoginForm);
-	}
+    } 
+	
 });
