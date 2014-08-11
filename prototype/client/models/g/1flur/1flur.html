@@ -29,7 +29,11 @@
                 window.requestAnimationFrame(Render);
 
             };
-
+			
+			function popupWin()
+			{
+				var planG103 = window.open('stundenplanG103.png', 'Stundenplan G103', 'width=600,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=520, screenY=110');
+			}
         </script>
     </head>
     <body>
@@ -150,9 +154,8 @@
                                            <appearance>
                                                     <material diffuseColor='white'></material>
                                                     <ImageTexture url="../../../images/raume/G103.jpg"><ImageTexture/>
-
                                            </appearance>
-                                            <box size="0.0 0.5 0.8";"> </box>
+                                            <box size="0.0 0.5 0.8" onmousedown="popupWin();"> </box>
                                          </shape>
                                          </transform>
 
