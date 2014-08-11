@@ -21,5 +21,3 @@ Ab hier trägt jeder seinen Namen ein:
 07.) Stefanie Zahn
 08.) Désirée Mauß
 >>>>>>> FETCH_HEAD
-
-Steffi: Test, Contributors Übersicht (Commits werden erscheinen nicht)
