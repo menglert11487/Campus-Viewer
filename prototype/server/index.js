@@ -162,7 +162,7 @@ app.post('/user/login', function(req, res) { //Nutzerdaten auslesen
         var sql = mysql.format('SELECT * FROM user WHERE password = ? AND username = ?', [data.password, data.username]);
         console.log(sql);
         //Nutzerdaten in die Tabelle user schreiben
-        var query = connection.query('SELECT id FROM user WHERE password = ? AND username = ?', [data.password, data.username], function(err, result) { // Habe '*' durch 'id' ersetzt
+        var query = connection.query('SELECT * FROM user WHERE password = ? AND username = ?', [data.password, data.username], function(err, result) { 
             console.log(err);
             if (!err && result.length > 0) {
                 // Erfolgsmeldung ausgeben
@@ -206,7 +206,9 @@ app.post('/comment/new', function(req, res) { //Kommentare auslesen
 		if (typeof req.session.user == 'undefined')
 		{
 			console.log('Sie sind nicht eingeloggt!!!');
+			
 		} else    {
+		
 		var userid = req.session.user[0].id;
 		 
 		//Kommentare in die Tabelle user schreiben <--
@@ -228,8 +230,7 @@ app.post('/comment/new', function(req, res) { //Kommentare auslesen
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.post('/comment/showall', function(req, res) { //Kommentare auslesen
-
-		
+	
 	var query = connection.query('SELECT c.room, u.username, c.commentary FROM comment AS c INNER JOIN user AS u ON c.userID = u.ID WHERE c.room = ?', [req.body.room], function(err, result) { 
             console.log(err);
             if (!err) {
