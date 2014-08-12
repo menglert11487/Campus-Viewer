@@ -12,23 +12,29 @@
 		
 			$(document).ready(function () {
 				$.getScript("js/user.js");	
-				
-								
-									
-									$.post( '/comment/showall', { room: document.getElementById('room').innerHTML}).done(function( data ) {
-										$('.result').val( data );
-									});
+							
+					$.post( '/comment/showall', { room: document.getElementById('room').innerHTML}).done(function( data ) {
+
+						var kommentare = '';
+										
+						for (var i = data.length-1; 0 <= i; i--)
+						{
+							kommentare += data[i].username + ' schrieb: ' + data[i].commentary + '\n\n'; 
+						}
+										
+							document.getElementById('commentBox').value = kommentare;
+					});	
 			});
 			
 		</script>
 		<style type="text/css">
+			
 			#preView	{	margin-left	:	100px;
 							resize		:	none;	
 							font-family	:	arial;
 							visibility	:	hidden;}	
 		
-			#commentBox {	color		:	blue;
-							margin-left	:	80px;
+			#commentBox {	margin-left	:	80px;
 							resize		:	none;	
 							font-family	:	arial;}						
 						  

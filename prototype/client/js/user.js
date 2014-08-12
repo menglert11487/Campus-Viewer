@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	//$.getScript('js/jquery.cookie');
+	$.getScript('js/jquery.cookie');
 	
     String.prototype.trim = function() {
         // skip leading and trailing whitespace
@@ -20,7 +20,7 @@ $(document).ready(function() {
 					document.getElementById('writeArea').value = '';
 				});	
 				
-				$('#posten').click(function () { 
+				$('#posten').click(function () {
 					var room = document.getElementById('room').innerHTML;
 					var commentary = document.getElementById('writeArea').value;
 

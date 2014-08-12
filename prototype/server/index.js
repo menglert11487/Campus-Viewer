@@ -245,7 +245,8 @@ app.post('/comment/showall', function(req, res) { //Kommentare auslesen
 				data[i] = {username : result[i].username, commentary : result[i].commentary};
 				console.log('\n' + result[i].username + ' schrieb: ' + '\"' + result[i].commentary + '\"');
 			}
-																											
+			
+				res.send(data);
 			
             } else {
                 sendReturn(res, false, 'Kommentare konnte nicht angezeigt werden.');
