@@ -2,11 +2,12 @@
 <html>
     <head>
         <title>Campus Viewer Fulda</title>
+		<div id="room">G103</div>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" type="text/css" href="../../../styles/x3dom.css" />
-        <link rel="stylesheet" type="text/css" href="../../../styles/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" type="text/css" href="../../../styles/jquery.mobile-1.4.2.css"> 
         <link rel="stylesheet" type="text/css" href="../../../styles/style.css" />
 
         <script type="text/javascript" src="../../../js/ext/x3dom.js"></script>
@@ -16,9 +17,16 @@
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
                 <script type="text/javascript" src="../../../js/main.js"></script>
+				
+                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>				
 
                 <script type="text/javascript">
 
+				 $(document).ready(function () {
+                                $.getScript("../../../js/user.js");
+                                $.getScript("../../../js/cookieControl.js");
+                 });
+				 
             window.onload = function() {
                 Navigation.onLoad();
 
@@ -37,16 +45,16 @@
 
             <div data-role="panel" id="myPanel">
                   <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
-               <button id="index3" onclick="window.location.href = 'index.html';">Startseite</button>
-                                        <button id="projekt3" onclick="window.location.href = 'ueberDasProjekt.html';">das Projekt</button>
-                                        <button id="dieSchule3" onclick="window.location.href = 'ueberDieHS.html';">die Hochschule</button>
-                                        <button id="bedienung3" onclick="window.location.href = 'bedienungsanleitung.html';">Bedienungsanleitung</button>
-                                        <button id="kontakt3" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
-                                        <button id="impressum3" onclick="window.location.href = 'impressum.html';">Impressum</button>
-                                        <button id="login3" onclick="window.location.href = 'login.html';">Login</button>
+               <button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
+                                        <button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
+                                        <button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
+                                        <button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+                                        <button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
+                                        <button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
+                                        <button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
                                         <button id="logout3" onclick="">Logout</button>
-                                        <button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
-                                        <a id="text3"></a>
+                                        <button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
+										<p id="text3" align="center"></p>	
             </div>
 
             <div data-role="panel" id="myPanel2">
@@ -66,13 +74,20 @@
                 <a href="../2flur/2flur.html"><button>2. Obergeschoss</button></a>
                 <a href="../g203/g203.html"><button>Raum G203</button></a>
                 <a href="../g211/g211.html"><button>Raum G211</button></a>
-                <a href="../../../index.html"><button>Zur&Atilde;&frac14;ck zum Campus</button></a>
+                <a href="../../../index.html"><button>Zurück zum Campus</button></a>
+            </div>
+			
+			<div data-role="panel" id="myPanel4">
+                <h2>Kommentare</h2>
+				<input disabled style="resize : none;" rows=10 col=50></input>
+                <textarea style="resize : none; height:100%; width:100%" size=1 rows=10 col=50 ></textarea>
             </div>
 
             <div data-role="main" class="ui-content">
-                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
+                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
-                <a href="#myPanel3" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Stockwerk/Raum</a>
+                <a href="#myPanel3" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Stockwerk/Raum</a><br>
+                <a href="#myPanel4" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare</a>				
                 <div id="ansicht">
                         <div id="joystick">
                                     <div id="vline"></div>

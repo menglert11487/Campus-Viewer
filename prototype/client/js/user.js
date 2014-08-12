@@ -45,35 +45,7 @@ $(document).ready(function() {
 				});
 	
 	if (jQuery.cookie('userCookie')) {
-		$('#logout1').click(function () {
-			logoutForm();
-		});
-			
-		$('#logout2').click(function () {
-			logoutForm();
-		});
-			
 		$('#logout3').click(function () {
-			logoutForm();
-		});
-			
-		$('#logout4').click(function () {
-			logoutForm();
-		});
-			
-		$('#logout5').click(function () {
-			logoutForm();
-		});
-			
-		$('#logout6').click(function () {
-			logoutForm();
-		});
-			
-		$('#logout7').click(function () {
-			logoutForm();
-		});
-			
-		$('#logout8').click(function () {
 			logoutForm();
 		});
 	}
@@ -280,6 +252,7 @@ $(document).ready(function() {
 	
     function submitLoginForm(e) {
         var isFormValid = checkLoginFormular();
+		var username = document.formular.username.value;
 
         if (isFormValid) {
 
@@ -294,7 +267,7 @@ $(document).ready(function() {
                         console.log(data);
                         $('#msg').css('color', '#00aa00');
                         $('#msg').text(data.msg);
-						$.cookie('userCookie', 'doof');
+						$.cookie('userCookie', username);
 						window.location.href = 'index.html';
                     } else {
                         console.error('Something went wrong: ' + data.msg);

@@ -3,27 +3,26 @@
 	<head>
         <title id="room">beispiel</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
 
-        <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
-        <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>							
+        <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>							
 					
 		<script type="text/javascript">
 		
 			$(document).ready(function () {
 				$.getScript("js/user.js");	
-							
+											
 					$.post( '/comment/showall', { room: document.getElementById('room').innerHTML}).done(function( data ) {
 
 						var kommentare = '';
 										
 						for (var i = data.length-1; 0 <= i; i--)
 						{
-							kommentare += data[i].username + ' schrieb: ' + data[i].commentary + '\n\n'; 
+							kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
 						}
 										
-							document.getElementById('commentBox').value = kommentare;
+						document.getElementById('commentBox').value = kommentare;
 					});	
+					
 			});
 			
 		</script>
@@ -48,12 +47,12 @@
 	
 	<body>
 
-					<textarea disabled id="preView" rows=10 cols=216></textarea>
+					<textarea disabled id="preView" rows=5 cols=216></textarea>
 
 				<h1>User-Kommentare</h1>	
-							<textarea disabled id="commentBox" rows=10 cols=216></textarea>		
+							<textarea disabled id="commentBox" rows=5 cols=216></textarea>		
 				<h1>Gebe hier deine Kommentare ein.</h1>								
-							<textarea id="writeArea" rows=10 cols=216></textarea>
+							<textarea id="writeArea" rows=5 cols=216></textarea>
 
 							<input id="posten" type="button" value="Posten"></input>
 							<input id="vorschau" type="button"   value="Vorschau"></input>
