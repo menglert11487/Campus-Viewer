@@ -32,7 +32,7 @@
             
             function popupWinListe()
 			{
-				var listeG = window.open('stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+				var listeG = window.open('../stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
 			}
 
         </script>
@@ -137,7 +137,7 @@
                                                                          <material diffuseColor='red'></material>
                                                                        <ImageTexture url="../../../images/treppe.jpg"><ImageTexture/>
                                                                         </appearance>
-                                                                        <box size="0.5 0.5 0.5";"></box>
+                                                                        <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
                                                                 </shape>
                                                 </transform>
                                                 <!---->
@@ -192,7 +192,8 @@
                                                                          <material diffuseolor='red'></material>
                                                                        <ImageTexture url="images/2og.jpg"><ImageTexture/>
                                                                         </appearance>
-                                                                        <box size="0.0 0.7 1.0" onmousedown="popupWinListe();"> </box>
+                                                                        <box size="0.0 0.7 1.0"></box>
+                                                                        <!--<box size="0.0 0.7 1.0" onmousedown="popupWinListe();"> </box>-->
                                                                 </shape>
                                                 </transform>
                                              </scene>

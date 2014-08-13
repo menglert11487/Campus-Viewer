@@ -37,13 +37,20 @@
             function fancy()
             {
             	$.fancybox({
+            		href: 'stockwerklisteGfancy.html'
+            	});
+            }
+            
+            function fancy2()
+            {
+            	$.fancybox({
             		content: '<center><font face="Arial"><h1><a href="../0flur/0flur.html"> Erdgeschoss </a> </h1> <h3><a href="../glabor/glabor.html"> Interaktionslabor </a> </h3> <h1><a href="../1flur/1flur.html"> 1. Stockwerk </a> </h1> <h3><a href="../g103/g103.html"> Raum G103 </a> </h3> <h3><a href="../g111/g111.html"> Raum G111 </a> </h3> <h1><a href="../2flur/2flur.html"> 2. Stockwerk </a> </h1><h3><a href="../g203/g203.html"> Raum G203 </a> </h3> <h3><a href="../g211/g211.html"> Raum G211 </a> </h3></font></center>'
             	});
             }
             
             function popupWinListe()
 			{
-				var listeG = window.open('stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+				var listeG = window.open('../stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
 			}
 
         </script>
@@ -124,6 +131,7 @@
                                                 </transform>
 
 
+                                                <!-- Treppen Symbol -->
                                                 <transform scale="0.7 0.9 0.6" translation="-15.146 1.1 63" rotation="0 1 0 1.57">
                                                         <shape>
                                                                         <appearance>
@@ -141,7 +149,8 @@
                                                                          <material diffuseColor='red'></material>
                                                                         <ImageTexture url="../../../images/treppe4.jpg">
                                                                         </appearance>
-                                                                        <box size="0.5 0.5 0.5";"></box>
+                                                                        <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
+                                                                        <!--<box size="0.5 0.5 0.5";"></box>-->
                                                                 </shape>
                                                 </transform>
 
@@ -189,7 +198,8 @@
                                                                          <material diffuseolor='red'></material>
                                                                        <ImageTexture url="images/geg.jpg"><ImageTexture/>
                                                                         </appearance>
-                                                                        <box size="0.0 0.7 1.0" onmousedown="popupWinListe();"> </box>
+                                                                        <box size="0.0 0.7 1.0"></box>
+                                                                        <!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
                                                                 </shape>
                                                 </transform>
 
