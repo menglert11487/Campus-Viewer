@@ -16,8 +16,14 @@
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
                 <script type="text/javascript" src="../../../js/main.js"></script>
-
+				<script type="text/javascript" src="../../../js/jquery.cookie.js"></script>	
+				
                 <script type="text/javascript">
+				
+				$(document).ready(function () {
+                                $.getScript("../../../js/user.js");
+                                $.getScript("../../../js/cookieControl.js");
+                 });
 
             window.onload = function() {
                 Navigation.onLoad();
