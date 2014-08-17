@@ -1,0 +1,110 @@
+                             <!DOCTYPE html>
+<html>
+    <head>
+        <title>Campus Viewer Fulda</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="../../../styles/x3dom.css" />
+        <link rel="stylesheet" type="text/css" href="../../../styles/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" type="text/css" href="../../../styles/style.css" />
+
+        <script type="text/javascript" src="../../../js/ext/x3dom.js"></script>
+        <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
+
+        <script type="text/javascript" src="../../../js/collision.js"></script>
+        <script type="text/javascript" src="../../../js/navigation.js"></script>
+                <script type="text/javascript" src="../../../js/main.js"></script>
+
+                <script type="text/javascript">
+
+            window.onload = function() {
+                Navigation.onLoad();
+
+                function Render() {
+                    Navigation.Render();
+                    window.requestAnimationFrame(Render);
+                };
+                window.requestAnimationFrame(Render);
+
+            };
+
+        </script>
+    </head>
+    <body>
+        <div data-role="page" id="pageone">
+
+            <div data-role="panel" id="myPanel">
+                <h2>Men&uuml;</h2>
+                <a href="/index.html"><button>Startseite</button></a>
+                <a href="/ueberDasProjekt.html"><button>das Projekt</button></a>
+                <a href="/ueberDieHS.html"><button>die Hochschule</button></a>
+                <a href="/bedienungsanleitung.html"><button>Bedienungsanleitung</button></a>
+                <a href="/kontakt.html"><button>Kontakt</button></a>
+                <a href="/impressum.html"><button>Impressum</button></a>
+                <a href="/login.html"><button>Login</button></a>
+                <a href="/registration.html"><button>Registrieren</button></a>
+            </div>
+
+            <div data-role="panel" id="myPanel2">
+                                <h2>Navi</h2>
+                <button onClick="lookArround()">360 view</button>
+                                <form name="changeSpeed" action="javascript:changeSpeed()">
+                                        <input name="speed" type="text"></input>
+                                        <input name="submit" type="submit" value="Speed"/>
+                                </form>
+            </div>
+            <div data-role="main" class="ui-content">
+                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&Atilde;&frac14;</a> <br>
+                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
+                <div id="ansicht">
+                        <div id="joystick">
+                                    <div id="vline"></div>
+                                    <div id="hline"></div>
+                                    <div id="control"></div>
+                                    <div id="pointer"></div>
+                                </div>
+                             <x3d style="width:100%;height:100%;" id="x3d_element">
+
+               <scene frustumCulling="true">
+                           <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+                           <navigationInfo type='"walk", "any"'></navigationInfo>
+							<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+							<directionalLight id="directional" direction='20 -14 -15'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							
+
+                                        <shape>
+                                                <plane size="25 25"></plane>
+                                        </shape>
+                                </transform>
+                                        <transform scale="0.6 0.6 0.6" translation="-15 0 50">
+                                                <inline url="e107blendertest.x3d"></inline>
+                                        </transform>
+                                <transform scale="0.2 0.4 0.2" translation="-12 0.9 52.85" rotation="0 1 0 1.57">
+                                                <shape>
+                                                                <appearance>
+                                                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                                                        </Material>
+                                                                </appearance>
+                                                                <box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
+                                                        </shape>
+                                        </transform>
+
+
+                   <background skyColor="0 0 0"></background>
+
+                                       <Viewpoint id="camera" position="-6.62564 1.45364 42.75048"
+                                       orientation="-0.05881 0.99174 0.11397 2.19550" zNear="0.06611" zFar="661.08396"
+                                       description="defaultX3DViewpointNode"></Viewpoint>
+
+                           </scene>
+           </x3d></div>
+           </div>
+</div>
+
+   </body>
+</html>
+
+<Viewpoint id="camera" position="-6.62564 1.45364 42.75048" orientation="-0.05881 0.99174 0.11397 2.19550"
+        zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint>
