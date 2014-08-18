@@ -10,17 +10,26 @@
 		
 			$(document).ready(function () {
 				$.getScript("js/user.js");	
-											
-					$.post( '/comment/showall', { room: document.getElementById('room').innerHTML}).done(function( data ) {
-
-						var kommentare = '';
+																
+					$.ajax({
+							type: "POST",
+							crossDomain: false,
+							url: '/comment/showall',
+							data: { room: document.getElementById('room').innerHTML},
+							success: function(data) {
+							
+								var kommentare = '';
 										
-						for (var i = data.length-1; 0 <= i; i--)
-						{
-							kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
-						}
+								for (var i = data.length-1; 0 <= i; i--)
+								{
+									kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
+								}
 										
-						document.getElementById('commentBox').value = kommentare;
+								document.getElementById('commentBox').value = kommentare;
+							},
+								error: function(jqXHR, error, object, what) {
+								console.error("Error: " + error + " - " + jqXHR.status);
+							}
 					});	
 					
 			});

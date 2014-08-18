@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Campus Viewer Fulda</title>
-		<div id="room">G103</div>
+        <title id="room">Campus Viewer Fulda - G103</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
@@ -24,8 +23,13 @@
 
 				 $(document).ready(function () {
                                 $.getScript("../../../js/user.js");
-                                $.getScript("../../../js/cookieControl.js");
+                                $.getScript("../../../js/cookieControl.js");					
                  });
+				 
+				 function popupWinKommentare()
+				{
+					var kommentare = window.open('kommentareG103.html', 'Kommentare Raum G103', 'width=1200,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=520, screenY=110');
+				}
 				 
             window.onload = function() {
                 Navigation.onLoad();
@@ -79,8 +83,13 @@
 			
 			<div data-role="panel" id="myPanel4">
                 <h2>Kommentare</h2>
-				<input disabled style="resize : none;" rows=10 col=50></input>
-                <textarea style="resize : none; height:100%; width:100%" size=1 rows=10 col=50 ></textarea>
+				<textarea disabled style="resize : none;" id="preView" rows=10 cols=50></textarea>
+                <textarea style="resize : none; height:100%; width:100%" id="writeArea" size=1 rows=10 col=50 maxLength=300 wrap="off" ></textarea>
+				<button id="posten" >Posten</button>
+				<button id="vorschau" >Vorschau</button>
+				<button id="loeschen" >Löschen</button>
+				<br>
+				<button onclick="return popupWinKommentare();" >Kommentare anzeigen</button>
             </div>
 
             <div data-role="main" class="ui-content">
