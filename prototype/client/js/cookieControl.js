@@ -53,7 +53,7 @@ $(document).ready(function () {
 		login();
 		$('#text3').css('font-weight', 'bold');
 		$('#text3').css('color', '#0000CC');
-		$('#text3').html('Hallo, ' + jQuery.cookie('userCookie') + '!');
+		$('#text3').html('Hallo, ' + jQuery.cookie('userCookie') + '!');	
 	}
 
 });

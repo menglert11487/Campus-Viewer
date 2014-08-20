@@ -17,19 +17,50 @@
         <script type="text/javascript" src="../../../js/navigation.js"></script>
                 <script type="text/javascript" src="../../../js/main.js"></script>
 				
-                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>				
-
+                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>	
+				
+				<style type="text/css">		
+					#commentBox {	margin-left	:	0px;
+									resize		:	none;	
+									font-family	:	arial;}	
+				</style>
+		
                 <script type="text/javascript">
 
 				 $(document).ready(function () {
                                 $.getScript("../../../js/user.js");
-                                $.getScript("../../../js/cookieControl.js");					
+                                $.getScript("../../../js/cookieControl.js");
+								
+								$('#commentBox').css('color', '#0000CC');								
                  });
 				 
-				 function popupWinKommentare()
-				{
-					var kommentare = window.open('kommentareG103.html', 'Kommentare Raum G103', 'width=1200,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=520, screenY=110');
+				function ladeKommentare() {
+				 	$.ajax({
+							type: "POST",
+							crossDomain: false,
+							url: '/comment/showall',
+							data: { room: 'Campus Viewer Fulda - G103'},
+							success: function(data) {
+							
+								var kommentare = '';
+										
+								for (var i = data.length-1; 0 <= i; i--)
+								{
+									kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
+								}
+										
+								document.getElementById('commentBox').value = kommentare;
+							},
+								error: function(jqXHR, error, object, what) {
+								console.error("Error: " + error + " - " + jqXHR.status);
+							}
+					});	
 				}
+				 
+				 <!--function popupWinKommentare()-->
+				<!--{-->
+					<!--var kommentare = window.open('kommentareG103.html', 'Kommentare Raum G103', 'width=1200,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=520, screenY=110');-->
+				<!-- } -->
 				 
             window.onload = function() {
                 Navigation.onLoad();
@@ -89,15 +120,24 @@
 				<button id="vorschau" >Vorschau</button>
 				<button id="loeschen" >Löschen</button>
 				<br>
-				<button onclick="return popupWinKommentare();" >Kommentare anzeigen</button>
+				<a href="#myPanel5" align="center" onclick="return ladeKommentare();" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
+				<br>
             </div>
+			
+<!-- Diese Zeile enthält das Kommentar Textfeld-->
+			<div data-role="panel" id="myPanel5">
+				<h2>Kommentare zu diesem Raum</h2>
+				<textarea disabled id="commentBox" rows=250 cols=50></textarea>
+			</div>
 
+<!--Hier endet das Textfeld, indem die Kommentare angezeigt werden. -->
+			
             <div data-role="main" class="ui-content">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
                 <a href="#myPanel3" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Stockwerk/Raum</a><br>
                 <a href="#myPanel4" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare</a>				
-                <div id="ansicht">
+                <div id="ansicht">	
                         <div id="joystick">
                                     <div id="vline"></div>
                                     <div id="hline"></div>
@@ -148,6 +188,5 @@
                                 </div>
                         </div>
                 </div>
-
         </body>
 </html>
