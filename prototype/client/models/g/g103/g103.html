@@ -23,6 +23,7 @@
 					#commentBox {	margin-left	:	0px;
 									resize		:	none;	
 									font-family	:	arial;}	
+					#kommAnz	 {	margin-left	:	15px;}
 				</style>
 		
                 <script type="text/javascript">
@@ -120,14 +121,15 @@
 				<button id="vorschau" >Vorschau</button>
 				<button id="loeschen" >Löschen</button>
 				<br>
-				<a href="#myPanel5" align="center" onclick="return ladeKommentare();" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
+				<a href="#myPanel5" id="kommAnz" onclick="return ladeKommentare();" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
 				<br>
             </div>
 			
 <!-- Diese Zeile enthält das Kommentar Textfeld-->
+
 			<div data-role="panel" id="myPanel5">
 				<h2>Kommentare zu diesem Raum</h2>
-				<textarea disabled id="commentBox" rows=250 cols=50></textarea>
+				<textarea disabled id="commentBox" rows=5 cols=50></textarea>
 			</div>
 
 <!--Hier endet das Textfeld, indem die Kommentare angezeigt werden. -->
