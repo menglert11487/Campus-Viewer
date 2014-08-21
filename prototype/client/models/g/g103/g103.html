@@ -15,9 +15,10 @@
 
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
-                <script type="text/javascript" src="../../../js/main.js"></script>
-				
-                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>	
+        <script type="text/javascript" src="../../../js/main.js"></script>
+		
+		 <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+					
 				
 				<style type="text/css">		
 					#commentBox {	margin-left	:	0px;
@@ -29,10 +30,8 @@
                 <script type="text/javascript">
 
 				 $(document).ready(function () {
-                                $.getScript("../../../js/user.js");
-                                $.getScript("../../../js/cookieControl.js");
-								
-								$('#commentBox').css('color', '#0000CC');								
+				        $.getScript("../../../js/cookieControl.js");
+                        $.getScript("../../../js/user.js");								
                  });
 				 
 				function ladeKommentare() {
@@ -47,7 +46,7 @@
 										
 								for (var i = data.length-1; 0 <= i; i--)
 								{
-									kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
+									kommentare += data[i].username + ' schrieb: ' + '\n' + data[i].commentary + '\n\n'; 
 								}
 										
 								document.getElementById('commentBox').value = kommentare;

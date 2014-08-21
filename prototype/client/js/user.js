@@ -44,11 +44,39 @@ $(document).ready(function() {
 					return false;
 				});
 	
-	if (jQuery.cookie('userCookie')) {
-		$('#logout3').click(function () {
-			logoutForm();
-		});
-	}
+	// if (jQuery.cookie('userCookie')) {
+		// $('#logout3').click(function () {
+			// logoutForm();
+		// });
+	// }	
+	
+	$('#logout3').click(function () { 
+	var bestaetigung = confirm('Wollen Sie sich wirklich abmelden?');
+	
+		if (bestaetigung == true)
+				{
+					$.ajax({
+						type: "POST",
+						crossDomain: true,
+						url: '/user/logout',
+						data: $(this).serialize(),
+						success: function(data) {
+							if (data.success) {
+								//User logged in
+								console.log(data);
+								$.removeCookie('userCookie');
+								window.location.href = window.location;
+							} else {
+								console.error('Something went wrong: ' + data.msg);
+							}
+						},
+						error: function(jqXHR, error, object) {
+							console.error("Error: " + error);
+						}
+					});
+				return false;
+				}	
+	});	
 	
     function checkLoginFormular(e) {
 
@@ -221,34 +249,34 @@ $(document).ready(function() {
         return valid;
     }	
 
-    function logoutForm(e) {
+    // function logoutForm(e) {
 
-	var bestaetigung = confirm('Wollen Sie sich wirklich abmelden?');
+	// var bestaetigung = confirm('Wollen Sie sich wirklich abmelden?');
 	
-		if (bestaetigung == true)
-		{
-            $.ajax({
-                type: "POST",
-                crossDomain: true,
-                url: './user/logout',
-                data: $(this).serialize(),
-                success: function(data) {
-                    if (data.success) {
-                        //User logged in
-                        console.log(data);
-						window.location.href = 'index.html';
-						$.removeCookie('userCookie');
-                    } else {
-                        console.error('Something went wrong: ' + data.msg);
-                    }
-                },
-                error: function(jqXHR, error, object) {
-                    console.error("Error: " + error);
-                }
-            });
-        return false;
-		}	
-	}
+		// if (bestaetigung == true)
+		// {
+            // $.ajax({
+                // type: "POST",
+                // crossDomain: true,
+                // url: './user/logout',
+                // data: $(this).serialize(),
+                // success: function(data) {
+                    // if (data.success) {
+                        // //User logged in
+                        // console.log(data);
+						// window.location.href = 'index.html';
+						// $.removeCookie('userCookie');
+                    // } else {
+                        // console.error('Something went wrong: ' + data.msg);
+                    // }
+                // },
+                // error: function(jqXHR, error, object) {
+                    // console.error("Error: " + error);
+                // }
+            // });
+        // return false;
+		// }	
+	// }
 	
     function submitLoginForm(e) {
         var isFormValid = checkLoginFormular();
