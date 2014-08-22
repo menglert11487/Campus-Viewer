@@ -12,23 +12,23 @@
         <script type="text/javascript" src="../../../js/ext/x3dom.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
-        
+
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-		<script type="text/javascript" src="../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-		<link rel="stylesheet" href="../../../fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+                <script type="text/javascript" src="../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                <link rel="stylesheet" href="../../../fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
                 <script type="text/javascript" src="../../../js/main.js"></script>
-				
-				<script type="text/javascript" src="../../../js/jquery.cookie.js"></script>	
+
+                                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
 
                 <script type="text/javascript">
-				 $(document).ready(function () {
+                                 $(document).ready(function () {
                                 $.getScript("../../../js/user.js");
                                 $.getScript("../../../js/cookieControl.js");
                  });
-				 
+
             window.onload = function() {
                 Navigation.onLoad();
 
@@ -39,25 +39,25 @@
                 window.requestAnimationFrame(Render);
 
             };
-            
+
             function fancy()
             {
-            	$.fancybox({
-            		href: 'stockwerklisteGfancy.html'
-            	});
+                    $.fancybox({
+                            href: 'stockwerklisteGfancy.html'
+                    });
             }
-            
+
             function fancy2()
             {
-            	$.fancybox({
-            		content: '<center><font face="Arial"><h1><a href="../0flur/0flur.html"> Erdgeschoss </a> </h1> <h3><a href="../glabor/glabor.html"> Interaktionslabor </a> </h3> <h1><a href="../1flur/1flur.html"> 1. Stockwerk </a> </h1> <h3><a href="../g103/g103.html"> Raum G103 </a> </h3> <h3><a href="../g111/g111.html"> Raum G111 </a> </h3> <h1><a href="../2flur/2flur.html"> 2. Stockwerk </a> </h1><h3><a href="../g203/g203.html"> Raum G203 </a> </h3> <h3><a href="../g211/g211.html"> Raum G211 </a> </h3></font></center>'
-            	});
+                    $.fancybox({
+                            content: '<center><font face="Arial"><h1><a href="../0flur/0flur.html"> Erdgeschoss </a> </h1> <h3><a href="../glabor/glabor.html"> Interaktionslabor </a> </h3> <h1><a href="../1flur/1flur.html"> 1. Stockwerk </a> </h1> <h3><a href="../g103/g103.html"> Raum G103 </a> </h3> <h3><a href="../g111/g111.html"> Raum G111 </a> </h3> <h1><a href="../2flur/2flur.html"> 2. Stockwerk </a> </h1><h3><a href="../g203/g203.html"> Raum G203 </a> </h3> <h3><a href="../g211/g211.html"> Raum G211 </a> </h3></font></center>'
+                    });
             }
-            
+
             function popupWinListe()
-			{
-				var listeG = window.open('../stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
-			}
+                        {
+                                var listeG = window.open('../stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+                        }
 
         </script>
     </head>
@@ -87,12 +87,12 @@
                                 </form>
             </div>
 
-          
+
 
             <div data-role="main" class="ui-content" style="width: 80px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
-           
+
                 <div id="ansicht">
                         <div id="joystick">
                                     <div id="vline"></div>
