@@ -73,11 +73,11 @@
                                         <x3d style="width:100%;height:100%;" id="x3d_element">
                                                 <scene frustumCulling="true">
                                                <navigationInfo type='"walk", "any"'></navigationInfo>
-								 <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
-												<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+                                                                 <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
+                                                                                                <navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
                                                <background skyColor="0 0 0"></background>
                                                         <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-                                                                
+
                                                                 <shape>
                                                                         <plane size="30 30"></plane>
                                                                 </shape>
@@ -85,18 +85,18 @@
                                                         <transform scale="1 1 1" translation="-20 0 60">
                                                                 <inline url="0flur.x3d"></inline>
                                                         </transform>
-                                                        
+
                                                         <!-- Ausgang zum Campus (Marquardstr) -->
                                                         <transform scale="0.23 0.5 0.5" translation="-29.3 1.15 41.6" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
-                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
+                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
                                                                <box size="13.5 6.5 1" onmousedown="window.location ='../../../index.html';"></box>
                                                                 </shape>
                                                         </transform>
-                                                        
+
                                                           <!-- Aktionsbox-Stockwerkwechsel Treppe (M.) -->
                                                           <transform  translation="-28.5 1 42.5" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -113,30 +113,30 @@
                                                                 <shape>
                                                                         <appearance>
                                                                                <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+                                                                       <ImageTexture url="../images/exit.jpg"><ImageTexture/>
 
                                                                                 </appearance>
                                                                    <box size="1 0.5 0"></box>
                                                                 </shape>
                                                                 </transform>
-                                                        <!--Viewpoint auf den Ausgangn (M.)> 
-                                                        <Viewpoint position="-24.45273 1.53074 41.21327" 
-                                                        orientation="-0.02981 0.99892 0.03566 1.75004" 
+                                                        <!--Viewpoint auf den Ausgangn (M.)>
+                                                        <Viewpoint position="-24.45273 1.53074 41.21327"
+                                                        orientation="-0.02981 0.99892 0.03566 1.75004"
                                                         zNear="0.06611" zFar="661.08396"
                                                          description="defaultX3DViewpointNode"></Viewpoint-->
 
 
-	   									 <!-- Ausgang zum Campus (Campus) -->
+                                                                                    <!-- Ausgang zum Campus (Campus) -->
                                                         <transform scale="0.23 0.5 0.5" translation="-10 1.15 41.5" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
-                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
+                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
                                                                <box size="15.5 7.8 1" onmousedown="window.location ='../../../index.html';"></box>
                                                                 </shape>
                                                         </transform>
-                                                       
+
                                                           <!-- Aktionsbox-Stockwerkwechsel Treppe (Campus) -->
                                                           <transform  translation="-10.5 1 42.5" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -148,23 +148,38 @@
                                                                    <box size="0.5 0.5 0.5"></box>
                                                                 </shape>
                                                         </transform>
+
                                                           <!--Orientierung  (Campus) -->
                                                           <transform  translation="-10.3 2.5 41.5" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
                                                                                <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+                                                                       <ImageTexture url="../images/exit.jpg"><ImageTexture/>
 
                                                                                 </appearance>
                                                                    <box size="1 0.5 0"></box>
                                                                 </shape>
                                                         </transform>
-                                                        <!-- Viewpoint auf den Ausgangn (Campus)> 
-                                                       <Viewpoint position="-16.34926 1.51628 41.35704" 
+                                                        <!-- Viewpoint auf den Ausgangn (Campus)>
+                                                       <Viewpoint position="-16.34926 1.51628 41.35704"
                                                        orientation="-0.02217 -0.99951 -0.02189 1.55843"
                                                         zNear="0.06611" zFar="661.08396"
                                                          description="defaultX3DViewpointNode"></Viewpoint-->
-                                                         
+
+                                                         <!-- Schild Cae4-->
+                                                          <transform  translation="-17 1.75 39.8">
+                                                                <shape>
+                                                                        <appearance>
+                                                                               <material diffuseColor='red'></material>
+                                                                       <ImageTexture url="../images/cae4.jpg"><ImageTexture/>
+
+                                                                                </appearance>
+                                                                   <box size="1 0.5 0"></box>
+                                                                </shape>
+                                                                </transform>
+                                                                <Viewpoint position="-15.70082 1.53366 41.96570" orientation="-0.18239 -0.98308 -0.01697 0.18877"
+        zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint>
+
                                                          <!-- Eingang zum Cae4-->
                                                              <transform scale="0.23 0.5 0.5" translation="-12 1.15 39.8" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -175,7 +190,7 @@
                                                    <box size="0.5 6.25 3.25" onmousedown="window.location ='../Cae4/cae4.html';"></box>
                                                                 </shape>
                                                         </transform>
-                                                         
+
                                                          <!-- Eingang zum Cae5-->
                                                          <transform scale="0.23 0.5 0.5" translation="-15.4 1.15 39.8" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -186,21 +201,21 @@
                                                                <box size="0.5 6.25 3.25" onmousedown="window.location ='../Cae5/cae5.html';"></box>
                                                                 </shape>
                                                         </transform>
-                                                        
-                                                         <!-- Viewpoint Blick auf Cae4 und 5> 
-                                                         <Viewpoint position="-15.80637 1.53393 42.64214" 
+
+                                                         <!-- Viewpoint Blick auf Cae4 und 5>
+                                                         <Viewpoint position="-15.80637 1.53393 42.64214"
                                                          orientation="0.02876 -0.99957 0.00632 0.43296"
-                                                          zNear="0.06611" zFar="661.08396" 
+                                                          zNear="0.06611" zFar="661.08396"
                                                           description="defaultX3DViewpointNode"></Viewpoint-->
 
-														<!---->
+                                                                                                                <!---->
                                                         <background skyColor="0 0 0"></background>
-                                                       
-                                                        
+
+
                                                         <Viewpoint id="camera"
-                                                               position="-28.52421 1.53142 42.07207" 
+                                                               position="-28.52421 1.53142 42.07207"
                                                                orientation="-0.04335 -0.99862 -0.02969 1.20236"
-                                                                zNear="0.06611" zFar="661.08396" 
+                                                                zNear="0.06611" zFar="661.08396"
                                                                 description="defaultX3DViewpointNode">
                                                         </Viewpoint>
                                                 </scene>
