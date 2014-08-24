@@ -17,7 +17,7 @@
         <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 
 		
-		<script type="text/javascript" src="js/navigationApi.js"></script>
+		<!-- <script type="text/javascript" src="js/navigationApi.js"></script> -->
         <script type="text/javascript" src="js/collision.js"></script>
         <script type="text/javascript" src="js/navigation.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
@@ -34,8 +34,9 @@
                 Navigation.onLoad();
 
                 function Render() {
+					Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
                     Collision.Render(Collision.Plane);
-                    Navigation.Render();
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
@@ -108,14 +109,14 @@
 
                                                         <!-- Kameraperspektiven -->
                                                      
-                                                        <Viewfrustum id="camera"></Viewfrustum>
-                                                        <!-- <Viewpoint id="camera"
+                                                        <!-- <Viewfrustum id="camera"></Viewfrustum> -->
+                                                        <Viewpoint id="camera"
                                                                 position="213.22204 2.09661 -51.79562"
                                                                 orientation="-0.06399 0.99598 0.06265 1.55356"
                                                                 zNear="0.01000" zFar="10000.00000"
-                                                                description="defaultX3DViewpointNode"s>
+                                                                description="defaultX3DViewpointNode">
                  
-                                                        </Viewpoint> -->
+                                                        </Viewpoint>
 
                                                         <Viewpoint id="vp_1"
                                                                                            position="200.00000 12.99405 589.67119"
