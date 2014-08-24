@@ -1,14 +1,36 @@
-
 Collision = {};
 Collision.Plane;
 Collision.Gbuild;
 Collision.Ebuild;
-oldCameraPosition = null;
+Collision.Cbuild;
+Collision.OldMensa;
+Collision.Ssc;
+Collision.Mensa;
+Collision.Bib;
+Collision.Denkmal;
+Collision.CurrentCameraPos;
+oldCameraPosition =  null;
+Collision.BuildingList = [];
+
 
 Collision.onLoad = function(){
     Collision.Plane = document.getElementById("plane");
 	Collision.Gbuild = document.getElementById("gbuild");
-	Collision.Ebuild = document.getElementById("ebuild");
+	// Collision.Ebuild = document.getElementById("ebuild");
+	// Collision.Cbuild = document.getElementById("cbuild");
+	// Collision.OldMensa = document.getElementById("oldMensa");
+	// Collision.Ssc = document.getElementById("ssc");
+	// Collision.Mensa = document.getElementById("mensa");
+	// Collision.Bib = document.getElementById("bib");
+	// Collision.Denkmal = document.getElementById("denkmal");
+	Collision.BuildingList.push(Collision.Gbuild);
+	// Collision.BuildingList.push(Collision.Ebuild);
+	// Collision.BuildingList.push(Collision.Cbuild);
+	// Collision.BuildingList.push(Collision.OldMensa);
+	// Collision.BuildingList.push(Collision.Ssc);
+	// Collision.BuildingList.push(Collision.Mensa);
+	// Collision.BuildingList.push(Collision.Bib);
+	// Collision.BuildingList.push(Collision.Denkmal);
 //    Collision.HighlightBBox(Collision.Plane, false);
 //	Collision.HighlightBBox(Collision.Gbuild, true);
 //	Collision.HighlightBBox(Collision.Ebuild, false);
@@ -67,51 +89,26 @@ Collision.HighlightBBox = function(highlightNode, bool) {
 
 
 Collision.Render = function(object){
-
-    var cameraPos = Collision.CalculateCameraPosition();
-//	 Collision.RenderObj(Collision.Ebuild);
-	Collision.RenderObj(Collision.Gbuild);
-	var objectBBox = Collision.CalculateObjectBBox(object);
-	
-// 	Äquator -> y-Achse, alles drüber ist ok, drunter nein
-	if(cameraPos.y < objectBBox.max.y)
-		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + (objectBBox.max.y + 1) + " " + cameraPos.z);
-// 	x-Rand -> max
-	else if(cameraPos.x > objectBBox.max.x)
-		document.getElementById("camera").setAttribute('position', (objectBBox.max.x - 5) + " " + cameraPos.y + " " + cameraPos.z);
-//	 x-Rand -> min
-	else if(cameraPos.x < objectBBox.min.x)
-		document.getElementById("camera").setAttribute('position', (objectBBox.min.x + 5) + " " + cameraPos.y + " " + cameraPos.z);
-// z-oben -> max
-	else if(cameraPos.z > objectBBox.max.z)
-		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.max.z - 5));
-// z-unten -> min
-	else if(cameraPos.z < objectBBox.min.z)
-		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.min.z + 5));
-		
-		//Koordinaten Anzeige (zur Überprüfung)
-		//document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
-		
+	for (var i = 0; i < Collision.BuildingList.length; i++) { 
+		if (Collision.RenderObj(Collision.BuildingList[i])) {
+			// document.getElementById("camera").setAttribute('position', (Collision.CurrentCameraPos.x + 5) + " " + Collision.CurrentCameraPos.y + " " + (Collision.CurrentCameraPos.z));
+			document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
+			break;
+		}
+	}
+	oldCameraPosition = Collision.CurrentCameraPos;
 };
 
 Collision.RenderObj = function(object)
 {
-   var cameraPos = Collision.CalculateCameraPosition();
-   var objectBBox = Collision.CalculateObjectBBox(object);
 	
-	if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-		(cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
-		(cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
+	var objectBBox = Collision.CalculateObjectBBox(object);
+	
+	if((Collision.CurrentCameraPos.x < objectBBox.max.x && Collision.CurrentCameraPos.x > objectBBox.min.x) &&
+		(Collision.CurrentCameraPos.y < objectBBox.max.y && Collision.CurrentCameraPos.y > objectBBox.min.y) &&
+		(Collision.CurrentCameraPos.z < objectBBox.max.z && Collision.CurrentCameraPos.z > objectBBox.min.z))
 	{
-		if(oldCameraPosition == null)
-		{
-			oldCameraPosition = cameraPos;
-		}
-		else
-		{
-			cameraPos = oldCameraPosition;
-		}
+		return true;
 	}
-	document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + cameraPos.z);
-	oldCameraPosition = cameraPos;
+	return false;
 };

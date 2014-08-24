@@ -3,72 +3,25 @@ Navigation.Activated = false;
 Navigation.Camera;
 Navigation.Control;
 Navigation.Pointer;
-Navigation.ViewState;
 Navigation.Position = {
     x: 0,
     y: 0
 };
-Navigation.Rotation = {
-	x: 0, 
-	y: 0
-};
-Navigation.RotationActivated = false;
-
 
 Navigation.onLoad = function() {
-	
-	var camPosition = new x3dom.fields.SFVec3f(0.0, -5, -10.0);
-    Navigation.ViewState = new Viewstate(camPosition);
-    NavigationAPI.SetCamera("camera");								
-    NavigationAPI.SetViewState(Navigation.ViewState);
-	NavigationAPI.Render();
-	
     Navigation.Camera = document.getElementById("camera");
     Navigation.Control = document.getElementById("control");
     Navigation.Pointer = document.getElementById("pointer");
-
-								
-	Navigation.x3d = document.getElementById("x3d_element");
-	
-	Navigation.x3d.addEventListener(
-        "mousedown",
-        function(event) {
-			Navigation.RotationActivated = true;
-			Navigation.Rotation.x = event.layerX;
-			Navigation.Rotation.y = event.layerY;
-			event.stopPropagation();
-        },
-        true);
-	
-	Navigation.x3d.addEventListener(
-        "mousemove",
-        function(event) {
-            if(Navigation.RotationActivated){
-				
-				var xChange = Navigation.Rotation.x - event.layerX;
-				var yChange = Navigation.Rotation.y - event.layerY;
-				var speedlimit = 0.001;
-				Navigation.ViewState.RotateView(yChange * speedlimit,xChange * speedlimit);
-				NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
-				NavigationAPI.Render();
-			
-			} 
-			event.stopPropagation();
-        },
-        true);
-		
-	Navigation.x3d.addEventListener(
-        "mouseup",
-        function(event) {
-            Navigation.RotationActivated = false;
-        },
-        true);
-	
+    Navigation.Position = {
+        x: 0,
+        y: 0
+    };
     Navigation.Middle = {
-        top: (Navigation.Control.clientHeight / 2.0),			//Steuerknüppel wird zurück in die Mitte gesetzt
+        top: (Navigation.Control.clientHeight / 2.0),
         left: (Navigation.Control.clientWidth / 2.0)
     }
-	
+
+    Navigation.ChangeSpeed();
 
     control.addEventListener(
         "mousedown",
@@ -76,8 +29,8 @@ Navigation.onLoad = function() {
             Navigation.Activated = true;
             Navigation.Position.x = event.layerX;
             Navigation.Position.y = event.layerY;
-            Navigation.Pointer.style.left = (event.layerX - 25) + "px";
-            Navigation.Pointer.style.top = (event.layerY - 25) + "px";
+            Navigation.Pointer.style.left = event.layerX + "px";
+            Navigation.Pointer.style.top = event.layerY + "px";
         },
         true);
 
@@ -89,7 +42,6 @@ Navigation.onLoad = function() {
             Navigation.Position.y = 0;
             Navigation.Pointer.style.left = (Navigation.Middle.left - (Navigation.Pointer.clientWidth / 2.0)) + "px";
             Navigation.Pointer.style.top = (Navigation.Middle.top - (Navigation.Pointer.clientHeight / 2.0)) + "px";
-			
             event.stopPropagation();
         },
         true);
@@ -102,7 +54,6 @@ Navigation.onLoad = function() {
             Navigation.Position.y = 0;
             Navigation.Pointer.style.left = (Navigation.Middle.left - (Navigation.Pointer.clientWidth / 2.0)) + "px";
             Navigation.Pointer.style.top = (Navigation.Middle.top - (Navigation.Pointer.clientHeight / 2.0)) + "px";
-			
             event.stopPropagation();
         },
         true);
@@ -120,40 +71,24 @@ Navigation.onLoad = function() {
         },
         true);
 };
- 
-   
-			
-	Navigation.Render = function() {
-		if (Navigation.Activated) {
-			var speed = 0.025;
-			var halfWidth = (control.clientWidth / 2.0);
-			var halfHeight = (control.clientHeight / 2.0);
-			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
-			var facY = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
-			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(facX, 0.0, facY));
-			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
-			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
-			NavigationAPI.Render();
-		}
+
+Navigation.Render = function() {
+    if (Navigation.Activated) {
+        var currentPosition = x3dom.fields.SFVec3f.parse(Navigation.Camera.getAttribute("position"));
+        var facX = -(1.0 / Navigation.Middle.left * (-Navigation.Middle.left + Navigation.Position.x));
+        var facY = 1.0 / Navigation.Middle.top * (-Navigation.Middle.top + Navigation.Position.y);
+        currentPosition.z += facX;
+        currentPosition.x += facY;
+//        currentPosition.x += facY;
+        Navigation.Camera.setAttribute("position", currentPosition.toString());
+    }
 };
 
-	// Navigation.Render = function (){
-		// if(Navigation.RotationActivated){
-			// var speedlimit = 0.025;
-			// var rotWidth = (Navigation.x3d.clientWidth / 2.0);
-			// var rotHeight = (Navigation.x3d.clientHeight / 2.0);
-			// var rotX = (1.0 / rotWidth * (rotWidth + Navigation.Rotation.x));
-			// var rotY = (1.0 / rotHeight * (rotHeight + Navigation.Rotation.y));   
-			// Navigation.ViewState.RotateView(rotY * speedlimit, rotX * speedlimit);
-			// NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
-			// NavigationAPI.Render();
-		
-		// }
-	// }
-
-               
-
-
-
-
-
+Navigation.ChangeSpeed = function() {
+    var x = document.getElementById("x3d_element");
+    var y = document.changeSpeed.speed.value;
+    if (y === null) {
+        y = 20;
+    }
+    x.runtime.speed(y);
+};
