@@ -98,6 +98,7 @@
                                                         <transform scale="1 1 1" translation="-20 0 60">
                                                                 <inline url="fe2.x3d"></inline>
                                                         </transform>
+                                                        
                                                         <!--Eingang E107-->
                                                         <transform scale="0.4 1.3 0.6" translation="-20.5 1.0 45.7" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -118,9 +119,34 @@
                                                        
                                                         <!---->
                                                         <background skyColor="0 0 0"></background>
+																
+                                                                <!-- Ausgang zum Treppenhaus (gegenüber vom Aufzug) --> 
+                                                                <transform scale="0.3 1.5 0.6" translation="15 1.0 46.3" rotation="0 1 0 1.57">
+                                                                <shape>
+                                                                        <appearance>
+                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
+                                                                                </Material>
 
+                                                                                </appearance>
+                                                                   <box size="2 6.5 4.5" nmousedown="window.location ='../0flur/0flur.html';"></box>
+                                                                </shape>
+                                                        </transform>
+                                                        
+                                                        <!-- Orientierungsschildchen für Treppe--> 
+                                            <transform  translation="15 6.5 46.5">
+                                                        <shape>
+                                                                        <appearance>
+                                                                         <material diffuseolor='red'></material>
+                                                                       <ImageTexture url="images/geg.jpg"><ImageTexture/>
+                                                                        </appearance>
+                                                                        <box size="1.0 0.7 1.0"></box>
+                                                                        <!--<box size="0.0 0.7 0" onmousedown="fancy();"> </box>-->
+                                                                </shape>
+                                                </transform>
+                                                        
+                                                      <!--<Viewpoint position="7.96164 1.51301 41.24784" orientation="-0.06083 0.99074 -0.12130 4.06387" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint>-->
 
-                                                        <!-- Ausgang Treppenhaus-in den Flur -->
+                                                        <!-- Ausgang Treppenhaus bei E107 -in den Flur  -->
                                                           <transform scale="0.3 1.5 0.6" translation="-13.8 1.0 31" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
@@ -139,7 +165,7 @@
                                                           description="defaultX3DViewpointNode"></Viewpoint-->
                                                                
                                                            <!-- Aktionsbox-Stockwerkwechsel am Treppenhaus -->
-                                                          <transform  translation="-16 2 32" rotation="0 1 0 1.57">
+                                                          <transform  translation="-14 2.5 32" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
                                                                                <material diffuseColor='red'></material>
@@ -149,6 +175,8 @@
                                                                    <box size="0.5 0.5 0.5"></box>
                                                                 </shape>
                                                         </transform>
+                                                        
+                                                      
 
                                                           <!-- Aktionsbox-Stockwerkwechsel am Aufzug -->
                                                           <transform  translation="7.5 2 40.5" rotation="0 1 0 1.57">
@@ -184,13 +212,12 @@
                                                                  zNear="0.06611" zFar="661.08396" 
                                                                  description="defaultX3DViewpointNode"></Viewpoint-->
 
-                                                       <!--Startview-Eingang-->
-
-                                                       <Viewpoint id="camera" 
+                                                       <!--Startview-Eingang>
+                                                        <Viewpoint id="camera" 
                                                        position="7.83935 1.52809 40.64823"
                                                         orientation="0.00012 0.99978 0.02087 3.15286"
                                                          zNear="0.06611" zFar="661.08396" 
-                                                         description="defaultX3DViewpointNode"></Viewpoint>
+                                                         description="defaultX3DViewpointNode"></Viewpoint-->
 
                                                            
 
@@ -207,12 +234,13 @@
                                                                         <!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
                                                                 </shape>
                                                 </transform>
-                                                <Viewpoint position="7.83935 1.52809 40.64823" orientation="0.00012 0.99978 0.02087 3.15286" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint>
+                                                
+                                                <!--Viewpoint position="7.83935 1.52809 40.64823" orientation="0.00012 0.99978 0.02087 3.15286" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint-->
 
 
-                                                 <!--Schild E 009 -->
+                                                 <!--Schild E 107 -->
 
-                                         <transform  translation="-19.16870 2.03778 48.10010" rotation="1 0 0 1.57">
+                                         <transform  translation="-19.7 3 47.5">
                                            <shape>
                                            <appearance>
                                                     <material diffuseColor='white'></material>
@@ -222,7 +250,8 @@
                                             <box size="0.0 0.5 0.8";"> </box>
                                          </shape>
                                          </transform>
-
+                                         
+<Viewpoint position="-11.52387 1.51101 44.59453" orientation="0.01349 0.99984 -0.01193 1.44821" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint>
 
                                                </scene>
                                         </x3d>
