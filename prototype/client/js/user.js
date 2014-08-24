@@ -21,6 +21,7 @@ $(document).ready(function() {
 				});	
 				
 				$('#posten').click(function () {
+				if (jQuery.cookie('userCookie')) {
 					var room = document.getElementById('room').innerHTML;
 					var commentary = document.getElementById('writeArea').value;
 
@@ -31,7 +32,8 @@ $(document).ready(function() {
 							data: 'commentary=' + commentary + '&room=' + room,
 							success: function(data) {
 								if (data.success) {
-
+									alert('Kommentar wurde erfolgreich gespeichert!');
+									document.getElementById('writeArea').value = '';
 									console.log(data);
 								} else {
 									console.error('Something went wrong: ' + data.msg);
@@ -41,6 +43,9 @@ $(document).ready(function() {
 							console.error("Error: " + error + " - " + jqXHR.status);
 							}
 						});
+				} else {
+						alert('Sie müssen sich anmelden, um Kommentare zu schreiben.');
+				}				
 					return false;
 				});
 	
