@@ -137,10 +137,9 @@ Collision.onLoad = function(){
 
 // Funktion berechnet die Position der Kamera
 Collision.CalculateCameraPosition = function() {
-    var highlightNode = document.getElementById("camera");
-    var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
-
-    return cameraMatrix.e3();
+    // var highlightNode = document.getElementById("camera");
+    // var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
+    return Navigation.ViewState.ViewMatrix.e3();
 };
 
 // Funktion berechnet die BoundingBox eines Objektes
@@ -192,6 +191,16 @@ Collision.Render = function(object){
 	
 	for (var i = 0; i < Collision.BuildingList.length; i++) { 
 		if (Collision.RenderObj(Collision.BuildingList[i])) {
+			var speed = 0.025;
+			var halfWidth = (control.clientWidth / 2.0);
+			var halfHeight = (control.clientHeight / 2.0);
+			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
+			var facZ = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
+			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(-5.0*facX, 0.0, -5.0*facZ));
+			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
+			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
+			NavigationAPI.Render();
+			console.log("Collision reset");
 			//document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
 			break;
 		}
