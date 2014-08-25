@@ -13,6 +13,7 @@
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
+		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
                 <script type="text/javascript" src="../../../js/main.js"></script>
@@ -20,7 +21,13 @@
                 <script type="text/javascript">
 
             window.onload = function() {
+                var camPosition = new x3dom.fields.SFVec3f(14.0, -1.0, -43);
+                var camOrientation = new x3dom.fields.SFVec2f(0.10, 3.0);
                 Navigation.onLoad();
+                Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+                NavigationAPI.SetCamera("camera");								
+                NavigationAPI.SetViewState(Navigation.ViewState);
+                NavigationAPI.Render();
 
                 function Render() {
                     Navigation.Render();
@@ -78,7 +85,7 @@
 
                <scene frustumCulling="true">
                            <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-                           <navigationInfo type='"walk", "any"'></navigationInfo>
+                           <navigationInfo type="none"></navigationInfo>
 							<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
 							<directionalLight id="directional" direction='5 10 -25'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
 							
@@ -114,11 +121,13 @@
                    <background skyColor="0 0 0"></background>
                  
 									<!-- Viepoint Eingang-->
-                                       <Viewpoint id="camera" 
+                                       <!-- <Viewpoint id="camera" 
                                        position="-5.75127 1.47085 41.74158" 
                                        orientation="-0.05355 0.98834 0.14252 2.43041" 
                                        zNear="0.06611" zFar="661.08396"
-                                        description="defaultX3DViewpointNode"></Viewpoint>
+                                        description="defaultX3DViewpointNode"></Viewpoint> -->
+										
+										<Viewfrustum id="camera"></Viewfrustum>
 
                            </scene>
            </x3d></div>
