@@ -33,6 +33,8 @@ $(document).ready(function () {
 	
 	function logout(e) {
 		hideLogout();
+		$('#userOnline').hide();
+		$('#userOffline').show();
 		showReg();
 		showLogin();
 		return false;
@@ -40,6 +42,8 @@ $(document).ready(function () {
 	
 	function login(e) {
 		showLogout();
+		$('#userOnline').show();	
+		$('#userOffline').hide();
 		hideReg();
 		hideLogin();
 		return false;
