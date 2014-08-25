@@ -192,7 +192,7 @@ Collision.Render = function(object){
 	
 	for (var i = 0; i < Collision.BuildingList.length; i++) { 
 		if (Collision.RenderObj(Collision.BuildingList[i])) {
-			document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
+			//document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
 			break;
 		}
 	}
