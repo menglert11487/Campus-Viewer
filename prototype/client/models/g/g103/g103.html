@@ -43,13 +43,14 @@
 							success: function(data) {
 							
 								var kommentare = '';
-										
+								
 								for (var i = data.length-1; 0 <= i; i--)
 								{
 									kommentare += data[i].username + ' schrieb: ' + '\n' + data[i].commentary + '\n\n'; 
 								}
 										
-								document.getElementById('commentBox').value = kommentare;
+								document.getElementById('commentBox').value += kommentare;
+								document.getElementById('commentBox').style.color = "blue";
 							},
 								error: function(jqXHR, error, object, what) {
 								console.error("Error: " + error + " - " + jqXHR.status);
