@@ -16,14 +16,7 @@ Navigation.RotationActivated = false;
 
 
 Navigation.onLoad = function() {
-	
-	var camPosition = new x3dom.fields.SFVec3f(-180.0, -3.6, 46.0);
-        var camOrientation = new x3dom.fields.SFVec2f(0.0, 3.1);
-    Navigation.ViewState = new Viewstate(camPosition, camOrientation);
-    NavigationAPI.SetCamera("camera");								
-    NavigationAPI.SetViewState(Navigation.ViewState);
-	NavigationAPI.Render();
-	
+
     Navigation.Camera = document.getElementById("camera");
     Navigation.Control = document.getElementById("control");
     Navigation.Pointer = document.getElementById("pointer");
