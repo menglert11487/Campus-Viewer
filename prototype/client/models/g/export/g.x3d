@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='SP_2'>
+      <Appearance DEF='Color_A01'>
+        <Material diffuseColor='1 0 0' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='212 6' primType='"TRIANGLESTRIP" "TRIANGLES"' position='65.7014007568 52.9407310486 16.1193008423' size='2.11479949951 113.62852478 32.2386016846' index='bingeo/BG_2_indexBinary.bin' coord='bingeo/BG_2_coordBinary.bin' normal='bingeo/BG_2_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_0'>
+      <Appearance DEF='FrontColor'>
+        <Material diffuseColor='0.890196 0.882353 0.870588' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='1692 24' primType='"TRIANGLESTRIP" "TRIANGLES"' position='51.4676513672 67.815612793 18.0413722992' size='62.7881011963 147.482788086 36.3896522522' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_1'>
+      <Appearance DEF='Color_001'>
+        <Material diffuseColor='0.886275 0.886275 0.886275' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='40' primType='"TRIANGLESTRIP"' position='78.4069976807 57.045501709 17.8325309753' size='6.82299804688 24.246799469 35.566734314' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_4'>
+      <Appearance DEF='Blinds_Wood_White'>
+        <Material diffuseColor='0.541176 0.537255 0.545098' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"g/Blinds_Wood_White.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_4' vertexCount='4' primType='"TRIANGLESTRIP"' position='64.7751998901 124.902496338 18.3157997131' size='0 30.2950057983 4.73659896851' index='bingeo/BG_4_indexBinary.bin' coord='bingeo/BG_4_coordBinary.bin' normal='bingeo/BG_4_normalBinary.bin' texCoord='bingeo/BG_4_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_3'>
+      <Appearance DEF='BackColor'>
+        <Material diffuseColor='0.545098 0.533333 0.603922' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_3' vertexCount='1917 57' primType='"TRIANGLESTRIP" "TRIANGLES"' position='51.4676513672 67.815612793 18.0413722992' size='62.7881011963 147.482788086 36.3896522522' index='bingeo/BG_3_indexBinary.bin' coord='bingeo/BG_3_coordBinary.bin' normal='bingeo/BG_3_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_5'>
+      <Appearance DEF='M_0129_WhiteSmoke'>
+        <Material diffuseColor='0.960784 0.960784 0.960784' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_5' vertexCount='54 9' primType='"TRIANGLESTRIP" "TRIANGLES"' position='73.2968444824 52.7921524048 17.8325309753' size='17.043296814 15.7401008606 35.566734314' index='bingeo/BG_5_indexBinary.bin' coord='bingeo/BG_5_coordBinary.bin' normal='bingeo/BG_5_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_6'>
+      <Appearance DEF='Translucent_Glass_Blue'>
+        <Material diffuseColor='0.392157 0.584314 0.929412' shininess='0' specularColor='0.33 0.33 0.33' transparency='0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_6' vertexCount='356' primType='"TRIANGLESTRIP"' position='72.2043457031 68.0882415771 16.5680751801' size='19.2282981873 143.923538208 32.7368469238' index='bingeo/BG_6_indexBinary.bin' coord='bingeo/BG_6_coordBinary.bin' normal='bingeo/BG_6_normalBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>

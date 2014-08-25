@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='SP_13'>
+      <Appearance DEF='Derrick_Shoes'>
+        <Material diffuseColor='0.4 0.278431 0.239216' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_13' vertexCount='195 6' primType='"TRIANGLESTRIP" "TRIANGLES"' position='0.334135502577 0.766547977924 -0.370400011539' size='0.300157010555 1.48844397068 0.367488026619' index='bingeo/BG_13_indexBinary.bin' coord='bingeo/BG_13_coordBinary.bin' normal='bingeo/BG_13_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_1'>
+      <Appearance DEF='Derrick_Pants'>
+        <Material diffuseColor='0.6 0.537255 0.478431' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='273' primType='"TRIANGLESTRIP"' position='0.362085521221 0.520789504051 -0.40461948514' size='0.275363028049 0.895220994949 0.33713299036' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_0'>
+      <Appearance DEF='M_0104_MediumBlue'>
+        <Material diffuseColor='0 0 0.803922' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='10' primType='"TRIANGLESTRIP"' position='29.1618499756 2.74000024796 -7.21210002899' size='2.40169906616 4.6200003624 1.18865966797' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_2'>
+      <Appearance DEF='Derrick_Pager'>
+        <Material diffuseColor='0.137255 0.137255 0.137255' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='135' primType='"TRIANGLESTRIP"' position='0.334648013115 0.506229996681 -0.371026992798' size='0.307135999203 1.01245999336 0.376034021378' index='bingeo/BG_2_indexBinary.bin' coord='bingeo/BG_2_coordBinary.bin' normal='bingeo/BG_2_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_3'>
+      <Appearance DEF='Derrick_Sweater'>
+        <Material diffuseColor='0.556863 0.556863 0.556863' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_3' vertexCount='298' primType='"TRIANGLESTRIP"' position='0.379485994577 1.18562293053 -0.425923496485' size='0.364885985851 0.626793980598 0.446739017963' index='bingeo/BG_3_indexBinary.bin' coord='bingeo/BG_3_coordBinary.bin' normal='bingeo/BG_3_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_4'>
+      <Appearance DEF='Derrick_Shirt'>
+        <Material diffuseColor='0.478431 0.478431 0.6' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_4' vertexCount='81' primType='"TRIANGLESTRIP"' position='0.363923490047 1.46227502823 -0.406870007515' size='0.112227022648 0.141070008278 0.137401998043' index='bingeo/BG_4_indexBinary.bin' coord='bingeo/BG_4_coordBinary.bin' normal='bingeo/BG_4_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_5'>
+      <Appearance DEF='Derrick_Hair'>
+        <Material diffuseColor='0.337255 0.298039 0.278431' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_5' vertexCount='127' primType='"TRIANGLESTRIP"' position='0.350710004568 1.54869496822 -0.39069250226' size='0.144353985786 0.412389993668 0.176737010479' index='bingeo/BG_5_indexBinary.bin' coord='bingeo/BG_5_coordBinary.bin' normal='bingeo/BG_5_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_6'>
+      <Appearance DEF='Derrick'>
+        <Material diffuseColor='0.823529 0.705882 0.54902' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_6' vertexCount='191 3' primType='"TRIANGLESTRIP" "TRIANGLES"' position='0.36061501503 1.57340502739 -0.402818977833' size='0.128616005182 0.294569969177 0.157467991114' index='bingeo/BG_6_indexBinary.bin' coord='bingeo/BG_6_coordBinary.bin' normal='bingeo/BG_6_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_7'>
+      <Appearance DEF='Derrick_T_shirt'>
+        <Material diffuseColor='0.886275 0.886275 0.886275' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_7' vertexCount='16' primType='"TRIANGLESTRIP"' position='0.350652515888 1.41808009148 -0.390621989965' size='0.0322450101376 0.0308200120926 0.0394780039787' index='bingeo/BG_7_indexBinary.bin' coord='bingeo/BG_7_coordBinary.bin' normal='bingeo/BG_7_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_8'>
+      <Appearance DEF='FrontColor'>
+        <Material diffuseColor='1 1 1' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_8' vertexCount='2704 27' primType='"TRIANGLESTRIP" "TRIANGLES"' position='33.0600013733 2.65499997139 -11.4706344604' size='66.1200027466 5.30999994278 23.3387298584' index='bingeo/BG_8_indexBinary.bin' coord='bingeo/BG_8_coordBinary.bin' normal='bingeo/BG_8_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_9'>
+      <Appearance DEF='M_0105_Navy'>
+        <Material diffuseColor='0 0 0.501961' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_9' vertexCount='172 9' primType='"TRIANGLESTRIP" "TRIANGLES"' position='22.2411193848 2.88499999046 -3.91499996185' size='38.001159668 4.84999990463 7.82999992371' index='bingeo/BG_9_indexBinary.bin' coord='bingeo/BG_9_coordBinary.bin' normal='bingeo/BG_9_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_10'>
+      <Appearance DEF='Stone_Flagstone_Ashlar'>
+        <Material diffuseColor='0.686275 0.454902 0.4' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"fe1/Stone_Flagstone_Ashlar.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_10' vertexCount='600 12' primType='"TRIANGLESTRIP" "TRIANGLES"' position='33.0600013733 2.65499997139 -11.5699996948' size='66.1200027466 5.30999994278 23.1399993896' index='bingeo/BG_10_indexBinary.bin' coord='bingeo/BG_10_coordBinary.bin' normal='bingeo/BG_10_normalBinary.bin' texCoord='bingeo/BG_10_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_11'>
+      <Appearance DEF='M_0133_Gray'>
+        <Material diffuseColor='0.501961 0.501961 0.501961' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_11' vertexCount='10' primType='"TRIANGLESTRIP"' position='33.0434494019 1.75499987602 -6.5207824707' size='16.6996994019 2.58999991417 11.9584350586' index='bingeo/BG_11_indexBinary.bin' coord='bingeo/BG_11_coordBinary.bin' normal='bingeo/BG_11_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_12'>
+      <Appearance DEF='Translucent_Glass_Blue'>
+        <Material diffuseColor='0.392157 0.584314 0.929412' shininess='0' specularColor='0.33 0.33 0.33' transparency='0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_12' vertexCount='118' primType='"TRIANGLESTRIP"' position='22.1858005524 2.78034520149 -11.5496692657' size='38.1118011475 4.70069026947 22.8292617798' index='bingeo/BG_12_indexBinary.bin' coord='bingeo/BG_12_coordBinary.bin' normal='bingeo/BG_12_normalBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>

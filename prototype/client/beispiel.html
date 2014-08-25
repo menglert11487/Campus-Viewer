@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title id="room">beispiel</title>
+        <meta charset="UTF-8">
+
+        <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>							
+					
+		<script type="text/javascript">
+		
+			$(document).ready(function () {
+				$.getScript("js/user.js");	
+																
+					$.ajax({
+							type: "POST",
+							crossDomain: false,
+							url: '/comment/showall',
+							data: { room: document.getElementById('room').innerHTML},
+							success: function(data) {
+							
+								var kommentare = '';
+										
+								for (var i = data.length-1; 0 <= i; i--)
+								{
+									kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
+								}
+										
+								document.getElementById('commentBox').value = kommentare;
+							},
+								error: function(jqXHR, error, object, what) {
+								console.error("Error: " + error + " - " + jqXHR.status);
+							}
+					});	
+					
+			});
+			
+		</script>
+		<style type="text/css">
+			
+			#preView	{	margin-left	:	100px;
+							resize		:	none;	
+							font-family	:	arial;
+							visibility	:	hidden;}	
+		
+			#commentBox {	margin-left	:	80px;
+							resize		:	none;	
+							font-family	:	arial;}						
+						  
+			#writeArea {	resize		:	none;	
+							margin-left	:	80px;
+							font-family	:	arial}
+		</style>
+		
+
+    </head>
+	
+	<body>
+
+					<textarea disabled id="preView" rows=5 cols=216></textarea>
+
+				<h1>User-Kommentare</h1>	
+							<textarea disabled id="commentBox" rows=5 cols=216></textarea>		
+				<h1>Gebe hier deine Kommentare ein.</h1>								
+							<textarea id="writeArea" rows=5 cols=216></textarea>
+
+							<input id="posten" type="button" value="Posten"></input>
+							<input id="vorschau" type="button"   value="Vorschau"></input>
+							<input id="loeschen" type="button"  value="Löschen"></input>
+						</body>
+</html>
