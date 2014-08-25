@@ -3,7 +3,7 @@
  * @param translation Vector to position the camera
  * @returns {Viewstate}
  */
-Viewstate = function(translation) {
+Viewstate = function(translation, rotation) {
     /**
      * Reference to the Viewstate object itself
      * @type Viewstate
@@ -39,9 +39,10 @@ Viewstate = function(translation) {
      * @param translationVec Vector to position the camera
      * @returns {Viewstate.Initialize}
      */
-    Initialize = function(translationVec) {
+    Initialize = function(translationVec, rotationVec) {
         // Calculate initial ViewMatrix        
         translationVector = translationVec;
+        rotationXY = rotationVec;
         var rotX = x3dom.fields.SFMatrix4f.rotationY(rotationXY.y);
         var rotY = x3dom.fields.SFMatrix4f.rotationX(rotationXY.x);
         var pos = x3dom.fields.SFMatrix4f.translation(translationVector);
@@ -88,7 +89,7 @@ Viewstate = function(translation) {
     };
     
     // Initializes the Viewstate
-    Initialize(translation);
+    Initialize(translation, rotation);
 };
 
 /**
