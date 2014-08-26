@@ -38,10 +38,11 @@
 				
                 var camPosition = new x3dom.fields.SFVec3f(17, -2, -47);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.6);
+				Navigation.onLoad();
                 Navigation.ViewState = new Viewstate(camPosition, camOrientation);
                 NavigationAPI.SetCamera("camera");								
                 NavigationAPI.SetViewState(Navigation.ViewState);
-                Navigation.onLoad();
+                NavigationAPI.Render();
                 
 				
                 function Render() {
