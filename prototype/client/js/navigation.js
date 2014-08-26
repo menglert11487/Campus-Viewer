@@ -16,12 +16,7 @@ Navigation.RotationActivated = false;
 
 
 Navigation.onLoad = function() {
-var camPosition = new x3dom.fields.SFVec3f(-180.0, -3.6, 46.0);
-        var camOrientation = new x3dom.fields.SFVec2f(0.0, 3.1);
-    Navigation.ViewState = new Viewstate(camPosition, camOrientation);
-    NavigationAPI.SetCamera("camera");								
-    NavigationAPI.SetViewState(Navigation.ViewState);
-	NavigationAPI.Render();
+	
     Navigation.Camera = document.getElementById("camera");
     Navigation.Control = document.getElementById("control");
     Navigation.Pointer = document.getElementById("pointer");
@@ -130,8 +125,8 @@ var camPosition = new x3dom.fields.SFVec3f(-180.0, -3.6, 46.0);
 			var speed = 0.025;
 			var halfWidth = (control.clientWidth / 2.0);
 			var halfHeight = (control.clientHeight / 2.0);
-			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
-			var facZ = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
+			var facX = -(0.3 / halfWidth * (-halfWidth + Navigation.Position.x));
+			var facZ = -(0.3 / halfHeight * (-halfHeight + Navigation.Position.y));    
 			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(facX, 0.0, facZ));
 			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
 			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);

@@ -35,6 +35,10 @@ $(document).ready(function () {
 		hideLogout();
 		$('#userOnline').hide();
 		$('#userOffline').show();
+		$('#writeArea').hide();
+		$('#posten').hide();
+		$('#vorschau').hide();
+		$('#loeschen').hide();		
 		showReg();
 		showLogin();
 		return false;
@@ -42,7 +46,11 @@ $(document).ready(function () {
 	
 	function login(e) {
 		showLogout();
-		$('#userOnline').show();	
+		$('#userOnline').show();
+		$('#writeArea').show();
+		$('#posten').show();
+		$('#vorschau').show();
+		$('#loeschen').show();
 		$('#userOffline').hide();
 		hideReg();
 		hideLogin();
