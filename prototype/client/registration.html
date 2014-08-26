@@ -1,16 +1,32 @@
 <!DOCTYPE HTML>
 <html>
         <head>
-        <title>>Campus Viewer Fulda - Nutzerregistrierung</title>
+        <title>Campus Viewer Fulda - Nutzerregistrierung</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.css">
+      <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.css">
         <link rel="stylesheet" type="text/css" href="styles/style.css" />
 
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
                 <script type="text/javascript" src="js/jquery.cookie.js"></script>
+				
+		<style type="text/css">
+				#registerform .ui-input-text,
+				#registerform .ui-btn,
+				#registerform .ui-input-btn input {
+				  width:460px !important
+				}
+				
+				#registerform .ui-btn {
+				  padding:0.7em 0 !important
+				}		
+
+				#btnSubmitForm, #registerform fieldset .ui-btn:nth-child(26) {width:100px !important}
+				#btnResetForm, #registerform fieldset .ui-btn:nth-child(28) {width:150px !important}
+				
+		</style>
 
     </head>
         <body>
@@ -32,47 +48,47 @@
 											</fieldset>
 										<button id="logout3" onclick="">Logout</button>
             </div>
-
+			
                 <div data-role="main" class="ui-content">
-                    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
-
-                        <article>
+                    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> 
+						<img src="images/CampusLogo.jpg" style="margin-right: 915px;" align="right" width="160" height="160"></img> 
+						
+                        <div id="textBox2" style="margin-left: 100px;" align="left">
                                 <h1>Registrierung vom Campus Viewer Fulda</h1>
-                                <b>Bitte füllen Sie alle Felder aus, damit Sie sich sp&äter Anmelden können.</b>
-                        </article>
-
+                                <b>Bitte füllen Sie alle Felder aus, damit Sie sich später Anmelden können.</b>
+                        
                         <form id="registerform" name="formular">
                                 <fieldset>
                                         <p>
                                                 <label id="f1" for="username">
                                                         Benutzername: <div id="d1"> </div>
                                                 </label>
-                                                <input type="text" maxlength="50" name="username">
+                                                <input type="text" maxlength="50" name="username" id="username">
                                         </p><p>
                                                 <label id="f2" for="givenname">
                                                         Vorname: <div id="d2"></div>
                                                 </label>
-                                                <input type="text" maxlength="50" name="givenname">
+                                                <input type="text" maxlength="50" name="givenname" id="givenname">
                                         </p><p>
                                                 <label id="f3" for="name">
                                                         Nachname: <div id="d3"></div >
                                                 </label>
-                                                <input type="text" maxlength="50" name="name">
+                                                <input type="text" maxlength="50" name="name" id="name">
                                         </p><p>
                                                 <label id="f4" for="email">
                                                         Email-Adresse: <div id="d4"></div >
                                                 </label>
-                                                <input type="text" maxlength="50" name="email">
+                                                <input type="text" maxlength="50" name="email" id="email">
                                         </p><p>
                                                 <label id="f5" for="password">
                                                         Passwort: <div id="d5"></div >
                                                 </label>
-                                                <input type="password" maxlength="50" name="password">
+                                                <input type="password" maxlength="50" name="password" id="password">
                                         </p><p>
                                                 <label id="f6" for="samePassword">
                                                         Passwort wiederholen:  <div id="d6"></div >
                                                 </label>
-                                                <input type="password" maxlength="50" name="samePassword">
+                                                <input type="password" maxlength="50" name="samePassword" id="samePassword">
                                         </p>
 
                                         <label for="send"></label>
@@ -83,6 +99,7 @@
                                         <div id="msg"></div>
                                 </fieldset>
                         </form>
+					</div>
                 </div>
                 <script type="text/javascript">
                         $(document).ready(function () {
