@@ -73,7 +73,7 @@ Collision.Render = function(object){
 			var halfHeight = (control.clientHeight / 2.0);
 			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
 			var facZ = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
-			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(-5.0*facX, 0.0, -5.0*facZ));
+			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(-2.0*facX, 0.0, -2.0*facZ));
 			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
 			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
 			NavigationAPI.Render();
