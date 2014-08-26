@@ -63,7 +63,7 @@ Collision.HighlightBBox = function(highlightNode, bool) {
     highlightBox.setAttribute("render", "" + bool);
 };
 
-// Funktion prüft welches Gebäude/Objekt gerade mit der Kamera kollidiert
+// Funktion prüft welches Gebäude/Objekt gerade mit der Kamera kollidiert und setzt die Kamera dementsprechend zurück
 Collision.Render = function(object){
 	
 	for (var i = 0; i < Collision.BuildingList.length; i++) { 
@@ -77,6 +77,7 @@ Collision.Render = function(object){
 			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
 			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
 			NavigationAPI.Render();
+			console.log(Collision.BuildingList[i])
 			//document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
 			break;
 		}
