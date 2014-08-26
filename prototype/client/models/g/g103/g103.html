@@ -50,7 +50,7 @@
 									kommentare += data[i].username + ' schrieb: ' + '\n' + data[i].commentary + '\n\n'; 
 								}
 										
-								document.getElementById('commentBox').value += kommentare;
+								document.getElementById('commentBox').value = kommentare;
 								document.getElementById('commentBox').style.color = "blue";
 							},
 								error: function(jqXHR, error, object, what) {

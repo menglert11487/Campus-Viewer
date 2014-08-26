@@ -12,16 +12,35 @@ $(document).ready(function() {
     }
 	
 				$('#vorschau').click(function () { 
-					document.getElementById('preView').value = document.getElementById('writeArea').value;
-					document.getElementById('preView').style.visibility = "visible"
+				        var newPreView = document.getElementById('writeArea').value.trim();
+							document.getElementById('writeArea').value = newPreView;
+							
+					if (document.getElementById('writeArea').value != '')
+					{
+						document.getElementById('preView').value = document.getElementById('writeArea').value;
+						document.getElementById('preView').style.visibility = "visible"
+					} else {
+						alert('Sie haben nichts ins Formular geschrieben.');
+					}
 				});			
 
 				$('#loeschen').click(function () { 
-					document.getElementById('writeArea').value = '';
+						var newLoeschen = document.getElementById('writeArea').value.trim();
+							document.getElementById('writeArea').value = newLoeschen;
+						
+						if	(document.getElementById('writeArea').value != '') {
+							document.getElementById('writeArea').value = '';
+						} else {
+							alert('Das Formular ist leer.');
+						}
 				});	
 				
 				$('#posten').click(function () {
-				if (jQuery.cookie('userCookie')) {
+				//if (jQuery.cookie('userCookie')) {
+						var newComment = document.getElementById('writeArea').value.trim();
+							document.getElementById('writeArea').value = newComment;	
+							
+				if (document.getElementById('writeArea').value != '') {
 					var room = document.getElementById('room').innerHTML;
 					var commentary = document.getElementById('writeArea').value;
 
@@ -44,7 +63,8 @@ $(document).ready(function() {
 							}
 						});
 				} else {
-						alert('Sie müssen sich anmelden, um Kommentare zu schreiben.');
+						//alert('Sie müssen sich anmelden, um Kommentare zu schreiben.');
+						alert('Bitte schreiben Sie was ins Formular.');
 				}				
 					return false;
 				});
