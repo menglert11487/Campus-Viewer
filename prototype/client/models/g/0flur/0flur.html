@@ -107,6 +107,35 @@
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
                 <div id="ansicht">
+				<div id="joystick">
+					<div id="vline"></div>
+					<div id="hline"></div>
+					<div id="control"></div>
+					<div id="pointer"></div>
+				</div>
+				<x3d style="width:100%;height:100%;" id="x3d_element">
+				   <scene>
+				   <Environment frustumCulling='false'></Environment>
+				   <Viewfrustum id="camera"></Viewfrustum>
+				   <navigationInfo type="none"></navigationInfo>                                        
+					   <background skyColor="0 0 0"></background>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+							<transform scale="0.7 0.7 0.7" translation="-15 -2 50">
+									<inline url="gflur.x3d"></inline>
+							</transform>
+							<transform scale="1.1 0.9 0.9" translation="-20.3 1.7 46.9" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 4 3" onmousedown="window.location = '../../../index.html';"></box>
+								</shape>
+							</transform>
 
 
 							<!-- Interaktionslabor -->
@@ -159,41 +188,6 @@
 							</transform>
 							<!-- Orientierung -->
 
-                                                    <material diffuseColor='white'></material>
-                                                    <ImageTexture url="images/labor.jpg"><ImageTexture/>
-
-                                           </appearance>
-                                             <box size="0.0 0.5 0.6";"> </box>
-                                         </shape>
-                                         </transform>
-
-
-                                                <!---->
-                                            <!-- <Viewpoint id="camera"
-                                                        position="-17.12970 1.48912 49.09065"
-                                                        orientation="-0.01698 -0.99971 -0.01701 1.57269"
-                                                        zNear="0.06611" zFar="661.08396"
-                                                        description="defaultX3DViewpointNode">
-                                                </Viewpoint> -->
-												
-												<Viewfrustum id="camera"></Viewfrustum>
-
-                                                 <!-- Orientierung -->
-
-                                            <transform  translation="-10.44 1.7 50.5" rotation="1 0 0 0">
-                                                        <shape>
-                                                                        <appearance>
-                                                                         <material diffuseolor='red'></material>
-                                                                       <ImageTexture url="images/geg.jpg"><ImageTexture/>
-                                                                        </appearance>
-                                                                        <box size="0.0 0.7 1.0"></box>
-                                                                        <!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
-                                                                </shape>
-                                                </transform>
-
-                                           </scene>
-                           </x3d>
-                        </div>
 							<transform  translation="-10.44 1.7 50.5" rotation="1 0 0 0">
 								<shape>
 									<appearance>

@@ -99,6 +99,54 @@
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
                 <!--<a href="#myPanel3" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Stockwerk/Raum</a>-->
                 <div id="ansicht">
+					<div id="joystick">
+						<div id="vline"></div>
+						<div id="hline"></div>
+						<div id="control"></div>
+						<div id="pointer"></div>
+					</div>
+					<x3d style="width:100%;height:100%;" id="x3d_element">
+						<scene>
+						<Viewfrustum id="camera"></Viewfrustum>
+						<Environment frustumCulling='false'></Environment>
+						<navigationInfo type="none"></navigationInfo>
+						<directionalLight id="directional" direction='10 -10 10'  on ="TRUE" intensity='0.5' shadowIntensity='0.5'> </directionalLight>
+						<background skyColor="0 0 0"></background>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+							<transform scale="0.7 0.7 0.7" translation="-15 -2 50">
+									<inline url="gflur.x3d"></inline>
+							</transform>
+							<transform scale="1.1 0.9 0.9" translation="-20.2 1.7 46.9" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 4 3" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+							<transform scale="0.7 0.9 0.6" translation="-15 1.2 37.4" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 4 3" onmousedown="window.location ='../g203/g203.html';"></box>
+								</shape>
+							</transform>
+							<transform scale="0.7 0.9 0.6" translation="-15.146 1.1 62.7" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 4 3" onmousedown="window.location ='../g211/g211.html';"></box>
+								</shape>
+							</transform>
 
 							<!--Aktions Box -->
 							<transform  translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
