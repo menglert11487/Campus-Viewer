@@ -54,6 +54,11 @@
                 };
                 window.requestAnimationFrame(Render);
             };
+            
+        function popupWinListe()
+			{
+				var listeG = window.open('../stockwerklisteE.html', 'Stockwerkliste E', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+			}
 
         </script>
     </head>
@@ -80,14 +85,11 @@
 						<input name="submit" type="submit" value="Speed"/>
 					</form>
             </div>
-<<<<<<< HEAD
 
 
 
             <div data-role="main" class="ui-content" style="width: 80px">
-=======
             <div data-role="main" class="ui-content">
->>>>>>> FETCH_HEAD
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
 
@@ -168,7 +170,7 @@
 												<material diffuseColor='red'></material>
 												<ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
 											</appearance>
-											<box size="0.5 0.5 0.5"></box>
+											<box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
 										</shape>
 									</transform>
 									
@@ -179,7 +181,7 @@
 												<material diffuseColor='red'></material>
 												<ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
 											</appearance>
-											<box size="0.5 0.5 0.5"></box>
+											<box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
 										</shape>
 									</transform>
 									

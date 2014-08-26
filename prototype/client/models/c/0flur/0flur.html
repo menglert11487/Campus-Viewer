@@ -36,6 +36,11 @@
                 window.requestAnimationFrame(Render);
 
             };
+            
+        function popupWinListe()
+			{
+				var listeG = window.open('../stockwerklisteC.html', 'Stockwerkliste C', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+			}
 
         </script>
     </head>
@@ -112,7 +117,7 @@
                                                                        <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
 
                                                                                 </appearance>
-                                                                   <box size="0.5 0.5 0.5"></box>
+                                                                   <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
                                                                 </shape>
                                                         </transform>
                                                           <!--Orientierung  (M.) -->
@@ -152,7 +157,7 @@
                                                                        <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
 
                                                                                 </appearance>
-                                                                   <box size="0.5 0.5 0.5"></box>
+                                                                   <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
                                                                 </shape>
                                                         </transform>
 
