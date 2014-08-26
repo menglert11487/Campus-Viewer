@@ -22,7 +22,7 @@
 
             window.onload = function() {
                 var camPosition = new x3dom.fields.SFVec3f(20.0, -1.5, -64);
-                var camOrientation = new x3dom.fields.SFVec2f(0.10, 0.3);
+                var camOrientation = new x3dom.fields.SFVec2f(0.10, -0.3);
                 Navigation.onLoad();
                 Navigation.ViewState = new Viewstate(camPosition, camOrientation);
                 NavigationAPI.SetCamera("camera");								
@@ -64,7 +64,7 @@
                                         <input name="submit" type="submit" value="Speed"/>
                                 </form>
             </div>
-            <div data-role="main" class="ui-content">
+            <div data-role="main" class="ui-content" style="width: 120px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
                 <div id="ansicht">
@@ -77,8 +77,7 @@
                                         <x3d style="width:100%;height:100%;" id="x3d_element">
                                                 <scene frustumCulling="true">
                                                <navigationInfo type="none"></navigationInfo>
-											   <directionalLight id="directional" direction='15 -20 -20'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
-
+											     <directionalLight id="directional" direction='5 -15 -10'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
 												<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
                                                <background skyColor="0 0 0"></background>
                                                         <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
@@ -88,29 +87,30 @@
                                                                 </shape>
                                                         </transform>
                                                         <transform scale="1 1 1" translation="-20 0 60">
-                                                                <inline url="c104.x3d"></inline>
+                                                                <inline url="c102.x3d"></inline>
                                                         </transform>
-                                                        <!-- Ausgang Flur  -->
-                                                        <transform scale="0.23 0.5 0.5" translation="-20.4 1.15 64.7" >
+                                                        <!-- Ausgang Flur-->
+                                                        <transform scale="0.23 0.5 0.5" translation="-20.4 1.15 65.3" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
                                                                                 <Material transparency='10.1' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
-                              <box size="6.7 6.3 0.5" onmousedown="window.location ='../1flur/1flur.html';"></box>
+                                          <box size="5.4 6.3 3.5" onmousedown="window.location ='../1flur/1flur.html';"></box>
                                                                 </shape>
                                                         </transform>
                                                       
                                                         <!---->
                                                         <background skyColor="0 0 0"></background>
 
+
                                                         <!-- <Viewpoint id="camera"
-                                                          position="-20.54157 1.50479 63.93308"
-                                                           orientation="-0.61292 -0.78864 -0.04871 0.20085" 
-                                                           zNear="0.06611" zFar="661.08396" 
-                                                           description="defaultX3DViewpointNode"></Viewpoint> -->
-														   
-														   <Viewfrustum id="camera"></Viewfrustum>
+                                                                position="-18.17030 1.47559 64.09649" 
+                                                                orientation="-0.67733 0.73086 0.08400 0.33615" zNear="0.06611" zFar="661.08396" 
+                                                                description="defaultX3DViewpointNode"
+                                                        </Viewpoint> -->
+														
+														<Viewfrustum id="camera"></Viewfrustum>
                                                 </scene>
                                         </x3d>
                                 </div>

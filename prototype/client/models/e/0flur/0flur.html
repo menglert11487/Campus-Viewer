@@ -16,18 +16,30 @@
 		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
-                <script type="text/javascript" src="../../../js/main.js"></script>
-                                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="../../../js/main.js"></script>
+		<script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
 
-                <script type="text/javascript">
+		<script type="text/javascript">
 
-                                $(document).ready(function () {
-                                        $.getScript("../../../js/user.js");
-                                        $.getScript("../../../js/cookieControl.js");
-                });
+		$(document).ready(function () {
+				$.getScript("../../../js/user.js");
+				$.getScript("../../../js/cookieControl.js");
+		});
 
             window.onload = function() {
-                var camPosition = new x3dom.fields.SFVec3f(-18, -1.5, -57);
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("eingang2"));
+				Collision.AddCollisionObject(document.getElementById("e009wand"));
+				Collision.AddCollisionObject(document.getElementById("exit"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("front"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("right2"));
+				Collision.AddCollisionObject(document.getElementById("tur1"));
+				Collision.AddCollisionObject(document.getElementById("tur2"));
+				
+                var camPosition = new x3dom.fields.SFVec3f(-18, -1.8, -57);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, -0.5);
                 Navigation.onLoad();
                 Navigation.ViewState = new Viewstate(camPosition, camOrientation);
@@ -36,244 +48,274 @@
                 NavigationAPI.Render();
 
                 function Render() {
-                    Navigation.Render();
+                    Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
+                    Collision.Render();
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
 
             };
+            
+        function popupWinListe()
+			{
+				var listeG = window.open('../stockwerklisteE.html', 'Stockwerkliste E', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+			}
 
         </script>
     </head>
     <body>
         <div data-role="page" id="pageone">
-
           <div data-role="panel" id="myPanel">
-                  <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
-               <button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
-                                        <button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
-                                        <button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
-                                        <button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
-                                        <button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
-                                        <button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
-                                        <button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
-                                        <button id="logout3" onclick="">Logout</button>
-                                        <button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
-                                                                                <p id="text3" align="center"></p>
+				<p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+				<button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
+				<button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
+				<button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
+				<button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+				<button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
+				<button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
+				<button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
+				<button id="logout3" onclick="">Logout</button>
+				<button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
+				<p id="text3" align="center"></p>
             </div>
-
             <div data-role="panel" id="myPanel2">
-                                <h2>Navi</h2>
+				<h2>Navi</h2>
                 <button onClick="lookArround()">360 view</button>
-                                <form name="changeSpeed" action="javascript:changeSpeed()">
-                                        <input name="speed" type="text"></input>
-                                        <input name="submit" type="submit" value="Speed"/>
-                                </form>
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"></input>
+						<input name="submit" type="submit" value="Speed"/>
+					</form>
             </div>
 
 
 
-            <div data-role="main" class="ui-content">
+            <div data-role="main" class="ui-content" style="width: 80px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
-
                 <div id="ansicht">
-                        <div id="joystick">
-                                    <div id="vline"></div>
-                                    <div id="hline"></div>
-                                    <div id="control"></div>
-                                    <div id="pointer"></div>
-                                </div>
-                                        <x3d style="width:100%;height:100%;" id="x3d_element">
-                                                <scene frustumCulling="true">
-                                               <navigationInfo type="none"></navigationInfo>
+				<div id="joystick">
+					<div id="vline"></div>
+					<div id="hline"></div>
+					<div id="control"></div>
+					<div id="pointer"></div>
+				</div>
+				<x3d style="width:100%;height:100%;" id="x3d_element">
+					<scene>
+						<navigationInfo type="none"></navigationInfo>
+						<Environment frustumCulling='false'></Environment>
+						<Viewfrustum id="camera"></Viewfrustum>
+							<!--PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight-->
+							<directionalLight id="directional" direction='10 -5 -15'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							<directionalLight id="directional" direction='20 -15 -30'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+							<background skyColor="0 0 0"></background>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-20 0 60">
+									<inline url="0flur.x3d"></inline>
+							</transform>
 
-                                                                                           <!--PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight-->
-                                                                                           <directionalLight id="directional" direction='10 -5 -15'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
-                                                                                           <directionalLight id="directional" direction='20 -15 -30'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							<!--Eingang E009-->
+							<transform scale="1 1 1" translation="-19.5 1.0 46.9">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="2 4 2" onmousedown="window.location ='../e009/e009.html';"></box>
+								</shape>
+							</transform>
+							<!-- Ausgang Cafe Caos-transpernt auf 10-->
+							<transform scale="0.3 1.3 0.6" translation="-14.7 1.0 53.9" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 6.5 7" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+							<!-- Ausgang Treppenhaus-transpernt auf 10-->
+							<transform scale="0.3 1.5 0.6" translation="-15 1.0 38.3" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="2 6 6" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+							<!-- Aktionsbox-Stockwerkwechsel am Treppenhaus -->
+							<transform  translation="-15.5 2.5 39" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
+								</shape>
+							</transform>
 
-                                                                <navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
-
-                                                              <navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
-
-                                               <background skyColor="0 0 0"></background>
-                                                        <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-
-                                                                <shape>
-                                                                        <plane size="25 25"></plane>
-                                                                </shape>
-                                                        </transform>
-                                                        <transform scale="1 1 1" translation="-20 0 60">
-                                                                <inline url="0flur.x3d"></inline>
-                                                        </transform>
-
-                                                        <!--Eingang E009-->
-                                                        <transform scale="0.3 1.3 0.6" translation="-20 1.0 46.9" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='10.0' emissiveColor='0 1 1'>
-                                                                                </Material>
-
-                                                                                </appearance>
-                                                                        <box size="5 4 3" onmousedown="window.location ='../e009/e009.html';"></box>
-                                                                </shape>
-                                                        </transform>
-
-                                                        <!---->
-                                                        <background skyColor="0 0 0"></background>
-
-                                                              <!-- Ausgang Cafe Caos-transpernt auf 10-->
-                                                          <transform scale="0.3 1.3 0.6" translation="-14.7 1.0 54.9" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='10.1' emissiveColor='0 1 1'>
-                                                                                </Material>
-
-                                                                                </appearance>
-                                                        <box size="5 6.5 7" onmousedown="window.location ='../../../index.html';"></box>
-                                                                </shape>
-                                                        </transform>
-
-
-
-                                                        <!-- Ausgang Treppenhaus-transpernt auf 10-->
-                                                          <transform scale="0.3 1.5 0.6" translation="-16 1.0 37" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='10.1' emissiveColor='0 1 1'>
-                                                                                </Material>
-
-                                                                                </appearance>
-                                                                   <box size="2 6 10" onmousedown="window.location ='../../../index.html';"></box>
-                                                                </shape>
-                                                        </transform>
-
-
-
-
-                                                           <!-- Aktionsbox-Stockwerkwechsel am Treppenhaus -->
-                                                          <transform  translation="-15.5 2.5 39" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                               <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
-
-                                                                                </appearance>
-                                                                   <box size="0.5 0.5 0.5"></box>
-                                                                </shape>
-                                                        </transform>
-
-                                                          <!-- Aktionsbox-Stockwerkwechsel am Aufzug -->
-                                                          <transform  translation="6 2 48" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                               <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
-
-                                                                                </appearance>
-                                                                   <box size="0.5 0.5 0.5"></box>
-                                                                </shape>
-                                                        </transform>
+							<!-- Aktionsbox-Stockwerkwechsel am Aufzug -->
+							<transform  translation="6 2 48" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
+								</shape>
+							</transform>
 
 
-                                                           <!-- Ausgang Haupeingang-transpernt auf 10-->
-                                                          <transform scale="0.5 1.5 0.8" translation="19.2 1.0 61" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
-                                                                                </Material>
+							<!-- Ausgang Haupeingang-transpernt auf 10-->
+							<transform scale="0.5 1.5 0.8" translation="17.8 1.0 60.5" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 4 5" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+							
+							<!-- Orientierung  Eingang -->
 
-                                                                                </appearance>
-                                                                   <box size="5 4 3" onmousedown="window.location ='../../../index.html';"></box>
-                                                                </shape>
-                                                        </transform>
+							<transform  translation="16.03725 2.08691  52.55499" rotation="0 0.8 0 1.5">
+								<shape>
+									<appearance>
+										<material diffuseolor='red'></material>
+										<ImageTexture url="../images/eeg.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.0 0.7 1.0"></box>
+									<!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
+								</shape>
+							</transform>
+							
+							<!-- Orientierung  Umbau -->
 
+							<transform  translation="19.97486 2.03101 53.05440" rotation="0 0.8 0 1.5">
+								<shape>
+									<appearance>
+										<material diffuseolor='red'></material>
+										<ImageTexture url="../images/bau1.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.0 0.7 1.0"></box>
+									<!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
+								</shape>
+							</transform>
+									
+							<!--Schild E 009 -->
 
-                                                       <!--Startview-Eingang-->
-
-                                                          <!-- <Viewpoint id="camera"
-                                                            position="17.52835 1.98750 59.19805"
-                                                            orientation="-0.07257 0.99729 0.01250 0.34200"
-                                                            zNear="0.06611" zFar="661.08396"
-                                                            description="defaultX3DViewpointNode"></Viewpoint> -->
-															
-															<Viewfrustum id="camera"></Viewfrustum>
-
-                                                            <!--Testview vor e009-zum Bearbeiten: Bitte noch nicht Löschen>
-
-                                                            <Viewpoint position="-11.97082 2.01215 50.23756"
-                                                            orientation="-0.03315 0.99902 0.02919 1.44499"
-                                                             zNear="0.06611" zFar="661.08396"
-                                                            description="defaultX3DViewpointNode"></Viewpoint-->
-
-                                                            <!-- Testview vorm Aufzug>
-
-                                                            <Viewpoint position="8.99910 1.96500 51.56130"
-                                                            orientation="-0.08423 0.99562 0.04048 0.89945"
-                                                             zNear="0.06611" zFar="661.08396"
-                                                             description="defaultX3DViewpointNode"></Viewpoint-->
-
-                                                             <!-- Testview auf Haupteingang>
-                                                             <Viewpoint position="19.46127 1.95939 53.03369"
-                                                             orientation="0.00028 0.99902 -0.04421 3.12903"
-                                                              zNear="0.06611" zFar="661.08396"
-                                                              description="defaultX3DViewpointNode"></Viewpoint-->
-
-                                                              <!-- <Viewpoint position="17.03505 2.08691 54.95953"
-                                                               orientation="-0.97881 0.14320 0.00248 0.03541"
-                                                                  zNear="0.06611" zFar="661.08396"
-                                                               description="defaultX3DViewpointNode"></Viewpoint> -->
-
-
-                                                                   <!-- Orientierung  Eingang -->
-
-                                            <transform  translation="16.03725 2.08691  52.55499" rotation="0 0.8 0 1.5">
-                                                        <shape>
-                                                                        <appearance>
-                                                                         <material diffuseolor='red'></material>
-                                                                       <ImageTexture url="../images/eeg.jpg"><ImageTexture/>
-                                                                        </appearance>
-                                                                        <box size="0.0 0.7 1.0"></box>
-                                                                        <!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
-                                                                </shape>
-                                                </transform>
-
-
-                                                                   <!-- Orientierung  Umbau -->
-
-                                            <transform  translation="19.97486 2.03101 53.05440" rotation="0 0.8 0 1.5">
-                                                        <shape>
-                                                                        <appearance>
-                                                                         <material diffuseolor='red'></material>
-                                                                       <ImageTexture url="../images/bau1.jpg"><ImageTexture/>
-                                                                        </appearance>
-                                                                        <box size="0.0 0.7 1.0"></box>
-                                                                        <!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
-                                                                </shape>
-
-
-                                                </transform>
-
-
-                                                 <!--Schild E 009 -->
-
-                                         <transform  translation="-19.16870 2.5 48.10010" >
-                                           <shape>
-                                           <appearance>
-                                                    <material diffuseColor='white'></material>
-                                                    <ImageTexture url="../images/e009.jpg"><ImageTexture/>
-
-                                           </appearance>
-                                            <box size="0.0 0.5 0.8";"> </box>
-                                         </shape>
-                                         </transform>
-
-
-                                               </scene>
-                                        </x3d>
-                                </div>
-                        </div>
-                </div>
-
-        </body>
+							<transform  translation="-19.16870 2.5 48.10010" >
+								<shape>
+									<appearance>
+										<material diffuseColor='white'></material>
+										<ImageTexture url="../images/e009.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.0 0.5 0.8";"> </box>
+								</shape>
+							</transform>
+							
+							<!-- Wände für Kollision -->
+							
+							<transform scale="1 1 1" translation="-14 0 56.6">
+								<shape id="eingang2">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							<transform scale="1 1 1" translation="-7.5 0 -14.6">
+								<shape id="e009wand">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="5 12 25"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="0 0 -20.6">
+								<shape id="exit">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 1'>
+										</Material>
+									</appearance>
+									<box size="10 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="19.5 0 -13.7">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="30 12 10"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="13.5 0 0.4">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="17.5 12 10"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="37.9 0 -8.9">
+								<shape id="front">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="20 12 10"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="30.9 0 7.9">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="20 12 10"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="41.5 0 -1.5">
+								<shape id="right2">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="2 12 10"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="23 0 -3.5">
+								<shape id="tur1">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 0'>
+										</Material>
+									</appearance>
+									<box size="1.5 8 0.5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="27 0 -4.3">
+								<shape id="tur2">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="3.5 8 0.5"></box>
+								</shape>
+							</transform>
+						</scene>
+					</x3d>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

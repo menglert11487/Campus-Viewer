@@ -36,6 +36,11 @@
                 window.requestAnimationFrame(Render);
 
             };
+            
+        function popupWinListe()
+			{
+				var listeG = window.open('../stockwerklisteC.html', 'Stockwerkliste C', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+			}
 
         </script>
     </head>
@@ -114,7 +119,7 @@
                                                                        <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
 
                                                                                 </appearance>
-                                                                   <box size="0.5 0.5 0.5"></box>
+                                                                   <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
                                                                 </shape>
                                                         </transform>
                                                          <!--Orientierung  (M) -->
@@ -156,7 +161,7 @@
                                                                        <ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
 
                                                                                 </appearance>
-                                                                   <box size="0.5 0.5 0.5"></box>
+                                                                   <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
                                                                 </shape>
                                                         </transform>
                                                         
@@ -178,46 +183,19 @@
                                                         zNear="0.06611" zFar="661.08396" 
                                                         description="defaultX3DViewpointNode"></Viewpoint-->
                                                        
-                                                       <!-- Eingang C101-->
+                                                       <!-- Eingang C102-->
                                                         <transform scale="0.23 0.5 0.5" translation="-25.6 1.15 39.7" >
                                                                 <shape>
                                                                         <appearance>
                                                                                 <Material transparency='10.1' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
-                                                   <box size="7 6.5 0.5" onmousedown="window.location ='../c101/c101.html';"></box>
+                                                   <box size="7 6.5 0.5" onmousedown="window.location ='../c102/c102.html';"></box>
                                                                 </shape>
                                                         </transform>
                                                         
-                                                        <!-- Schild C101-->
+                                                        <!-- Schild C102-->
                                                           <transform  translation="-27 1.75 39.75">
-                                                                <shape>
-                                                                        <appearance>
-                                                                               <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../images/c101.jpg"><ImageTexture/>
-
-                                                                                </appearance>
-                                                                   <box size="1 0.5 0"></box>
-                                                                </shape>
-                                                                </transform>
-                                                                <!--Viewpoint position="-27.46236 1.53854 39.78496" orientation="-0.08311 -0.99472 -0.06022 1.25905" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint-->
-                                                    
-                                                       <!-- Viewpoint auf C101>
-                                                       <Viewpoint position="-27.57986 1.56426 43.19237" orientation="-0.04174 -0.99897 -0.01805 0.81727" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint-->
-                                                       
-                                                        <!-- Eingang C102-->
-                                                        <transform scale="0.23 0.5 0.5" translation="-21.8 1.15 39.7" >
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='10.1' emissiveColor='0 1 1'>
-                                                                                </Material>
-                                                                        </appearance>
-                                                   <box size="7.3 6.5 0.5" onmousedown="window.location ='../c102-3/c102-3.html';"></box>
-                                                                </shape>
-                                                        </transform>
-                                                        
-                                                          <!-- Schild C102-->
-                                                          <transform  translation="-23.2 1.75 39.75">
                                                                 <shape>
                                                                         <appearance>
                                                                                <material diffuseColor='red'></material>
@@ -227,27 +205,22 @@
                                                                    <box size="1 0.5 0"></box>
                                                                 </shape>
                                                                 </transform>
-                                                                
-                                                       
-                                                       <!--Viewpoint auf C102>
-                                                       <Viewpoint position="-23.90036 1.51661 43.09470"
-                                                        orientation="-0.04138 -0.99906 -0.01324 0.61980" 
-                                                        zNear="0.06611" zFar="661.08396" 
-                                                        description="defaultX3DViewpointNode"></Viewpoint-->
-                                                        
-                                                          <!-- Eingang C103-->
-                                                        <transform scale="0.23 0.5 0.5" translation="-17.1 1.15 39.7" >
+                                                                <!--Viewpoint position="-27.46236 1.53854 39.78496" orientation="-0.08311 -0.99472 -0.06022 1.25905" zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint-->
+                                                    
+                                                      
+                                                        <!-- Eingang C103-->
+                                                        <transform scale="0.23 0.5 0.5" translation="-21.8 1.15 39.7" >
                                                                 <shape>
                                                                         <appearance>
                                                                                 <Material transparency='10.1' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
-                                                   <box size="7.3 6.5 0.5" onmousedown="window.location ='../c102-3/c102-3.html';"></box>
+                                                   <box size="7.3 6.5 0.5" onmousedown="window.location ='../c103-4/c103-4.html';"></box>
                                                                 </shape>
                                                         </transform>
-                                                       
+                                                        
                                                           <!-- Schild C103-->
-                                                          <transform  translation="-18.5 1.75 39.75">
+                                                          <transform  translation="-23.2 1.75 39.75">
                                                                 <shape>
                                                                         <appearance>
                                                                                <material diffuseColor='red'></material>
@@ -258,29 +231,50 @@
                                                                 </shape>
                                                                 </transform>
                                                                 
-                                                       <!-- Viewpoint auf C103>
-                                                       <Viewpoint position="-19.64855 1.51925 42.96690" 
-                                                       orientation="-0.06673 -0.99747 -0.02456 0.70691"
-                                                        zNear="0.06611" zFar="661.08396" 
-                                                        description="defaultX3DViewpointNode"></Viewpoint-->
+                                                     
                                                         
-                                                        <!-- Eingang zu C104-->
+                                                          <!-- Eingang C104-->
+                                                        <transform scale="0.23 0.5 0.5" translation="-17.1 1.15 39.7" >
+                                                                <shape>
+                                                                        <appearance>
+                                                                                <Material transparency='10.1' emissiveColor='0 1 1'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                   <box size="7.3 6.5 0.5" onmousedown="window.location ='../c103-4/c103-4.html';"></box>
+                                                                </shape>
+                                                        </transform>
+                                                       
+                                                          <!-- Schild C104-->
+                                                          <transform  translation="-18.5 1.75 39.75">
+                                                                <shape>
+                                                                        <appearance>
+                                                                               <material diffuseColor='red'></material>
+                                                                       <ImageTexture url="../images/c104.jpg"><ImageTexture/>
+
+                                                                                </appearance>
+                                                                   <box size="1 0.5 0"></box>
+                                                                </shape>
+                                                                </transform>
+                                                                
+                                                    
+                                                        
+                                                        <!-- Eingang zu C105-->
                                                          <transform scale="0.23 0.5 0.5" translation="-13.6 1.15 39.7" >
                                                                 <shape>
                                                                         <appearance>
                                                                                 <Material transparency='10.1' emissiveColor='0 1 1'>
                                                                                 </Material>
                                                                         </appearance>
-                                                   <box size="7.3 6.5 0.5" onmousedown="window.location ='../c104/c104.html';"></box>
+                                                   <box size="7.3 6.5 0.5" onmousedown="window.location ='../c105/c105.html';"></box>
                                                                 </shape>
                                                         </transform>
                                                         
-                                                             <!-- Schild C104-->
+                                                             <!-- Schild C105-->
                                                           <transform  translation="-15 1.75 39.75">
                                                                 <shape>
                                                                         <appearance>
                                                                                <material diffuseColor='red'></material>
-                                                                       <ImageTexture url="../images/c104.jpg"><ImageTexture/>
+                                                                       <ImageTexture url="../images/c105.jpg"><ImageTexture/>
 
                                                                                 </appearance>
                                                                    <box size="1 0.5 0"></box>
