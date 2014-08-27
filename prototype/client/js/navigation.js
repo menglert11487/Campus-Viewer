@@ -17,12 +17,6 @@ Navigation.RotationActivated = false;
 
 Navigation.onLoad = function() {
 	
-	var camPosition = new x3dom.fields.SFVec3f(0.0, -5, -10.0);
-    Navigation.ViewState = new Viewstate(camPosition);
-    NavigationAPI.SetCamera("camera");								
-    NavigationAPI.SetViewState(Navigation.ViewState);
-	NavigationAPI.Render();
-	
     Navigation.Camera = document.getElementById("camera");
     Navigation.Control = document.getElementById("control");
     Navigation.Pointer = document.getElementById("pointer");
@@ -36,7 +30,7 @@ Navigation.onLoad = function() {
 			Navigation.RotationActivated = true;
 			Navigation.Rotation.x = event.layerX;
 			Navigation.Rotation.y = event.layerY;
-			event.stopPropagation();
+			//event.stopPropagation();
         },
         true);
 	
@@ -47,13 +41,16 @@ Navigation.onLoad = function() {
 				
 				var xChange = Navigation.Rotation.x - event.layerX;
 				var yChange = Navigation.Rotation.y - event.layerY;
+				
 				var speedlimit = 0.001;
 				Navigation.ViewState.RotateView(yChange * speedlimit,xChange * speedlimit);
 				NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
 				NavigationAPI.Render();
+				Navigation.Rotation.x = event.layerX;
+				Navigation.Rotation.y = event.layerY;
 			
 			} 
-			event.stopPropagation();
+			//event.stopPropagation();
         },
         true);
 		
@@ -128,9 +125,9 @@ Navigation.onLoad = function() {
 			var speed = 0.025;
 			var halfWidth = (control.clientWidth / 2.0);
 			var halfHeight = (control.clientHeight / 2.0);
-			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
-			var facY = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
-			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(facX, 0.0, facY));
+			var facX = -(0.3 / halfWidth * (-halfWidth + Navigation.Position.x));
+			var facZ = -(0.3 / halfHeight * (-halfHeight + Navigation.Position.y));    
+			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(facX, 0.0, facZ));
 			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
 			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
 			NavigationAPI.Render();

@@ -12,15 +12,38 @@ $(document).ready(function() {
     }
 	
 				$('#vorschau').click(function () { 
-					document.getElementById('preView').value = document.getElementById('writeArea').value;
-					document.getElementById('preView').style.visibility = "visible"
+				        var newPreView = document.getElementById('writeArea').value.trim();
+							document.getElementById('writeArea').value = newPreView;
+							
+					if (document.getElementById('writeArea').value != '')
+					{
+						document.getElementById('preView').innerHTML = document.getElementById('writeArea').value;
+						document.getElementById('preView').style.visibility = "visible"
+					} else {
+						alert('Sie haben nichts ins Formular geschrieben.');
+					}
 				});			
 
 				$('#loeschen').click(function () { 
-					document.getElementById('writeArea').value = '';
+					document.getElementById('writeArea').value = ''
+					document.getElementById('preView').innerHTML = '';
+					document.getElementById('preView').style.visibility = "hidden"
+						// var newLoeschen = document.getElementById('writeArea').value.trim();
+							// document.getElementById('writeArea').value = newLoeschen;
+						
+						// if	(document.getElementById('writeArea').value != '') {
+							// document.getElementById('writeArea').value = '';
+						// } else {
+							// alert('Das Formular ist leer.');
+						// }
 				});	
 				
 				$('#posten').click(function () {
+				//if (jQuery.cookie('userCookie')) {
+						var newComment = document.getElementById('writeArea').value.trim();
+							document.getElementById('writeArea').value = newComment;	
+							
+				if (document.getElementById('writeArea').value != '') {
 					var room = document.getElementById('room').innerHTML;
 					var commentary = document.getElementById('writeArea').value;
 
@@ -31,7 +54,9 @@ $(document).ready(function() {
 							data: 'commentary=' + commentary + '&room=' + room,
 							success: function(data) {
 								if (data.success) {
-
+									alert('Kommentar wurde erfolgreich gespeichert!');
+									document.getElementById('writeArea').value = '';
+									window.location.href = window.location;
 									console.log(data);
 								} else {
 									console.error('Something went wrong: ' + data.msg);
@@ -41,6 +66,10 @@ $(document).ready(function() {
 							console.error("Error: " + error + " - " + jqXHR.status);
 							}
 						});
+				} else {
+						//alert('Sie müssen sich anmelden, um Kommentare zu schreiben.');
+						alert('Bitte schreiben Sie was ins Formular.');
+				}				
 					return false;
 				});
 	

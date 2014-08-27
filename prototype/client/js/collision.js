@@ -1,27 +1,23 @@
-
 Collision = {};
-Collision.Plane;
-Collision.Gbuild;
-Collision.Ebuild;
-oldCameraPosition = null;
+Collision.CurrentCameraPos;
+oldCameraPosition =  null;
+Collision.BuildingList = [];
 
-Collision.onLoad = function(){
-    Collision.Plane = document.getElementById("plane");
-	Collision.Gbuild = document.getElementById("gbuild");
-	Collision.Ebuild = document.getElementById("ebuild");
-//    Collision.HighlightBBox(Collision.Plane, false);
-//	Collision.HighlightBBox(Collision.Gbuild, true);
-//	Collision.HighlightBBox(Collision.Ebuild, false);
+//Inhalte dieser Funktion werden bei onLoad ausgeführt
+Collision.onLoad = function(){	
 };
 
+// Diese Funktion füllt das Array für um Kollision mit Objekten abzufragen
+Collision.AddCollisionObject = function(object){
+	Collision.BuildingList.push(object);
+}
 
+// Funktion berechnet die Position der Kamera
 Collision.CalculateCameraPosition = function() {
-    var highlightNode = document.getElementById("camera");
-    var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
-
-    return cameraMatrix.e3();
+    return Navigation.ViewState.ViewMatrix.e3();
 };
 
+// Funktion berechnet die BoundingBox eines Objektes
 Collision.CalculateObjectBBox = function(highlightNode) {
 	var volume = highlightNode._x3domNode.getVolume();
 	var transform = highlightNode._x3domNode._graph.globalMatrix;
@@ -31,6 +27,7 @@ Collision.CalculateObjectBBox = function(highlightNode) {
     return bbox;
 };
 
+// Funktion berechnet die Größe der BBox eines Objektes
 Collision.HighlightBBox = function(highlightNode, bool) {
     var highlightBox = document.getElementById('bbox_transform');
     var transformNode = highlightNode.parentNode;
@@ -58,60 +55,41 @@ Collision.HighlightBBox = function(highlightNode, bool) {
                     max.x + ' ' + max.y + ' ' + min.z);
         }
     }
-
     currentHighlightParent.removeChild(highlightBox);
     transformNode.appendChild(highlightBox);
 
     highlightBox.setAttribute("render", "" + bool);
 };
 
-
+// Funktion prüft welches Gebäude/Objekt gerade mit der Kamera kollidiert und setzt die Kamera dementsprechend zurück
 Collision.Render = function(object){
-
-    var cameraPos = Collision.CalculateCameraPosition();
-//	 Collision.RenderObj(Collision.Ebuild);
-	Collision.RenderObj(Collision.Gbuild);
-	var objectBBox = Collision.CalculateObjectBBox(object);
 	
-// 	Äquator -> y-Achse, alles drüber ist ok, drunter nein
-	if(cameraPos.y < objectBBox.max.y)
-		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + (objectBBox.max.y + 1) + " " + cameraPos.z);
-// 	x-Rand -> max
-	else if(cameraPos.x > objectBBox.max.x)
-		document.getElementById("camera").setAttribute('position', (objectBBox.max.x - 5) + " " + cameraPos.y + " " + cameraPos.z);
-//	 x-Rand -> min
-	else if(cameraPos.x < objectBBox.min.x)
-		document.getElementById("camera").setAttribute('position', (objectBBox.min.x + 5) + " " + cameraPos.y + " " + cameraPos.z);
-// z-oben -> max
-	else if(cameraPos.z > objectBBox.max.z)
-		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.max.z - 5));
-// z-unten -> min
-	else if(cameraPos.z < objectBBox.min.z)
-		document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + (objectBBox.min.z + 5));
-		
-		//Koordinaten Anzeige (zur Überprüfung)
-		//document.getElementById("counter").innerHTML = "BBox-X: " + objectBBox.max.x + "/" + objectBBox.min.x + " ||| Camera-X: " + cameraPos.x + "<br>" + "BBox-Y: " + objectBBox.max.y + "/" + objectBBox.min.y + " ||| Camera-Y: " + cameraPos.y + "<br>" + "BBox-Z: " + objectBBox.max.z + "/" + objectBBox.min.z + " ||| Camera-Z: " + cameraPos.z;
-		
-};
-
-Collision.RenderObj = function(object)
-{
-   var cameraPos = Collision.CalculateCameraPosition();
-   var objectBBox = Collision.CalculateObjectBBox(object);
-	
-	if ((cameraPos.x < objectBBox.max.x && cameraPos.x > objectBBox.min.x) &&
-		(cameraPos.y < objectBBox.max.y && cameraPos.y > objectBBox.min.y) &&
-		(cameraPos.z < objectBBox.max.z && cameraPos.z > objectBBox.min.z))
-	{
-		if(oldCameraPosition == null)
-		{
-			oldCameraPosition = cameraPos;
-		}
-		else
-		{
-			cameraPos = oldCameraPosition;
+	for (var i = 0; i < Collision.BuildingList.length; i++) { 
+		if (Collision.RenderObj(Collision.BuildingList[i])) {
+			var speed = 0.025;
+			var halfWidth = (control.clientWidth / 2.0);
+			var halfHeight = (control.clientHeight / 2.0);
+			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
+			var facZ = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
+			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(-2.0*facX, 0.0, -2.0*facZ));
+			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
+			NavigationAPI.Render();
+			break;
 		}
 	}
-	document.getElementById("camera").setAttribute('position', cameraPos.x + " " + cameraPos.y + " " + cameraPos.z);
-	oldCameraPosition = cameraPos;
+	oldCameraPosition = Collision.CurrentCameraPos;
+};
+
+// Funktion prüft von welcher Seite eine Kollision mit einem Objekt entsteht entsteht
+Collision.RenderObj = function(object)
+{
+	var objectBBox = Collision.CalculateObjectBBox(object);
+	
+	if((Collision.CurrentCameraPos.x < objectBBox.max.x && Collision.CurrentCameraPos.x > objectBBox.min.x) &&
+		(Collision.CurrentCameraPos.y < objectBBox.max.y && Collision.CurrentCameraPos.y > objectBBox.min.y) &&
+		(Collision.CurrentCameraPos.z < objectBBox.max.z && Collision.CurrentCameraPos.z > objectBBox.min.z))
+	{
+		return true;
+	}
+	return false;
 };
