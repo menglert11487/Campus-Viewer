@@ -27,6 +27,11 @@
 				Collision.AddCollisionObject(document.getElementById("left"));
 				Collision.AddCollisionObject(document.getElementById("right"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus1"));
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus2"));
+				Collision.AddCollisionDoor(document.getElementById("eingangCAE4"));
+				Collision.AddCollisionDoor(document.getElementById("eingangCAE5"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(24.0, -1.0, -42);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.7);
                 Navigation.onLoad();
@@ -101,13 +106,13 @@
 
 							<!-- Ausgang zum Campus (Marquardstr) -->
 							
-							<transform scale="1 1 1" translation="-28.3 1.15 41.6">
-								<shape>
+							<transform scale="1 1 1" translation="-29.3 1.15 41.6">
+								<shape id="ausgangCampus1" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 0'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../../../index.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
 
@@ -135,12 +140,12 @@
 									  
 							<!-- Ausgang zum Campus (Campus) -->
 							<transform scale="1 1 1" translation="-10.5 1.15 41.5">
-								<shape>
+								<shape id="ausgangCampus2" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 0'>
 										</Material>
 									</appearance>
-									<box size="1 4 1" onmousedown="window.location ='../../../index.html';"></box>
+									<box size="1 4 1"></box>
 								</shape>
 							</transform>
 
@@ -181,12 +186,12 @@
 
 							<!-- Eingang zum Cae4-->
 							<transform scale="1 1 1" translation="-12 0 39.7">
-								<shape>
+								<shape id="eingangCAE4" url="../Cae4/cae4.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 0'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../Cae4/cae4.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
 
@@ -204,12 +209,12 @@
 
 							<!-- Eingang zum Cae5-->
 							<transform scale="1 1 1" translation="-15.4 1.15 39.7" rotation="0 1 0 1.57">
-								<shape>
+								<shape id="eingangCAE5" url="../Cae5/cae5.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 0'>
 										</Material>
 									</appearance>
-									<box size="1 6  1" onmousedown="window.location ='../Cae5/cae5.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
 										
@@ -234,7 +239,7 @@
 									<box size="2 12 30"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="-29 0 50">
+							<transform scale="1 1 1" translation="-30 0 50">
 								<shape id="back">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 0 1'>
