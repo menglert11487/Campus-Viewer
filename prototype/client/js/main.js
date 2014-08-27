@@ -1,23 +1,11 @@
 function switchCamera(id) {
     var vp = document.getElementById(id);
-    var position = vp.position;
-    var orientation = vp.orientation;
-    //vp.setAttribute("set_bind","true");
-    var camera = document.getElementById("camera");
-    camera.setAttribute("position", position);
-    camera.setAttribute("orientation", orientation);
-}
-
-function changeSpeed() {
-    var x = document.getElementById("x3d_element");
-    var y = document.changeSpeed.speed.value;
-    if (y === null) {
-        y = 20;
-    }
-    x.runtime.speed(y);
-}
-
-function lookArround() {
-    var x = document.getElementById("x3d_element");
-    x.runtime.speed(0.00001);
+	var resPos = vp.position.split(" ");
+	var resOri = vp.orientation.split(" ");
+	var camPosition = new x3dom.fields.SFVec3f(-1*resPos[0], -1*resPos[1], -1*resPos[2]);
+	var camOrientation = new x3dom.fields.SFVec2f(parseFloat(resOri[0]), parseFloat(resOri[1]));
+	Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+	NavigationAPI.SetCamera("camera");								
+	NavigationAPI.SetViewState(Navigation.ViewState);
+	NavigationAPI.Render();
 }

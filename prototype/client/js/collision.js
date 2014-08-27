@@ -1,146 +1,20 @@
 Collision = {};
-Collision.Plane;
-Collision.Top;
-Collision.Down;
-Collision.Left;
-Collision.Right;
-Collision.Gbuild;
-Collision.Gbuild2;
-Collision.Gbuild3;
-Collision.Ebuild;
-Collision.Ebuild2;
-Collision.Ebuild3;
-Collision.Ebuild4;
-Collision.Cbuild;
-Collision.AlteMensa;
-Collision.Pfosten1;
-Collision.Pfosten2;
-Collision.Pfosten3;
-Collision.Pfosten4;
-Collision.Pfosten5;
-Collision.Pfosten6;
-Collision.Pfosten7;
-Collision.Pfosten8;
-Collision.Ssc;
-Collision.Mensa;
-Collision.Bib;
-Collision.Denkmal;
-Collision.Baum1;
-Collision.Baum2;
-Collision.Baum3;
-Collision.Baum4;
-Collision.Baum5;
-Collision.Baum6;
-Collision.Baum7;
-Collision.Baum8;
-Collision.Baumbib1;
-Collision.Baumbib2;
-Collision.Baumbib3;
-Collision.Baumbib4;
-Collision.Baumbib5;
-Collision.Baumbib6;
-Collision.Baumbib7;
-Collision.Baumbib8;
 Collision.CurrentCameraPos;
 oldCameraPosition =  null;
 Collision.BuildingList = [];
 
-
-Collision.onLoad = function(){
-	//Objekte über ID holen aus der Index.
-    Collision.Plane = document.getElementById("plane");
-    Collision.Top = document.getElementById("top");
-    Collision.Down = document.getElementById("down");
-    Collision.Left = document.getElementById("left");
-    Collision.Right = document.getElementById("right");
-	Collision.Gbuild = document.getElementById("gbuild");
-	Collision.Gbuild2 = document.getElementById("gbuild2");
-	Collision.Gbuild3 = document.getElementById("gbuild3");
-	Collision.Ebuild = document.getElementById("ebuild");
-	Collision.Ebuild2 = document.getElementById("ebuild2");
-	Collision.Ebuild3 = document.getElementById("ebuild3");
-	Collision.Ebuild4 = document.getElementById("ebuild4");
-	Collision.Cbuild = document.getElementById("cbuild");
-	Collision.alteMensa = document.getElementById("alteMensa");
-	Collision.Pfosten1 = document.getElementById("pfosten1");
-	Collision.Pfosten2 = document.getElementById("pfosten2");
-	Collision.Pfosten3 = document.getElementById("pfosten3");
-	Collision.Pfosten4 = document.getElementById("pfosten4");
-	Collision.Pfosten5 = document.getElementById("pfosten5");
-	Collision.Pfosten6 = document.getElementById("pfosten6");
-	Collision.Pfosten7 = document.getElementById("pfosten7");
-	Collision.Pfosten8 = document.getElementById("pfosten8");
-	Collision.Ssc = document.getElementById("ssc");
-	Collision.Mensa = document.getElementById("mensa");
-	Collision.Bib = document.getElementById("bib");
-	Collision.Denkmal = document.getElementById("denkmal");
-	Collision.Baum1 = document.getElementById("baum1");
-	Collision.Baum2 = document.getElementById("baum2");
-	Collision.Baum3 = document.getElementById("baum3");
-	Collision.Baum4 = document.getElementById("baum4");
-	Collision.Baum5 = document.getElementById("baum5");
-	Collision.Baum6 = document.getElementById("baum6");
-	Collision.Baum7 = document.getElementById("baum7");
-	Collision.Baum8 = document.getElementById("baum8");
-	Collision.Baumbib1 = document.getElementById("baumbib1");
-	Collision.Baumbib2 = document.getElementById("baumbib2");
-	Collision.Baumbib3 = document.getElementById("baumbib3");
-	Collision.Baumbib4 = document.getElementById("baumbib4");
-	Collision.Baumbib5 = document.getElementById("baumbib5");
-	Collision.Baumbib6 = document.getElementById("baumbib6");
-	Collision.Baumbib7 = document.getElementById("baumbib7");
-	Collision.Baumbib8 = document.getElementById("baumbib8");
-	
-	// Objekte in Array pushen
-	Collision.BuildingList.push(Collision.Top);
-	Collision.BuildingList.push(Collision.Down);
-	Collision.BuildingList.push(Collision.Left);
-	Collision.BuildingList.push(Collision.Right);
-	Collision.BuildingList.push(Collision.Gbuild);
-	Collision.BuildingList.push(Collision.Gbuild2);
-	Collision.BuildingList.push(Collision.Gbuild3);
-	Collision.BuildingList.push(Collision.Ebuild);
-	Collision.BuildingList.push(Collision.Ebuild2);
-	Collision.BuildingList.push(Collision.Ebuild3);
-	Collision.BuildingList.push(Collision.Ebuild4);
-	Collision.BuildingList.push(Collision.Cbuild);
-	Collision.BuildingList.push(Collision.alteMensa);
-	Collision.BuildingList.push(Collision.Pfosten1);
-	Collision.BuildingList.push(Collision.Pfosten2);
-	Collision.BuildingList.push(Collision.Pfosten3);
-	Collision.BuildingList.push(Collision.Pfosten4);
-	Collision.BuildingList.push(Collision.Pfosten5);
-	Collision.BuildingList.push(Collision.Pfosten6);
-	Collision.BuildingList.push(Collision.Pfosten7);
-	Collision.BuildingList.push(Collision.Pfosten8);
-	Collision.BuildingList.push(Collision.Ssc);
-	Collision.BuildingList.push(Collision.Mensa);
-	Collision.BuildingList.push(Collision.Bib);
-	Collision.BuildingList.push(Collision.Denkmal);
-	Collision.BuildingList.push(Collision.Baum1);
-	Collision.BuildingList.push(Collision.Baum2);
-	Collision.BuildingList.push(Collision.Baum3);
-	Collision.BuildingList.push(Collision.Baum4);
-	Collision.BuildingList.push(Collision.Baum5);
-	Collision.BuildingList.push(Collision.Baum6);
-	Collision.BuildingList.push(Collision.Baum7);
-	Collision.BuildingList.push(Collision.Baum8);
-	Collision.BuildingList.push(Collision.Baumbib1);
-	Collision.BuildingList.push(Collision.Baumbib2);
-	Collision.BuildingList.push(Collision.Baumbib3);
-	Collision.BuildingList.push(Collision.Baumbib4);
-	Collision.BuildingList.push(Collision.Baumbib5);
-	Collision.BuildingList.push(Collision.Baumbib6);
-	Collision.BuildingList.push(Collision.Baumbib7);
-	Collision.BuildingList.push(Collision.Baumbib8);
+//Inhalte dieser Funktion werden bei onLoad ausgeführt
+Collision.onLoad = function(){	
 };
+
+// Diese Funktion füllt das Array für um Kollision mit Objekten abzufragen
+Collision.AddCollisionObject = function(object){
+	Collision.BuildingList.push(object);
+}
 
 // Funktion berechnet die Position der Kamera
 Collision.CalculateCameraPosition = function() {
-    var highlightNode = document.getElementById("camera");
-    var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
-
-    return cameraMatrix.e3();
+    return Navigation.ViewState.ViewMatrix.e3();
 };
 
 // Funktion berechnet die BoundingBox eines Objektes
@@ -187,12 +61,19 @@ Collision.HighlightBBox = function(highlightNode, bool) {
     highlightBox.setAttribute("render", "" + bool);
 };
 
-// Funktion prüft welches Gebäude/Objekt gerade mit der Kamera kollidiert
+// Funktion prüft welches Gebäude/Objekt gerade mit der Kamera kollidiert und setzt die Kamera dementsprechend zurück
 Collision.Render = function(object){
 	
 	for (var i = 0; i < Collision.BuildingList.length; i++) { 
 		if (Collision.RenderObj(Collision.BuildingList[i])) {
-			document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
+			var speed = 0.025;
+			var halfWidth = (control.clientWidth / 2.0);
+			var halfHeight = (control.clientHeight / 2.0);
+			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
+			var facZ = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
+			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(-2.0*facX, 0.0, -2.0*facZ));
+			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
+			NavigationAPI.Render();
 			break;
 		}
 	}

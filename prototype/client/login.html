@@ -11,6 +11,22 @@
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
                 <script type="text/javascript" src="js/jquery.cookie.js"></script>
+				
+		<style type="text/css">
+				#loginform .ui-input-text,
+				#loginform .ui-btn,
+				#loginform .ui-input-btn input {
+				  width:460px !important
+				}
+				
+				#loginform .ui-btn {
+				  padding:0.7em 0 !important
+				}		
+
+				#btnSubmitForm, #loginform fieldset .ui-btn:nth-child(10) {width:100px !important}
+				
+		</style>
+		
     </head>
         <body>
 
@@ -23,18 +39,23 @@
                                         <button id="kontakt3" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
                                         <button id="impressum3" onclick="window.location.href = 'impressum.html';">Impressum</button>
                                         <button id="login3" onclick="window.location.href = 'login.html';">Login</button>
-                                        <button id="logout3" onclick="">Logout</button>
                                         <button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
-										<p id="text3" align="center"></p>	
+											<fieldset style="background-color:#D0D0D0">
+												<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="styles/images/offline-button.png"> Offline</p>
+												<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="styles/images/online-button.png"> Online</p>
+												<p align="center" id="text3"></p>
+											</fieldset>
+										<button id="logout3" onclick="">Logout</button>	
             </div>
 
             <div data-role="main" class="ui-content">
-                    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
+                    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> 
 
-                    <article>
+						<img src="images/CampusLogo.jpg" style="margin-right: 915px;" align="right" width="160" height="160"></img> 
+						
+                        <div id="textBox2" style="margin-left: 100px;" align="left">
                                 <h1>Anmeldung vom Campus Viewer Fulda</h1>
                                 <b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
-                        </article>
 
                         <form id="loginform" name="formular">
                                 <fieldset>
@@ -57,6 +78,7 @@
 
                                 </fieldset>
                         </form>
+					</div>						
                 </div>
                 <script type="text/javascript">
                         $(document).ready(function () {

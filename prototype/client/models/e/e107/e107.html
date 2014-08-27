@@ -13,117 +13,181 @@
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
+		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
-                <script type="text/javascript" src="../../../js/main.js"></script>
+		<script type="text/javascript" src="../../../js/main.js"></script>
 
-                <script type="text/javascript">
+		<script type="text/javascript">
 
             window.onload = function() {
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("front"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				Collision.AddCollisionObject(document.getElementById("table1"));
+				Collision.AddCollisionObject(document.getElementById("table2"));
+				
+                var camPosition = new x3dom.fields.SFVec3f(6.0, -1.0, -44);
+                var camOrientation = new x3dom.fields.SFVec2f(0.10, 4.5);
                 Navigation.onLoad();
+                Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+                NavigationAPI.SetCamera("camera");								
+                NavigationAPI.SetViewState(Navigation.ViewState);
+                NavigationAPI.Render();
 
                 function Render() {
-                    Navigation.Render();
+                    Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
+                    Collision.Render();
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
-
             };
 
         </script>
     </head>
     <body>
-        <div data-role="page" id="pageone">
-
-          <div data-role="panel" id="myPanel">
-                  <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
-               <button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
-                                        <button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
-                                        <button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
-                                        <button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
-                                        <button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
-                                        <button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
-                                        <button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
-                                        <button id="logout3" onclick="">Logout</button>
-                                        <button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
-                                                                                <p id="text3" align="center"></p>
-            </div>
-
+		<div data-role="page" id="pageone">
+		<div data-role="panel" id="myPanel">
+		<p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+			<button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
+			<button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
+			<button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
+			<button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+			<button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
+			<button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
+			<button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
+				<fieldset style="background-color:#D0D0D0">
+					<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
+					<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
+					<p align="center" id="text3"></p>
+				</fieldset>
+			<button id="logout3" onclick="">Logout</button>	
+		</div>
             <div data-role="panel" id="myPanel2">
-                                <h2>Navi</h2>
+				<h2>Navi</h2>
                 <button onClick="lookArround()">360 view</button>
-                                <form name="changeSpeed" action="javascript:changeSpeed()">
-                                        <input name="speed" type="text"></input>
-                                        <input name="submit" type="submit" value="Speed"/>
-                                </form>
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"></input>
+						<input name="submit" type="submit" value="Speed"/>
+					</form>
             </div>
-
-
-
+            <div data-role="main" class="ui-content" style="width: 120px">
             <div data-role="main" class="ui-content">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
             
                 <div id="ansicht">
-                        <div id="joystick">
-                                    <div id="vline"></div>
-                                    <div id="hline"></div>
-                                    <div id="control"></div>
-                                    <div id="pointer"></div>
-                                </div>
-                             <x3d style="width:100%;height:100%;" id="x3d_element">
-
-               <scene frustumCulling="true">
-                           <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-                           <navigationInfo type='"walk", "any"'></navigationInfo>
-							<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
-							<directionalLight id="directional" direction='20 -14 -15'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+				<div id="joystick">
+					<div id="vline"></div>
+					<div id="hline"></div>
+					<div id="control"></div>
+					<div id="pointer"></div>
+				</div>
+				<x3d style="width:100%;height:100%;" id="x3d_element">
+					<scene>
+						<Viewfrustum id="camera"></Viewfrustum>
+						<Environment frustumCulling='false'></Environment>
+						<background skyColor="0 0 0"></background>
+						<navigationInfo type="none"></navigationInfo>
+						<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+						<directionalLight id="directional" direction='5 10 -25'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
 							
-
-                                        <shape>
-                                                <plane size="25 25"></plane>
-                                        </shape>
-                                </transform>
-                                        <transform scale="0.6 0.6 0.6" translation="-15 0 50">
-                                                <inline url="e107.x3d"></inline>
-                                        </transform>
-                                        <!-- Ausgang zum FLur, soll es sichtbar bleiben, weil keine Tür da ist ? -->
-                                <transform scale="0.2 0.4 0.2" translation="-4.7 0.9 41.7" rotation="0 1 0 1.57">
-                                                <shape>
-                                                                <appearance>
-                                                                        <Material transparency='0.2' emissiveColor='0 1 1'>
-                                                                        </Material>
-                                                                </appearance>
-                                                                <box size="5 6 2" onmousedown="window.location ='../1flur/1flur.html';"></box>
-                                                        </shape>
-                                        </transform>
-   <!-- Notausgang zum FLur, soll es sichtbar bleiben, weil keine Tür da ist ? -->
-                                <transform scale="0.2 0.4 0.2" translation="-13.9 0.9 41" rotation="0 1 0 1.57">
-                                                <shape>
-                                                                <appearance>
-                                                                        <Material transparency='0.2' emissiveColor='0 1 1'>
-                                                                        </Material>
-                                                                </appearance>
-                                                                <box size="2 6 6.2" onmousedown="window.location ='../../../index.html';"></box>
-                                                        </shape>
-                                        </transform>
-
-                   <background skyColor="0 0 0"></background>
-                 
-									<!-- Viepoint Eingang-->
-                                       <Viewpoint id="camera" 
-                                       position="-5.75127 1.47085 41.74158" 
-                                       orientation="-0.05355 0.98834 0.14252 2.43041" 
-                                       zNear="0.06611" zFar="661.08396"
-                                        description="defaultX3DViewpointNode"></Viewpoint>
-
-                           </scene>
-           </x3d></div>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+							
+							<transform scale="0.6 0.6 0.6" translation="-15 0 50">
+								<inline url="e107.x3d"></inline>
+							</transform>
+							
+							<!-- Ausgang zum Flur -->
+							
+							<transform scale="0.2 0.4 0.2" translation="-5.8 0.9 42" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="6 6 8" onmousedown="window.location ='../1flur/1flur.html';"></box>
+								</shape>
+							</transform>
+							
+							<!-- Notausgang nach draußen -->
+							
+							<transform scale="0.2 0.4 0.2" translation="-13.9 0.9 44.5" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="2 6 6.2" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+							<!-- Wände für Kollision -->
+							<transform scale="1 1 1" translation="-17 0 42.4">
+								<shape id="front">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="5 12 14"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-3 0 42.4">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="5 12 14"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-8.5 0 52">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="14 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-8.5 0 40">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="14 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-10.3 0 43.7">
+								<shape id="table1">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="1.8 6 0.4"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-10.5 0 47.7">
+								<shape id="table2">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="6 3 5"></box>
+								</shape>
+							</transform>
+						</scene>
+					</x3d>
+				</div>
            </div>
-</div>
-
+		</div>
    </body>
 </html>
 
-<Viewpoint id="camera" position="-6.62564 1.45364 42.75048" orientation="-0.05881 0.99174 0.11397 2.19550"
-        zNear="0.06611" zFar="661.08396" description="defaultX3DViewpointNode"></Viewpoint>

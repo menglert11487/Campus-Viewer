@@ -17,7 +17,7 @@
         <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 
 		
-		<!-- <script type="text/javascript" src="js/navigationApi.js"></script> -->
+		<script type="text/javascript" src="js/navigationApi.js"></script>
         <script type="text/javascript" src="js/collision.js"></script>
         <script type="text/javascript" src="js/navigation.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
@@ -31,15 +31,72 @@
 
             window.onload = function() {
                 Collision.onLoad();
+				// Objekte in Array pushen
+				Collision.AddCollisionObject(document.getElementById("plane"));
+				Collision.AddCollisionObject(document.getElementById("top"));
+				Collision.AddCollisionObject(document.getElementById("down"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				Collision.AddCollisionObject(document.getElementById("asta"));
+				Collision.AddCollisionObject(document.getElementById("halle8"));
+				Collision.AddCollisionObject(document.getElementById("sporthalle"));
+				Collision.AddCollisionObject(document.getElementById("abuild"));
+				Collision.AddCollisionObject(document.getElementById("bbuild"));
+				Collision.AddCollisionObject(document.getElementById("kbuild"));
+				Collision.AddCollisionObject(document.getElementById("kAbuild"));
+				Collision.AddCollisionObject(document.getElementById("gbuild"));
+				Collision.AddCollisionObject(document.getElementById("gbuild2"));
+				Collision.AddCollisionObject(document.getElementById("gbuild3"));
+				Collision.AddCollisionObject(document.getElementById("ebuild"));
+				Collision.AddCollisionObject(document.getElementById("ebuild2"));
+				Collision.AddCollisionObject(document.getElementById("ebuild3"));
+				Collision.AddCollisionObject(document.getElementById("ebuild4"));
+				Collision.AddCollisionObject(document.getElementById("cbuild"));
+				Collision.AddCollisionObject(document.getElementById("alteMensa"));
+				Collision.AddCollisionObject(document.getElementById("pfosten1"));
+				Collision.AddCollisionObject(document.getElementById("pfosten2"));
+				Collision.AddCollisionObject(document.getElementById("pfosten3"));
+				Collision.AddCollisionObject(document.getElementById("pfosten4"));
+				Collision.AddCollisionObject(document.getElementById("pfosten5"));
+				Collision.AddCollisionObject(document.getElementById("pfosten6"));
+				Collision.AddCollisionObject(document.getElementById("pfosten7"));
+				Collision.AddCollisionObject(document.getElementById("pfosten8"));
+				Collision.AddCollisionObject(document.getElementById("ssc"));
+				Collision.AddCollisionObject(document.getElementById("mensa"));
+				Collision.AddCollisionObject(document.getElementById("bib"));
+				Collision.AddCollisionObject(document.getElementById("denkmal"));
+				Collision.AddCollisionObject(document.getElementById("baum1"));
+				Collision.AddCollisionObject(document.getElementById("baum2"));
+				Collision.AddCollisionObject(document.getElementById("baum3"));
+				Collision.AddCollisionObject(document.getElementById("baum4"));
+				Collision.AddCollisionObject(document.getElementById("baum5"));
+				Collision.AddCollisionObject(document.getElementById("baum6"));
+				Collision.AddCollisionObject(document.getElementById("baum7"));
+				Collision.AddCollisionObject(document.getElementById("baumbib1"));
+				Collision.AddCollisionObject(document.getElementById("baumbib2"));
+				Collision.AddCollisionObject(document.getElementById("baumbib3"));
+				Collision.AddCollisionObject(document.getElementById("baumbib4"));
+				Collision.AddCollisionObject(document.getElementById("baumbib5"));
+				Collision.AddCollisionObject(document.getElementById("baumbib6"));
+				Collision.AddCollisionObject(document.getElementById("baumbib7"));
+				Collision.AddCollisionObject(document.getElementById("baumbib8"));
+				
+				var camPosition = new x3dom.fields.SFVec3f(-180.0, -3.6, 46.0);
+				var camOrientation = new x3dom.fields.SFVec2f(0.0, 3.1);
+				Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+				NavigationAPI.SetCamera("camera");								
+				NavigationAPI.SetViewState(Navigation.ViewState);
+				NavigationAPI.Render();
                 Navigation.onLoad();
 
                 function Render() {
 					Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
 					Navigation.Render();
-                    Collision.Render(Collision.Plane);
+                    Collision.Render();
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
+				
             };
         </script>
 
@@ -65,26 +122,25 @@
 				<button id="kontakt3" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
 				<button id="impressum3" onclick="window.location.href = 'impressum.html';">Impressum</button>
 				<button id="login3" onclick="window.location.href = 'login.html';">Login</button>
-				<button id="logout3" onclick="">Logout</button>
 				<button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
 				<!-- <button id="beispiel" onclick="window.location.href = 'beispiel.html';">Beispiel</button> -->
-				<p align="center" id="text3"></p>
+					<fieldset style="background-color:#D0D0D0">
+						<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="styles/images/offline-button.png"> Offline</p>
+						<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="styles/images/online-button.png"> Online</p>
+						<p align="center" id="text3"></p>
+					</fieldset>
+				<button id="logout3" onclick="">Logout</button>
             </div>
 
             <div data-role="panel" id="myPanel2">
 				<h2>Navi</h2>
-                <button onclick="switchCamera('vp_2');">Geneigt</button>
-                <button onclick="switchCamera('vp_3');">E</button>
-                <button onclick="switchCamera('vp_4');">G</button>
-                <button onclick="switchCamera('vp_5');">C</button>
-                <button onclick="switchCamera('vp_6');">Mensa</button>
-                <button onclick="switchCamera('vp_7');">SSC</button>
-                <button onclick="switchCamera('vp_8');">Bibliothek</button>
-                <button onClick="lookArround()">360 view</button>
-				<form name="changeSpeed" action="javascript:changeSpeed()">
-						<input name="speed" type="text"></input>
-						<input name="submit" type="submit" value="Speed"/>
-				</form>
+                <button onclick="switchCamera('vp_1');">Geneigt</button>
+                <button onclick="switchCamera('vp_2');">E</button>
+                <button onclick="switchCamera('vp_3');">G</button>
+                <button onclick="switchCamera('vp_4');">C</button>
+                <button onclick="switchCamera('vp_5');">Mensa</button>
+                <button onclick="switchCamera('vp_6');">SSC</button>
+                <button onclick="switchCamera('vp_7');">Bibliothek</button>
             </div>
             <div data-role="main" class="ui-content" style="width: 80px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
@@ -99,72 +155,52 @@
                     <x3d id='x3d_element' showStat='false' showLog='false' style='position: relative; width:100%; height:100%; border:0; margin:0; padding:0;'>
                         <Scene DEF='scene'>
                             <Environment frustumCulling='false'></Environment>
-							<navigationInfo type='"walk", "any"'></navigationInfo>
+							<navigationInfo type="none"></navigationInfo>
 							<Background backUrl="models/texturen/skybox/mid.jpg" bottomUrl="models/texturen/skybox/bot.jpg" frontUrl="models/texturen/skybox/mid.jpg" leftUrl="models/texturen/skybox/mid.jpg" rightUrl="models/texturen/skybox/mid.jpg" topUrl="models/texturen/skybox/top.jpg" ></Background>
 
-							<!-- Kameraperspektiven -->
-							<!-- <Viewfrustum id="camera"></Viewfrustum> -->
-							<Viewpoint id="camera"
-								position="213.22204 2.09661 -51.79562"
-								orientation="-0.06399 0.99598 0.06265 1.55356"
-								zNear="0.01000" zFar="10000.00000"
-								description="defaultX3DViewpointNode">
-							</Viewpoint>
-
+							
+							<Viewfrustum id="camera"></Viewfrustum>
+							
+							<!-- geneigt -->
 							<Viewpoint id="vp_1"
-							   position="200.00000 12.99405 589.67119"
-							   orientation="0.00000 0.00000 0.00000 0.00000"
-							   zNear="0.1" zFar="10000"
-							   description="defaultX3DViewpointNode">
-							</Viewpoint>
-
-							<Viewpoint id="vp_2"
 							   position="203.17495 124.79400 151.24406"
-							   orientation="-0.99963 0.02700 -0.00325 0.62053"
-							   zNear="0.1" zFar="10000"
-							   description="defaultX3DViewpointNode">
+							   orientation="0.5 0">
 							</Viewpoint>
 
-							<Viewpoint  id="vp_3"
+							<!-- E-Gebäude -->
+							<Viewpoint  id="vp_2"
 								position="160.84188 1.47884 -70.22055"
-								orientation="0.85575 -0.51669 0.02679 0.12105"
-								zNear="0.01000" zFar="10000.00000"
-								description="defaultX3DViewpointNode">
+								orientation="0.0 1.0">
 							</Viewpoint>
 
-							<Viewpoint id="vp_4"
+							<!-- G-Gebäude -->
+							<Viewpoint id="vp_3"
 							   position="98.06126 2.58007 -17.79897"
-							   orientation="0.05622 0.99803 -0.02772 0.91783"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							   orientation="0.0 -1.8">
 							</Viewpoint>
 
+							<!-- C-Gebäude -->
+							<Viewpoint id="vp_4"
+							   position="233.67249 2.91903 28.48135"
+							   orientation="0.0 -2.2">
+							</Viewpoint>
+
+							<!-- Mensa -->
 							<Viewpoint id="vp_5"
-							   position="235.34825 2.91903 -36.65452"
-							   orientation="0.01468 0.99942 -0.03068 2.24933"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							   position="247.99612 2.74453 -223.31760"
+							   orientation="0.0 0.0">
 							</Viewpoint>
 
+							<!-- SSC -->
 							<Viewpoint id="vp_6"
-							   position="258.43312 2.74453 -192.14460"
-							   orientation="0.63506 0.77223 -0.01880 0.07665"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
-							</Viewpoint>
-
-							<Viewpoint id="vp_7"
 							   position="245.80363 2.84313 -204.45153"
-							   orientation="0.01756 0.99973 -0.01542 1.44183"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							   orientation="0.0 -1.5">
 							</Viewpoint>
 
-							<Viewpoint id="vp_8"
-							   position="275.90217 2.79131 -171.53470"
-							   orientation="0.07691 -0.99655 0.03109 0.77080"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							<!-- Bib -->
+							<Viewpoint id="vp_7"
+							   position="284.33447 2.79131 -201.84453"
+							   orientation="0.0 1.5">
 							</Viewpoint>
 
 							<!-- BBox Transform -->
@@ -235,7 +271,7 @@
 							<!-- Gebaude -->
 							<!-- Bäume zwischen C-, G- und E-Gebäude -->
 							<!-- 1. Baum -->
-							<transform scale="1 1 1" translation="127.5 0 -25">
+							<transform scale="1 1 1" translation="87.5 0 8">
 								<shape id="baum1">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -244,12 +280,12 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="120 0 -25">
+							<transform scale="1 1 1" translation="80 0 8">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
 							<!-- 2. Baum -->
-							<transform scale="1 1 1" translation="127.5 0 -33">
+							<transform scale="1 1 1" translation="87.5 0 0">
 								<shape id="baum2">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -258,12 +294,12 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="120 0 -33">
+							<transform scale="1 1 1" translation="80 0 0">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
 							<!-- 3. Baum -->
-							<transform scale="1 1 1" translation="127.5 0 -41">
+							<transform scale="1 1 1" translation="87.5 0 -8">
 								<shape id="baum3">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -272,12 +308,12 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="120 0 -41">
+							<transform scale="1 1 1" translation="80 0 -8">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
 							<!-- 4. Baum -->
-							<transform scale="1 1 1" translation="127.5 0 -49">
+							<transform scale="1 1 1" translation="157.5 0 -49">
 								<shape id="baum4">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -286,12 +322,12 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="120 0 -49">
+							<transform scale="1 1 1" translation="150 0 -49">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
 							<!-- 5. Baum -->
-							<transform scale="1 1 1" translation="137 0 -25">
+							<transform scale="1 1 1" translation="157 0 -25">
 								<shape id="baum5">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -300,12 +336,12 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="130 0 -25">
+							<transform scale="1 1 1" translation="150 0 -25">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
 							<!-- 6. Baum -->
-							<transform scale="1 1 1" translation="137 0 -33">
+							<transform scale="1 1 1" translation="157 0 -33">
 								<shape id="baum6">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -314,12 +350,12 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="130 0 -33">
+							<transform scale="1 1 1" translation="150 0 -33">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
 							<!-- 7. Baum -->
-							<transform scale="1 1 1" translation="137 0 -41">
+							<transform scale="1 1 1" translation="157 0 -41">
 								<shape id="baum7">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>
@@ -328,21 +364,7 @@
 									<box size="1 20 1"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="130 0 -41">
-								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
-							</transform>
-							
-							<!-- 8. Baum -->
-							<transform scale="1 1 1" translation="137 0 -49">
-								<shape id="baum8">
-									<appearance>
-										<Material transparency='1' emissiveColor='1 1 0'>
-										</Material>
-									</appearance>
-									<box size="1 20 1"></box>
-								</shape>
-							</transform>
-							<transform scale="1 1 1" translation="130 0 -49">
+							<transform scale="1 1 1" translation="150 0 -41">
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 							
@@ -656,13 +678,91 @@
 								<inline url="models/neuerBaum/neuerBaum.x3d"></inline>
 							</transform>
 
+							<!-- weitere nicht-AI Gebäude -->
+							<!-- ASTA -->
+							<transform scale="1 1 1" translation="20 0 -109.7">
+								<shape id="asta">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="40 40 20"></box>
+								</shape>
+							</transform>
+							
+							<!-- Halle 8 -->
+							<transform scale="1 1 1" translation="68 0 33.2">
+								<shape id="halle8">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="70 40 30"></box>
+								</shape>
+							</transform>
+							
+							<!-- Sporthalle -->
+							<transform scale="1 1 1" translation="120 0 -7">
+								<shape id="sporthalle">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="20 50 90"></box>
+								</shape>
+							</transform>
+							
+							<!-- A-Gebäude -->
+							<transform scale="1 1 1" translation="250 0 -40">
+								<shape id="abuild">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="20 50 60"></box>
+								</shape>
+							</transform>
+							
+							<!-- B-Gebäude -->
+							<transform scale="1 1 1" translation="250 0 30">
+								<shape id="bbuild">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="20 50 60"></box>
+								</shape>
+							</transform>
+							
+							<!-- K-Gebäude -->
+							<transform scale="1 1 1" translation="300 0 -40">
+								<shape id="kbuild">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="20 50 60"></box>
+								</shape>
+							</transform>
+							
+							<!-- kA-Gebäude -->
+							<transform scale="1 1 1" translation="300 0 30">
+								<shape id="kAbuild">
+									<appearance>
+										<material diffuseColor="gray">
+										</material>
+									</appearance>
+									<box size="20 50 50"></box>
+								</shape>
+							</transform>
+							
                             <!-- Click-Events -->
 
                             <!-- Eingang G Gebaude!! -->
                             <transform scale="1 1 1" translation="65 2 -17" > <!-- translation="59 2 -48"-->
                                 <shape>
                                     <appearance>
-                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        <Material transparency='10.1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
                                     <box size="7.5 7.5 7.5" onmousedown="window.location = 'models/g/0flur/0flur.html';"></box>
@@ -678,20 +778,20 @@
                             <transform scale="0.4 0.6 0.4" translation="210.6 2 44.5" rotation="0 1 0 1.57">
                                 <shape>
                                     <appearance>
-                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        <Material transparency='10.1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="9 9 9" onmousedown="window.location = 'models/c/Flur1/BProjektCFlur.html';"></box>
+                                    <box size="9 9 9" onmousedown="window.location = 'models/c/0flur/0flur.html';"></box>
                                 </shape>
                             </transform>
                              <!-- Zweiter Eingang-->
                             <transform scale="0.4 0.6 0.4" translation="147 2 37" rotation="0 1 0 1.57">
                                 <shape>
                                     <appearance>
-                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        <Material transparency='10.1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="9 9 9" onmousedown="window.location = 'models/c/Flur1/BProjektCFlur.html';"></box>
+                                    <box size="9 9 9" onmousedown="window.location = 'models/c/0flur/0flur.html';"></box>
                                 </shape>
                             </transform>
                             
@@ -699,7 +799,7 @@
                              <transform scale="0.8 0.8 0.8" translation="173.8 2.4 -95">
                                 <shape>
                                     <appearance>
-                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        <Material transparency='10.1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
                                     <box size="8.5 8.5 8.5" onmousedown="window.location = 'models/e/0flur/0flur.html';"></box>
@@ -710,7 +810,7 @@
                                     <transform scale="1 1 1" translation="113 1 -110.3">
                                 <shape>
                                     <appearance>
-                                        <Material transparency='0.1' emissiveColor='0 1 1'>
+                                        <Material transparency='10.1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
                                     <box size="7 7 7" onmousedown="window.location = 'models/e/0flur/0flur.html';"></box>
@@ -721,14 +821,14 @@
                             <transform scale="1 1 1" translation="260 2 -270">
                                 <shape>
                                     <appearance>
-                                        <Material transparency='0.1' emissiveColor='1 0 1'>
+                                        <Material transparency='10.1' emissiveColor='1 0 1'>
                                         </Material>
                                     </appearance>
                                     <box size="70 10 10" onmousedown="window.location = 'models/mensa-i/mensa-i.html';"></box>
                                 </shape>
                             </transform>
 
-                                 <!-- Eingang Bib!! -->
+                                 <!-- Eingang Bib!! >
                             <transform scale="16 1.6 0.1" translation="320.40307 2.09017 -206.61264" rotation="0 1  0 1.57">
                                 <shape>
                                     <appearance>
@@ -737,12 +837,137 @@
                                     </appearance>
                                     <box size="9 9 9" onmousedown="window.location = 'models/mensa-i/mensa-i.html';"></box>
                                 </shape>
-                            </transform>
+                            </transform-->
+                            
+                            
+                             <!--Beschriftung vom G gebaude  -->
+                               <transform  translation="90 0.8 -16.06380"" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/G.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         
+                                          <!--Beschriftung vom C gebaude  -->
+                                         <transform  translation="223 0.8 43.8"" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/C.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         
+                                         <!--Beschriftung vom E gebaude  -->
+											<transform  translation="175 0.8 -78" >
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/E2.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="40 0 40";"> </box>
+                                         </shape>
+                                         </transform>
+                                        
+                                         <!--Beschriftung vom Mensa gebaude  -->
+                                         <transform  translation="250 0.8 -255">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/Mensa.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="30 0 30";"> </box>
+                                         </shape>
+                                         </transform>
+                                         
+                                         <!--Beschriftung vom SSC gebaude  -->
+                                         <transform  translation="225.76766 0.8 -213.83999" rotation="0 1 0 -92.6">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/SSC.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="30 0 30";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom Bibliothek gebaude  -->
+                                         <transform  translation="307.35108 0.8 -196.45022" rotation="0 1 0 92.6">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/Bibliothek.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom A gebaude  -->
+                                         <transform  translation="220 0.8 -50" rotation="0 1 0 -190">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/A.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom B gebaude  -->
+                                         <transform  translation="227.16494 0.8 18.93238" rotation="0 1 0 -190">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/B.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom D gebaude  -->
+                                         <transform  translation="142.18011 0.8 -33.59421" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/D.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom J gebaude  -->
+                                         <transform  translation="28 0.8 -136" rotation="0 1 0 3.20">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/J.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom K gebaude  -->
+                                         <transform  translation="325 0.8 -35" rotation="0 1 0 1.57">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/K.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="50 0 50";"> </box>
+                                         </shape>
+                                         </transform>
+                                         <!--Beschriftung vom H8 gebaude  -->
+                                         <transform  translation="90 0.8 10" rotation="0 1 0 3.20">
+                                           <shape>
+                                           <appearance>
+                                                    <material diffuseColor='white'></material>
+                                                    <ImageTexture url="images/H8.png"><ImageTexture/>
+                                           </appearance>
+                                             <box size="30 0 30";"> </box>
+                                         </shape>
+                                         </transform>
                         </scene>
                     </x3d>
                 </div>
             </div>
         </div>
-
     </body>
 </html>
