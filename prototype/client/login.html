@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>>Campus Viewer Fulda - Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="styles/jquery.mobile-1.4.2.css">
+        <link rel="stylesheet" type="text/css" href="styles/style.css" />
+
+        <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
+        <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
+                <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    </head>
+        <body>
+
+            <div data-role="panel" id="myPanel">
+                      <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+               <button id="index3" onclick="window.location.href = 'index.html';">Startseite</button>
+                                        <button id="projekt3" onclick="window.location.href = 'ueberDasProjekt.html';">das Projekt</button>
+                                        <button id="dieSchule3" onclick="window.location.href = 'ueberDieHS.html';">die Hochschule</button>
+                                        <button id="bedienung3" onclick="window.location.href = 'bedienungsanleitung.html';">Bedienungsanleitung</button>
+                                        <button id="kontakt3" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
+                                        <button id="impressum3" onclick="window.location.href = 'impressum.html';">Impressum</button>
+                                        <button id="login3" onclick="window.location.href = 'login.html';">Login</button>
+                                        <button id="logout3" onclick="">Logout</button>
+                                        <button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
+										<p id="text3" align="center"></p>	
+            </div>
+
+            <div data-role="main" class="ui-content">
+                    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
+
+                    <article>
+                                <h1>Anmeldung vom Campus Viewer Fulda</h1>
+                                <b>Melden Sie sich an, um den Campus Viewer Fulda zu betreten.</b>
+                        </article>
+
+                        <form id="loginform" name="formular">
+                                <fieldset>
+                                        <p>
+                                                <label id="fa" for="username">
+                                                        Benutzername: <div id="da"></div >
+                                                </label>
+                                                <input type="text" maxlength="50" name="username">
+                                        </p>
+                                        <p>
+                                                <label id ="fb" for="password">
+                                                        Passwort: <div id="db"></div>
+                                                </label>
+                                                <input type="password" maxlength="50" name="password">
+                                        </p>
+
+                                        <label for="send"></label>
+                                        <input type="submit" value="Login" id="btnSubmitForm" style=cursor:pointer;>
+                                        <div id="msg"></div>
+
+                                </fieldset>
+                        </form>
+                </div>
+                <script type="text/javascript">
+                        $(document).ready(function () {
+                                $.getScript("js/user.js");
+                                $.getScript("js/cookieControl.js");
+                        });
+                </script>
+        </body>
+</html>

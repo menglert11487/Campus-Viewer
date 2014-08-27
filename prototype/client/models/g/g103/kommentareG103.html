@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>Kommentare: Gebäude G, Raum G103</title>
+        <meta charset="UTF-8">
+
+        <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>							
+					
+		<script type="text/javascript">
+		
+			$(document).ready(function () {
+				$.getScript("../../../js/user.js");	
+																
+					$.ajax({
+							type: "POST",
+							crossDomain: false,
+							url: '/comment/showall',
+							data: { room: 'Campus Viewer Fulda - G103'},
+							success: function(data) {
+							
+								var kommentare = '';
+										
+								for (var i = data.length-1; 0 <= i; i--)
+								{
+									kommentare += data[i].username + ' schrieb: ' + '     ' + data[i].commentary + '\n\n'; 
+								}
+										
+								document.getElementById('commentBox').value = kommentare;
+							},
+								error: function(jqXHR, error, object, what) {
+								console.error("Error: " + error + " - " + jqXHR.status);
+							}
+					});	
+					
+			});
+			
+		</script>
+		<style type="text/css">		
+			#commentBox {	margin-left	:	0px;
+							resize		:	none;	
+							font-family	:	arial;
+							color	:	blue;}	
+	
+					 h1 {	font-family	:	arial;}
+		</style>
+		
+
+    </head>
+	
+	<body>
+				<h1>Kommentare zu Raum G103</h1>	
+							<textarea disabled id="commentBox" rows=5 cols=160></textarea>		
+	</body>
+</html>

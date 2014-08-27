@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='_G_0'>
+      <Appearance DEF='Projekt_Tisch02_lambert2SG'>
+        <Material diffuseColor='0.34 0.34 0.34' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_10' vertexCount='4414' primType='"TRIANGLESTRIP"' position='-0.0127029418945 0.445120513439 0.760762453079' size='14.1988697052 0.891605019569 7.45663118362' index='bingeo/BG_10_indexBinary.bin' coord='bingeo/BG_10_coordBinary.bin' normal='bingeo/BG_10_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_1'>
+      <Appearance DEF='window01:blinn1SG'>
+        <Material diffuseColor='0.76 0.76 0.76' shininess='0' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_9' vertexCount='1582' primType='"TRIANGLESTRIP"' position='7.36564254761 2.59642362595 -0.0220103263855' size='0.110424995422 3.10981297493 11.5952730179' index='bingeo/BG_9_indexBinary.bin' coord='bingeo/BG_9_coordBinary.bin' normal='bingeo/BG_9_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_2'>
+      <Appearance DEF='Projekt_Stuhl03_lambert3SG'>
+        <Material diffuseColor='0.73 0.64 0.43' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_8' vertexCount='14957 924' primType='"TRIANGLESTRIP" "TRIANGLES"' position='0.00440168380737 0.840057015419 1.45637536049' size='13.9114809036 0.684998035431 7.81896877289' index='bingeo/BG_8_indexBinary.bin' coord='bingeo/BG_8_coordBinary.bin' normal='bingeo/BG_8_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_3'>
+      <Appearance DEF='Projekt_Stuhl03_lambert2SG'>
+        <Material diffuseColor='0.12 0.15 0.23' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_7' vertexCount='8093 528' primType='"TRIANGLESTRIP" "TRIANGLES"' position='-7.53402709961e-005 0.832622528076 1.45460653305' size='13.8692512512 0.644728958607 7.77997684479' index='bingeo/BG_7_indexBinary.bin' coord='bingeo/BG_7_coordBinary.bin' normal='bingeo/BG_7_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_4'>
+      <Appearance DEF='Projekt_Stuhl03_blinn1SG'>
+        <Material diffuseColor='0.24 0.27 0.3' shininess='0' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_6' vertexCount='24549 792' primType='"TRIANGLESTRIP" "TRIANGLES"' position='-0.0221123695374 0.261190503836 1.40679049492' size='13.9274749756 0.569986999035 7.74154090881' index='bingeo/BG_6_indexBinary.bin' coord='bingeo/BG_6_coordBinary.bin' normal='bingeo/BG_6_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_5'>
+      <Appearance DEF='window01:lambert2SG'>
+        <Material diffuseColor='0.4 0.45 0.5' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_5' vertexCount='142' primType='"TRIANGLESTRIP"' position='7.36564207077 2.59642362595 -0.0220112800598' size='0.0305042266846 2.95577096939 11.3450450897' index='bingeo/BG_5_indexBinary.bin' coord='bingeo/BG_5_coordBinary.bin' normal='bingeo/BG_5_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_6'>
+      <Appearance DEF='Projekt_Tisch02_lambert3SG'>
+        <Material diffuseColor='0.91 0.83 0.62' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_4' vertexCount='1836 3' primType='"TRIANGLESTRIP" "TRIANGLES"' position='-0.0127029418945 0.921725034714 0.760762453079' size='14.1988697052 0.0616039633751 7.45663118362' index='bingeo/BG_4_indexBinary.bin' coord='bingeo/BG_4_coordBinary.bin' normal='bingeo/BG_4_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_7'>
+      <Appearance DEF='lambert3SG'>
+        <Material diffuseColor='0.9 0.8 0.63' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_3' vertexCount='4' primType='"TRIANGLESTRIP"' position='-7.26048994064 3.01344203949 -4.76837158203e-007' size='0 3.21567821503 11.9806013107' index='bingeo/BG_3_indexBinary.bin' coord='bingeo/BG_3_coordBinary.bin' normal='bingeo/BG_3_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_8'>
+      <Appearance DEF='blinn1SG'>
+        <Material diffuseColor='1 1 1' shininess='0' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='34' primType='"TRIANGLESTRIP"' position='3.38642215729 2.75146794319 -5.83186817169' size='5.26548624039 2.55627393723 0.110788822174' index='bingeo/BG_2_indexBinary.bin' coord='bingeo/BG_2_coordBinary.bin' normal='bingeo/BG_2_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_9'>
+      <Appearance DEF='lambert2SG'>
+        <Material diffuseColor='0.94 0.94 0.94' shininess='0'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='306' primType='"TRIANGLESTRIP"' position='0 2.3106405735 0.208060264587' size='14.8037500381 4.93075704575 12.6794929504' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='_G_10'>
+      <Appearance DEF='blinn2SG'>
+        <Material diffuseColor='0.13 0.13 0.13' shininess='0' specularColor='0.5 0.5 0.5'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='4' primType='"TRIANGLESTRIP"' size='14.5209798813 0 11.9806013107' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" "http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' profile='Full' version='3.0' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.0.xsd'>
+  <Scene DEF='scene'>
+    <Shape DEF='SP_1'>
+      <Appearance DEF='Metal_Rough'>
+        <Material diffuseColor='0.6 0.615686 0.627451' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"alte-mensa/Metal_Rough.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_1' vertexCount='162 6' primType='"TRIANGLESTRIP" "TRIANGLES"' position='137.019989014 3.0925450325 -36.4949989319' size='28.5399932861 6.185090065 28.609998703' index='bingeo/BG_1_indexBinary.bin' coord='bingeo/BG_1_coordBinary.bin' normal='bingeo/BG_1_normalBinary.bin' texCoord='bingeo/BG_1_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_4'>
+      <Appearance DEF='Cladding_Siding_White'>
+        <Material diffuseColor='0.811765 0.811765 0.811765' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"alte-mensa/Cladding_Siding_White.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_4' vertexCount='10' primType='"TRIANGLESTRIP"' position='126.48400116 2.67957997322 -35.7249984741' size='6.36799621582 5.35915994644 27.0699977875' index='bingeo/BG_4_indexBinary.bin' coord='bingeo/BG_4_coordBinary.bin' normal='bingeo/BG_4_normalBinary.bin' texCoord='bingeo/BG_4_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_0'>
+      <Appearance DEF='Metal_Panel'>
+        <Material diffuseColor='0.560784 0.615686 0.619608' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"alte-mensa/Metal_Panel.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_0' vertexCount='32' primType='"TRIANGLESTRIP"' position='136.570007324 5.04685497284 -49.3799972534' size='26.5399932861 0.624609947205 0.240001678467' index='bingeo/BG_0_indexBinary.bin' coord='bingeo/BG_0_coordBinary.bin' normal='bingeo/BG_0_normalBinary.bin' texCoord='bingeo/BG_0_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_6'>
+      <Appearance DEF='Metal_Corrogated_Shiny'>
+        <Material diffuseColor='0.756863 0.756863 0.756863' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"alte-mensa/Metal_Corrogated_Shiny.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_6' vertexCount='193' primType='"TRIANGLESTRIP"' position='138.161499023 4.07934808731 -58.2324981689' size='6.31298828125 8.25148391724 10.2522010803' index='bingeo/BG_6_indexBinary.bin' coord='bingeo/BG_6_coordBinary.bin' normal='bingeo/BG_6_normalBinary.bin' texCoord='bingeo/BG_6_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_5'>
+      <Appearance DEF='FrontColor'>
+        <Material diffuseColor='0.890196 0.882353 0.870588' shininess='0' specularColor='0.33 0.33 0.33'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_5' vertexCount='442' primType='"TRIANGLESTRIP"' position='137.019989014 4.07934808731 -42.7742996216' size='28.5399932861 8.25148391724 41.1686019897' index='bingeo/BG_5_indexBinary.bin' coord='bingeo/BG_5_coordBinary.bin' normal='bingeo/BG_5_normalBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_3'>
+      <Appearance DEF='Wood_Floor_Dark'>
+        <Material diffuseColor='0.6 0.368627 0.164706' shininess='0' specularColor='0.33 0.33 0.33'/>
+        <ImageTexture url='"alte-mensa/Wood_Floor_Dark.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_3' vertexCount='12' primType='"TRIANGLESTRIP"' position='149.839996338 2.67957997322 -35.7249984741' size='0 5.35915994644 27.0699977875' index='bingeo/BG_3_indexBinary.bin' coord='bingeo/BG_3_coordBinary.bin' normal='bingeo/BG_3_normalBinary.bin' texCoord='bingeo/BG_3_texCoordBinary.bin'/>
+    </Shape>
+    <Shape DEF='SP_2'>
+      <Appearance DEF='Translucent_Glass_Tinted'>
+        <Material diffuseColor='0.027451 0.788235 0.941176' shininess='0' specularColor='0.33 0.33 0.33' transparency='0.52'/>
+        <ImageTexture url='"alte-mensa/Translucent_Glass_Tinted.jpg"'/>
+      </Appearance>
+      <BinaryGeometry DEF='BG_2' vertexCount='45' primType='"TRIANGLESTRIP"' position='139.867492676 2.67957997322 -41.1686477661' size='19.9449920654 5.35915994644 16.1826972961' index='bingeo/BG_2_indexBinary.bin' coord='bingeo/BG_2_coordBinary.bin' normal='bingeo/BG_2_normalBinary.bin' texCoord='bingeo/BG_2_texCoordBinary.bin'/>
+    </Shape>
+  </Scene>
+</X3D>

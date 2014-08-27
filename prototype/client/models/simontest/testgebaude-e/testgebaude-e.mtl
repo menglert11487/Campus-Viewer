@@ -1,0 +1,161 @@
+# Blender MTL File: 'None'
+# Material Count: 17
+
+newmtl Brick_Antique
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.461177 0.329412 0.222745
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Simon Pierre\Desktop\for blender\E Gebaude\Brick_Antique.jpg
+
+newmtl Brick_Tumbled
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.423530 0.414118 0.414118
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Simon Pierre\Desktop\for blender\E Gebaude\Brick_Tumbled.jpg
+
+newmtl Color_I02
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.156862 0.156862 0.800000
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.658823 0.564706 0.439216
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_Hair
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.269804 0.238431 0.222745
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_Pager
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.109804 0.109804 0.109804
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_Pants
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.480000 0.429804 0.382745
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_Shirt
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.382745 0.382745 0.480000
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_Shoes
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.320000 0.222745 0.191373
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_Sweater
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.445490 0.445490 0.445490
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Derrick_T_shirt
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.709020 0.709020 0.709020
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl FrontColor
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+
+newmtl Roofing_Shingles_GAF_Estates
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.254118 0.241569 0.232157
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Simon Pierre\Desktop\for blender\E Gebaude\Roofing_Shingles_GAF_Estates.jpg
+
+newmtl Tile_Ceramic_Multi
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.517647 0.360784 0.263530
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Simon Pierre\Desktop\for blender\E Gebaude\Tile_Ceramic_Multi.jpg
+
+newmtl Translucent_Glass_Blue
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.313726 0.467451 0.743530
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 0.500000
+illum 2
+
+newmtl _Brick_Antique_1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.461177 0.329412 0.222745
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Simon Pierre\Desktop\for blender\E Gebaude\_Brick_Antique_1.jpg
+
+newmtl _Brick_Tumbled_1
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.423530 0.414118 0.414118
+Ks 0.165000 0.165000 0.165000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Simon Pierre\Desktop\for blender\E Gebaude\_Brick_Tumbled_1.jpg

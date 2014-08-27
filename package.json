@@ -1,0 +1,15 @@
+{
+    "name": "campus-viewer",
+    "repository": {
+        "type": "git",
+        "url": "ssh://538ddae95973ca30ee000877@viewer-campusfd.rhcloud.com/~/git/viewer.git"
+    },
+    "scripts": {
+        "start": "node prototype/server/index.js"
+    },
+    "main": "prototype/server/index.js",
+    "dependencies": {
+        "express.io": "",
+        "mysql": ""
+    }
+}

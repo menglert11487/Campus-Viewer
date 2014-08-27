@@ -1,0 +1,252 @@
+body{
+   background-color: #e3e3e3;
+   //background-image: url(10tastics.png);
+   background-size:  30% ;
+   background-repeat: no-repeat;
+   background-position: 450px -50px;
+}
+
+
+#ansicht{
+
+   cursor:pointer;
+
+   position:absolute;
+   left:0%;
+   top:0%;
+   padding: 0 0;
+   width:100%;
+   height:100%;
+   z-index: -1;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #e3e3e3;
+}
+
+#startseite{
+   cursor:pointer;
+
+   position:absolute;
+   top:25%;
+   left:1%;
+
+   height:4%;
+   width: 7.5%;
+
+   border: 1px solid black;
+   border-style: ridge;
+   padding: 10px 10px;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #939393;
+
+}
+
+#impressum{
+   cursor:pointer;
+
+   position:absolute;
+   top:35%;
+   left:1%;
+
+   height:4%;
+   width: 7.5%;
+
+   border: 1px solid black;
+   padding: 10px 10px;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #939393;
+}
+
+#kontakt{
+   cursor:pointer;
+
+   position:absolute;
+   top:45%;
+   left:1%;
+
+   height:4%;
+   width: 7.5%;
+
+   border: 1px solid black;
+   padding: 10px 10px;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #939393;
+}
+
+#box4{
+   cursor:pointer;
+
+   position:absolute;
+   top:55%;
+   left:1%;
+
+   height:4%;
+   width: 7.5%;
+
+   border: 1px solid black;
+   padding: 10px 10px;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #939393;
+}
+
+#box5{
+
+   cursor:pointer;
+
+   position:absolute;
+   top:65%;
+   left:1%;
+
+   height:4%;
+   width: 7.5%;
+
+   border: 1px solid black;
+   padding: 10px 10px;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #939393;
+}
+
+#box6{
+
+   cursor:pointer;
+
+   position:absolute;
+   top:75%;
+   left:1%;
+
+   height:4%;
+   width: 7.5%;
+
+   border: 1px solid black;
+   padding: 10px 10px;
+
+   text-align: center;
+   font-weight: bold;
+   background-color: #939393;
+}
+
+#textBox1{
+   position:absolute;
+   top:25%;
+   left:20%;
+   height: 40%;
+   width:40%;
+   border: 1px solid black;
+   border-style:hidden;
+   padding: 10px 10px;
+   text-align: left;
+   font-weight:bold;
+
+}
+
+#textBox2{
+   position:absolute;
+   top:25%;
+   left:20%;
+   height: 40%;
+   width:40%;
+   border: 1px solid black;
+   border-style:hidden;
+   padding: 10px 10px;
+   text-align: left;
+   font-weight:bold;
+}
+
+DIV#x3dom_logdiv.x3dom-logContainer{
+	position:absolute;
+	z-index: 10000;
+	bottom: 0px;
+}
+
+
+
+#control{
+    width: 200px;
+    height: 200px;
+    position:absolute;
+    z-index: 9500;
+    background-color: rgba(120, 120, 120, 0.5);
+    bottom: 0px;
+    border-radius: 50%;
+    border: solid 2px #ffffff;
+}
+
+#pointer{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 9000;
+    background-color: #414141;
+    border: solid 2px #ffffff;
+    border-radius: 50%;
+    top: 100px;
+    left: 100px;
+}
+
+#style{
+    position:absolute;
+    width: 250px;
+    height: 250px;
+    z-index: 10000;
+    bottom: 25px;
+    left: 25px;
+}
+
+#joystick {
+    position:absolute;
+    width: 200px;
+    height: 200px;
+    z-index: 10000;
+    bottom: 25px;
+    left: 25px;
+}
+
+#joystick > div:nth-child(1) {
+    position: absolute;
+    height: 99%;
+    left: 50%;
+    top: -2px;
+    border: solid 2px #ffffff;
+}
+
+#joystick > div:nth-child(2) {
+    position: absolute;
+    width: 99%;
+    left: 0%;
+    top: 50%;
+    border: solid 2px #ffffff;
+}
+
+#joystick #control {
+    position:absolute;
+    width: 200px;
+    height: 200px;
+    bottom: 0px;
+    z-index: 9500;
+    background-color: rgba(120, 120, 120, 0.5);
+    border-radius: 50%;
+    border: solid 2px #ffffff;
+}
+
+#joystick #pointer {
+    position: absolute;
+    top: 75px;
+    left: 75px;
+    width: 50px;
+    height: 50px;
+    z-index: 9000;
+    background-color: #414141;
+    border: solid 2px #ffffff;
+    border-radius: 50%;
+}

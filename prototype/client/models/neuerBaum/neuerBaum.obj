@@ -1,0 +1,33 @@
+# Alias OBJ Model File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+# File units = meters
+
+mtllib neuerBaum.mtl
+
+g Mesh1 Model
+
+usemtl tree
+v 3.4286 0 0.0609838
+vt 0 0
+vn 0 0 0.0254
+v 11.3702 0 0.0609838
+vt 1 0
+v 3.4286 9.97515 0.0609838
+vt 0 1
+f 1/1/1 2/2/1 3/3/1
+
+v 11.3702 9.97515 0.0609838
+vt 1 1
+f 4/4/1 3/3/1 2/2/1
+
+g Mesh2 Model
+
+v 7.2816 2.31012e-014 -3.84077
+vn -0.0254 0 6.84497e-016
+v 7.2816 2.31012e-014 4.10081
+v 7.2816 9.97515 -3.84077
+f 5/1/2 6/2/2 7/3/2
+
+v 7.2816 9.97515 4.10081
+f 8/4/2 7/3/2 6/2/2
+
