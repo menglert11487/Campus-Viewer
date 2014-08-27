@@ -80,6 +80,7 @@
 				Collision.AddCollisionObject(document.getElementById("baumbib6"));
 				Collision.AddCollisionObject(document.getElementById("baumbib7"));
 				Collision.AddCollisionObject(document.getElementById("baumbib8"));
+				
 				var camPosition = new x3dom.fields.SFVec3f(-180.0, -3.6, 46.0);
 				var camOrientation = new x3dom.fields.SFVec2f(0.0, 3.1);
 				Navigation.ViewState = new Viewstate(camPosition, camOrientation);
@@ -95,6 +96,7 @@
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
+				
             };
         </script>
 
@@ -132,18 +134,13 @@
 
             <div data-role="panel" id="myPanel2">
 				<h2>Navi</h2>
-                <button onclick="switchCamera('vp_2');">Geneigt</button>
-                <button onclick="switchCamera('vp_3');">E</button>
-                <button onclick="switchCamera('vp_4');">G</button>
-                <button onclick="switchCamera('vp_5');">C</button>
-                <button onclick="switchCamera('vp_6');">Mensa</button>
-                <button onclick="switchCamera('vp_7');">SSC</button>
-                <button onclick="switchCamera('vp_8');">Bibliothek</button>
-                <button onClick="lookArround()">360 view</button>
-				<form name="changeSpeed" action="javascript:changeSpeed()">
-						<input name="speed" type="text"></input>
-						<input name="submit" type="submit" value="Speed"/>
-				</form>
+                <button onclick="switchCamera('vp_1');">Geneigt</button>
+                <button onclick="switchCamera('vp_2');">E</button>
+                <button onclick="switchCamera('vp_3');">G</button>
+                <button onclick="switchCamera('vp_4');">C</button>
+                <button onclick="switchCamera('vp_5');">Mensa</button>
+                <button onclick="switchCamera('vp_6');">SSC</button>
+                <button onclick="switchCamera('vp_7');">Bibliothek</button>
             </div>
             <div data-role="main" class="ui-content" style="width: 80px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
@@ -164,67 +161,46 @@
 							
 							<Viewfrustum id="camera"></Viewfrustum>
 							
-							<!-- <Viewpoint id="camera"
-								position="213.22204 2.09661 -51.79562"
-								orientation="-0.06399 0.99598 0.06265 1.55356"
-								zNear="0.01000" zFar="10000.00000"
-								description="defaultX3DViewpointNode">
-							</Viewpoint> -->
-
+							<!-- geneigt -->
 							<Viewpoint id="vp_1"
-							   position="200.00000 12.99405 589.67119"
-							   orientation="0.00000 0.00000 0.00000 0.00000"
-							   zNear="0.1" zFar="10000"
-							   description="defaultX3DViewpointNode">
-							</Viewpoint>
-
-							<Viewpoint id="vp_2"
 							   position="203.17495 124.79400 151.24406"
-							   orientation="-0.99963 0.02700 -0.00325 0.62053"
-							   zNear="0.1" zFar="10000"
-							   description="defaultX3DViewpointNode">
+							   orientation="0.5 0">
 							</Viewpoint>
 
-							<Viewpoint  id="vp_3"
+							<!-- E-Gebäude -->
+							<Viewpoint  id="vp_2"
 								position="160.84188 1.47884 -70.22055"
-								orientation="0.85575 -0.51669 0.02679 0.12105"
-								zNear="0.01000" zFar="10000.00000"
-								description="defaultX3DViewpointNode">
+								orientation="0.0 1.0">
 							</Viewpoint>
 
-							<Viewpoint id="vp_4"
+							<!-- G-Gebäude -->
+							<Viewpoint id="vp_3"
 							   position="98.06126 2.58007 -17.79897"
-							   orientation="0.05622 0.99803 -0.02772 0.91783"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							   orientation="0.0 -1.8">
 							</Viewpoint>
 
+							<!-- C-Gebäude -->
+							<Viewpoint id="vp_4"
+							   position="233.67249 2.91903 28.48135"
+							   orientation="0.0 -2.2">
+							</Viewpoint>
+
+							<!-- Mensa -->
 							<Viewpoint id="vp_5"
-							   position="235.34825 2.91903 -36.65452"
-							   orientation="0.01468 0.99942 -0.03068 2.24933"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							   position="247.99612 2.74453 -223.31760"
+							   orientation="0.0 0.0">
 							</Viewpoint>
 
+							<!-- SSC -->
 							<Viewpoint id="vp_6"
-							   position="258.43312 2.74453 -192.14460"
-							   orientation="0.63506 0.77223 -0.01880 0.07665"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
-							</Viewpoint>
-
-							<Viewpoint id="vp_7"
 							   position="245.80363 2.84313 -204.45153"
-							   orientation="0.01756 0.99973 -0.01542 1.44183"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							   orientation="0.0 -1.5">
 							</Viewpoint>
 
-							<Viewpoint id="vp_8"
-							   position="275.90217 2.79131 -171.53470"
-							   orientation="0.07691 -0.99655 0.03109 0.77080"
-							   zNear="0.01000" zFar="10000.00000"
-							   description="defaultX3DViewpointNode">
+							<!-- Bib -->
+							<Viewpoint id="vp_7"
+							   position="284.33447 2.79131 -201.84453"
+							   orientation="0.0 1.5">
 							</Viewpoint>
 
 							<!-- BBox Transform -->
@@ -887,7 +863,7 @@
                                          </transform>
                                          
                                          <!--Beschriftung vom E gebaude  -->
-                               <transform  translation="175 0.8 -78" >
+											<transform  translation="175 0.8 -78" >
                                            <shape>
                                            <appearance>
                                                     <material diffuseColor='white'></material>
@@ -993,6 +969,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>

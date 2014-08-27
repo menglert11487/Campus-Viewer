@@ -14,8 +14,6 @@ Collision.AddCollisionObject = function(object){
 
 // Funktion berechnet die Position der Kamera
 Collision.CalculateCameraPosition = function() {
-    // var highlightNode = document.getElementById("camera");
-    // var cameraMatrix = highlightNode._x3domNode._nameSpace.doc._viewarea._last_mat_view.inverse();
     return Navigation.ViewState.ViewMatrix.e3();
 };
 
@@ -74,11 +72,8 @@ Collision.Render = function(object){
 			var facX = -(1.0 / halfWidth * (-halfWidth + Navigation.Position.x));
 			var facZ = -(1.0 / halfHeight * (-halfHeight + Navigation.Position.y));    
 			Navigation.ViewState.TranslateView(new x3dom.fields.SFVec3f(-2.0*facX, 0.0, -2.0*facZ));
-			//Navigation.Rotation.ViewState.RotateView(facY * speed, facX * speed);
 			NavigationAPI.SetView(Navigation.ViewState.ViewMatrix);
 			NavigationAPI.Render();
-			console.log(Collision.BuildingList[i])
-			//document.getElementById("camera").setAttribute('position', (oldCameraPosition.x) + " " + oldCameraPosition.y + " " + (oldCameraPosition.z));
 			break;
 		}
 	}

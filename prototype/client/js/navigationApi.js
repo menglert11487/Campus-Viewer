@@ -64,7 +64,6 @@ Viewstate = function(translation, rotation) {
 		var rotX = x3dom.fields.SFMatrix4f.rotationY(rotationXY.y);
         var rotY = x3dom.fields.SFMatrix4f.rotationX(rotationXY.x);
 		translation = rotX.inverse().multMatrixPnt(translation);
-		console.log(translation.x + " " + translation.y + " " + translation.z);
         translationVector = translationVector.add(translation);
         
         var pos = x3dom.fields.SFMatrix4f.translation(translationVector);
