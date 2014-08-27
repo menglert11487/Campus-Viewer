@@ -27,6 +27,13 @@
 				Collision.AddCollisionObject(document.getElementById("left"));
 				Collision.AddCollisionObject(document.getElementById("right"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgang0Flur"));
+				Collision.AddCollisionDoor(document.getElementById("ausgang0Flur1"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC102"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC103"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC104"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC105"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(24.0, -1.0, -42);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.7);
                 Navigation.onLoad();
@@ -98,12 +105,12 @@
 							
 							<!-- Treppe Flur (M.) Ausgang  -->
 							<transform scale="1 1 1" translation="-28.8 1.15 41.5" >
-								<shape>
+								<shape id="ausgang0Flur" url="../0flur/0flur.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../0flur/0flur.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
                                                         
@@ -131,11 +138,11 @@
 								</shape>
 							</transform>
 							
-							<!-- Ausgang zum Campus (Campus) -->
-							<transform scale="1 1 1" translation="-10.2 1.15 41.5" rotation="0 1 0 1.57">
-								<shape>
+							<!-- Treppe Flur Ausgang  -->
+							<transform scale="1 1 1" translation="-10.2 1.15 41.5">
+								<shape id="ausgang0Flur1" url="../0flur/0flur.html">
 									<appearance>
-										<Material transparency='1' emissiveColor='0 1 1'>
+										<Material transparency='1' emissiveColor='0 1 0'>
 										</Material>
 									</appearance>
 									<box size="1 6 1" onmousedown="window.location ='../0flur/0flur.html';"></box>
@@ -166,12 +173,12 @@
 							
 							<!-- Eingang C102-->
 							<transform scale="1 1 1" translation="-25.6 1.15 39.5" >
-								<shape>
+								<shape id="eingangC102" url="../c102/c102.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../c102/c102.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
                                                         
@@ -188,12 +195,12 @@
                                                       
 							<!-- Eingang C103-->
 							<transform scale="1 1 1" translation="-21.8 1.15 39.5" >
-								<shape>
+								<shape id="eingangC103" url="../c103-4/c103-4.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../c103-4/c103-4.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
                                                         
@@ -210,12 +217,12 @@
 							
 							<!-- Eingang C104-->
 							<transform scale="1 1 1" translation="-17.1 1.15 39.5" >
-								<shape>
+								<shape id="eingangC104" url="../c103-4/c103-4.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../c103-4/c103-4.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
                                                        
@@ -232,12 +239,12 @@
                                                               
 							<!-- Eingang zu C105-->
 							<transform scale="1 1 1" translation="-13.6 1.15 39.5" >
-								<shape>
+								<shape id="eingangC105" url="../c105/c105.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="1 6 1" onmousedown="window.location ='../c105/c105.html';"></box>
+									<box size="1 6 1"></box>
 								</shape>
 							</transform>
                                                         

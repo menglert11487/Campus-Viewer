@@ -28,6 +28,8 @@
 				Collision.AddCollisionObject(document.getElementById("right"));
 				Collision.AddCollisionObject(document.getElementById("table1"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgang1Flur"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(20.0, -1.5, -64);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 0.3);
                 Navigation.onLoad();
@@ -100,12 +102,12 @@
 							</transform>
 							<!-- Ausgang Flur  -->
 							<transform scale="1 1 1" translation="-20.4 1.15 64.8" >
-								<shape>
+								<shape id="ausgang1Flur" url="../1flur/1flur.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="1.2 6 1.2" onmousedown="window.location ='../1flur/1flur.html';"></box>
+									<box size="1.2 6 1.2"></box>
 								</shape>
 							</transform> 
 							<!-- Wände für Kollision -->
