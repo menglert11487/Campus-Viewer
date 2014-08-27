@@ -1,0 +1,92 @@
+newmtl pCube228SG
+illum 4
+Kd 0.98 0.98 0.98
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pCube228SG1
+illum 4
+Kd 0.53 0.92 0.93
+Ka 0.00 0.00 0.00
+Tf 0.09 0.09 0.09
+Ni 1.00
+newmtl pCube230SG
+illum 4
+Kd 0.36 0.49 0.20
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pCube303SG
+illum 4
+Kd 0.99 0.72 0.43
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pCube304SG
+illum 4
+Kd 0.99 0.72 0.43
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns -0.75
+newmtl pCylinder280SG
+illum 4
+Kd 0.68 0.68 0.68
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG
+illum 4
+Kd 1.00 1.00 1.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG1
+illum 4
+Kd 0.89 0.70 0.57
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG2
+illum 4
+Kd 0.87 0.68 0.56
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG3
+illum 4
+Kd 0.89 0.70 0.57
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG4
+illum 4
+Kd 0.89 0.70 0.57
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG5
+illum 4
+Kd 0.62 0.57 0.54
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane1SG6
+illum 4
+Kd 0.90 0.71 0.58
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane2SG
+illum 4
+Kd 0.91 0.91 0.91
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl pPlane5SG
+illum 4
+Kd 0.90 0.71 0.58
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00

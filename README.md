@@ -20,6 +20,10 @@ Ab hier trägt jeder seinen Namen ein:
 06.) Jasmin Seiffert
 07.) Stefanie Zahn
 08.) Désirée Mauß
+<<<<<<< HEAD
+=======
+09.) Andreas Fitz
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 >>>>>>> FETCH_HEAD
 
 Steffi: Test, Contributors Übersicht (Commits werden erscheinen nicht)

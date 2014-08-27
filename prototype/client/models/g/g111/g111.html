@@ -13,6 +13,10 @@
         <script type="text/javascript" src="../../..//js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../..//js/ext/jquery.mobile-1.4.2.min.js"></script>
 
+<<<<<<< HEAD
+=======
+		<script type="text/javascript" src="../../..//js/navigationApi.js"></script>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
         <script type="text/javascript" src="../../..//js/collision.js"></script>
         <script type="text/javascript" src="../../..//js/navigation.js"></script>
                 <script type="text/javascript" src="../../../js/main.js"></script>
@@ -26,6 +30,7 @@
                 });
 				 
             window.onload = function() {
+<<<<<<< HEAD
                 Navigation.onLoad();
 
                 function Render() {
@@ -34,6 +39,30 @@
                 };
                 window.requestAnimationFrame(Render);
 
+=======
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("top"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				Collision.AddCollisionObject(document.getElementById("table0"));
+				
+                var camPosition = new x3dom.fields.SFVec3f(14.5, -1.7, -52);
+                var camOrientation = new x3dom.fields.SFVec2f(0.10, -1.0);
+                Navigation.onLoad();
+                Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+                NavigationAPI.SetCamera("camera");								
+                NavigationAPI.SetViewState(Navigation.ViewState);
+                NavigationAPI.Render();
+
+                function Render() {
+                    Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
+                    Collision.Render();
+                    window.requestAnimationFrame(Render);
+                };
+                window.requestAnimationFrame(Render);
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
             };
 
         </script>
@@ -42,6 +71,7 @@
         <div data-role="page" id="pageone">
 
             <div data-role="panel" id="myPanel">
+<<<<<<< HEAD
                  <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
                <button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
                                         <button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
@@ -119,5 +149,120 @@
            </div>
 </div>
 
+=======
+				<p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+				<button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
+				<button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
+				<button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
+				<button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+				<button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
+				<button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
+				<button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
+				<button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
+					<fieldset style="background-color:#D0D0D0">
+						<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
+						<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
+						<p align="center" id="text3"></p>
+					</fieldset>
+				<button id="logout3" onclick="">Logout</button>	
+            </div>
+
+            <div data-role="panel" id="myPanel2">
+				<h2>Navi</h2>
+                <button onClick="lookArround()">360 view</button>
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"></input>
+						<input name="submit" type="submit" value="Speed"/>
+					</form>
+            </div>
+            <div data-role="main" class="ui-content" style="width: 120px">
+                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
+                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a>
+                <div id="ansicht">
+					<div id="joystick">
+						<div id="vline"></div>
+						<div id="hline"></div>
+						<div id="control"></div>
+						<div id="pointer"></div>
+					</div>
+				<x3d style="width:100%;height:100%;" id="x3d_element">
+						<scene>
+							<navigationInfo type="none"></navigationInfo>
+							<Environment frustumCulling='false'></Environment>
+							<Viewfrustum id="camera"></Viewfrustum>
+							<!--PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 -5 0' radius='20' >  </PointLight-->
+							<directionalLight id="directional" direction='20 -14 -15'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							<navigationInfo id="head" headlight='true'>  </navigationInfo>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+								<transform scale="0.6 0.6 0.6" translation="-15 0 50">
+									<inline url="g111.x3d"></inline>
+								</transform>
+							<transform scale="0.2 0.4 0.2" translation="-12 0.9 52.85" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+											<Material transparency='10.0' emissiveColor='0 1 1'>
+											</Material>
+									</appearance>
+									<box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
+								</shape>
+							</transform>
+							<!-- Wände für Kollision -->
+							<transform scale="1 1 1" translation="-20.2 0 50">
+								<shape id="top">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="5 12 30"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-9.5 0 50">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="5 12 30"></box>
+								</shape>
+							</transform>
+							
+							<transform scale="1 1 1" translation="-15 0 44">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-15 0 56.2">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-16 0 47">
+								<shape id="table0">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="8 4 8"></box>
+								</shape>
+							</transform>
+						<background skyColor="0 0 0"></background>
+					   </scene>
+					</x3d>
+				</div>
+			</div>
+		</div>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
    </body>
 </html>

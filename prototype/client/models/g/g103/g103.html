@@ -13,11 +13,19 @@
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
+<<<<<<< HEAD
+=======
+		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
         <script type="text/javascript" src="../../../js/main.js"></script>
 		
+<<<<<<< HEAD
 		 <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+=======
+		<script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 					
 				
 				<style type="text/css">		
@@ -31,10 +39,16 @@
 
 				 $(document).ready(function () {
 				        $.getScript("../../../js/cookieControl.js");
+<<<<<<< HEAD
                         $.getScript("../../../js/user.js");								
                  });
 				 
 				function ladeKommentare() {
+=======
+                        $.getScript("../../../js/user.js");	
+
+				$('#kommAnz').click(function () {
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 				 	$.ajax({
 							type: "POST",
 							crossDomain: false,
@@ -43,6 +57,7 @@
 							success: function(data) {
 							
 								var kommentare = '';
+<<<<<<< HEAD
 										
 								for (var i = data.length-1; 0 <= i; i--)
 								{
@@ -50,12 +65,32 @@
 								}
 										
 								document.getElementById('commentBox').value = kommentare;
+=======
+								
+								for (var i = data.length-1; 0 <= i; i--)
+								{
+									<!--kommentare += data[i].username + ' schrieb: ' + '\n' + data[i].commentary + '\n\n'; -->
+									document.getElementById('commentBox').innerHTML += '<span style="color:blue; font-weight: bold;">' + data[i].username + '</span> <span style="font-weight: bold;">schrieb:</span>';
+									document.getElementById('commentBox').innerHTML += '<br>';
+									document.getElementById('commentBox').innerHTML += '<span style="color:blue">' + data[i].commentary + '</span>';
+									document.getElementById('commentBox').innerHTML += '<br>';
+									document.getElementById('commentBox').innerHTML += '<br>';										
+								}
+										
+								<!--document.getElementById('commentBox').innerHTML = kommentare;-->
+								<!--document.getElementById('commentBox').style.color = "blue";-->
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 							},
 								error: function(jqXHR, error, object, what) {
 								console.error("Error: " + error + " - " + jqXHR.status);
 							}
 					});	
+<<<<<<< HEAD
 				}
+=======
+				});						
+                 });
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 				 
 				 <!--function popupWinKommentare()-->
 				<!--{-->
@@ -63,10 +98,37 @@
 				<!-- } -->
 				 
             window.onload = function() {
+<<<<<<< HEAD
                 Navigation.onLoad();
 
                 function Render() {
                     Navigation.Render();
+=======
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("top"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				//Collision.AddCollisionObject(document.getElementById("table0"));
+				//Collision.AddCollisionObject(document.getElementById("table1"));
+				//Collision.AddCollisionObject(document.getElementById("table2"));
+				//Collision.AddCollisionObject(document.getElementById("table3"));
+				//Collision.AddCollisionObject(document.getElementById("table4"));
+				//Collision.AddCollisionObject(document.getElementById("table5"));
+				
+                var camPosition = new x3dom.fields.SFVec3f(18, -2, -55);
+                var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.6);
+                Navigation.onLoad();
+                Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+                NavigationAPI.SetCamera("camera");								
+                NavigationAPI.SetViewState(Navigation.ViewState);
+                NavigationAPI.Render();
+
+                function Render() {
+                    Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
+                    Collision.Render();
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
@@ -77,6 +139,7 @@
     </head>
     <body>
         <div data-role="page" id="pageone">
+<<<<<<< HEAD
 
             <div data-role="panel" id="myPanel">
                   <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
@@ -110,16 +173,49 @@
 					<button onclick="window.location.href ='../g203/g203.html';">Raum G203</button>
 					<button onclick="window.location.href ='../g211/g211.html';">Raum G211</button>
 					<button onclick="window.location.href ='../../../index.html';">Zurück zum Campus</button>
+=======
+            <div data-role="panel" id="myPanel">
+				<p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+				<button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
+				<button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
+				<button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
+				<button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+				<button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
+				<button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
+				<button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
+				<button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>										
+					<fieldset style="background-color:#D0D0D0">
+						<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
+						<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
+						<p align="center" id="text3"></p>
+					</fieldset>
+				<button id="logout3" onclick="">Logout</button>		
+            </div>
+
+            <div data-role="panel" id="myPanel2">
+				<h2>Navi</h2>
+                <button onClick="lookArround()">360 view</button>
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"></input>
+						<input name="submit" type="submit" value="Speed"/>
+					</form>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
             </div>
 			
 			<div data-role="panel" id="myPanel4">
                 <h2>Kommentare</h2>
+<<<<<<< HEAD
 				<textarea disabled style="resize : none;" id="preView" rows=10 cols=50></textarea>
                 <textarea style="resize : none; height:100%; width:100%" id="writeArea" size=1 rows=10 col=50 maxLength=300 wrap="off" ></textarea>
+=======
+				<div id="preView" style="overflow-x: scroll; background-color:#D0D0D0; visibility:hidden; width: 250px; height: 130px;"></div>
+                <input style="width:100%;" id="writeArea" maxLength=200></input>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 				<button id="posten" >Posten</button>
 				<button id="vorschau" >Vorschau</button>
 				<button id="loeschen" >Löschen</button>
 				<br>
+<<<<<<< HEAD
 				<a href="#myPanel5" id="kommAnz" onclick="return ladeKommentare();" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
 				<br>
             </div>
@@ -190,4 +286,156 @@
                         </div>
                 </div>
         </body>
+=======
+				<a href="#myPanel5" id="kommAnz" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
+				<br>
+            </div>
+			
+			<!-- Diese Zeile enthält das Kommentar Textfeld-->
+
+			<div data-role="panel" id="myPanel5">
+				<h2>Kommentare zu diesem Raum</h2>
+				<!--<textarea disabled id="commentBox" rows=5 cols=50></textarea>-->
+				<div id="commentBox" style="overflow-y: scroll; width: 250px; height: 510px;"></div>
+			</div>
+
+			<!--Hier endet das Textfeld, indem die Kommentare angezeigt werden. -->
+			
+            <div data-role="main" class="ui-content" style="width: 120px">
+                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
+                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
+                <a href="#myPanel4" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare</a>				
+                <div id="ansicht">	
+				<div id="joystick">
+					<div id="vline"></div>
+					<div id="hline"></div>
+					<div id="control"></div>
+					<div id="pointer"></div>
+				</div>
+					<x3d style="width:100%;height:100%;" id="x3d_element">
+					   <scene>
+							<navigationInfo type="none"></navigationInfo>
+							<Environment frustumCulling='false'></Environment>
+							<Viewfrustum id="camera"></Viewfrustum>
+							<!--PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight-->
+							<directionalLight id="directional" direction='0 -5 0'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+							<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+							<background skyColor="0 0 0"></background>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-20 0 60">
+									<inline url="g103.x3d"></inline>
+							</transform>
+							<transform scale="0.23 0.5 0.5" translation="-20.2 1.15 54.3" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="5 4 3" onmousedown="window.location ='../1flur/1flur.html';"></box>
+								</shape>
+							</transform>
+							<!-- Wände für Kollision -->
+							<transform scale="1 1 1" translation="-22.2 0 50">
+								<shape id="top">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="5 12 30"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-7.2 0 50">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="5 12 30"></box>
+								</shape>
+							</transform>
+							
+							<transform scale="1 1 1" translation="-15 0 44">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-15 0 61.2">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							</transform>
+							<!-- Kollision mit den Tischen. Tische sind zu schmal. Die Hitboxen sind nicht groß genug und man läuft mit anlauf durch -->
+<!-- 						<transform scale="1 1 1" translation="-11 0 49">
+								<shape id="table0">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="0.8 4 3"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-12 0 49.6">
+								<shape id="table1">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="0.8 4 6"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-14 0 49.6">
+								<shape id="table2">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="0.8 4 6"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-16.2 0 49.6">
+								<shape id="table3">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="0.8 4 6"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-18.2 0 49.6">
+								<shape id="table4">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="0.8 4 6"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-14.7 0 57.6">
+								<shape id="table5">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 1'>
+										</Material>
+									</appearance>
+									<box size="7 4 2"></box>
+								</shape>
+							</transform> -->							
+						</scene>
+					</x3d>
+				</div>
+			</div>
+		</div>
+	</body>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 </html>

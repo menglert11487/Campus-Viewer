@@ -13,6 +13,10 @@
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
+<<<<<<< HEAD
+=======
+		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
         <script type="text/javascript" src="../../../js/main.js"></script>
@@ -20,6 +24,7 @@
         <script type="text/javascript">
 
             window.onload = function() {
+<<<<<<< HEAD
                 Navigation.onLoad();
 
                 function Render() {
@@ -28,12 +33,36 @@
                 };
                 window.requestAnimationFrame(Render);
 
+=======
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("top"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				
+                var camPosition = new x3dom.fields.SFVec3f(24.0, -1.0, -42);
+                var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.7);
+                Navigation.onLoad();
+                Navigation.ViewState = new Viewstate(camPosition, camOrientation);
+                NavigationAPI.SetCamera("camera");								
+                NavigationAPI.SetViewState(Navigation.ViewState);
+                NavigationAPI.Render();
+
+                function Render() {
+                    Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
+                    Collision.Render();
+                    window.requestAnimationFrame(Render);
+                };
+                window.requestAnimationFrame(Render);
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
             };
 
         </script>
     </head>
     <body>
        <div data-role="page" id="pageone">
+<<<<<<< HEAD
 
             <div data-role="panel" id="myPanel">
                 <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
@@ -56,6 +85,28 @@
                                         <input name="speed" type="text"/>
                                         <input name="submit" type="submit" value="Speed"/>
                                 </form>
+=======
+            <div data-role="panel" id="myPanel">
+                <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+				<button id="index3" onclick="window.location.href = 'index.html';">Startseite</button>
+				<button id="projekt3" onclick="window.location.href = 'ueberDasProjekt.html';">das Projekt</button>
+				<button id="dieSchule3" onclick="window.location.href = 'ueberDieHS.html';">die Hochschule</button>
+				<button id="bedienung3" onclick="window.location.href = 'bedienungsanleitung.html';">Bedienungsanleitung</button>
+				<button id="kontakt3" onclick="window.location.href = 'kontakt.html';">Kontakt</button>
+				<button id="impressum3" onclick="window.location.href = 'impressum.html';">Impressum</button>
+				<button id="login3" onclick="window.location.href = 'login.html';">Login</button>
+				<button id="logout3" onclick="">Logout</button>
+				<button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
+				<a id="text3"></a>
+            </div>
+            <div data-role="panel" id="myPanel2">
+                <h2>Navi</h2>
+                <button onClick="lookArround()">360 view</button>
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"/>
+						<input name="submit" type="submit" value="Speed"/>
+					</form>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
             </div>
 
 
@@ -65,6 +116,7 @@
 
                 <div id="ansicht">
                         <div id="joystick">
+<<<<<<< HEAD
                                     <div id="vline"></div>
                                     <div id="hline"></div>
                                     <div id="control"></div>
@@ -210,4 +262,197 @@
                 </div>
 
         </body>
+=======
+						<div id="vline"></div>
+						<div id="hline"></div>
+						<div id="control"></div>
+						<div id="pointer"></div>
+						</div>
+			<x3d style="width:100%;height:100%;" id="x3d_element">
+				<scene>
+					<Viewfrustum id="camera"></Viewfrustum>
+					<Environment frustumCulling='false'></Environment>
+					<navigationInfo type="none"></navigationInfo>
+						<directionalLight id="directional" direction='-10 -20 -20'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+						<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+						<background skyColor="0 0 0"></background>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+										<plane size="30 30"></plane>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-20 0 60">
+								<inline url="0flur.x3d"></inline>
+							</transform>
+
+							<!-- Ausgang zum Campus (Marquardstr) -->
+							
+							<transform scale="1 1 1" translation="-28.3 1.15 41.6">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="1 6 1" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+
+							<!-- Aktionsbox-Stockwerkwechsel Treppe (M.) -->
+							<transform  translation="-28.5 1 42.5" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.5 0.5 0.5"></box>
+								</shape>
+							</transform>
+							
+							<!--Orientierung  (M.) -->
+							<transform  translation="-29 2.3 41.5" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../images/exit.jpg"><ImageTexture/>
+									</appearance>
+									<box size="1 0.5 0"></box>
+								</shape>
+							</transform>
+									  
+							<!-- Ausgang zum Campus (Campus) -->
+							<transform scale="1 1 1" translation="-10.5 1.15 41.5">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="1 4 1" onmousedown="window.location ='../../../index.html';"></box>
+								</shape>
+							</transform>
+
+							<!-- Aktionsbox-Stockwerkwechsel Treppe (Campus) -->
+							<transform  translation="-10.5 1 42.5" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../../../images/treppe4.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.5 0.5 0.5"></box>
+								</shape>
+							</transform>
+
+							<!--Orientierung  (Campus) -->
+							<transform  translation="-10.3 2.5 41.5" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../images/exit.jpg"><ImageTexture/>
+									</appearance>
+									<box size="1 0.5 0"></box>
+								</shape>
+							</transform>
+									   
+
+							<!-- Schild Cae4-->
+							<transform  translation="-17 1.75 39.8">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../images/cae4.jpg"><ImageTexture/>
+									</appearance>
+									<box size="1 0.5 0"></box>
+								</shape>
+							</transform>
+
+
+							<!-- Eingang zum Cae4-->
+							<transform scale="1 1 1" translation="-12 0 39.7">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="1 6 1" onmousedown="window.location ='../Cae4/cae4.html';"></box>
+								</shape>
+							</transform>
+
+							<!-- Schild Cae5-->
+							<transform  translation="-20.8 1.75 39.8">
+								<shape>
+									<appearance>
+										<material diffuseColor='red'></material>
+										<ImageTexture url="../images/cae5.jpg"><ImageTexture/>
+									</appearance>
+									<box size="1 0.5 0"></box>
+								</shape>
+							</transform>
+
+
+							<!-- Eingang zum Cae5-->
+							<transform scale="1 1 1" translation="-15.4 1.15 39.7" rotation="0 1 0 1.57">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="1 6  1" onmousedown="window.location ='../Cae5/cae5.html';"></box>
+								</shape>
+							</transform>
+										
+							<!-- Orientierungsbox Stockwerk:Erdgeschoss -->
+							<transform  translation="-20 1.53833 43">
+								<shape>
+									<appearance>
+									   <material diffuseColor='red'></material>
+										<ImageTexture url="../images/ceg.jpg"><ImageTexture/>
+									</appearance>
+									<box size="0.5 0.5 0.5"></box>
+								</shape>
+							</transform>
+							
+							<!-- Wände für Kollision -->
+							<transform scale="1 1 1" translation="-9.5 0 50">
+								<shape id="top">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="2 12 30"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-29 0 50">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="2 12 30"></box>
+								</shape>
+							</transform>
+							
+							<transform scale="1 1 1" translation="-20 0 39">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="22 12 2"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-18 0 44">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="22 12 2"></box>
+								</shape>
+							</transform>
+						</scene>
+					</x3d>
+				</div>
+			</div>
+		</div>
+	</body>
+>>>>>>> 8c7befb9095c9c8e2f24b41d3a5060b5ad940016
 </html>
