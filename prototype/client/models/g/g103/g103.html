@@ -32,10 +32,9 @@
 
 				 $(document).ready(function () {
 				        $.getScript("../../../js/cookieControl.js");
-                        $.getScript("../../../js/user.js");								
-                 });
-				 
-				function ladeKommentare() {
+                        $.getScript("../../../js/user.js");	
+
+				$('#kommAnz').click(function () {
 				 	$.ajax({
 							type: "POST",
 							crossDomain: false,
@@ -47,17 +46,23 @@
 								
 								for (var i = data.length-1; 0 <= i; i--)
 								{
-									kommentare += data[i].username + ' schrieb: ' + '\n' + data[i].commentary + '\n\n'; 
+									<!--kommentare += data[i].username + ' schrieb: ' + '\n' + data[i].commentary + '\n\n'; -->
+									document.getElementById('commentBox').innerHTML += '<span style="color:blue; font-weight: bold;">' + data[i].username + '</span> <span style="font-weight: bold;">schrieb:</span>';
+									document.getElementById('commentBox').innerHTML += '<br>';
+									document.getElementById('commentBox').innerHTML += '<span style="color:blue">' + data[i].commentary + '</span>';
+									document.getElementById('commentBox').innerHTML += '<br>';
+									document.getElementById('commentBox').innerHTML += '<br>';										
 								}
 										
-								document.getElementById('commentBox').value = kommentare;
-								document.getElementById('commentBox').style.color = "blue";
+								<!--document.getElementById('commentBox').innerHTML = kommentare;-->
+								<!--document.getElementById('commentBox').style.color = "blue";-->
 							},
 								error: function(jqXHR, error, object, what) {
 								console.error("Error: " + error + " - " + jqXHR.status);
 							}
 					});	
-				}
+				});						
+                 });
 				 
 				 <!--function popupWinKommentare()-->
 				<!--{-->
@@ -128,13 +133,13 @@
 			
 			<div data-role="panel" id="myPanel4">
                 <h2>Kommentare</h2>
-				<textarea disabled style="resize : none;" id="preView" rows=10 cols=50></textarea>
-                <textarea style="resize : none; height:100%; width:100%" id="writeArea" size=1 rows=10 col=50 maxLength=300 wrap="off" ></textarea>
+				<div id="preView" style="overflow-x: scroll; background-color:#D0D0D0; visibility:hidden; width: 250px; height: 130px;"></div>
+                <input style="width:100%;" id="writeArea" maxLength=200></input>
 				<button id="posten" >Posten</button>
 				<button id="vorschau" >Vorschau</button>
 				<button id="loeschen" >Löschen</button>
 				<br>
-				<a href="#myPanel5" id="kommAnz" onclick="return ladeKommentare();" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
+				<a href="#myPanel5" id="kommAnz" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Kommentare anzeigen</a>
 				<br>
             </div>
 			
@@ -142,7 +147,8 @@
 
 			<div data-role="panel" id="myPanel5">
 				<h2>Kommentare zu diesem Raum</h2>
-				<textarea disabled id="commentBox" rows=5 cols=50></textarea>
+				<!--<textarea disabled id="commentBox" rows=5 cols=50></textarea>-->
+				<div id="commentBox" style="overflow-y: scroll; width: 250px; height: 510px;"></div>
 			</div>
 
 			<!--Hier endet das Textfeld, indem die Kommentare angezeigt werden. -->
