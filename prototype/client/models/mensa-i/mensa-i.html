@@ -21,21 +21,42 @@
 		 <script type="text/javascript" src="../../js/jquery.cookie.js"></script>
 					
 				
-				<style type="text/css">		
-					#commentBox {	margin-left	:	0px;
-									resize		:	none;	
-									font-family	:	arial;}	
-					#kommAnz	 {	margin-left	:	15px;}
-				</style>
+		<style type="text/css">		
+			#commentBox {	margin-left	:	0px;
+							resize		:	none;	
+							font-family	:	arial;}	
+			#kommAnz	 {	margin-left	:	15px;}
+		</style>
 		
-                <script type="text/javascript">
+		<script type="text/javascript">
 
-				 $(document).ready(function () {
-				        $.getScript("../../js/cookieControl.js");
-                        $.getScript("../../js/user.js");								
-                 });
+			 $(document).ready(function () {
+					$.getScript("../../js/cookieControl.js");
+					$.getScript("../../js/user.js");								
+			 });
 				 
             window.onload = function() {
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
+				Collision.AddCollisionObject(document.getElementById("top"));
+				Collision.AddCollisionObject(document.getElementById("top2"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("partition1"));
+				Collision.AddCollisionObject(document.getElementById("partition2"));
+				Collision.AddCollisionObject(document.getElementById("partition3"));
+				Collision.AddCollisionObject(document.getElementById("partition4"));
+				Collision.AddCollisionObject(document.getElementById("partition5"));
+				Collision.AddCollisionObject(document.getElementById("partition6"));
+				Collision.AddCollisionObject(document.getElementById("partition7"));
+				Collision.AddCollisionObject(document.getElementById("partition8"));
+				Collision.AddCollisionObject(document.getElementById("partition9"));
+				Collision.AddCollisionObject(document.getElementById("partition10"));
+				Collision.AddCollisionObject(document.getElementById("partition11"));
+				Collision.AddCollisionObject(document.getElementById("table1"));
+				Collision.AddCollisionObject(document.getElementById("table2"));
+				Collision.AddCollisionObject(document.getElementById("table3"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(40.0, -1.5, -56);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 0.3);
                 Navigation.onLoad();
@@ -45,7 +66,9 @@
                 NavigationAPI.Render();
 
                 function Render() {
-                    Navigation.Render();
+                    Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
+					Navigation.Render();
+                    Collision.Render();
                     window.requestAnimationFrame(Render);
                 };
                 window.requestAnimationFrame(Render);
@@ -56,36 +79,31 @@
     </head>
     <body>
         <div data-role="page" id="pageone">
-
             <div data-role="panel" id="myPanel">
-                  <p align="center"> <img src="../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
-               <button id="index3" onclick="window.location.href = '../../index.html';">Startseite</button>
-                                        <button id="projekt3" onclick="window.location.href = '../../ueberDasProjekt.html';">das Projekt</button>
-                                        <button id="dieSchule3" onclick="window.location.href = '../../ueberDieHS.html';">die Hochschule</button>
-                                        <button id="bedienung3" onclick="window.location.href = '../../bedienungsanleitung.html';">Bedienungsanleitung</button>
-                                        <button id="kontakt3" onclick="window.location.href = '../../kontakt.html';">Kontakt</button>
-                                        <button id="impressum3" onclick="window.location.href = '../../impressum.html';">Impressum</button>
-                                        <button id="login3" onclick="window.location.href = '../../login.html';">Login</button>
-                                        <button id="reg3" onclick="window.location.href = '../../registration.html';">Registrieren</button>
-											<fieldset style="background-color:#D0D0D0">
-												<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
-												<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
-												<p align="center" id="text3"></p>
-											</fieldset>
-										<button id="logout3" onclick="">Logout</button>		
+			<p align="center"> <img src="../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+			<button id="index3" onclick="window.location.href = '../../index.html';">Startseite</button>
+			<button id="projekt3" onclick="window.location.href = '../../ueberDasProjekt.html';">das Projekt</button>
+			<button id="dieSchule3" onclick="window.location.href = '../../ueberDieHS.html';">die Hochschule</button>
+			<button id="bedienung3" onclick="window.location.href = '../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+			<button id="kontakt3" onclick="window.location.href = '../../kontakt.html';">Kontakt</button>
+			<button id="impressum3" onclick="window.location.href = '../../impressum.html';">Impressum</button>
+			<button id="login3" onclick="window.location.href = '../../login.html';">Login</button>
+			<button id="reg3" onclick="window.location.href = '../../registration.html';">Registrieren</button>
+				<fieldset style="background-color:#D0D0D0">
+					<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
+					<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
+					<p align="center" id="text3"></p>
+				</fieldset>
+			<button id="logout3" onclick="">Logout</button>		
             </div>
-
             <div data-role="panel" id="myPanel2">
-                                <h2>Navi</h2>
+				<h2>Navi</h2>
                 <button onClick="lookArround()">360 view</button>
-                                <form name="changeSpeed" action="javascript:changeSpeed()">
-                                        <input name="speed" type="text"></input>
-                                        <input name="submit" type="submit" value="Speed"/>
-                                </form>
+					<form name="changeSpeed" action="javascript:changeSpeed()">
+						<input name="speed" type="text"></input>
+						<input name="submit" type="submit" value="Speed"/>
+					</form>
             </div>
-
-      
-			
 			<div data-role="panel" id="myPanel4">
                 <h2>Kommentare</h2>
 				<textarea disabled style="resize : none;" id="preView" rows=10 cols=50></textarea>
@@ -98,99 +116,269 @@
 				<br>
             </div>
 			
-            <div data-role="main" class="ui-content" style="width: 120px">
+            <div data-role="main" class="ui-content">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menü</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
-   	
+
                 <div id="ansicht">	
-                        <div id="joystick">
-                                    <div id="vline"></div>
-                                    <div id="hline"></div>
-                                    <div id="control"></div>
-                                    <div id="pointer"></div>
-                                </div>
-                                        <x3d style="width:100%;height:100%;" id="x3d_element">
-                                                <scene frustumCulling="true">
-                                               <navigationInfo type="none"></navigationInfo>
-
-                                                                                           <!--PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight-->
-                                                                                          <directionalLight id="directional" direction='10 0 -20'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
-                                                                                                <navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
-
-                                                                                           <PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
-                                                                                                <navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
-
-                                               <background skyColor="0 0 0"></background>
-                                                        <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-
-                                                                <shape>
-                                                                        <plane size="25 25"></plane>
-                                                                </shape>
-                                                        </transform>
-                                                        <transform scale="1 1 1" translation="-60 0 60" rotation="-0.1 0 0 1.57">
-                                                                <inline url="mensa-i.x3d"></inline>
-                                                        </transform>
-                                                        <!-- Ausgang Haupteingang-->
-                                                        <transform scale="0.2 1.5 0.81" translation="-41.2 1 60" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
-                                                                                </Material>
-                                                                        </appearance>
-                                                                     <box size="5 4 2.5" onmousedown="window.location ='../../index.html';"></box>
-                                                                </shape>
-                                                        </transform>
+				<div id="joystick">
+					<div id="vline"></div>
+					<div id="hline"></div>
+					<div id="control"></div>
+					<div id="pointer"></div>
+				</div>
+					<x3d style="width:100%;height:100%;" id="x3d_element">
+						<scene>
+						<Viewfrustum id="camera"></Viewfrustum>
+						<Environment frustumCulling='false'></Environment>
+						<navigationInfo type="none"></navigationInfo>
+						<background skyColor="0 0 0"></background>
+						<!--PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight-->
+						<directionalLight id="directional" direction='10 0 -20'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+						<navigationInfo id="head" headlight='true' type='"EXAMINE"'>  </navigationInfo>
+						<PointLight id='point' on='TRUE' intensity='0.1' color='white' location='0 10 0' radius='20' >  </PointLight>
+							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+								<shape>
+									<plane size="25 25"></plane>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-60 0 60" rotation="-0.1 0 0 1.57">
+								<inline url="mensa-i.x3d"></inline>
+							</transform>
+							<!-- Ausgang Haupteingang-->
+							<transform scale="1 1 1" translation="-41.2 1 59.5">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="2 6 2" onmousedown="window.location ='../../index.html';"></box>
+								</shape>
+							</transform>
                                                         
-                                                        <!--Ausgang Zwischentür-->
-                                                             <transform scale="0.1 1.5 0.81" translation="9 1 60" rotation="0 1 0 1.57">
-                                                                <shape>
-                                                                        <appearance>
-                                                                                <Material transparency='0.1' emissiveColor='0 1 1'>
-                                                                                </Material>
-                                                                        </appearance>
-                                                                     <box size="5 4 2.5" onmousedown="window.location ='../../index.html';"></box>
-                                                                </shape>
-                                                        </transform>
-                                                       
-                                                        <!---->
-                                                        <background skyColor="0 0 0"></background>
-                                                        
-                                                        
-                                                  <!--Viewpoints-->
-                                                        
-															<!--Haupteingang-->
-															
-															<Viewfrustum id="camera"></Viewfrustum>
-															
-                                                           <!-- <Viewpoint id="camera" 
-                                                           position="-38.38352 1.52633 54.54199" 
-                                                           orientation="-0.71645 -0.69692 -0.03131 0.12525"
-                                                            zNear="0.06611" zFar="661.08396"
-                                                             description="defaultX3DViewpointNode"></Viewpoint>  -->
-                                                             
-                                                             <!--Blick auf den Haupteingang>
-                                                                   <Viewpoint 
-                                                                   position="-40.58401 1.53656 48.79979" 
-                                                                   orientation="-0.00720 0.99717 0.07479 2.95021"
-                                                                    zNear="0.06611" zFar="661.08396" 
-                                                                    description="defaultX3DViewpointNode"></Viewpoint>
-                                                                    
-                                                             <!--Zwischeneingang>
-                                                        <Viewpoint id="camera"
-                                                                position="-18.45820 1.48046 54.81466"
-                                                                orientation="-0.17942 -0.98034 -0.08216 0.87396"
-                                                                zNear="0.06611" zFar="661.08396"
-                                                                description="defaultX3DViewpointNode"></Viewpoint-->
-                                                                
-                                                                <!--Blick auf Zwischeneingang>
-                                                                <Viewpoint position="6.42680 1.44809 53.23539" 
-                                                                orientation="0.00204 0.99967 0.02577 3.29969" 
-                                                                zNear="0.06611" zFar="661.08396" 
-                                                                description="defaultX3DViewpointNode"></Viewpoint-->
-                                                </scene>
-                                        </x3d>
-                                </div>
-                        </div>
-                </div>
-        </body>
+							<!--Ausgang Zwischentür-->
+							<transform scale="1 1 1" translation="9 1 59.5">
+								<shape>
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="2 6 2" onmousedown="window.location ='../../index.html';"></box>
+								</shape>
+							</transform>
+							
+							<!-- Wände für Kollision -->
+							<!-- linke Wand -->
+							<transform scale="1 1 1" translation="-60 0 45">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="2 12 40"></box>
+								</shape>
+							</transform>
+							
+							<!-- rechte Wand -->
+							<transform scale="1 1 1" translation="26.7 0 40">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 0'>
+										</Material>
+									</appearance>
+									<box size="2 12 40"></box>
+								</shape>
+							</transform>
+							
+							<!-- vordere Wand -->
+							<transform scale="1 1 1" translation="-35 0 28.5">
+								<shape id="top">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="50 12 2"></box>
+								</shape>
+							</transform>
+							
+							<!-- vordere Wand bei den Tischen -->
+							<transform scale="1 1 1" translation="0 0 22.4">
+								<shape id="top2">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="50 12 2"></box>
+								</shape>
+							</transform>
+							<!-- hintere Wand -->
+							<transform scale="1 1 1" translation="-25 0 60">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="110 12 2"></box>
+								</shape>
+							</transform>
+							
+							<!-- linke Trennwand -->
+							<transform scale="1 1 1" translation="-52.2 0 41.8">
+								<shape id="partition1">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="18 12 1"></box>
+								</shape>
+							</transform>
+							
+							<!-- rechte Trennwand -->
+							<transform scale="1 1 1" translation="-26.1 0 42">
+								<shape id="partition2">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="29 12 1.8"></box>
+								</shape>
+							</transform>
+							
+							<!-- Trennwand quer -->
+							<transform scale="1 1 1" translation="-10.3 0 26.3">
+								<shape id="partition3">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="1.5 12 20"></box>
+								</shape>
+							</transform>
+							
+							<!-- 0. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="-58 0 58">
+								<shape id="partition4">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="4 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 1. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="-48.8 0 58">
+								<shape id="partition5">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="4 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 2. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="-32.5 0 58">
+								<shape id="partition6">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="4 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 3. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="-22.5 0 58">
+								<shape id="partition7">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="7.5 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 4. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="-10 0 58">
+								<shape id="partition8">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="8 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 5. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="1.5 0 58">
+								<shape id="partition9">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="5.7 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 6. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="15.2 0 58">
+								<shape id="partition10">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="4.5 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 7. Trennwand am Eingang -->
+							<transform scale="1 1 1" translation="25.2 0 58">
+								<shape id="partition11">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 0 1'>
+										</Material>
+									</appearance>
+									<box size="5.6 12 10"></box>
+								</shape>
+							</transform>
+							
+							<!-- 1. Tischreihe an der Wand -->
+							<transform scale="1 1 1" translation="26.2 0 33.6">
+								<shape id="table1">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 0'>
+										</Material>
+									</appearance>
+									<box size="5.6 12 25"></box>
+								</shape>
+							</transform>
+							
+							<!-- 1. Tisch in der Mitte -->
+							<transform scale="1 1 1" translation="16.5 0 35.2">
+								<shape id="table2">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 0'>
+										</Material>
+									</appearance>
+									<box size="7 4 19"></box>
+								</shape>
+							</transform>
+							
+							<!-- 2. Tisch in der Mitte -->
+							<transform scale="1 1 1" translation="1.5 0 35.2">
+								<shape id="table3">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 0 0'>
+										</Material>
+									</appearance>
+									<box size="15 4 19"></box>
+								</shape>
+							</transform>
+						</scene>
+					</x3d>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
