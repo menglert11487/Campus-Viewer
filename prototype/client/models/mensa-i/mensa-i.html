@@ -57,6 +57,9 @@
 				Collision.AddCollisionObject(document.getElementById("table2"));
 				Collision.AddCollisionObject(document.getElementById("table3"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus1"));
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus2"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(40.0, -1.5, -56);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 0.3);
                 Navigation.onLoad();
@@ -147,23 +150,23 @@
 							</transform>
 							<!-- Ausgang Haupteingang-->
 							<transform scale="1 1 1" translation="-41.2 1 59.5">
-								<shape>
+								<shape id="ausgangCampus1" url="../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="2 6 2" onmousedown="window.location ='../../index.html';"></box>
+									<box size="2 6 2"></box>
 								</shape>
 							</transform>
                                                         
 							<!--Ausgang Zwischentür-->
 							<transform scale="1 1 1" translation="9 1 59.5">
-								<shape>
+								<shape id="ausgangCampus2" url="../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="2 6 2" onmousedown="window.location ='../../index.html';"></box>
+									<box size="2 6 2"></box>
 								</shape>
 							</transform>
                             

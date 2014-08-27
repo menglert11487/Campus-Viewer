@@ -39,6 +39,11 @@
 				Collision.AddCollisionObject(document.getElementById("tur1"));
 				Collision.AddCollisionObject(document.getElementById("tur2"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus1"));
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus2"));
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus3"));
+				Collision.AddCollisionDoor(document.getElementById("eingangE009"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(13.3, -1.8, -50);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, -0.5);
                 Navigation.onLoad();
@@ -116,32 +121,32 @@
 
 							<!--Eingang E009-->
 							<transform scale="1 1 1" translation="-19.5 1.0 46.9">
-								<shape>
+								<shape id="eingangE009" url="../e009/e009.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 0 1'>
 										</Material>
 									</appearance>
-									<box size="2 4 2" onmousedown="window.location ='../e009/e009.html';"></box>
+									<box size="2 4 2"></box>
 								</shape>
 							</transform>
 							<!-- Ausgang Cafe Caos-transpernt auf 10-->
-							<transform scale="0.3 1.3 0.6" translation="-14.7 1.0 53.9" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="-14.7 1.0 55.9">
+								<shape id="ausgangCampus1" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="5 6.5 7" onmousedown="window.location ='../../../index.html';"></box>
+									<box size="4 4 4"></box>
 								</shape>
 							</transform>
 							<!-- Ausgang Treppenhaus-transpernt auf 10-->
-							<transform scale="0.3 1.5 0.6" translation="-15 1.0 38.3" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="-15 1.0 37.3">
+								<shape id="ausgangCampus2" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="2 6 6" onmousedown="window.location ='../../../index.html';"></box>
+									<box size="3 6 3"></box>
 								</shape>
 							</transform>
 							<!-- Aktionsbox-Stockwerkwechsel am Treppenhaus -->
@@ -168,13 +173,13 @@
 
 
 							<!-- Ausgang Haupeingang-transpernt auf 10-->
-							<transform scale="0.5 1.5 0.8" translation="17.8 1.0 60.5" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="17.8 1.0 61.2">
+								<shape id="ausgangCampus3" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="5 4 5" onmousedown="window.location ='../../../index.html';"></box>
+									<box size="4 4 4"></box>
 								</shape>
 							</transform>
 							

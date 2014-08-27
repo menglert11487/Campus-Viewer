@@ -38,6 +38,11 @@
 				Collision.AddCollisionObject(document.getElementById("tur1"));
 				Collision.AddCollisionObject(document.getElementById("tur2"));
 				
+				Collision.AddCollisionDoor(document.getElementById("eingangE107"));
+				Collision.AddCollisionDoor(document.getElementById("eingangE121"));
+				Collision.AddCollisionDoor(document.getElementById("ausgang0Flur"));
+				Collision.AddCollisionDoor(document.getElementById("ausgang0Flur2"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(-8, -1.8, -43);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 3.15);
                 Navigation.onLoad();
@@ -88,7 +93,7 @@
 
 
 
-            <div data-role="main" class="ui-content" style="width: 80px">
+            <div data-role="main" class="ui-content" style="width: 120px">
             <div data-role="main" class="ui-content">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml</a> <br>
                 <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
@@ -119,24 +124,24 @@
 									</transform>
 
 									<!--Eingang E107-->
-									<transform scale="0.4 1.3 0.6" translation="-19.5 1.0 45.7" rotation="0 1 0 1.57">
-										<shape>
+									<transform scale="1 1 1" translation="-19.5 1.0 45.7">
+										<shape id="eingangE107" url="../e107/e107.html">
 											<appearance>
 												<Material transparency='1' emissiveColor='0 1 1'>
 												</Material>
 											</appearance>
-											<box size="5.5 5 4" onmousedown="window.location ='../e107/e107.html';"></box>
+											<box size="2 4 2"></box>
 										</shape>
 									</transform>
 
 										<!-- Ausgang zum Treppenhaus (gegenüber vom Aufzug) -->
-									<transform scale="0.3 1.5 0.6" translation="15 1.0 46.2" rotation="0 1 0 1.57">
-										<shape>
+									<transform scale="1 1 1" translation="15 1.0 46.2">
+										<shape id="ausgang0Flur" url="../0flur/0flur.html">
 											<appearance>
 												<Material transparency='1' emissiveColor='0 1 1'>
 												</Material>
 											</appearance>
-											<box size="2 6.5 4.5" onmousedown="window.location ='../0flur/0flur.html';"></box>
+											<box size="2 4 2"></box>
 										</shape>
 									</transform>
 
@@ -153,13 +158,13 @@
 									</transform>
 
 									<!-- Ausgang Treppenhaus bei E107 -in den Flur  -->
-									<transform scale="0.3 1.5 0.6" translation="-13.8 1.0 32" rotation="0 1 0 1.57">
-										<shape>
+									<transform scale="1 1 1" translation="-13.8 1.0 31">
+										<shape id="ausgang0Flur2" url="../0flur/0flur.html">
 											<appearance>
 												<Material transparency='1' emissiveColor='1 1 1'>
 												</Material>
 											</appearance>
-											<box size="2 5 5.5" onmousedown="window.location ='../0flur/0flur.html';"></box>
+											<box size="2 4 2"></box>
 										</shape>
 									</transform>
 
@@ -186,13 +191,13 @@
 									</transform>
 									
 									<!-- Eingang zum Raum E121 auf 10-->
-									<transform scale="0.5 1.5 0.8" translation="35.1 1.0 40" rotation="0 1 0 1.57">
-										<shape>
+									<transform scale="1 1 1" translation="35.1 1.0 40">
+										<shape id="eingangE121" url="../e121/e121.html">
 											<appearance>
 												<Material transparency='1' emissiveColor='0 1 1'>
 												</Material>
 											</appearance>
-											<box size="2 5.5 2" onmousedown="window.location ='../e121/e121.html';"></box>
+											<box size="2 4 2"></box>
 										</shape>
 									</transform>      
 
@@ -296,7 +301,7 @@
 							<transform scale="1 1 1" translation="43.9 0 -2.9">
 								<shape id="front">
 									<appearance>
-										<Material transparency='0.1' emissiveColor='1 1 1'>
+										<Material transparency='1' emissiveColor='1 1 1'>
 										</Material>
 									</appearance>
 									<box size="20 12 10"></box>

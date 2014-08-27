@@ -29,6 +29,9 @@
 				Collision.AddCollisionObject(document.getElementById("table1"));
 				Collision.AddCollisionObject(document.getElementById("table2"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgang1Flur"));
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(6.0, -1.0, -44);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 4.5);
                 Navigation.onLoad();
@@ -107,25 +110,25 @@
 							
 							<!-- Ausgang zum Flur -->
 							
-							<transform scale="0.2 0.4 0.2" translation="-5.8 0.9 42" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="-5.8 0.9 41.6">
+								<shape id="ausgang1Flur" url="../1flur/1flur.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="6 6 8" onmousedown="window.location ='../1flur/1flur.html';"></box>
+									<box size="2 4 2"></box>
 								</shape>
 							</transform>
 							
 							<!-- Notausgang nach draußen -->
 							
-							<transform scale="0.2 0.4 0.2" translation="-13.9 0.9 44.5" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="-13.9 0.9 41.6">
+								<shape id="ausgangCampus" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="2 6 6.2" onmousedown="window.location ='../../../index.html';"></box>
+									<box size="2 4 2"></box>
 								</shape>
 							</transform>
 							<!-- Wände für Kollision -->

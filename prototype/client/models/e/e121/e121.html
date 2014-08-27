@@ -22,6 +22,9 @@
                 <script type="text/javascript">
 
             window.onload = function() {
+			
+				Collision.AddCollisionDoor(document.getElementById("ausgang1Flur"));
+			
                 var camPosition = new x3dom.fields.SFVec3f(8.0, -1.0, -47);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 4.0);
                 Navigation.onLoad();
@@ -100,13 +103,13 @@
 							
 							<!-- Ausgang zum FLur, soll es sichtbar bleiben, weil keine Tür da ist ? -->
 							
-							<transform scale="0.2 0.4 0.2" translation="-4.5 0.9 46.5" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="-4.5 0.9 46.5">
+								<shape id="ausgang1Flur" url="../1flur/1flur.html">
 									<appearance>
 										<Material transparency='0.1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="7 8 2" onmousedown="window.location ='../1flur/1flur.html';"></box>
+									<box size="2 4 2"></box>
 								</shape>
 							</transform>
 						</scene>
