@@ -35,6 +35,8 @@
 				Collision.AddCollisionObject(document.getElementById("left"));
 				Collision.AddCollisionObject(document.getElementById("right"));
 				
+				Collision.AddCollisionDoor(document.getElementById("eingangGLabor"));
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus"));
 				
                 var camPosition = new x3dom.fields.SFVec3f(17, -2, -47);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.6);
@@ -128,25 +130,25 @@
 							<transform scale="0.7 0.7 0.7" translation="-15 -2 50">
 									<inline url="gflur.x3d"></inline>
 							</transform>
-							<transform scale="1.1 0.9 0.9" translation="-20.3 1.7 46.9" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1.1 0.9 0.9" translation="-21.9 1.7 46.9">
+								<shape id="ausgangCampus" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="5 4 3" onmousedown="window.location = '../../../index.html';"></box>
+									<box size="5 4 3"></box>
 								</shape>
 							</transform>
 
 
 							<!-- Interaktionslabor -->
-							<transform scale="0.7 0.9 0.6" translation="-15.146 1.1 62.7" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="0.7 0.9 0.6" translation="-15.146 1.1 61.7">
+								<shape id="eingangGLabor" url="../glabor/glabor.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="5 4 3" onmousedown="window.location ='../glabor/glabor.html';"></box>
+									<box size="5 4 3"></box>
 								</shape>
 							 </transform>
 
@@ -210,7 +212,7 @@
 									<box size="2 12 30"></box>
 								</shape>
 							</transform>
-							<transform scale="1 1 1" translation="-20 0 50">
+							<transform scale="1 1 1" translation="-20.2 0 50">
 								<shape id="back">
 									<appearance>
 										<Material transparency='1' emissiveColor='1 1 0'>

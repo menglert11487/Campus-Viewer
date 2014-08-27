@@ -33,6 +33,8 @@
 				Collision.AddCollisionObject(document.getElementById("left"));
 				Collision.AddCollisionObject(document.getElementById("right"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgangFlur2"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(15, -1.0, -53);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 0.0);
                 Navigation.onLoad();
@@ -95,64 +97,64 @@
 					<scene>
 						<Viewfrustum id="camera"></Viewfrustum>
 						<Environment frustumCulling='false'></Environment>
-						<navigationInfo type="none"></navigationInfo>
-						<directionalLight id="directional" direction='5 5 -5'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
-							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-								<shape>
-									<plane size="25 25"></plane>
-								</shape>
-							</transform>
-								<transform scale="0.6 0.6 0.6" translation="-15 0 50">
-									<inline url="g211.x3d"></inline>
+						<background skyColor="0 0 0"></background>
+							<navigationInfo type="none"></navigationInfo>
+							<directionalLight id="directional" direction='5 5 -5'  on ="TRUE" intensity='0.5' shadowIntensity='0.2'> </directionalLight>
+								<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+									<shape>
+										<plane size="40 40"></plane>
+									</shape>
 								</transform>
-							<transform scale="0.2 0.4 0.2" translation="-16.1 0.9 53.85" rotation="0 1 0 1.57">
-								<shape>
+									<transform scale="0.6 0.6 0.6" translation="-15 0 50">
+										<inline url="g211.x3d"></inline>
+									</transform>
+								<transform scale="1 1 1" translation="-16.1 0.9 54.1">
+									<shape id="ausgangFlur2" url="../2flur/2flur.html">
+										<appearance>
+											<Material transparency='1' emissiveColor='0 1 1'>
+											</Material>
+										</appearance>
+										<box size="1.5 4 1.5"></box>
+									</shape>
+								</transform>
+								<!-- Wände für Kollision -->
+							<transform scale="1 1 1" translation="-21.8 0 50">
+								<shape id="top">
 									<appearance>
-										<Material transparency='1' emissiveColor='0 1 1'>
+										<Material transparency='1' emissiveColor='1 0 1'>
 										</Material>
 									</appearance>
-									<box size="5 4 3" onmousedown="window.location ='../2flur/2flur.html';"></box>
+									<box size="5 12 30"></box>
 								</shape>
 							</transform>
-							<!-- Wände für Kollision -->
-						<transform scale="1 1 1" translation="-21.8 0 50">
-							<shape id="top">
-								<appearance>
-									<Material transparency='1' emissiveColor='1 0 1'>
-									</Material>
-								</appearance>
-								<box size="5 12 30"></box>
-							</shape>
-						</transform>
-						<transform scale="1 1 1" translation="-8.2 0 50">
-							<shape id="back">
-								<appearance>
-									<Material transparency='1' emissiveColor='1 1 0'>
-									</Material>
-								</appearance>
-								<box size="5 12 30"></box>
-							</shape>
-						</transform>
-						
-						<transform scale="1 1 1" translation="-15 0 44.5">
-							<shape id="right">
-								<appearance>
-									<Material transparency='1' emissiveColor='1 1 0'>
-									</Material>
-								</appearance>
-								<box size="12 12 5"></box>
-							</shape>
-						</transform>
-						<transform scale="1 1 1" translation="-15 0 55.9">
-							<shape id="left">
-								<appearance>
-									<Material transparency='1' emissiveColor='1 1 0'>
-									</Material>
-								</appearance>
-								<box size="12 12 5"></box>
-							</shape>
-						</transform>
-							<background skyColor="0 0 0"></background>
+							<transform scale="1 1 1" translation="-8.2 0 50">
+								<shape id="back">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="5 12 30"></box>
+								</shape>
+							</transform>
+							
+							<transform scale="1 1 1" translation="-15 0 44.5">
+								<shape id="right">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-15 0 55.9">
+								<shape id="left">
+									<appearance>
+										<Material transparency='1' emissiveColor='1 1 0'>
+										</Material>
+									</appearance>
+									<box size="12 12 5"></box>
+								</shape>
+							</transform>
 						</scene>
 					</x3d>
 				</div>

@@ -33,6 +33,8 @@
 				Collision.AddCollisionObject(document.getElementById("left"));
 				Collision.AddCollisionObject(document.getElementById("right"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgangFlur2"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(14, -1.0, -47);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.5);
                 Navigation.onLoad();
@@ -106,13 +108,13 @@
 							<transform scale="0.6 0.6 0.6" translation="-15 0 50">
 								<inline url="g203.x3d"></inline>
 							</transform>
-						<transform scale="0.2 0.4 0.2" translation="-15 0.9 46.5" rotation="0 1 0 1.57">
-							<shape>
+						<transform scale="1 1 1" translation="-15.4 0.9 46.5">
+							<shape id="ausgangFlur2" url="../2flur/2flur.html">
 								<appearance>
 									<Material transparency='1' emissiveColor='0 1 1'>
 									</Material>
 								</appearance>
-								<box size="5 4 3" onmousedown="window.location ='../2flur/2flur.html';"></box>
+								<box size="1.5 4 1.5"></box>
 							</shape>
 						</transform>
 						<!-- Wände für Kollision -->

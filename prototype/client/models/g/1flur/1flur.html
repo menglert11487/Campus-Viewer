@@ -32,6 +32,10 @@
 				Collision.AddCollisionObject(document.getElementById("left"));
 				Collision.AddCollisionObject(document.getElementById("right"));
 				
+				Collision.AddCollisionDoor(document.getElementById("ausgangCampus"));
+				Collision.AddCollisionDoor(document.getElementById("eingangG103"));
+				Collision.AddCollisionDoor(document.getElementById("eingangG111"));
+				
                 var camPosition = new x3dom.fields.SFVec3f(17, -2, -47);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.6);
                 Navigation.onLoad();
@@ -112,31 +116,31 @@
 							<transform scale="0.7 0.7 0.7" translation="-15 -2 50">
 									<inline url="gflur.x3d"></inline>
 							</transform>
-								<transform scale="1.1 0.9 0.9" translation="-20.2 1.7 46.9" rotation="0 1 0 1.57">
-									<shape>
-										<appearance>
-											<Material transparency='1' emissiveColor='0 1 1'>
-											</Material>
-										</appearance>
-										<box size="5 4 3" onmousedown="window.location ='../../../index.html';"></box>
-									</shape>
-								</transform>
-							<transform scale="0.7 0.9 0.6" translation="-15 1.2 37.4" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1.1 0.9 0.9" translation="-21.7 1.7 46.9">
+								<shape id="ausgangCampus" url="../../../index.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="5 4 3" onmousedown="window.location ='../g103/g103.html';"></box>
+									<box size="5 4 3"></box>
 								</shape>
 							</transform>
-							<transform scale="0.7 0.9 0.6" translation="-15.146 1.1 62.7" rotation="0 1 0 1.57">
-								<shape>
+							<transform scale="1 1 1" translation="-15 1.2 38.4">
+								<shape id="eingangG103" url="../g103/g103.html">
 									<appearance>
 										<Material transparency='1' emissiveColor='0 1 1'>
 										</Material>
 									</appearance>
-									<box size="5 4 3" onmousedown="window.location ='../g111/g111.html';"></box>
+									<box size="1.5 4 1.5"></box>
+								</shape>
+							</transform>
+							<transform scale="1 1 1" translation="-15.146 1.1 61.7">
+								<shape id="eingangG111" url="../g111/g111.html">
+									<appearance>
+										<Material transparency='1' emissiveColor='0 1 1'>
+										</Material>
+									</appearance>
+									<box size="1.5 4 1.5"></box>
 								</shape>
 							</transform>
 
