@@ -81,6 +81,13 @@
 				Collision.AddCollisionObject(document.getElementById("baumbib7"));
 				Collision.AddCollisionObject(document.getElementById("baumbib8"));
 				
+				Collision.AddCollisionDoor(document.getElementById("eingangG"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC2"));
+				Collision.AddCollisionDoor(document.getElementById("eingangE"));
+				Collision.AddCollisionDoor(document.getElementById("eingangE2"));
+				Collision.AddCollisionDoor(document.getElementById("eingangMensa"));
+				
 				var camPosition = new x3dom.fields.SFVec3f(-180.0, -3.6, 46.0);
 				var camOrientation = new x3dom.fields.SFVec2f(0.0, 3.1);
 				Navigation.ViewState = new Viewstate(camPosition, camOrientation);
@@ -756,89 +763,71 @@
 								</shape>
 							</transform>
 							
-                            <!-- Click-Events -->
-
+                            <!-- Eingänge für die Gebäude -->
                             <!-- Eingang G Gebaude!! -->
                             <transform scale="1 1 1" translation="65 2 -17" > <!-- translation="59 2 -48"-->
-                                <shape>
+                                <shape id="eingangG" url="models/g/0flur/0flur.html">
                                     <appearance>
-                                        <Material transparency='10.1' emissiveColor='0 1 1'>
+                                        <Material transparency='1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="7.5 7.5 7.5" onmousedown="window.location = 'models/g/0flur/0flur.html';"></box>
-                                    <!--<box size="10 10 10" onmousedown="Fancy();"></box>-->
-                                    <!--<a id='liste' href='inline1'><box size="10 10 10"></box></a>-->
-                                    <!--<box size="10 10 10" onmousedown="window.location = "$.fancybox({href:'models/g/stockwerklisteG.html'});"></box>-->
-                                    <!--<box size="10 10 10" onmousedown="$().fancybox({href:'models/g/stockwerklisteG.html'});"></box>-->
-                                    <!--<box id="test" size="10 10 10" onmousedown="window.location = 'models/g/stockwerklisteG.html':"></box>-->
+                                    <box size="7.5 7.5 7.5"></box>
                                 </shape>
                             </transform>
 
                             <!-- Eingang C Gebaude!! -->
-                            <transform scale="0.4 0.6 0.4" translation="210.6 2 44.5" rotation="0 1 0 1.57">
-                                <shape>
+                            <transform scale="0.4 0.6 0.4" translation="211.6 2 44.5">
+                                <shape id="eingangC" url="models/c/0flur/0flur.html">
                                     <appearance>
-                                        <Material transparency='10.1' emissiveColor='0 1 1'>
+                                        <Material transparency='1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="9 9 9" onmousedown="window.location = 'models/c/0flur/0flur.html';"></box>
+                                    <box size="9 9 9"></box>
                                 </shape>
                             </transform>
                              <!-- Zweiter Eingang-->
-                            <transform scale="0.4 0.6 0.4" translation="147 2 37" rotation="0 1 0 1.57">
-                                <shape>
+                            <transform scale="0.4 0.6 0.4" translation="147 2 36.5">
+                                <shape id="eingangC2" url="models/c/0flur/0flur.html">
                                     <appearance>
-                                        <Material transparency='10.1' emissiveColor='0 1 1'>
+                                        <Material transparency='1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="9 9 9" onmousedown="window.location = 'models/c/0flur/0flur.html';"></box>
+                                    <box size="9 9 9"></box>
                                 </shape>
                             </transform>
                             
                              <!-- Eingang E Gebaude!! -->
                              <transform scale="0.8 0.8 0.8" translation="173.8 2.4 -95">
-                                <shape>
+                                <shape id="eingangE" url="models/e/0flur/0flur.html">
                                     <appearance>
-                                        <Material transparency='10.1' emissiveColor='0 1 1'>
+                                        <Material transparency='1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="8.5 8.5 8.5" onmousedown="window.location = 'models/e/0flur/0flur.html';"></box>
+                                    <box size="8.5 8.5 8.5"></box>
                                 </shape>
                             </transform>
                             
-									<!-- 2.Eingang-->
-                                    <transform scale="1 1 1" translation="113 1 -110.3">
-                                <shape>
+							<!-- 2.Eingang-->
+							<transform scale="1 1 1" translation="113 1 -110.3">
+                                <shape id="eingangE2" url="models/e/0flur/0flur.html">
                                     <appearance>
-                                        <Material transparency='10.1' emissiveColor='0 1 1'>
+                                        <Material transparency='1' emissiveColor='0 1 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="7 7 7" onmousedown="window.location = 'models/e/0flur/0flur.html';"></box>
+                                    <box size="7 7 7"></box>
                                 </shape>
                             </transform>
                            
                                 <!-- Eingang Mensa!! -->
-                            <transform scale="1 1 1" translation="260 2 -270">
-                                <shape>
+                            <transform scale="1 1 1" translation="260 2 -260">
+                                <shape id="eingangMensa" url="models/mensa-i/mensa-i.html">
                                     <appearance>
-                                        <Material transparency='10.1' emissiveColor='1 0 1'>
+                                        <Material transparency='1' emissiveColor='1 0 1'>
                                         </Material>
                                     </appearance>
-                                    <box size="70 10 10" onmousedown="window.location = 'models/mensa-i/mensa-i.html';"></box>
+                                    <box size="70 10 10"></box>
                                 </shape>
                             </transform>
-
-                                 <!-- Eingang Bib!! >
-                            <transform scale="16 1.6 0.1" translation="320.40307 2.09017 -206.61264" rotation="0 1  0 1.57">
-                                <shape>
-                                    <appearance>
-                                        <Material transparency='10.0' emissiveColor='0 1 1'>
-                                        </Material>
-                                    </appearance>
-                                    <box size="9 9 9" onmousedown="window.location = 'models/mensa-i/mensa-i.html';"></box>
-                                </shape>
-                            </transform-->
-                            
                             
                              <!--Beschriftung vom G gebaude  -->
                                <transform  translation="90 0.8 -16.06380"" rotation="0 1 0 1.57">

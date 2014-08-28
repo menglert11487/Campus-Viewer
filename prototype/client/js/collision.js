@@ -2,6 +2,7 @@ Collision = {};
 Collision.CurrentCameraPos;
 oldCameraPosition =  null;
 Collision.BuildingList = [];
+Collision.DoorList = [];
 
 //Inhalte dieser Funktion werden bei onLoad ausgeführt
 Collision.onLoad = function(){	
@@ -10,6 +11,10 @@ Collision.onLoad = function(){
 // Diese Funktion füllt das Array für um Kollision mit Objekten abzufragen
 Collision.AddCollisionObject = function(object){
 	Collision.BuildingList.push(object);
+}
+// Diese Funktion füllt das Array für um Kollision mit Türen abzufragen
+Collision.AddCollisionDoor = function(object){
+	Collision.DoorList.push(object);
 }
 
 // Funktion berechnet die Position der Kamera
@@ -63,7 +68,13 @@ Collision.HighlightBBox = function(highlightNode, bool) {
 
 // Funktion prüft welches Gebäude/Objekt gerade mit der Kamera kollidiert und setzt die Kamera dementsprechend zurück
 Collision.Render = function(object){
-	
+	//Kollision Check mit Türen um reinzulaufen
+	for (var i = 0; i < Collision.DoorList.length; i++) { 
+		if (Collision.RenderObj(Collision.DoorList[i])) {
+			window.location = Collision.DoorList[i].getAttribute("url");
+			break;
+		}
+	}
 	for (var i = 0; i < Collision.BuildingList.length; i++) { 
 		if (Collision.RenderObj(Collision.BuildingList[i])) {
 			var speed = 0.025;

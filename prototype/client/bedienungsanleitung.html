@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <title>>Campus Viewer Fulda - Bedienungsanleitung</title>
+        <title>Campus Viewer Fulda - Bedienungsanleitung</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
 
@@ -11,6 +11,84 @@
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
                 <script type="text/javascript" src="js/jquery.cookie.js"></script>
+				
+		<style type="text/css">			
+			h1.ueberschrift, h1.informationen,
+			h1.menue, h1.schilderankl,
+			h1.reglog, h1.kommfunk {	margin-left: 575px;
+								padding-bottom: 40px;}
+								
+			div.notiz001 {	margin-left: 165px;
+							margin-bottom:	50px;
+							margin-top: -50px;
+						}	
+						
+			div.notiz002 {	margin-left: 165px;
+							margin-bottom:	50px;
+							margin-top: -5px;
+			}	
+			
+			div.notiz003 {	margin-left: 165px;
+							margin-bottom:	50px;
+							margin-top: -5px;
+			}	
+			
+			img.logo	 {	margin-left: 668px;
+							padding-bottom: 30px;}
+							
+			div.anleitung001 {	margin-left:380px;
+								margin-top:	-200px;
+								padding-right: 1000px;
+								margin-bottom: 150px;}
+								
+			div.anleitung002 {	margin-left:380px;
+								margin-top:	-200px;
+								padding-right: 800px;
+								margin-bottom: 150px;}
+								
+			div.anleitung003 {	margin-left:380px;
+								margin-top:	-200px;
+								padding-right: 800px;
+								margin-bottom: 150px;}
+								
+			div.anleitung004 {	margin-left:450px;
+								margin-top:	-40px;
+								padding-right: 440px;
+								margin-bottom: 40px;}
+								
+			div.anleitung005 {	margin-left:450px;
+								margin-top:	-40px;
+								padding-right: 440px;
+								margin-bottom: 40px;}
+								
+			div.anleitung006,
+			div.anleitung007,
+			div.anleitung008,
+			div.anleitung009 {	margin-left:450px;
+								margin-top:	-40px;
+								padding-right: 440px;
+								margin-bottom: 40px;}								
+			
+							
+			img.str001 {	padding-right : 50px;
+							padding-bottom : -30px;
+							margin-left:	120px;
+							margin-bottom: 50px;}
+							
+			img.str002 {	padding-right : 50px;
+							padding-bottom : -50px;
+							margin-left:	120px;
+							margin-bottom:	50px;}
+							
+			img.str003 {	padding-right : 100px;
+							padding-bottom : -50px;
+							margin-left:	80px;}
+							
+			img.bed001 {	padding-right : 100px;
+							padding-bottom : 50px;
+							margin-left:	450px;}
+			
+			#menu {position : fixed;}</style>
     </head>
     <body>
 
@@ -32,12 +110,108 @@
 										<button id="logout3" onclick="">Logout</button>	
         </div>
 
+                <!--<a>Allgemeine Fragen und Antworten</a>
+				
+				<div id="textBox2">	</div>-->				
+
         <div data-role="main" class="ui-content">
-            <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
-            <div id="textBox2">
-                <h1>Bedienungsanletiung</h1>
-                <a>Allgemeine Fragen und Antworten</a>
-            </div>
+            <a href="#myPanel" id="menu" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> 
+			
+						<img src="images/CampusLogo.jpg" class="logo" width="160" height="160"></img>
+			
+						<h1 class="ueberschrift">Bedienungsanleitung</h1> 
+
+													
+						<img class="str001" src="images/str001.png"></img> 
+							
+						<div class="anleitung001">	Damit Sie sich frei auf dem Campus bewegen können,
+													benutzen Sie zum bewegen dieses Steuerkreuz (Abbildung 1.01).
+						</div>
+						
+						<div class="notiz001">Abbildung 1.01</div>
+						
+						<img class="str002"src="images/str002.png"></img>
+						
+						<div class="anleitung002">	Auf diesem Steuerkreuz befindet sich ein Joystick (Abbildung 1.02).
+						</div>	
+						
+						<div class="notiz002">Abbildung 1.02</div>
+						
+										  
+						<img class="str003"src="images/str003.png"></img> 
+						
+						<div class="anleitung003">	Um sich auf dem Campus fortzubewegen, müssen sie auf dem Steuerungskreuz unten links am Bildschirmrand 
+													den Joystick (Abbildung 1.03) gedrückt halten und in die entsprechende Richtung bewegen.
+						</div>	
+						
+						<div class="notiz003">Abbildung 1.03</div>
+
+						<img class="bed001"src="images/bed001.png" width=896 height=294></img>		
+
+						<div class="anleitung004">	Um die Richtung der Sichtweise zu ändern, hält man den Bildschirm mit dem Maus-Cursor 
+													gedrückt und zieht in die entgegengesetzte Richtung, 
+													in der die Sichtweise gedreht werden soll. Auf diesem Bild wird die Sichtweise nach
+													rechts gedreht, also muss man nach links ziehen. Ändert man die Sichtweise hingegen
+													nach links, so zieht man nach rechts.
+						</div>		
+
+						<h1 class="informationen">Betreten von Gebäuden und Räumen</h1>
+						
+						<div class="anleitung005">	Sie können auch problemlos Gebäude, sowie dessen Räume betreten,
+													indem Sie auf eine Tür zugehen, und diese einfach durchlaufen. Betretbare Türen erkennt man da dran, dass
+													sie leicht geöffnet sind.
+						</div>
+							 
+						<h1 class="menue">Menü</h1>
+						
+						<div class="anleitung006">	Das Menü kann aufgerufen werden, wenn auf dem Menü-Button oben links im Bildschirmrand 
+													Angeklickt wird. 
+													Im Menü kommen Sie auf die entsprechende Seite, sobald Sie einen Button anklicken. 
+													Im Menü ist ein Online-Status vorhanden, an dem Sie erkennen können, 
+													ob Sie im Campus-Viewer als Benutzer angemeldet sind. Das Symbol leuchtet grün, 
+													sobald man als Benutzer im Campus-Viewer eingeloggt ist, falls nicht, dann ist das Symbol rot. 
+													Der Online-Status ist neben dem Symbol nochmal beschriftet.
+						</div>		
+
+						<h1 class="schilderankl">Schilder anklicken</h1>	
+
+						<div class="anleitung007">	Man hat die Möglichkeit im Campus Viewer Schilder anzuklicken, um bestimmte Ereignisse aufzurufen, 
+													z.B. Pop-up-Fenster für Stundenpläne.
+						</div>		
+
+						<h1 class="reglog">Registration und Login</h1>	
+						
+						<div class="anleitung008">	Wenn Sie sich als Benutzer registrieren wollen, so müssen Sie im Menü auf „Registration“ klicken, 
+													anschließend erscheint eine Seite mit Formularen. Geben Sie in die Formulare dann ihre Daten ein und 
+													klicken Sie dann auf „Absenden“. Um die Formulare zu entleeren, klicken Sie auf „Zurückversetzen“. 
+													Zur Registrierung werden Ihre persönlichen Daten auf unserer Datenbank gespeichert und dürfen nicht 
+													an Dritte weitergegeben werden.<br><br>
+
+													Zum Einloggen klicken Sie im Menü auf „Login“ und geben Sie Ihren Benutzernamen und Ihr Passwort ein. 
+													Sollten Sie sich mit diesen Daten im Campus-Viewer registriert haben, 
+													dann sind Sie jetzt eingeloggt. Um sich wieder abmelden zu können, klicken Sie im Menü auf „Logout“ 
+													und bestätigen Sie mit „Ok“.
+
+						</div>
+
+						<h1 class="kommfunk">Kommentarfunktion</h1>	
+
+						<div class="anleitung009">	Für registrierte Benutzer des Campus-Viewers besteht die Möglichkeit Kommentare im Raum zu schreiben.
+													Um einen Kommentar zu schreiben, muss man im Raum auf dem „Kommentare“-Button klicken, anschließend 
+													öffnet sich ein Menü mit einer Eingabezeile und vier weiteren Buttons.<br><br>
+
+													Mit dem Button „Posten“ kann der Kommentar, der in der Eingabezeile geschrieben wurde, 
+													als Kommentar gespeichert werden. Mit „Vorschau“ kann man sich den Kommentar nochmal ansehen, 
+													bevor man ihn verschicken möchte. Dazu wird ein Fenster über der Eingabezeile angezeigt mit dem 
+													geschriebenen Kommentar.<br><br>
+
+													Durch den Button „Löschen“ werden sowohl Eingabezeile, als auch das Vorschaufenster geleert. 
+													Zusätzlich wird das Vorschaufenster ausgeblendet.<br><br>
+
+													Klicken Sie auf dem Button „Kommentare anzeigen“, dann öffnet sich ein neues Menü, 
+													auf dem die bereits geschriebenen Kommentare angezeigt werden.
+						</div>						
+
         </div>
                 <script type="text/javascript">
                         $(document).ready(function () {

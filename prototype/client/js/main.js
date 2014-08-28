@@ -9,3 +9,7 @@ function switchCamera(id) {
 	NavigationAPI.SetViewState(Navigation.ViewState);
 	NavigationAPI.Render();
 }
+
+function openDoor(door){
+	console.log(NavigationAPI.getPosition());
+}
