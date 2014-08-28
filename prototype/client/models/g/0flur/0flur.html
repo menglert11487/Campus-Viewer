@@ -14,236 +14,225 @@
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-		<script type="text/javascript" src="../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-		<link rel="stylesheet" href="../../../fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
-		<script type="text/javascript" src="../../../js/collision.js"></script>
-		<script type="text/javascript" src="../../../js/navigation.js"></script>
+                <script type="text/javascript" src="../../../fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+                <link rel="stylesheet" href="../../../fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+                <script type="text/javascript" src="../../../js/navigationApi.js"></script>
+                <script type="text/javascript" src="../../../js/collision.js"></script>
+                <script type="text/javascript" src="../../../js/navigation.js"></script>
 
-		<script type="text/javascript" src="../../../js/main.js"></script>
-		<script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
-		<script type="text/javascript">
+                <script type="text/javascript" src="../../../js/main.js"></script>
+                <script type="text/javascript" src="../../../js/jquery.cookie.js"></script>
+                <script type="text/javascript">
                                  $(document).ready(function () {
                                 $.getScript("../../../js/user.js");
                                 $.getScript("../../../js/cookieControl.js");
                  });
 
             window.onload = function() {
-				Collision.onLoad();
-				Collision.AddCollisionObject(document.getElementById("top"));
-				Collision.AddCollisionObject(document.getElementById("back"));
-				Collision.AddCollisionObject(document.getElementById("left"));
-				Collision.AddCollisionObject(document.getElementById("right"));
-				
-				Collision.AddCollisionDoor(document.getElementById("eingangGLabor"));
-				Collision.AddCollisionDoor(document.getElementById("ausgangCampus"));
-				
+                                Collision.onLoad();
+                                Collision.AddCollisionObject(document.getElementById("top"));
+                                Collision.AddCollisionObject(document.getElementById("back"));
+                                Collision.AddCollisionObject(document.getElementById("left"));
+                                Collision.AddCollisionObject(document.getElementById("right"));
+
+                                Collision.AddCollisionDoor(document.getElementById("eingangGLabor"));
+                                Collision.AddCollisionDoor(document.getElementById("ausgangCampus"));
+
                 var camPosition = new x3dom.fields.SFVec3f(17, -2, -47);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.6);
-				Navigation.onLoad();
+                                Navigation.onLoad();
                 Navigation.ViewState = new Viewstate(camPosition, camOrientation);
-                NavigationAPI.SetCamera("camera");								
+                NavigationAPI.SetCamera("camera");
                 NavigationAPI.SetViewState(Navigation.ViewState);
                 NavigationAPI.Render();
-                
-				
+
+
                 function Render() {
                     Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
-					Navigation.Render();
+                                        Navigation.Render();
                     Collision.Render();
                     window.requestAnimationFrame(Render);
-					
+
                 };
                 window.requestAnimationFrame(Render);
             };
 
             function fancy()
             {
-				$.fancybox({
-					href: 'stockwerklisteGfancy.html'
-				});
+                                $.fancybox({
+                                        href: 'stockwerklisteGfancy.html'
+                                });
             }
 
             function fancy2()
             {
-				$.fancybox({
-					content: '<center><font face="Arial"><h1><a href="../0flur/0flur.html"> Erdgeschoss </a> </h1> <h3><a href="../glabor/glabor.html"> Interaktionslabor </a> </h3> <h1><a href="../1flur/1flur.html"> 1. Stockwerk </a> </h1> <h3><a href="../g103/g103.html"> Raum G103 </a> </h3> <h3><a href="../g111/g111.html"> Raum G111 </a> </h3> <h1><a href="../2flur/2flur.html"> 2. Stockwerk </a> </h1><h3><a href="../g203/g203.html"> Raum G203 </a> </h3> <h3><a href="../g211/g211.html"> Raum G211 </a> </h3></font></center>'
-				});
+                                $.fancybox({
+                                        content: '<center><font face="Arial"><h1><a href="../0flur/0flur.html"> Erdgeschoss </a> </h1> <h3><a href="../glabor/glabor.html"> Interaktionslabor </a> </h3> <h1><a href="../1flur/1flur.html"> 1. Stockwerk </a> </h1> <h3><a href="../g103/g103.html"> Raum G103 </a> </h3> <h3><a href="../g111/g111.html"> Raum G111 </a> </h3> <h1><a href="../2flur/2flur.html"> 2. Stockwerk </a> </h1><h3><a href="../g203/g203.html"> Raum G203 </a> </h3> <h3><a href="../g211/g211.html"> Raum G211 </a> </h3></font></center>'
+                                });
             }
 
             function popupWinListe()
-			{
-				var listeG = window.open('../stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
-			}
+                        {
+                                var listeG = window.open('../stockwerklisteG.html', 'Stockwerkliste G', 'width=500,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=500, screenY=100');
+                        }
         </script>
     </head>
     <body>
         <div data-role="page" id="pageone">
          <div data-role="panel" id="myPanel">
-				<p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
-				<button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
-				<button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
-				<button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
-				<button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
-				<button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
-				<button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
-				<button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
-				<button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
-					<fieldset style="background-color:#D0D0D0">
-						<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
-						<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
-						<p align="center" id="text3"></p>
-					</fieldset>
-				<button id="logout3" onclick="">Logout</button>	
+                                <p align="center"> <img src="../../../images/10tastics.png" width="200" height="50" alt="logo">  </p>
+                                <button id="index3" onclick="window.location.href = '../../../index.html';">Startseite</button>
+                                <button id="projekt3" onclick="window.location.href = '../../../ueberDasProjekt.html';">das Projekt</button>
+                                <button id="dieSchule3" onclick="window.location.href = '../../../ueberDieHS.html';">die Hochschule</button>
+                                <button id="bedienung3" onclick="window.location.href = '../../../bedienungsanleitung.html';">Bedienungsanleitung</button>
+                                <button id="kontakt3" onclick="window.location.href = '../../../kontakt.html';">Kontakt</button>
+                                <button id="impressum3" onclick="window.location.href = '../../../impressum.html';">Impressum</button>
+                                <button id="login3" onclick="window.location.href = '../../../login.html';">Login</button>
+                                <button id="reg3" onclick="window.location.href = '../../../registration.html';">Registrieren</button>
+                                        <fieldset style="background-color:#D0D0D0">
+                                                <p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="../../../styles/images/offline-button.png"> Offline</p>
+                                                <p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="../../../styles/images/online-button.png"> Online</p>
+                                                <p align="center" id="text3"></p>
+                                        </fieldset>
+                                <button id="logout3" onclick="">Logout</button>
             </div>
-
-            <div data-role="panel" id="myPanel2">
-				<h2>Navi</h2>
-                <button onClick="lookArround()">360 view</button>
-					<form name="changeSpeed" action="javascript:changeSpeed()">
-						<input name="speed" type="text"/>
-						<input name="submit" type="submit" value="Speed"/>
-					</form>
-            </div>
-
             <div data-role="main" class="ui-content" style="width: 80px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
-                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
                 <div id="ansicht">
-				<div id="joystick">
-					<div id="vline"></div>
-					<div id="hline"></div>
-					<div id="control"></div>
-					<div id="pointer"></div>
-				</div>
-				<x3d style="width:100%;height:100%;" id="x3d_element">
-				   <scene>
-				   <Environment frustumCulling='false'></Environment>
-				   <Viewfrustum id="camera"></Viewfrustum>
-				   <navigationInfo type="none"></navigationInfo>                                        
-					   <background skyColor="0 0 0"></background>
-							<transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
-								<shape>
-									<plane size="25 25"></plane>
-								</shape>
-							</transform>
-							<transform scale="0.7 0.7 0.7" translation="-15 -2 50">
-									<inline url="gflur.x3d"></inline>
-							</transform>
-							<transform scale="1.1 0.9 0.9" translation="-21.9 1.7 46.9">
-								<shape id="ausgangCampus" url="../../../index.html">
-									<appearance>
-										<Material transparency='1' emissiveColor='0 1 1'>
-										</Material>
-									</appearance>
-									<box size="5 4 3"></box>
-								</shape>
-							</transform>
+                                <div id="joystick">
+                                        <div id="vline"></div>
+                                        <div id="hline"></div>
+                                        <div id="control"></div>
+                                        <div id="pointer"></div>
+                                </div>
+                                <x3d style="width:100%;height:100%;" id="x3d_element">
+                                   <scene>
+                                   <Environment frustumCulling='false'></Environment>
+                                   <Viewfrustum id="camera"></Viewfrustum>
+                                   <navigationInfo type="none"></navigationInfo>
+                                           <background skyColor="0 0 0"></background>
+                                                        <transform scale="1 1 1" translation="-15 0 50" rotation="1 0 0 -1.57">
+                                                                <shape>
+                                                                        <plane size="25 25"></plane>
+                                                                </shape>
+                                                        </transform>
+                                                        <transform scale="0.7 0.7 0.7" translation="-15 -2 50">
+                                                                        <inline url="gflur.x3d"></inline>
+                                                        </transform>
+                                                        <transform scale="1.1 0.9 0.9" translation="-21.9 1.7 46.9">
+                                                                <shape id="ausgangCampus" url="../../../index.html">
+                                                                        <appearance>
+                                                                                <Material transparency='1' emissiveColor='0 1 1'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                                        <box size="5 4 3"></box>
+                                                                </shape>
+                                                        </transform>
 
 
-							<!-- Interaktionslabor -->
-							<transform scale="0.7 0.9 0.6" translation="-15.146 1.1 61.7">
-								<shape id="eingangGLabor" url="../glabor/glabor.html">
-									<appearance>
-										<Material transparency='1' emissiveColor='0 1 1'>
-										</Material>
-									</appearance>
-									<box size="5 4 3"></box>
-								</shape>
-							 </transform>
+                                                        <!-- Interaktionslabor -->
+                                                        <transform scale="0.7 0.9 0.6" translation="-15.146 1.1 61.7">
+                                                                <shape id="eingangGLabor" url="../glabor/glabor.html">
+                                                                        <appearance>
+                                                                                <Material transparency='1' emissiveColor='0 1 1'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                                        <box size="5 4 3"></box>
+                                                                </shape>
+                                                         </transform>
 
-							<!--  Aktionsbox  -->
-							 <transform  translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
-								<shape>
-									<appearance>
-									 <material diffuseColor='red'></material>
-									<ImageTexture url="../../../images/treppe4.jpg">
-									</appearance>
-									<box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
-									<!--<box size="0.5 0.5 0.5";"></box>-->
-								</shape>
-							</transform>
+                                                        <!--  Aktionsbox  -->
+                                                         <transform  translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
+                                                                <shape>
+                                                                        <appearance>
+                                                                         <material diffuseColor='red'></material>
+                                                                        <ImageTexture url="../../../images/treppe4.jpg">
+                                                                        </appearance>
+                                                                        <box size="0.5 0.5 0.5" onmousedown="popupWinListe();"> </box>
+                                                                        <!--<box size="0.5 0.5 0.5";"></box>-->
+                                                                </shape>
+                                                        </transform>
 
-						   <!--Schild G 103
+                                                   <!--Schild G 103
 
-							 <transform  translation="-16.5 2.3 38.5" rotation="0 1 0 1.57">
-							   <shape>
-							   <appearance>
-										<material diffuseColor='white'></material>
-										<ImageTexture url="../../../images/raume/g203.jpg"><ImageTexture/>
+                                                         <transform  translation="-16.5 2.3 38.5" rotation="0 1 0 1.57">
+                                                           <shape>
+                                                           <appearance>
+                                                                                <material diffuseColor='white'></material>
+                                                                                <ImageTexture url="../../../images/raume/g203.jpg"><ImageTexture/>
 
-							   </appearance>
-								<box size="0.0 0.5 0.8";"> </box>
-							 </shape>
-							 </transform>                -->
+                                                           </appearance>
+                                                                <box size="0.0 0.5 0.8";"> </box>
+                                                         </shape>
+                                                         </transform>                -->
 
 
-							<!--Schild Erdg. Labor -->
+                                                        <!--Schild Erdg. Labor -->
 
-							<transform  translation="-13.9 2.1 61" rotation="0 1 0 1.57">
-								<shape>
-									<appearance>
-										<material diffuseColor='white'></material>
-										<ImageTexture url="images/labor.jpg"><ImageTexture/>
-									</appearance>
-								<box size="0.0 0.5 0.6";"> </box>
-								</shape>
-							</transform>
-							<!-- Orientierung -->
+                                                        <transform  translation="-13.9 2.1 61" rotation="0 1 0 1.57">
+                                                                <shape>
+                                                                        <appearance>
+                                                                                <material diffuseColor='white'></material>
+                                                                                <ImageTexture url="images/labor.jpg"><ImageTexture/>
+                                                                        </appearance>
+                                                                <box size="0.0 0.5 0.6";"> </box>
+                                                                </shape>
+                                                        </transform>
+                                                        <!-- Orientierung -->
 
-							<transform  translation="-10.44 1.7 50.5" rotation="1 0 0 0">
-								<shape>
-									<appearance>
-										 <material diffuseolor='red'></material>
-									   <ImageTexture url="images/geg.jpg"><ImageTexture/>
-									</appearance>
-									<box size="0.0 0.7 1.0"></box>
-									<!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
-								</shape>
-							</transform>
-							
-							<!-- Wände für Kollision -->
-							<transform scale="1 1 1" translation="-10 0 50">
-								<shape id="top">
-									<appearance>
-										<Material transparency='1' emissiveColor='1 1 0'>
-										</Material>
-									</appearance>
-									<box size="2 12 30"></box>
-								</shape>
-							</transform>
-							<transform scale="1 1 1" translation="-20.2 0 50">
-								<shape id="back">
-									<appearance>
-										<Material transparency='1' emissiveColor='1 1 0'>
-										</Material>
-									</appearance>
-									<box size="2 12 30"></box>
-								</shape>
-							</transform>
-							
-							<transform scale="1 1 1" translation="-15 0 38">
-								<shape id="left">
-									<appearance>
-										<Material transparency='1' emissiveColor='1 1 0'>
-										</Material>
-									</appearance>
-									<box size="12 12 2"></box>
-								</shape>
-							</transform>
-							<transform scale="1 1 1" translation="-15 0 62">
-								<shape id="right">
-									<appearance>
-										<Material transparency='1' emissiveColor='1 1 0'>
-										</Material>
-									</appearance>
-									<box size="12 12 2"></box>
-								</shape>
-							</transform>
-					   </scene>
-				   </x3d>
-				</div>
+                                                        <transform  translation="-10.44 1.7 50.5" rotation="1 0 0 0">
+                                                                <shape>
+                                                                        <appearance>
+                                                                                 <material diffuseolor='red'></material>
+                                                                           <ImageTexture url="images/geg.jpg"><ImageTexture/>
+                                                                        </appearance>
+                                                                        <box size="0.0 0.7 1.0"></box>
+                                                                        <!--<box size="0.0 0.7 1.0" onmousedown="fancy();"> </box>-->
+                                                                </shape>
+                                                        </transform>
+
+                                                        <!-- Wände für Kollision -->
+                                                        <transform scale="1 1 1" translation="-10 0 50">
+                                                                <shape id="top">
+                                                                        <appearance>
+                                                                                <Material transparency='1' emissiveColor='1 1 0'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                                        <box size="2 12 30"></box>
+                                                                </shape>
+                                                        </transform>
+                                                        <transform scale="1 1 1" translation="-20.2 0 50">
+                                                                <shape id="back">
+                                                                        <appearance>
+                                                                                <Material transparency='1' emissiveColor='1 1 0'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                                        <box size="2 12 30"></box>
+                                                                </shape>
+                                                        </transform>
+
+                                                        <transform scale="1 1 1" translation="-15 0 38">
+                                                                <shape id="left">
+                                                                        <appearance>
+                                                                                <Material transparency='1' emissiveColor='1 1 0'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                                        <box size="12 12 2"></box>
+                                                                </shape>
+                                                        </transform>
+                                                        <transform scale="1 1 1" translation="-15 0 62">
+                                                                <shape id="right">
+                                                                        <appearance>
+                                                                                <Material transparency='1' emissiveColor='1 1 0'>
+                                                                                </Material>
+                                                                        </appearance>
+                                                                        <box size="12 12 2"></box>
+                                                                </shape>
+                                                        </transform>
+                                           </scene>
+                                   </x3d>
+                                </div>
            </div>
-		</div>
+                </div>
     </body>
 </html>
