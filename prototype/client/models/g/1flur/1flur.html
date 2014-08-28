@@ -57,6 +57,10 @@
 			{
 				var planG103 = window.open('../../../stundenplanG103.png', 'Stundenplan G103', 'width=600,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=520, screenY=110');
 			}
+				function popupWinG103()
+			{
+				var planG103 = window.open('images/G103.png', 'Stundenplan G103', 'width=600,height=500, resizable=1, scrollbars=1, location=1, status=1, screenX=520, screenY=110');
+			}
 			
 			function popupWinListe()
 			{
@@ -163,7 +167,7 @@
 										<material diffuseColor='white'></material>
 										<ImageTexture url="images/G103.jpg"><ImageTexture/>
 									</appearance>
-									<box size="0.0 0.5 0.6" onmousedown="popupWin();"> </box>
+									<box size="0.0 0.5 0.6" onmousedown="popupWinG103();"> </box>
 								</shape>
 							</transform>
 
@@ -190,6 +194,7 @@
 									<!--<box size="0.0 0.7 1.0" onmousedown="popupWinListe();"> </box>-->
 								</shape>
 							</transform>
+                            
 							<!-- Wände für Kollision -->
 							<transform scale="1 1 1" translation="-10 0 50">
 								<shape id="top">
