@@ -24,24 +24,52 @@
                                         <button id="impressum3" onclick="window.location.href = 'impressum.html';">Impressum</button>
                                         <button id="login3" onclick="window.location.href = 'login.html';">Login</button>
                                         <button id="reg3" onclick="window.location.href = 'registration.html';">Registrieren</button>
-											<fieldset style="background-color:#D0D0D0">
-												<p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="styles/images/offline-button.png"> Offline</p>
-												<p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="styles/images/online-button.png"> Online</p>
-												<p align="center" id="text3"></p>
-											</fieldset>
-										<button id="logout3" onclick="">Logout</button>	
+                                                                                        <fieldset style="background-color:#D0D0D0">
+                                                                                                <p id="userOffline" align="center" style="color:red; font-weight:bold;"><img src="styles/images/offline-button.png"> Offline</p>
+                                                                                                <p id="userOnline" align="center" style="color:green; font-weight:bold;"><img src="styles/images/online-button.png"> Online</p>
+                                                                                                <p align="center" id="text3"></p>
+                                                                                        </fieldset>
+                                                                                <button id="logout3" onclick="">Logout</button>
         </div>
 
         <div data-role="main" class="ui-content">
             <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
 
             <div id="textBox1">
-                <h1>Kontakt</h1>
-                FH Fulda - Team - 10tastics<br/>
-                Marquartstr. 666<br/>
-                D-0661 Fulda
-                Tel.: 0123/ 45678990<br/>
-                E-Mail: 10tastics....
+    <h3><strong>Kontaktformular</strong></h3>
+
+    <form action="" method="post">
+
+        <fieldset>
+
+
+        <label for="name" class="blocklabel">Ihr Name*</label>
+        <p class="" ><input name="yourname" class="input_bg" type="text" id="name" value=''/></p>
+
+
+        <label for="email" class="blocklabel">E-Mail*</label>
+        <p class="" ><input name="email" class="input_bg" type="text" id="email" value='' /></p>
+
+
+        <label for="website" class="blocklabel">Wohnort</label>
+        <p><input name="website" class="input_bg" type="text" id="website" value=""/></p>
+
+
+        <label for="message" class="blocklabel">Ihre Nachricht*</label>
+        <p class=""><textarea name="message" class="textarea_bg" id="message" cols="20" rows="7" ></textarea></p>
+
+
+        <p>
+        <input type="hidden" id="myemail" name="myemail" value="grafxiondesign@gmail.com" />
+        <input type="hidden" id="myblogname" name="myblogname" value="www.grafxion.com" />
+        <div class="clearfix"></div>
+        <input name="Send" type="submit" value="senden" class="comment_submit" id="send"/></p>
+
+        </fieldset>
+
+        </form>
+
+    </div>
             </div>
         </div>
                 <script type="text/javascript">
