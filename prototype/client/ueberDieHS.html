@@ -10,7 +10,72 @@
 
         <script type="text/javascript" src="js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="js/ext/jquery.mobile-1.4.2.min.js"></script>
-                <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+		
+		<style type="text/css">
+			img.logo	 {	margin-left: 668px;
+							padding-bottom: 30px;}	
+							
+			h1.ueberschrift {	margin-left: 575px;
+							padding-bottom: 40px;}
+							
+			img.scr001,
+			img.scr002,
+			img.scr003 {	border-style:solid;
+							border-color: #0000FF;
+							border-width: 3px;
+							margin-left: 5px;
+							margin-right: 5px;
+							margin-top: 5px;
+							margin-bottom: 5px;}
+							
+			img.scr001 {margin-left: 1150px;
+						margin-bottom: -150px;}
+			
+			img.scr002 {margin-left: 250px;
+						margin-top: -100;}
+			
+			img.scr003 {margin-left: 1150px;
+						margin-bottom: -150px;
+						margin-top: -175px;}			
+			
+			div.artikel001 {padding-right: 600px;
+							padding-bottom: 50px;
+							margin-left: 250px;
+							margin-top: -115px;}
+
+			div.artikel001a {padding-right: 650px;
+							padding-bottom: 0px;
+							margin-left: 570px;
+							margin-top: -30px;}							
+							
+			div.artikel002 {padding-right: 650px;
+							padding-bottom: 50px;
+							margin-left: 570px;
+							margin-top: -90px;}
+
+			div.artikel002a {padding-right: 800px;
+							padding-bottom: 50px;
+							margin-left: 250px;
+							margin-top: -20px;}
+							
+			div.artikel003 {padding-right: 600px;
+							padding-bottom: 50px;
+							margin-left: 250px;
+							margin-top: -30px;}	
+
+			div.artikel004 {padding-right: 670px;
+							padding-bottom: 50px;
+							margin-left: 250px;
+							margin-top: -30px;}	
+
+			div.artikel005 {padding-right: 300px;
+							padding-bottom: 50px;
+							margin-left: 250px;
+							margin-top: -30px;}								
+
+			#menu {position : fixed;}							
+		</style>
 
     </head>
     <body>
@@ -33,29 +98,44 @@
         </div>
 
         <div data-role="main" class="ui-content">
-            <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> 
+            <a href="#myPanel" id="menu" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> 
 			
-			<img src="images/CampusLogo.jpg" style="margin-right: 915px;" align="right" width="160" height="160"></img>
-		<div id="textBox2">	
-			<p><h1>&Uuml;ber die Hochschule</h1></p>
+			<img src="images/CampusLogo.jpg" class="logo" width="160" height="160"></img>
+		<!--<div id="textBox2"></div>-->
+			<h1 class="ueberschrift">&Uuml;ber die Hochschule</h1>
 			
-			<p><img src="images/009_HS_Fulda_E_Gebude.jpg" width="340.5" height="255" align="right" style="border-style:solid; border-color:#0000FF; border-width: 3px; "></img></p><br>
+			<img src="images/009_HS_Fulda_E_Gebude.jpg" class="scr001"width="340.5" height="255" ></img>
 			
-            <p align="justify">Mitten in Deutschland, am Rand des Rhein-Main-Ballungsraumes, liegt die Stadt Fulda mit rund 65.000 Einwohnern verkehrsg&uuml;nstig an den Nord-S&uuml;d-Verbindungen von Eisenbahn- und Autobahn-Linien. In der h&uuml;bschen Barockstadt, die auch reichliche Freizeitm&ouml;glichkeiten bietet, ist der Wohnungsmarkt noch immer entspannter als in vielen anderen St&auml;dten.
-            Die Hochschule Fulda wurde 1974 als f&uuml;nfte staatliche Fachhochschule des Landes Hessen eingerichtet. Bereits seit 1971 war sie Teilstandort der Fachhochschule Gie&szlig;en. Die Vorl&auml;uferinstitution der Fuldaer Hochschule war das 1963 er&ouml;ffnete P&auml;dagogische Fachinstitut, das der Ausbildung von Lehrern in den musisch-technischen F&auml;chern diente.</p>
+			<div class="artikel001">
+            Mitten in Deutschland, am Rand des Rhein-Main-Ballungsraumes, liegt die Stadt Fulda mit rund 65.000 Einwohnern verkehrsg&uuml;nstig an den Nord-S&uuml;d-Verbindungen von Eisenbahn- und Autobahn-Linien. In der h&uuml;bschen Barockstadt, die auch reichliche Freizeitm&ouml;glichkeiten bietet, ist der Wohnungsmarkt noch immer entspannter als in vielen anderen St&auml;dten.</div>
 			
-			<img src="images/hs_fulda.jpg" width="288" height="192" align="left" style="border-style:solid; border-color:#0000FF; border-width: 3px"></img>
+			<div class="artikel001a">
+            Die Hochschule Fulda wurde 1974 als f&uuml;nfte staatliche Fachhochschule des Landes Hessen eingerichtet. Bereits seit 1971 war sie Teilstandort der Fachhochschule Gie&szlig;en. Die Vorl&auml;uferinstitution der Fuldaer Hochschule war das 1963 er&ouml;ffnete P&auml;dagogische Fachinstitut, das der Ausbildung von Lehrern in den musisch-technischen F&auml;chern diente.
+			</div>
 			
-            <p align="justify">Trotz des z&uuml;gigen Ausbaus auf acht Fachbereiche mit 140 Professorinnen und Professoren und rund 370 Mitarbeiterinnen und Mitarbeitern ist sie f&uuml;r ihre rund 7.000 Studierenden &uuml;berschaubar geblieben. Fulda ist die Hochschule der kurzen Wege. Studierende k&ouml;nnen sich hier untereinander, sowie die Professorinnen und Professoren, gut kennenlernen.
-            Nach mehrj&auml;hriger Planungs- und Bauzeit wurden im Sommer die neuen Geb&auml;ude der Hochschulbibliothek, der Mensa und des Student Service Center (SSC) eingeweiht.</p>
-            
-			<p align="justify">Mit den Fachbereichen Angewandte Informatik, Elektrotechnik und Informationstechnik, Lebensmitteltechnologie, Oecotrophologie, Pflege und Gesundheit, Sozial- und Kulturwissenschaften, Sozialwesen sowie Wirtschaft deckt die Hochschule Fulda ein breites F&auml;cherspektrum ab.</p>
+			<img src="images/hs_fulda.jpg" class="scr002" width="288" height="192"></img>
 			
-			<img src="images/Campus_fulda01.jpg" width="256" height="192" align="right" style="border-style:solid; border-color:#0000FF; border-width: 3px"></img>
+			<div class="artikel002">
+            Trotz des z&uuml;gigen Ausbaus auf acht Fachbereiche mit 140 Professorinnen und Professoren und rund 370 Mitarbeiterinnen und Mitarbeitern ist sie f&uuml;r 
+			ihre rund 7.000 Studierenden &uuml;berschaubar geblieben. Fulda ist die Hochschule der kurzen Wege. </div>
+			<div class="artikel002a">Studierende k&ouml;nnen sich hier untereinander, sowie die Professorinnen und Professoren, gut kennenlernen.
+            Nach mehrj&auml;hriger Planungs- und Bauzeit wurden im Sommer die neuen Geb&auml;ude der Hochschulbibliothek, der Mensa und des Student Service Center (SSC) eingeweiht.
+      		</div>      
 			
-            <p align="justify">Neben einer soliden, gesellschaftlichen und &ouml;kologischen Entwicklungen aufgeschlossenen Ausbildung der Studierenden wird in den Fachbereichen angewandte Forschung betrieben. Zahlreiche Forschungs- und Entwicklungsvorhaben werden gemeinsam mit osthessischen Unternehmen und anderen Institutionen durchgef&uuml;hrt. Dieser Praxisbezug kommt nicht nur den Kooperationspartnern der Hochschule, sondern auch der Qualit&auml;t von Forschung und Lehre zugute.
-            Aber die Hochschule Fulda ist nicht nur regional und national verankert, sondern auch international. Rund zw&ouml;lf Prozent der Studierenden kommen aus dem Ausland; von &Auml;gypten bis Vietnam, insgesamt aus &uuml;ber achtzig L&auml;ndern. Alle Fachbereiche unterhalten Kooperationen zu Partnerhochschulen weltweit.</p>
-        </div>
+			<div class="artikel003">
+			Mit den Fachbereichen Angewandte Informatik, Elektrotechnik und Informationstechnik, Lebensmitteltechnologie, Oecotrophologie, Pflege und Gesundheit, Sozial- und Kulturwissenschaften, Sozialwesen sowie Wirtschaft deckt die Hochschule Fulda ein breites F&auml;cherspektrum ab.
+			</div>
+			
+			<img src="images/Campus_fulda01.jpg" class="scr003" width="256" height="192"></img>
+			
+			<div class="artikel004">
+            Neben einer soliden, gesellschaftlichen und &ouml;kologischen Entwicklungen aufgeschlossenen Ausbildung der Studierenden wird in den Fachbereichen angewandte Forschung betrieben. Zahlreiche Forschungs- und Entwicklungsvorhaben werden gemeinsam mit osthessischen Unternehmen und anderen Institutionen durchgef&uuml;hrt. </div>
+			
+			<div class="artikel005">
+			Dieser Praxisbezug kommt nicht nur den Kooperationspartnern der Hochschule, sondern auch der Qualit&auml;t von Forschung und Lehre zugute.
+            Aber die Hochschule Fulda ist nicht nur regional und national verankert, sondern auch international. Rund zw&ouml;lf Prozent der Studierenden kommen aus dem Ausland; von &Auml;gypten bis Vietnam, insgesamt aus &uuml;ber achtzig L&auml;ndern. Alle Fachbereiche unterhalten Kooperationen zu Partnerhochschulen weltweit.
+			</div>
+			
                 <script type="text/javascript">
                         $(document).ready(function () {
                                 $.getScript("js/user.js");
