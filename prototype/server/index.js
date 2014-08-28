@@ -9,14 +9,14 @@ var mysql = require('mysql');
 // Variablen für Webserver Instanz, Server-Port und Server-IP-Adresse
 var app = module.exports = express();
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.5.122.130'	//'127.0.0.1';
 var static_dir = process.env.OPENSHIFT_REPO_DIR ? process.env.OPENSHIFT_REPO_DIR + 'prototype/client' : '../client';
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Verbindung zur Datenbank configurieren
 var dbConfig = {
-    host: process.env.OPENSHIFT_MYSQL_DB_HOST || 'localhost',
+    host: process.env.OPENSHIFT_MYSQL_DB_HOST || '127.5.122.130'  //'localhost',
     port: process.env.OPENSHIFT_MYSQL_DB_PORT || 3306,
     user: process.env.OPENSHIFT_MYSQL_DB_USERNAME || '10tastics',
     password: process.env.OPENSHIFT_MYSQL_DB_PASSWORD || 'projekt',
