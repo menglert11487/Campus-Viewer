@@ -16,7 +16,7 @@ var static_dir = process.env.OPENSHIFT_REPO_DIR ? process.env.OPENSHIFT_REPO_DIR
 
 // Verbindung zur Datenbank configurieren
 var dbConfig = {
-    host: process.env.OPENSHIFT_MYSQL_DB_HOST || '127.5.122.130'  //'localhost',
+    host: process.env.OPENSHIFT_MYSQL_DB_HOST || 'localhost',
     port: process.env.OPENSHIFT_MYSQL_DB_PORT || 3306,
     user: process.env.OPENSHIFT_MYSQL_DB_USERNAME || '10tastics',
     password: process.env.OPENSHIFT_MYSQL_DB_PASSWORD || 'projekt',
