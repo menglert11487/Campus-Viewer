@@ -9,7 +9,7 @@ var mysql = require('mysql');
 // Variablen für Webserver Instanz, Server-Port und Server-IP-Adresse
 var app = module.exports = express();
 var port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
-var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.5.122.130'	//'127.0.0.1'; Adresse ändern, falls Datenbankadresse sich ändert
+var ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'; //'127.5.122.130' Adresse ändern, falls Datenbankadresse sich ändert
 var static_dir = process.env.OPENSHIFT_REPO_DIR ? process.env.OPENSHIFT_REPO_DIR + 'prototype/client' : '../client';
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------
