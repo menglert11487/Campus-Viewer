@@ -4,15 +4,12 @@
         <title>Campus Viewer Fulda</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-
         <link rel="stylesheet" type="text/css" href="../../../styles/x3dom.css" />
         <link rel="stylesheet" type="text/css" href="../../../styles/jquery.mobile-1.4.2.css">
         <link rel="stylesheet" type="text/css" href="../../../styles/style.css" />
-
         <script type="text/javascript" src="../../../js/ext/x3dom.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
-
                 <script type="text/javascript" src="../../../js/navigationApi.js"></script>
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
@@ -43,7 +40,6 @@
                 NavigationAPI.SetCamera("camera");
                 NavigationAPI.SetViewState(Navigation.ViewState);
                 NavigationAPI.Render();
-
                 function Render() {
                     Collision.CurrentCameraPos = Collision.CalculateCameraPosition();
                                         Navigation.Render();
@@ -88,9 +84,16 @@
                                 <button id="logout3" onclick="">Logout</button>
             </div>
             <div data-role="panel" id="myPanel2">
-
+                <h2>Navi</h2>
+                <button onClick="lookArround()">360 view</button>
+                                        <form name="changeSpeed" action="javascript:changeSpeed()">
+                                                <input name="speed" type="text"/>
+                                                <input name="submit" type="submit" value="Speed"/>
+                                        </form>
+            </div>
             <div data-role="main" class="ui-content" style="width: 80px">
                 <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Men&uuml;</a> <br>
+                <a href="#myPanel2" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Navi</a><br>
                 <div id="ansicht">
                                         <div id="joystick">
                                         <div id="vline"></div>
@@ -140,7 +143,6 @@
                                                                         <box size="1.5 4 1.5"></box>
                                                                 </shape>
                                                         </transform>
-
                                                         <!--Aktions Box -->
                                                         <transform translation="-18.5 1.7 51.9" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -153,7 +155,6 @@
                                                         </transform>
 
                                                          <!--Schild G 103 -->
-
                                                         <transform  translation="-16.5 2.3 38.5" rotation="0 1 0 1.57">
                                                                 <shape>
                                                                         <appearance>
@@ -163,7 +164,6 @@
                                                                         <box size="0.0 0.5 0.6" onmousedown="popupWinG103();"> </box>
                                                                 </shape>
                                                         </transform>
-
                                                         <!--Schild G 111 -->
                                                         <transform  translation="-13.9 2.1 61" rotation="0 1 0 1.57">
                                                                 <shape>
@@ -176,7 +176,6 @@
                                                         </transform>
 
                                                         <!-- Orientierung -->
-
                                                         <transform  translation="-10.44 1.7 50.5" rotation="1 0 0 0">
                                                                 <shape>
                                                                         <appearance>
@@ -188,7 +187,7 @@
                                                                 </shape>
                                                         </transform>
 
-                                                        <!-- WÃ¤nde fÃ¼r Kollision -->
+                                                        <!-- Wände für Kollision -->
                                                         <transform scale="1 1 1" translation="-10 0 50">
                                                                 <shape id="top">
                                                                         <appearance>
