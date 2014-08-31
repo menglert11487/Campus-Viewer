@@ -14,26 +14,26 @@
         <script type="text/javascript" src="../../../js/ext/jquery-2.1.0.js"></script>
         <script type="text/javascript" src="../../../js/ext/jquery.mobile-1.4.2.min.js"></script>
 
-                <script type="text/javascript" src="../../../js/navigationApi.js"></script>
+		<script type="text/javascript" src="../../../js/navigationApi.js"></script>
         <script type="text/javascript" src="../../../js/collision.js"></script>
         <script type="text/javascript" src="../../../js/navigation.js"></script>
-                <script type="text/javascript" src="../../../js/main.js"></script>
+		<script type="text/javascript" src="../../../js/main.js"></script>
 
-                <script type="text/javascript">
+		<script type="text/javascript">
 
             window.onload = function() {
-                                Collision.onLoad();
-                                Collision.AddCollisionObject(document.getElementById("top"));
-                                Collision.AddCollisionObject(document.getElementById("back"));
-                                Collision.AddCollisionObject(document.getElementById("left"));
-                                Collision.AddCollisionObject(document.getElementById("right"));
+				Collision.onLoad();
+				Collision.AddCollisionObject(document.getElementById("top"));
+				Collision.AddCollisionObject(document.getElementById("back"));
+				Collision.AddCollisionObject(document.getElementById("left"));
+				Collision.AddCollisionObject(document.getElementById("right"));
 
-                                Collision.AddCollisionDoor(document.getElementById("ausgang0Flur"));
-                                Collision.AddCollisionDoor(document.getElementById("ausgang0Flur1"));
-                                Collision.AddCollisionDoor(document.getElementById("eingangC102"));
-                                Collision.AddCollisionDoor(document.getElementById("eingangC103"));
-                                Collision.AddCollisionDoor(document.getElementById("eingangC104"));
-                                Collision.AddCollisionDoor(document.getElementById("eingangC105"));
+				Collision.AddCollisionDoor(document.getElementById("ausgang0Flur"));
+				Collision.AddCollisionDoor(document.getElementById("ausgang0Flur1"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC102"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC103"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC104"));
+				Collision.AddCollisionDoor(document.getElementById("eingangC105"));
 
                 var camPosition = new x3dom.fields.SFVec3f(24.0, -1.0, -42);
                 var camOrientation = new x3dom.fields.SFVec2f(0.10, 1.7);
