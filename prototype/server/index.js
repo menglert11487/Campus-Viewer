@@ -132,13 +132,23 @@ app.post('/user/new', function(req, res) { //Nutzerdaten auslesen
         //Nutzerdaten in die Tabelle user schreiben
         var query = connection.query('INSERT INTO user SET ?', data, function(err, result) {
 
-            if (!err && data.password != "" && data.samePassword != "") {
+            if (!err && data.password != "") {
                 // Erfolgsmeldung ausgeben
-                sendReturn(res, true, "Nutzer gespeichert.");
+                sendReturn(res, true, "Nutzer gespeichert.",{
+					"err": err,
+					"result": result,
+					"data": data
+				});
+				console.log(err);
+				console.log(result);
                 console.log(data);
                 console.log('Nutzer gespeichert.');
             } else {
-                sendReturn(res, false, "Fehler beim speichern!");
+                sendReturn(res, false, "Fehler beim speichern!", {
+					"err": err,
+					"result": result,
+					"data": data
+				});
                 console.log('Fehler beim speichern!');
             }
         });
