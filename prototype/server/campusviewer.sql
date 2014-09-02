@@ -19,8 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `campusviewer`
 --
-CREATE DATABASE IF NOT EXISTS `campusviewer` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `campusviewer`;
+-- CREATE DATABASE IF NOT EXISTS `campusviewer` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+-- USE `campusviewer`;
 
 -- --------------------------------------------------------
 
@@ -37,6 +37,20 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Tabellenstruktur für Tabelle `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  `commentary` text NULL,
+  `room` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

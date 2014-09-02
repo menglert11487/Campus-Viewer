@@ -130,7 +130,7 @@ app.post('/user/new', function(req, res) { //Nutzerdaten auslesen
         delete data['samePassword'];
 
         //Nutzerdaten in die Tabelle user schreiben
-        var query = connection.query('INSERT INTO user SET ?', data, function(err, result) {
+        var query = connection.query('INSERT INTO `user` SET ?', data, function(err, result) {
 
             if (!err && data.password != "") {
                 // Erfolgsmeldung ausgeben
@@ -166,13 +166,12 @@ app.post('/user/login', function(req, res) { //Nutzerdaten auslesen
 
     var data = req.body;
 
-	
     if (data.password && data.username) {
         console.log(data);
-        var sql = mysql.format('SELECT * FROM user WHERE password = ? AND username = ?', [data.password, data.username]);
+        var sql = mysql.format('SELECT * FROM `user` WHERE password = ? AND username = ?', [data.password, data.username]);
         console.log(sql);
         //Nutzerdaten in die Tabelle user schreiben
-        var query = connection.query('SELECT * FROM user WHERE password = ? AND username = ?', [data.password, data.username], function(err, result) { 
+        var query = connection.query('SELECT * FROM `user` WHERE password = ? AND username = ?', [data.password, data.username], function(err, result) {
             console.log(err);
             if (!err && result.length > 0) {
                 // Erfolgsmeldung ausgeben
@@ -212,17 +211,17 @@ app.post('/user/logout', function(req, res) { //Nutzerdaten löschen
 app.post('/comment/new', function(req, res) { //Kommentare auslesen
 
 		var data = req.body;
-		
+
 		if (typeof req.session.user == 'undefined')
 		{
 			console.log('Sie sind nicht eingeloggt!!!');
-			
+
 		} else    {
-		
+
 		var userid = req.session.user[0].id;
-		 
+
 		//Kommentare in die Tabelle user schreiben <--
-        var query = connection.query('INSERT INTO `campusviewer`.`comment` (`userid`, `commentary`, `room`) VALUES (?, ?, ?);', [userid, data.commentary, data.room], function(err, result) {
+        var query = connection.query('INSERT INTO `comment` (`userid`, `commentary`, `room`) VALUES (?, ?, ?);', [userid, data.commentary, data.room], function(err, result) {
 
             if (!err) {
                 // // Erfolgsmeldung ausgeben <--
@@ -240,24 +239,24 @@ app.post('/comment/new', function(req, res) { //Kommentare auslesen
 //-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 app.post('/comment/showall', function(req, res) { //Kommentare auslesen
-	
-	var query = connection.query('SELECT c.room, u.username, c.commentary FROM comment AS c INNER JOIN user AS u ON c.userID = u.ID WHERE c.room = ?', [req.body.room], function(err, result) { 
+
+	var query = connection.query('SELECT c.room, u.username, c.commentary FROM comment AS c INNER JOIN `user` AS u ON c.userID = u.ID WHERE c.room = ?', [req.body.room], function(err, result) {
             console.log(err);
             if (!err) {
                 // Erfolgsmeldung ausgeben
-				
+
 				console.log(result);
-				
+
 				var data = new Array(result.length);
-				
+
 			for (var i = 0; i < result.length; i++)
 			{
 				data[i] = {username : result[i].username, commentary : result[i].commentary};
 				console.log('\n' + result[i].username + ' schrieb: ' + '\"' + result[i].commentary + '\"');
 			}
-			
+
 				res.send(data);
-			
+
             } else {
                 sendReturn(res, false, 'Kommentare konnte nicht angezeigt werden.');
                 console.log('Kommentare konnte nicht angezeigt werden.');
